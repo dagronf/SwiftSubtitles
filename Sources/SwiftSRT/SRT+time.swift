@@ -30,7 +30,7 @@ public extension SRT {
 	/// A time definition for an SRT file
 	struct Time: Equatable, Comparable {
 		/// Create a Time
-		public init(hour: Int = 0, minute: Int = 0, second: Int = 0, millisecond: Int) {
+		public init(hour: UInt = 0, minute: UInt = 0, second: UInt = 0, millisecond: UInt = 0) {
 			self.hour = hour
 			assert(minute < 60)
 			self.minute = minute
@@ -39,30 +39,30 @@ public extension SRT {
 			assert(millisecond < 1000)
 			self.millisecond = millisecond
 		}
-		
+
 		/// Create a new Time instance from a TimeInterval
 		public init(interval: TimeInterval) {
-			let time = Int(interval)
-			self.millisecond = Int((interval.truncatingRemainder(dividingBy: 1)) * 1000)
+			let time = UInt(interval)
+			self.millisecond = UInt((interval.truncatingRemainder(dividingBy: 1)) * 1000)
 			self.second = time % 60
 			self.minute = (time / 60) % 60
 			self.hour = (time / 3600)
 		}
-		
+
 		/// The hour
-		public let hour: Int
+		public let hour: UInt
 		/// The minute
-		public let minute: Int
+		public let minute: UInt
 		/// The second
-		public let second: Int
+		public let second: UInt
 		/// The millisecond
-		public let millisecond: Int
-		
+		public let millisecond: UInt
+
 		/// Return the time value as a TimeInterval
 		public var timeInterval: TimeInterval {
 			(Double(self.hour) * 3600) + (Double(self.minute) * 60) + Double(self.second) + (Double(self.millisecond) / 1000)
 		}
-		
+
 		/// Sort two time entries
 		public static func < (lhs: SRT.Time, rhs: SRT.Time) -> Bool {
 			lhs.hour < rhs.hour ||

@@ -128,15 +128,15 @@ internal extension SRT {
 					}
 
 					guard
-						let s_hour = Int(line[captures[0]]),
-						let s_min = Int(line[captures[1]]),
-						let s_sec = Int(line[captures[2]]),
-						let s_ms = Int(line[captures[3]]),
+						let s_hour = UInt(line[captures[0]]),
+						let s_min = UInt(line[captures[1]]),
+						let s_sec = UInt(line[captures[2]]),
+						let s_ms = UInt(line[captures[3]]),
 
-							let e_hour = Int(line[captures[4]]),
-						let e_min = Int(line[captures[5]]),
-						let e_sec = Int(line[captures[6]]),
-						let e_ms = Int(line[captures[7]])
+							let e_hour = UInt(line[captures[4]]),
+						let e_min = UInt(line[captures[5]]),
+						let e_sec = UInt(line[captures[6]]),
+						let e_ms = UInt(line[captures[7]])
 					else {
 						throw SRTError.invalidTime(item.offset)
 					}

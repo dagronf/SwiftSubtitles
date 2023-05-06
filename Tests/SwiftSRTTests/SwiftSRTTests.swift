@@ -31,6 +31,29 @@ a subtitle - 2nd subtitle.
 		XCTAssertFalse(encoded.isEmpty)
 	}
 
+	func testEncodeDoco() throws {
+		let entry1 = SRT.Entry(
+			position: 1,
+			startTime: SRT.Time(minute: 10),
+			endTime: SRT.Time(minute: 11),
+			text: "점점 더 많아지는\n시민들의 성난 목소리로..."
+		)
+
+		let entry2 = SRT.Entry(
+			position: 2,
+			startTime: SRT.Time(minute: 13, second: 5),
+			endTime: SRT.Time(minute: 15, second: 10, millisecond: 101),
+			text: "Second entry"
+		)
+
+		let srt = SRT(entries: [entry1, entry2])
+		let content = srt.encode()
+
+		let decoded = try SRT(content: content)
+		XCTAssertEqual(2, decoded.entries.count)
+		XCTAssertEqual(decoded.entries[0], entry1)
+		XCTAssertEqual(decoded.entries[1], entry2)
+	}
 
 	func testExample2() throws {
 

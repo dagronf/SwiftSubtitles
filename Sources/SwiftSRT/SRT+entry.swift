@@ -30,7 +30,7 @@ import Foundation
 
 public extension SRT {
 	/// An entry in an SRT file
-	struct Entry {
+	struct Entry: Equatable {
 		public let position: Int
 		public let startTime: Time
 		public let endTime: Time
