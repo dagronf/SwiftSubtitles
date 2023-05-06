@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "dsfregex",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dagronf/DSFRegex",
+      "state" : {
+        "revision" : "29f9a2924e318ab3a3c39692bcc48757cf2756e4",
+        "version" : "3.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
