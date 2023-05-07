@@ -26,7 +26,7 @@
 
 import Foundation
 
-public extension SRT {
+public extension Subtitles {
 	/// A time definition for an SRT file
 	struct Time: Equatable, Comparable {
 		/// Create a Time
@@ -64,7 +64,7 @@ public extension SRT {
 		}
 
 		/// Sort two time entries
-		public static func < (lhs: SRT.Time, rhs: SRT.Time) -> Bool {
+		public static func < (lhs: Subtitles.Time, rhs: Subtitles.Time) -> Bool {
 			lhs.hour < rhs.hour ||
 			lhs.minute < rhs.minute ||
 			lhs.second < rhs.second ||

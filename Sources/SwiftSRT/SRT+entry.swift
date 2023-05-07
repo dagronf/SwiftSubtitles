@@ -28,15 +28,18 @@ import Foundation
 
 // MARK: - Entry
 
-public extension SRT {
+public extension Subtitles {
 	/// An entry in an SRT file
 	struct Entry: Equatable {
-		public let position: Int
+		public let title: String?
+		public let position: Int?
 		public let startTime: Time
 		public let endTime: Time
 		public let text: String
-		public init(position: Int, startTime: Time, endTime: Time, text: String) {
+		public init(title: String? = nil, position: Int?, startTime: Time, endTime: Time, text: String) {
 			assert(startTime < endTime)
+			assert(text.count > 0)
+			self.title = title
 			self.position = position
 			self.startTime = startTime
 			self.endTime = endTime

@@ -1,7 +1,7 @@
 import XCTest
 @testable import SwiftSRT
 
-final class SwiftSRTTests: XCTestCase {
+final class SRTTests: XCTestCase {
 	func testExample() throws {
 
 		let content = """
@@ -15,41 +15,44 @@ This is an example of
 a subtitle - 2nd subtitle.
 """
 
-		let srt = try SRT(content: content)
+		let srt = try Subtitles(content: content, expectedExtension: "srt")
 		XCTAssertEqual(2, srt.entries.count)
 		XCTAssertEqual(srt.entries[0].text, "This is an example of a subtitle.")
-		XCTAssertEqual(srt.entries[0].startTime, SRT.Time(minute: 5, millisecond: 400))
+		XCTAssertEqual(srt.entries[0].startTime, Subtitles.Time(minute: 5, millisecond: 400))
 		XCTAssertEqual(srt.entries[0].startTime.timeInterval, 300.4, accuracy: 0.001)
-		XCTAssertEqual(srt.entries[0].endTime, SRT.Time(minute: 5, second: 15, millisecond: 300))
+		XCTAssertEqual(srt.entries[0].endTime, Subtitles.Time(minute: 5, second: 15, millisecond: 300))
 		XCTAssertEqual(srt.entries[0].endTime.timeInterval, 315.3, accuracy: 0.001)
 
 		XCTAssertEqual(srt.entries[1].text, "This is an example of\na subtitle - 2nd subtitle.")
 		XCTAssertEqual(srt.entries[1].startTime.timeInterval, 316.4, accuracy: 0.001)
 		XCTAssertEqual(srt.entries[1].endTime.timeInterval, 325.3, accuracy: 0.001)
 
-		let encoded = srt.encode()
+		let encoded = try srt.encode(expectedExtension: "srt")
 		XCTAssertFalse(encoded.isEmpty)
 	}
 
 	func testEncodeDoco() throws {
-		let entry1 = SRT.Entry(
+		let entry1 = Subtitles.Entry(
 			position: 1,
-			startTime: SRT.Time(minute: 10),
-			endTime: SRT.Time(minute: 11),
+			startTime: Subtitles.Time(minute: 10),
+			endTime: Subtitles.Time(minute: 11),
 			text: "점점 더 많아지는\n시민들의 성난 목소리로..."
 		)
 
-		let entry2 = SRT.Entry(
+		let entry2 = Subtitles.Entry(
 			position: 2,
-			startTime: SRT.Time(minute: 13, second: 5),
-			endTime: SRT.Time(minute: 15, second: 10, millisecond: 101),
+			startTime: Subtitles.Time(minute: 13, second: 5),
+			endTime: Subtitles.Time(minute: 15, second: 10, millisecond: 101),
 			text: "Second entry"
 		)
 
-		let srt = SRT(entries: [entry1, entry2])
-		let content = srt.encode()
+		let srt = Subtitles(entries: [entry1, entry2])
 
-		let decoded = try SRT(content: content)
+		let coder = Subtitles.SRTCodable()
+
+		let content = try coder.encode(subtitles: srt)
+		let decoded = try coder.decode(content)
+
 		XCTAssertEqual(2, decoded.entries.count)
 		XCTAssertEqual(decoded.entries[0], entry1)
 		XCTAssertEqual(decoded.entries[1], entry2)
@@ -91,9 +94,9 @@ Do grupo de Ralph Cifaretto.
 
 """
 
-		let srt = try SRT(content: content)
+		let srt = try Subtitles(content: content, expectedExtension: "srt")
 		XCTAssertEqual(7, srt.entries.count)
-		XCTAssertEqual(srt.entries[0].startTime, SRT.Time(minute: 1, second: 34, millisecond: 769))
+		XCTAssertEqual(srt.entries[0].startTime, Subtitles.Time(minute: 1, second: 34, millisecond: 769))
 		XCTAssertEqual(srt.entries[0].text, "FamÃ­lia Soprano")
 		XCTAssertEqual(srt.entries[4].text, "Deu aula de balÃ© anos atrÃ¡s.")
 	}
@@ -116,7 +119,7 @@ When I go to a bank or some
 other lending institution
 """
 
-		let srt = try SRT(content: content)
+		let srt = try Subtitles(content: content, expectedExtension: "srt")
 		XCTAssertEqual(3, srt.entries.count)
 		XCTAssertEqual(srt.entries[0].startTime.timeInterval, 3.4, accuracy: 0.0001)
 		XCTAssertEqual(srt.entries[0].endTime.timeInterval, 6.177, accuracy: 0.0001)
@@ -131,7 +134,7 @@ other lending institution
 
 	func testFile1() throws {
 		let fileURL = Bundle.module.url(forResource: "Teenage+Mutant+Ninja+Turtles.1990.Blu-ray", withExtension: "srt")!
-		let content = try SRT(fileURL: fileURL)
+		let content = try Subtitles(fileURL: fileURL)
 		XCTAssertEqual(1072, content.entries.count)
 
 		let e = content.entries[1071]
@@ -156,7 +159,7 @@ other lending institution
 
 	func testFile2() throws {
 		let fileURL = Bundle.module.url(forResource: "utf16-test", withExtension: "srt")!
-		let content = try SRT(fileURL: fileURL)
+		let content = try Subtitles(fileURL: fileURL)
 		XCTAssertEqual(2, content.entries.count)
 
 		// Check a non-utf8 encoded file
@@ -173,7 +176,7 @@ other lending institution
 00:05:00,400 --> 00:05:15,300
 This is an example of a subtitle.
 """
-			XCTAssertThrowsError(try SRT(content: content))
+			XCTAssertThrowsError(try Subtitles(content: content, expectedExtension: "srt"))
 		}
 
 		do {
@@ -184,7 +187,7 @@ This is an example of a subtitle.
 
 This is an example of a subtitle.
 """
-			XCTAssertThrowsError(try SRT(content: content))
+			XCTAssertThrowsError(try Subtitles(content: content, expectedExtension: "srt"))
 		}
 
 		do {
@@ -194,7 +197,7 @@ This is an example of a subtitle.
 00:05:00 --> 00:05:15,300
 This is an example of a subtitle.
 """
-			XCTAssertThrowsError(try SRT(content: content))
+			XCTAssertThrowsError(try Subtitles(content: content, expectedExtension: "srt"))
 		}
 
 		do {
@@ -204,7 +207,7 @@ This is an example of a subtitle.
 00:05:00,400 --> 00:20,300
 This is an example of a subtitle.
 """
-			XCTAssertThrowsError(try SRT(content: content))
+			XCTAssertThrowsError(try Subtitles(content: content, expectedExtension: "srt"))
 		}
 
 		do {
@@ -216,7 +219,7 @@ This is an example of a subtitle.
 
 Fish and chips
 """
-			XCTAssertThrowsError(try SRT(content: content))
+			XCTAssertThrowsError(try Subtitles(content: content, expectedExtension: "srt"))
 		}
 	}
 }

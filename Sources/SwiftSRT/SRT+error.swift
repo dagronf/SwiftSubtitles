@@ -26,13 +26,15 @@
 
 import Foundation
 
-extension SRT {
+extension Subtitles {
 	/// Errors thrown by the library
 	public enum SRTError: Error {
+		case unsupportedFileType(String)
 		case invalidFile
 		case invalidEncoding
 		case invalidPosition(Int)
 		case invalidTime(Int)
 		case startTimeAfterEndTime(Int)
+		case missingText(Int)
 	}
 }
