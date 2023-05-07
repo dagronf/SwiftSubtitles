@@ -132,6 +132,35 @@ other lending institution
 		XCTAssertEqual(srt.entries[2].text, "When I go to a bank or some\nother lending institution")
 	}
 
+	func testWikiExample() throws {
+		// https://en.wikipedia.org/wiki/SubRip
+		let content = """
+1
+00:02:16,612 --> 00:02:19,376
+Senator, we're making
+our final approach into Coruscant.
+
+2
+00:02:19,482 --> 00:02:21,609
+Very good, Lieutenant.
+
+3
+00:03:13,336 --> 00:03:15,167
+We made it.
+
+4
+00:03:18,608 --> 00:03:20,371
+I guess I was wrong.
+
+5
+00:03:20,476 --> 00:03:22,671
+There was no danger at all.
+"""
+
+		let srt = try Subtitles(content: content, expectedExtension: "srt")
+		XCTAssertEqual(5, srt.entries.count)
+	}
+
 	func testFile1() throws {
 		let fileURL = Bundle.module.url(forResource: "Teenage+Mutant+Ninja+Turtles.1990.Blu-ray", withExtension: "srt")!
 		let content = try Subtitles(fileURL: fileURL)

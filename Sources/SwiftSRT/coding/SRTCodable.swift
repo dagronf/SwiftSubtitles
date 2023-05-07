@@ -152,7 +152,7 @@ extension Subtitles.SRTCodable {
 						let s_sec = UInt(line[captures[2]]),
 						let s_ms = UInt(line[captures[3]]),
 
-							let e_hour = UInt(line[captures[4]]),
+						let e_hour = UInt(line[captures[4]]),
 						let e_min = UInt(line[captures[5]]),
 						let e_sec = UInt(line[captures[6]]),
 						let e_ms = UInt(line[captures[7]])

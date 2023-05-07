@@ -61,7 +61,7 @@ extension Subtitles.SBVCodable {
 				throw Subtitles.SRTError.missingText(item.offset)
 			}
 
-			result += "\(entry.text)\n"
+			result += "\(entry.text)"
 		}
 
 		return result
