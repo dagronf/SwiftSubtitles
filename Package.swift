@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-	name: "SwiftSRT",
+	name: "SwiftSubtitles",
 	platforms: [
 		.macOS(.v10_13),
 		.iOS(.v13),
@@ -13,19 +13,19 @@ let package = Package(
 	],
 	products: [
 		.library(
-			name: "SwiftSRT",
-			targets: ["SwiftSRT"]),
+			name: "SwiftSubtitles",
+			targets: ["SwiftSubtitles"]),
 	],
 	dependencies: [
 		.package(url: "https://github.com/dagronf/DSFRegex", from: "3.1.0")
 	],
 	targets: [
 		.target(
-			name: "SwiftSRT",
+			name: "SwiftSubtitles",
 			dependencies: ["DSFRegex"]),
 		.testTarget(
-			name: "SwiftSRTTests",
-			dependencies: ["SwiftSRT"],
+			name: "SwiftSubtitlesTests",
+			dependencies: ["SwiftSubtitles"],
 			resources: [
 				.process("resources"),
 			]

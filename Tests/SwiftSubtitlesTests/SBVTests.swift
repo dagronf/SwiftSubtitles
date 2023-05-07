@@ -1,5 +1,5 @@
 import XCTest
-@testable import SwiftSRT
+@testable import SwiftSubtitles
 
 final class SBVTests: XCTestCase {
 

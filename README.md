@@ -1,9 +1,9 @@
 # SwiftSubtitles
 
-Decode and encode `.srt` (SubRip subtitle) files. 
+A Swift package for reading/writing subtitle formats (srt, svb, vtt).
 
 <p align="center">
-    <img src="https://img.shields.io/github/v/tag/dagronf/SwiftSRT" />
+    <img src="https://img.shields.io/github/v/tag/dagronf/SwiftSubtitles" />
     <img src="https://img.shields.io/badge/Swift-5.4-orange.svg" />
     <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
     <a href="https://swift.org/package-manager">
