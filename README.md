@@ -1,4 +1,4 @@
-# SwiftSRT
+# SwiftSubtitles
 
 Decode and encode `.srt` (SubRip subtitle) files. 
 
@@ -20,13 +20,21 @@ Decode and encode `.srt` (SubRip subtitle) files.
     <img src="https://img.shields.io/badge/Linux-compatible-orange" />
 </p>
 
+## Available coders
+
+| Coder                  | Description                                               |
+|:-----------------------|:----------------------------------------------------------|
+| `Subtitles.SRTCodable` | A decoder/encoder for the SRT subtitle file format (.srt) |
+| `Subtitles.SBVCodable` | A decoder/encoder for the SBV subtitle file format (.sbv) |
+| `Subtitles.VTTCodable` | A decoder/encoder for the VTT subtitle file format (.vtt) |
+
 ## Basic usage
 
 ### Decoding
  
 ```swift
-let srt = try SRT(fileURL: <some file url>)
-srt.entries.forEach { entry in
+let subtitles = try Subtitles(fileURL: <some file url>)
+subtitles.entries.forEach { entry in
 	// Do something with 'entry'
 }
 ```
@@ -48,8 +56,8 @@ let entry2 = SRT.Entry(
    text: "Second entry"
 )
 
-let srt = try SRT(entries: [entry1, entry2])
-let content = srt.encode()
+let subtitles = try Subtitles(entries: [entry1, entry2])
+let content = subtitles.encode()
 ```
 
 ## License
