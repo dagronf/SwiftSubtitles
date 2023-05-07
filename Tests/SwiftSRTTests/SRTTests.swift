@@ -211,6 +211,26 @@ There was no danger at all.
 		XCTAssertEqual(content.entries[1].text, "中文鍵盤/中文键盘")
 	}
 
+	func testMissingPositionals() throws {
+		let entry1 = Subtitles.Entry(
+			startTime: Subtitles.Time(minute: 10),
+			endTime: Subtitles.Time(minute: 11),
+			text: "title 1"
+		)
+		let entry2 = Subtitles.Entry(
+			startTime: Subtitles.Time(minute: 13),
+			endTime: Subtitles.Time(minute: 15),
+			text: "title 2"
+		)
+
+		let c = Subtitles.SRTCodable()
+		let encoded = try c.encode(subtitles: Subtitles(entries: [entry1, entry2]))
+		let decoded = try c.decode(encoded)
+		XCTAssertEqual(decoded.entries.count, 2)
+		XCTAssertEqual(decoded.entries[0].position, 1)
+		XCTAssertEqual(decoded.entries[1].position, 2)
+	}
+
 	func testBasicTimeError() throws {
 		do {
 			// Extra space after the position

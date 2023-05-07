@@ -1,5 +1,5 @@
 //
-//  SRT+error.swift
+//  SRT+entry.swift
 //
 //  Copyright © 2023 Darren Ford. All rights reserved.
 //
@@ -26,15 +26,32 @@
 
 import Foundation
 
-extension Subtitles {
-	/// Errors thrown by the library
-	public enum SRTError: Error {
-		case unsupportedFileType(String)
-		case invalidFile
-		case invalidEncoding
-		case invalidPosition(Int)
-		case invalidTime(Int)
-		case startTimeAfterEndTime(Int)
-		case missingText(Int)
+// MARK: - Entry
+
+public extension Subtitles {
+	/// An entry in an SRT file
+	struct Entry: Equatable {
+		/// The cue identifier (optional) (VTT)
+		public let title: String?
+		/// The cue position (optional) (SRT)
+		public let position: Int?
+		public let startTime: Time
+		public let endTime: Time
+		public let text: String
+		public init(
+			title: String? = nil,
+			position: Int? = nil,
+			startTime: Time,
+			endTime: Time,
+			text: String
+		) {
+			assert(startTime < endTime)
+			assert(text.count > 0)
+			self.title = title
+			self.position = position
+			self.startTime = startTime
+			self.endTime = endTime
+			self.text = text
+		}
 	}
 }

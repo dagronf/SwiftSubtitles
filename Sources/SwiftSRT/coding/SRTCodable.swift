@@ -9,17 +9,6 @@ import DSFRegex
 import Foundation
 
 /*
- 0:00:01.000,0:00:03.000
- Hello, and welcome to our video!
-
- 0:00:04.000,0:00:06.000
- In this video, we will be discussing the SBV file format.
-
- 0:00:07.000,0:00:10.000
- The SBV format is commonly used for storing subtitles for videos.
- */
-
-/*
 
  WEBVTT
 
@@ -41,7 +30,6 @@ extension Subtitles {
 }
 
 extension Subtitles.SRTCodable {
-
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = ""
 
@@ -76,7 +64,6 @@ extension Subtitles.SRTCodable {
 	}
 
 	func decode(_ content: String) throws -> Subtitles {
-
 		enum LineState {
 			case blank
 			case position

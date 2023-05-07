@@ -9,7 +9,17 @@ import DSFRegex
 import Foundation
 
 /*
+ 0:00:01.000,0:00:03.000
+ Hello, and welcome to our video!
 
+ 0:00:04.000,0:00:06.000
+ In this video, we will be discussing the SBV file format.
+
+ 0:00:07.000,0:00:10.000
+ The SBV format is commonly used for storing subtitles for videos.
+ */
+
+/*
  0:00:00.599,0:00:04.160
  >> ALICE: Hi, my name is Alice Miller and this is John Brown
 
@@ -25,7 +35,6 @@ import Foundation
 
  0:00:16.700,0:00:21.480
  Okay, so we have all the ingredients laid out here
-
  */
 
 // https://support.google.com/youtube/answer/2734698?hl=en#zippy=%2Cbasic-file-formats%2Cadvanced-file-formats%2Csubviewer-sbv-example
@@ -38,8 +47,7 @@ extension Subtitles {
 	}
 }
 
-extension Subtitles.SBVCodable {
-
+internal extension Subtitles.SBVCodable {
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = ""
 
@@ -64,7 +72,6 @@ extension Subtitles.SBVCodable {
 	}
 
 	func decode(_ content: String) throws -> Subtitles {
-
 		var results = [Subtitles.Entry]()
 
 		let lines = content.components(separatedBy: .newlines)
@@ -73,7 +80,6 @@ extension Subtitles.SBVCodable {
 
 		var index = 0
 		while index < lines.count {
-
 			// Skip blank lines
 			while index < lines.count && lines[index].isEmpty {
 				index += 1
@@ -100,7 +106,7 @@ extension Subtitles.SBVCodable {
 				let s_sec = UInt(timeLine[captures[2]]),
 				let s_ms = UInt(timeLine[captures[3]]),
 
-				let e_hour = UInt(timeLine[captures[4]]),
+					let e_hour = UInt(timeLine[captures[4]]),
 				let e_min = UInt(timeLine[captures[5]]),
 				let e_sec = UInt(timeLine[captures[6]]),
 				let e_ms = UInt(timeLine[captures[7]])
@@ -116,6 +122,10 @@ extension Subtitles.SBVCodable {
 			}
 
 			index += 1
+
+			guard index < lines.count else {
+				throw Subtitles.SRTError.unexpectedEOF
+			}
 
 			// Text should be next
 			var text = ""
