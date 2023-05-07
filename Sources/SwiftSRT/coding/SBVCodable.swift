@@ -45,10 +45,6 @@ extension Subtitles.SBVCodable {
 
 		try subtitles.entries.enumerated().forEach { item in
 			let entry = item.element
-			if !result.isEmpty {
-				result += "\n"
-			}
-
 			let s = entry.startTime
 			let e = entry.endTime
 			result += String(
@@ -61,7 +57,7 @@ extension Subtitles.SBVCodable {
 				throw Subtitles.SRTError.missingText(item.offset)
 			}
 
-			result += "\(entry.text)"
+			result += "\(entry.text)\n\n"
 		}
 
 		return result
@@ -125,7 +121,8 @@ extension Subtitles.SBVCodable {
 			var text = ""
 			// Skip to the next blank
 			while index < lines.count && lines[index].isEmpty == false {
-				text += lines[index] + "\n"
+				if !text.isEmpty { text += "\n" }
+				text += lines[index]
 				index += 1
 			}
 

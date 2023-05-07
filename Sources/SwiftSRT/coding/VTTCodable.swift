@@ -69,7 +69,7 @@ extension Subtitles.VTTCodable {
 				e.hour, e.minute, e.second, e.millisecond
 			)
 
-			result += "\(entry.text)\n"
+			result += "\(entry.text)\n\n"
 		}
 
 		return result
@@ -169,7 +169,10 @@ extension Subtitles.VTTCodable {
 			var text = ""
 			// Skip to the next blank
 			while index < lines.count && lines[index].isEmpty == false {
-				text += lines[index] + "\n"
+				if !text.isEmpty {
+					text += "\n"
+				}
+				text += lines[index]
 				index += 1
 			}
 

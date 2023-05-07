@@ -8,17 +8,19 @@ final class VTTTests: XCTestCase {
 		XCTAssertEqual(3, subtitles.entries.count)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 15, millisecond: 0), subtitles.entries[0].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 20, millisecond: 0), subtitles.entries[0].endTime)
-		XCTAssertEqual("- Ta en kopp varmt te.\n- Det är inte varmt.\n", subtitles.entries[0].text)
+		XCTAssertEqual("- Ta en kopp varmt te.\n- Det är inte varmt.", subtitles.entries[0].text)
 
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 25, millisecond: 0), subtitles.entries[2].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 30, millisecond: 0), subtitles.entries[2].endTime)
 		XCTAssertEqual("This is the third chapter", subtitles.entries[2].title)
-		XCTAssertEqual("- Ta en kopp\n", subtitles.entries[2].text)
+		XCTAssertEqual("- Ta en kopp", subtitles.entries[2].text)
 
 		let coder = Subtitles.VTTCodable()
 		let encoded = try coder.encode(subtitles: subtitles)
 		let decoded = try coder.decode(encoded)
 		XCTAssertEqual(3, decoded.entries.count)
+
+		XCTAssertEqual(subtitles, decoded)
 	}
 
 	func testDecode() throws {
@@ -35,11 +37,11 @@ WEBVTT
 		let coder = Subtitles.VTTCodable()
 		let subtitles = try coder.decode(vtt)
 		XCTAssertEqual(2, subtitles.entries.count)
-		XCTAssertEqual("- Never drink liquid nitrogen.\n", subtitles.entries[0].text)
+		XCTAssertEqual("- Never drink liquid nitrogen.", subtitles.entries[0].text)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0), subtitles.entries[0].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0), subtitles.entries[0].endTime)
 
-		XCTAssertEqual("- It will perforate your stomach.\n- You could die.\n", subtitles.entries[1].text)
+		XCTAssertEqual("- It will perforate your stomach.\n- You could die.", subtitles.entries[1].text)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 5, millisecond: 0), subtitles.entries[1].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 9, millisecond: 0), subtitles.entries[1].endTime)
 
@@ -49,11 +51,11 @@ WEBVTT
 
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0), subtitles.entries[0].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0), subtitles.entries[0].endTime)
-		XCTAssertEqual("- Never drink liquid nitrogen.\n", decoded.entries[0].text)
+		XCTAssertEqual("- Never drink liquid nitrogen.", decoded.entries[0].text)
 
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 5, millisecond: 0), subtitles.entries[1].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 9, millisecond: 0), subtitles.entries[1].endTime)
-		XCTAssertEqual("- It will perforate your stomach.\n- You could die.\n", decoded.entries[1].text)
+		XCTAssertEqual("- It will perforate your stomach.\n- You could die.", decoded.entries[1].text)
 	}
 
 	func testMicrosoftTests() throws {
@@ -74,10 +76,10 @@ build a sandcastle on any beach.
 		XCTAssertEqual(2, subtitles.entries.count)
 		XCTAssertEqual(Subtitles.Time(second: 1, millisecond: 0), subtitles.entries[0].startTime)
 		XCTAssertEqual(Subtitles.Time(second: 5, millisecond: 330), subtitles.entries[0].endTime)
-		XCTAssertEqual("Good day everyone, my name is June Doe.\n", subtitles.entries[0].text)
+		XCTAssertEqual("Good day everyone, my name is June Doe.", subtitles.entries[0].text)
 		XCTAssertEqual(Subtitles.Time(second: 7, millisecond: 608), subtitles.entries[1].startTime)
 		XCTAssertEqual(Subtitles.Time(second: 15, millisecond: 290), subtitles.entries[1].endTime)
-		XCTAssertEqual("This video teaches you how to\nbuild a sandcastle on any beach.\n", subtitles.entries[1].text)
+		XCTAssertEqual("This video teaches you how to\nbuild a sandcastle on any beach.", subtitles.entries[1].text)
 
 		// Round trip
 		let encoded = try coder.encode(subtitles: subtitles)

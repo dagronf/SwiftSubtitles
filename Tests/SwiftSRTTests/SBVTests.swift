@@ -24,11 +24,11 @@ Okay, so we have all the ingredients laid out here
 		let coder = Subtitles.SBVCodable()
 		let subtitles = try coder.decode(sbv)
 		XCTAssertEqual(5, subtitles.entries.count)
-		XCTAssertEqual(">> ALICE: Hi, my name is Alice Miller and this is John Brown\n", subtitles.entries[0].text)
+		XCTAssertEqual(">> ALICE: Hi, my name is Alice Miller and this is John Brown", subtitles.entries[0].text)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 0, millisecond: 599), subtitles.entries[0].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 160), subtitles.entries[0].endTime)
 
-		XCTAssertEqual("Okay, so we have all the ingredients laid out here\n", subtitles.entries[4].text)
+		XCTAssertEqual("Okay, so we have all the ingredients laid out here", subtitles.entries[4].text)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 16, millisecond: 700), subtitles.entries[4].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 21, millisecond: 480), subtitles.entries[4].endTime)
 

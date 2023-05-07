@@ -159,6 +159,21 @@ There was no danger at all.
 
 		let srt = try Subtitles(content: content, expectedExtension: "srt")
 		XCTAssertEqual(5, srt.entries.count)
+
+		XCTAssertEqual(srt.entries[0].position, 1)
+		XCTAssertEqual(srt.entries[0].startTime, Subtitles.Time(minute: 2, second: 16, millisecond: 612))
+		XCTAssertEqual(srt.entries[0].endTime, Subtitles.Time(minute: 2, second: 19, millisecond: 376))
+		XCTAssertEqual(srt.entries[0].text, "Senator, we're making\nour final approach into Coruscant.")
+
+		XCTAssertEqual(srt.entries[1].position, 2)
+		XCTAssertEqual(srt.entries[1].startTime, Subtitles.Time(minute: 2, second: 19, millisecond: 482))
+		XCTAssertEqual(srt.entries[1].endTime, Subtitles.Time(minute: 2, second: 21, millisecond: 609))
+		XCTAssertEqual(srt.entries[1].text, "Very good, Lieutenant.")
+
+		XCTAssertEqual(srt.entries[4].position, 5)
+		XCTAssertEqual(srt.entries[4].startTime, Subtitles.Time(minute: 3, second: 20, millisecond: 476))
+		XCTAssertEqual(srt.entries[4].endTime, Subtitles.Time(minute: 3, second: 22, millisecond: 671))
+		XCTAssertEqual(srt.entries[4].text, "There was no danger at all.")
 	}
 
 	func testFile1() throws {
