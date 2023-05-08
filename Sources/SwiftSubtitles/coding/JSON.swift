@@ -1,5 +1,5 @@
 //
-//  Subtitles+cue.swift
+//  JSON.swift
 //
 //  Copyright © 2023 Darren Ford. All rights reserved.
 //
@@ -26,35 +26,27 @@
 
 import Foundation
 
-public extension Subtitles {
-	/// An cue entry in a subtitles file
-	struct Cue: Equatable, Codable {
-		/// The identifier (used in VTT)
-		public let identifier: String?
-		/// The position (used in SRT)
-		public let position: Int?
-		/// The time to present the cue entry
-		public let startTime: Time
-		/// The time to dismiss the cue entry
-		public let endTime: Time
-		/// The text for the cue entry
-		public let text: String
-		
-		/// Create a Cue entry
-		public init(
-			identifier: String? = nil,
-			position: Int? = nil,
-			startTime: Time,
-			endTime: Time,
-			text: String
-		) {
-			assert(startTime < endTime)
-			assert(text.count > 0)
-			self.identifier = identifier
-			self.position = position
-			self.startTime = startTime
-			self.endTime = endTime
-			self.text = text
+extension Subtitles.Coder {
+	/// A JSON coder
+	public struct JSON: SubtitlesCodable {
+		public static var extn: String { "json-subtitles" }
+		public static func Create() -> Self { JSON() }
+	}
+}
+
+public extension Subtitles.Coder.JSON {
+	func encode(subtitles: Subtitles) throws -> String {
+		let data = try JSONEncoder().encode(subtitles)
+		guard let content = String(data: data, encoding: .utf8) else {
+			throw SubTitlesError.invalidEncoding
 		}
+		return content
+	}
+
+	func decode(_ content: String) throws -> Subtitles {
+		guard let data = content.data(using: .utf8, allowLossyConversion: false) else {
+			throw SubTitlesError.invalidEncoding
+		}
+		return try JSONDecoder().decode(Subtitles.self, from: data)
 	}
 }

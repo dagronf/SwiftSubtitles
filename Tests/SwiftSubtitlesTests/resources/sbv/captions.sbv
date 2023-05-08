@@ -1,0 +1,19 @@
+0:00:00.940,0:00:05.050
+This is a test of the SBV file converter.
+
+0:00:05.050,0:00:08.240
+This video was recorded and uploaded to Youtube.
+
+0:00:08.240,0:00:14.079
+Then, after the video had been processed and
+had captions auto-generated for it by Youtube,
+
+0:00:14.079,0:00:17.690
+I downloaded the captions as an SBV file.
+
+0:00:17.690,0:00:24.810
+Next I ran the SBV file through the SBV file
+converter to produce JSON, HTML, and text
+
+0:00:24.810,0:00:25.430
+files.

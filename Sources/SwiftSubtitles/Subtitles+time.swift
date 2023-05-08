@@ -28,7 +28,7 @@ import Foundation
 
 public extension Subtitles {
 	/// A time definition for a subtitles file
-	struct Time: Equatable, Comparable {
+	struct Time: Equatable, Comparable, Codable {
 		/// Create a Time
 		public init(hour: UInt = 0, minute: UInt = 0, second: UInt = 0, millisecond: UInt = 0) {
 			self.hour = hour

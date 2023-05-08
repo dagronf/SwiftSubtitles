@@ -38,6 +38,16 @@ Okay, so we have all the ingredients laid out here
 		XCTAssertEqual(subtitles, decoded)
 	}
 
+	func testDecodeFromFile() throws {
+		let fileURL = Bundle.module.url(forResource: "captions", withExtension: "sbv")!
+		let subtitles = try Subtitles(fileURL: fileURL)
+		XCTAssertEqual(subtitles.cues.count, 6)
+
+		XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(millisecond: 940))
+		XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(second: 5, millisecond: 50))
+		XCTAssertEqual(subtitles.cues[0].text, "This is a test of the SBV file converter.")
+	}
+
 	func testDecodeFailure() throws {
 		let sbv = """
 0:00:00.599,0:00:04.160

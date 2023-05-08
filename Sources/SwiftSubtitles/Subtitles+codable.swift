@@ -39,6 +39,22 @@ public protocol SubtitlesCodable {
 	func encode(subtitles: Subtitles) throws -> String
 }
 
+public extension SubtitlesCodable {
+	/// The file extension supported by the coder
+	var extn: String { Self.extn }
+
+	/// Decode the subtitles from a fileURL
+	func decode(fileURL: URL) throws -> Subtitles {
+		if fileURL.pathExtension.lowercased() != self.extn {
+			Swift.print("Mismatched extensions")
+		}
+
+		var usedEncoding: String.Encoding = .utf8
+		let str = try String(contentsOf: fileURL, usedEncoding: &usedEncoding)
+		return try self.decode(str)
+	}
+}
+
 extension Subtitles {
 	/// Coder namespace
 	public class Coder {
@@ -61,5 +77,6 @@ extension Subtitles.Coder {
 		Subtitles.Coder.SRT.self,
 		Subtitles.Coder.VTT.self,
 		Subtitles.Coder.SBV.self,
+		Subtitles.Coder.JSON.self,
 	]
 }

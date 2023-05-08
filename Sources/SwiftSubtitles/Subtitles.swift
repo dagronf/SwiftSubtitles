@@ -27,7 +27,7 @@
 import Foundation
 
 /// An Subtitles file representation
-public struct Subtitles: Equatable {
+public struct Subtitles: Equatable, Codable {
 	/// Subtitle cues
 	public let cues: [Cue]
 
