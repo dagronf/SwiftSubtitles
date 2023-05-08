@@ -65,10 +65,19 @@ public extension Subtitles {
 
 		/// Sort two time entries
 		public static func < (lhs: Subtitles.Time, rhs: Subtitles.Time) -> Bool {
-			lhs.hour < rhs.hour ||
-			lhs.minute < rhs.minute ||
-			lhs.second < rhs.second ||
-			lhs.millisecond < rhs.millisecond
+			if lhs.hour < rhs.hour { return true }
+			if lhs.hour > rhs.hour { return false }
+
+			if lhs.minute < rhs.minute { return true }
+			if lhs.minute > rhs.minute { return false }
+
+			if lhs.second < rhs.second { return true }
+			if lhs.second > rhs.second { return false }
+
+			if lhs.millisecond < rhs.millisecond { return true }
+			if lhs.millisecond > rhs.millisecond { return false }
+
+			return false
 		}
 	}
 }
