@@ -40,15 +40,6 @@ public extension Subtitles {
 			self.millisecond = millisecond
 		}
 
-		/// Create a new Time instance from a TimeInterval
-		public init(interval: TimeInterval) {
-			let time = UInt(interval)
-			self.millisecond = UInt((interval.truncatingRemainder(dividingBy: 1)) * 1000)
-			self.second = time % 60
-			self.minute = (time / 60) % 60
-			self.hour = (time / 3600)
-		}
-
 		/// The hour
 		public let hour: UInt
 		/// The minute
@@ -57,27 +48,45 @@ public extension Subtitles {
 		public let second: UInt
 		/// The millisecond
 		public let millisecond: UInt
+	}
+}
 
-		/// Return the time value as a TimeInterval
-		public var timeInterval: TimeInterval {
-			(Double(self.hour) * 3600) + (Double(self.minute) * 60) + Double(self.second) + (Double(self.millisecond) / 1000)
-		}
+// MARK: - TimeInterval routines
 
-		/// Sort two time entries
-		public static func < (lhs: Subtitles.Time, rhs: Subtitles.Time) -> Bool {
-			if lhs.hour < rhs.hour { return true }
-			if lhs.hour > rhs.hour { return false }
+public extension Subtitles.Time {
+	/// Create a new Time instance from a TimeInterval
+	init(interval: TimeInterval) {
+		assert(interval >= 0)
+		let time = UInt(interval)
+		self.millisecond = UInt((interval.truncatingRemainder(dividingBy: 1)) * 1000)
+		self.second = time % 60
+		self.minute = (time / 60) % 60
+		self.hour = (time / 3600)
+	}
 
-			if lhs.minute < rhs.minute { return true }
-			if lhs.minute > rhs.minute { return false }
+	/// Return the time value as a TimeInterval
+	var timeInterval: TimeInterval {
+		(Double(self.hour) * 3600) + (Double(self.minute) * 60) + Double(self.second) + (Double(self.millisecond) / 1000)
+	}
+}
 
-			if lhs.second < rhs.second { return true }
-			if lhs.second > rhs.second { return false }
+// MARK: - Utilities
 
-			if lhs.millisecond < rhs.millisecond { return true }
-			if lhs.millisecond > rhs.millisecond { return false }
+public extension Subtitles.Time {
+	/// Returns true if the left time value is less than the right
+	static func < (lhs: Subtitles.Time, rhs: Subtitles.Time) -> Bool {
+		if lhs.hour < rhs.hour { return true }
+		if lhs.hour > rhs.hour { return false }
 
-			return false
-		}
+		if lhs.minute < rhs.minute { return true }
+		if lhs.minute > rhs.minute { return false }
+
+		if lhs.second < rhs.second { return true }
+		if lhs.second > rhs.second { return false }
+
+		if lhs.millisecond < rhs.millisecond { return true }
+		if lhs.millisecond > rhs.millisecond { return false }
+
+		return false
 	}
 }

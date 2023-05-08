@@ -56,6 +56,4 @@ final class CommonTests: XCTestCase {
 			XCTAssertTrue(e1 < e2)
 		}
 	}
-
 }
-
