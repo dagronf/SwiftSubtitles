@@ -1,5 +1,5 @@
 //
-//  SRTCodable.swift
+//  SRT.swift
 //
 //  Copyright © 2023 Darren Ford. All rights reserved.
 //
@@ -42,13 +42,14 @@ import Foundation
 
 private let SRTTimeRegex__ = try! DSFRegex(#"(\d+):(\d{1,2}):(\d{1,2}),(\d{3})\s-->\s(\d+):(\d{2}):(\d{1,2}),(\d{3})"#)
 
-extension Subtitles {
-	struct SRTCodable: SubtitlesCodable {
-		static var extn: String { "srt" }
+extension Subtitles.Coder {
+	public struct SRT: SubtitlesCodable {
+		public static var extn: String { "srt" }
+		public static func Create() -> Self { SRT() }
 	}
 }
 
-extension Subtitles.SRTCodable {
+public extension Subtitles.Coder.SRT {
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = ""
 

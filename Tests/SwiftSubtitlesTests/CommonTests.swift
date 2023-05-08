@@ -56,4 +56,34 @@ final class CommonTests: XCTestCase {
 			XCTAssertTrue(e1 < e2)
 		}
 	}
+
+	func testDoco() throws {
+		do {
+			let entry1 = Subtitles.Entry(
+				position: 1,
+				startTime: Subtitles.Time(minute: 10),
+				endTime: Subtitles.Time(minute: 11),
+				text: "점점 더 많아지는\n시민들의 성난 목소리로..."
+			)
+
+			let entry2 = Subtitles.Entry(
+				position: 2,
+				startTime: Subtitles.Time(minute: 13, second: 5),
+				endTime: Subtitles.Time(minute: 15, second: 10, millisecond: 101),
+				text: "Second entry"
+			)
+
+			let subtitles = Subtitles(entries: [entry1, entry2])
+
+			// Encode based on the subtitle file extension
+			let content = try Subtitles.encode(fileExtension: "srt", subtitles: subtitles)
+
+			// Encode using an explicit coder
+			let coder = Subtitles.Coder.SRT()
+			let content2 = try coder.encode(subtitles: subtitles)
+
+			XCTAssert(content2.count > 0)
+			XCTAssertEqual(content, content2)
+		}
+	}
 }

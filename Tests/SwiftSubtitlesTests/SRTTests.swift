@@ -27,7 +27,7 @@ a subtitle - 2nd subtitle.
 		XCTAssertEqual(srt.entries[1].startTime.timeInterval, 316.4, accuracy: 0.001)
 		XCTAssertEqual(srt.entries[1].endTime.timeInterval, 325.3, accuracy: 0.001)
 
-		let encoded = try srt.encode(expectedExtension: "srt")
+		let encoded = try srt.encode(fileExtension: "srt")
 		XCTAssertFalse(encoded.isEmpty)
 	}
 
@@ -48,7 +48,7 @@ a subtitle - 2nd subtitle.
 
 		let srt = Subtitles(entries: [entry1, entry2])
 
-		let coder = Subtitles.SRTCodable()
+		let coder = Subtitles.Coder.SRT()
 
 		let content = try coder.encode(subtitles: srt)
 		let decoded = try coder.decode(content)
@@ -223,7 +223,7 @@ There was no danger at all.
 			text: "title 2"
 		)
 
-		let c = Subtitles.SRTCodable()
+		let c = Subtitles.Coder.SRT()
 		let encoded = try c.encode(subtitles: Subtitles(entries: [entry1, entry2]))
 		let decoded = try c.decode(encoded)
 		XCTAssertEqual(decoded.entries.count, 2)

@@ -31,7 +31,9 @@ A Swift package for reading/writing subtitle formats (srt, svb, vtt).
 ## Basic usage
 
 ### Decoding
- 
+
+The basic decoding uses the 
+
 ```swift
 let subtitles = try Subtitles(fileURL: <some file url>)
 subtitles.entries.forEach { entry in
@@ -39,25 +41,41 @@ subtitles.entries.forEach { entry in
 }
 ```
 
+You can also instantiate a coder object and use that directly if you know the type of subtitles you'll be decoding
+
+```swift
+let subtitleContent = ...
+let coder = Subtitles.SBVCodable()
+let subtitles = try coder.decode(subtitleContent)
+...
+let encodedContent = try coder.encode(subtitles: subtitles)
+``` 
+
 ### Encoding
 
 ```swift
-let entry1 = SRT.Entry(
-   position: 1,
-   startTime: SRT.Time(minute: 10),
-   endTime: SRT.Time(minute: 11),
-   text: "점점 더 많아지는\n시민들의 성난 목소리로..."
+let entry1 = Subtitles.Entry(
+	position: 1,
+	startTime: Subtitles.Time(minute: 10),
+	endTime: Subtitles.Time(minute: 11),
+	text: "점점 더 많아지는\n시민들의 성난 목소리로..."
 )
 
-let entry2 = SRT.Entry(
-   position: 2,
-   startTime: SRT.Time(minute: 13, second: 5),
-   endTime: SRT.Time(minute: 15, second: 10, millisecond: 101),
-   text: "Second entry"
+let entry2 = Subtitles.Entry(
+	position: 2,
+	startTime: Subtitles.Time(minute: 13, second: 5),
+	endTime: Subtitles.Time(minute: 15, second: 10, millisecond: 101),
+	text: "Second entry"
 )
 
-let subtitles = try Subtitles(entries: [entry1, entry2])
-let content = subtitles.encode()
+let subtitles = Subtitles(entries: [entry1, entry2])
+
+// Encode based on the subtitle file extension
+let content = try Subtitles.encode(fileExtension: "srt", subtitles: subtitles)
+
+// Encode using an explicit coder
+let coder = Subtitles.Coder.SRT()
+let content2 = try coder.encode(subtitles: subtitles)
 ```
 
 ## License

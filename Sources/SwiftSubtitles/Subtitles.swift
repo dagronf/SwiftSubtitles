@@ -26,33 +26,10 @@
 
 import Foundation
 
-public protocol SubtitlesCodable {
-	static var extn: String { get }
-	func decode(_ content: String) throws -> Subtitles
-	func encode(subtitles: Subtitles) throws -> String
-}
-
 /// An Subtitles file representation
 public struct Subtitles: Equatable {
-
-	static let factory = Factory()
-
 	/// The file extension for the file format
 	public internal(set) var entries: [Entry] = []
-}
-
-extension Subtitles {
-	class Factory {
-		let coders: [String: SubtitlesCodable] = [
-			Subtitles.SRTCodable.extn: Subtitles.SRTCodable(),
-			Subtitles.VTTCodable.extn: Subtitles.VTTCodable(),
-			Subtitles.SBVCodable.extn: Subtitles.SBVCodable(),
-		]
-
-		func coder(type: String) -> SubtitlesCodable? {
-			self.coders[type]
-		}
-	}
 }
 
 // MARK: - Decoding
@@ -60,7 +37,7 @@ extension Subtitles {
 public extension Subtitles {
 	/// Create an SRT object using the contents of a file
 	init(fileURL: URL) throws {
-		guard let coder = Subtitles.factory.coder(type: fileURL.pathExtension) else {
+		guard let coder = Subtitles.Factory.shared.coder(fileExtension: fileURL.pathExtension) else {
 			throw Subtitles.SRTError.unsupportedFileType(fileURL.pathExtension)
 		}
 
@@ -72,7 +49,7 @@ public extension Subtitles {
 
 	/// Create an SRT object from the content of a string
 	init(content: String, expectedExtension: String) throws {
-		guard let coder = Subtitles.factory.coder(type: expectedExtension) else {
+		guard let coder = Subtitles.Factory.shared.coder(fileExtension: expectedExtension) else {
 			throw Subtitles.SRTError.unsupportedFileType(expectedExtension)
 		}
 		self = try coder.decode(content)
@@ -80,7 +57,7 @@ public extension Subtitles {
 
 	/// Create an SRT object from the content of a Data
 	init(data: Data, expectedExtension: String, encoding: String.Encoding = .utf8) throws {
-		guard let coder = Subtitles.factory.coder(type: expectedExtension) else {
+		guard let coder = Subtitles.Factory.shared.coder(fileExtension: expectedExtension) else {
 			throw Subtitles.SRTError.unsupportedFileType(expectedExtension)
 		}
 		guard let content = String(data: data, encoding: encoding) else {
@@ -93,22 +70,31 @@ public extension Subtitles {
 // MARK: - Encoding
 
 public extension Subtitles {
-	/// Encode the entries into an SRT-compatible string
-	func encode(expectedExtension: String) throws -> String {
-		guard let coder = Subtitles.factory.coder(type: expectedExtension) else {
-			throw Subtitles.SRTError.unsupportedFileType(expectedExtension)
+	/// Encode subtitles into a string with the format matching the specified file extension
+	/// - Parameters:
+	///   - fileExtension: The extension of subtitle file to generate
+	static func encode(fileExtension: String, subtitles: Subtitles) throws -> String {
+		guard let coder = Subtitles.Factory.shared.coder(fileExtension: fileExtension) else {
+			throw Subtitles.SRTError.unsupportedFileType(fileExtension)
 		}
-		return try coder.encode(subtitles: self)
+		return try coder.encode(subtitles: subtitles)
+	}
+
+	/// Encode the entries into a string with the format matching the specified file extension
+	/// - Parameters:
+	///   - fileExtension: The extension of subtitle file to generate
+	@inlinable func encode(fileExtension: String) throws -> String {
+		try Self.encode(fileExtension: fileExtension, subtitles: self)
 	}
 
 	/// Encode the SRT entries as a Data object
 	/// - Parameters:
-	///   - expectedExtension: The extension of subtitle file to generate
+	///   - fileExtension: The extension of subtitle file to generate
 	///   - encoding: The text encoding for the string
 	/// - Returns: The generated subtitles file as raw data
-	func data(expectedExtension: String, encoding: String.Encoding = .utf8) throws -> Data {
-		guard let coder = Subtitles.factory.coder(type: expectedExtension) else {
-			throw Subtitles.SRTError.unsupportedFileType(expectedExtension)
+	func data(fileExtension: String, encoding: String.Encoding = .utf8) throws -> Data {
+		guard let coder = Subtitles.Factory.shared.coder(fileExtension: fileExtension) else {
+			throw Subtitles.SRTError.unsupportedFileType(fileExtension)
 		}
 		let content = try coder.encode(subtitles: self)
 		guard let data = content.data(using: encoding, allowLossyConversion: false) else {

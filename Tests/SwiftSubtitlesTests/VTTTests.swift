@@ -15,7 +15,7 @@ final class VTTTests: XCTestCase {
 		XCTAssertEqual("3 This is the third chapter", subtitles.entries[2].title)
 		XCTAssertEqual("- Ta en kopp", subtitles.entries[2].text)
 
-		let coder = Subtitles.VTTCodable()
+		let coder = Subtitles.Coder.VTT()
 		let encoded = try coder.encode(subtitles: subtitles)
 		let decoded = try coder.decode(encoded)
 		XCTAssertEqual(3, decoded.entries.count)
@@ -34,7 +34,7 @@ WEBVTT
 - It will perforate your stomach.
 - You could die.
 """
-		let coder = Subtitles.VTTCodable()
+		let coder = Subtitles.Coder.VTT()
 		let subtitles = try coder.decode(vtt)
 		XCTAssertEqual(2, subtitles.entries.count)
 		XCTAssertEqual("- Never drink liquid nitrogen.", subtitles.entries[0].text)
@@ -71,7 +71,7 @@ This video teaches you how to
 build a sandcastle on any beach.
 """
 
-		let coder = Subtitles.VTTCodable()
+		let coder = Subtitles.Coder.VTT()
 		let subtitles = try coder.decode(content)
 		XCTAssertEqual(2, subtitles.entries.count)
 		XCTAssertEqual(Subtitles.Time(second: 1, millisecond: 0), subtitles.entries[0].startTime)
@@ -131,7 +131,7 @@ WEBVTT
 00:35.500 --> 00:38.000
 <v Roger Bingham>You know I’m so excited my glasses are falling off here.
 """
-		let coder = Subtitles.VTTCodable()
+		let coder = Subtitles.Coder.VTT()
 		let subtitles = try coder.decode(content)
 		XCTAssertEqual(13, subtitles.entries.count)
 		XCTAssertEqual(Subtitles.Time(second: 11, millisecond: 0), subtitles.entries[0].startTime)
@@ -164,7 +164,7 @@ Hello <b>world</b>.
 NOTE style blocks cannot appear after the first cue.
 """
 
-		let coder = Subtitles.VTTCodable()
+		let coder = Subtitles.Coder.VTT()
 		let subtitles = try coder.decode(content)
 		XCTAssertEqual(1, subtitles.entries.count)
 		XCTAssertEqual(subtitles.entries[0].startTime, Subtitles.Time())
@@ -194,7 +194,7 @@ crédit de transcription
 3:00:04.000 --> 5:00:05.000
 Transcrit par Célestes™
 """
-		let coder = Subtitles.VTTCodable()
+		let coder = Subtitles.Coder.VTT()
 		let subtitles = try coder.decode(content)
 		XCTAssertEqual(3, subtitles.entries.count)
 

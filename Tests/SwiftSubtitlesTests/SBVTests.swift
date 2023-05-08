@@ -21,7 +21,7 @@ our famous chocolate chip cookies!
 0:00:16.700,0:00:21.480
 Okay, so we have all the ingredients laid out here
 """
-		let coder = Subtitles.SBVCodable()
+		let coder = Subtitles.Coder.SBV()
 		let subtitles = try coder.decode(sbv)
 		XCTAssertEqual(5, subtitles.entries.count)
 		XCTAssertEqual(">> ALICE: Hi, my name is Alice Miller and this is John Brown", subtitles.entries[0].text)
@@ -45,7 +45,7 @@ Okay, so we have all the ingredients laid out here
 0:00:04.160,0:00:06.770
 >> JOHN: and we're the owners of Miller Bakery.
 """
-		let coder = Subtitles.SBVCodable()
+		let coder = Subtitles.Coder.SBV()
 		XCTAssertThrowsError(try coder.decode(sbv))
 	}
 }

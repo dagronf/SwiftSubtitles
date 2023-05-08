@@ -1,5 +1,5 @@
 //
-//  SBVCodable.swift
+//  SBV.swift
 //
 //  Copyright © 2023 Darren Ford. All rights reserved.
 //
@@ -60,13 +60,14 @@ import Foundation
 
 private let SBVTimeRegex__ = try! DSFRegex(#"^(\d+):(\d{1,2}):(\d{1,2})\.(\d{3}),(\d+):(\d{2}):(\d{1,2})\.(\d{3})$"#)
 
-extension Subtitles {
-	struct SBVCodable: SubtitlesCodable {
-		static var extn: String { "sbv" }
+extension Subtitles.Coder {
+	public struct SBV: SubtitlesCodable {
+		public static var extn: String { "sbv" }
+		public static func Create() -> Self { SBV() }
 	}
 }
 
-internal extension Subtitles.SBVCodable {
+public extension Subtitles.Coder.SBV {
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = ""
 

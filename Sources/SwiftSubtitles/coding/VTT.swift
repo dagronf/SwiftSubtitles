@@ -1,5 +1,5 @@
 //
-//  VTTCodable.swift
+//  VTT.swift
 //
 //  Copyright © 2023 Darren Ford. All rights reserved.
 //
@@ -48,16 +48,17 @@ import Foundation
 
 private let VTTTimeRegex__ = try! DSFRegex(#"(?:(\d*):)?(?:(\d*):)(\d*)\.(\d{3})\s-->\s(?:(\d*):)?(?:(\d*):)(\d*)\.(\d{3})"#)
 
-extension Subtitles {
+extension Subtitles.Coder {
 	/// VTT codable file
 	///
 	/// https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API
-	struct VTTCodable: SubtitlesCodable {
-		static var extn: String { "vtt" }
+	public struct VTT: SubtitlesCodable {
+		public static var extn: String { "vtt" }
+		public static func Create() -> Self { VTT() }
 	}
 }
 
-internal extension Subtitles.VTTCodable {
+public extension Subtitles.Coder.VTT {
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = "WEBVTT\n\n"
 
