@@ -29,7 +29,12 @@ import Foundation
 /// An Subtitles file representation
 public struct Subtitles: Equatable {
 	/// The file extension for the file format
-	public internal(set) var entries: [Entry] = []
+	public internal(set) var cues: [Cue] = []
+
+	/// Create using an array of subtitle cues
+	public init(_ cues: [Cue]) {
+		self.cues = cues
+	}
 }
 
 // MARK: - Decoding
@@ -37,7 +42,7 @@ public struct Subtitles: Equatable {
 public extension Subtitles {
 	/// Create an SRT object using the contents of a file
 	init(fileURL: URL) throws {
-		guard let coder = Subtitles.Factory.shared.coder(fileExtension: fileURL.pathExtension) else {
+		guard let coder = Subtitles.Coder.coder(fileExtension: fileURL.pathExtension) else {
 			throw Subtitles.SRTError.unsupportedFileType(fileURL.pathExtension)
 		}
 
@@ -49,7 +54,7 @@ public extension Subtitles {
 
 	/// Create an SRT object from the content of a string
 	init(content: String, expectedExtension: String) throws {
-		guard let coder = Subtitles.Factory.shared.coder(fileExtension: expectedExtension) else {
+		guard let coder = Subtitles.Coder.coder(fileExtension: expectedExtension) else {
 			throw Subtitles.SRTError.unsupportedFileType(expectedExtension)
 		}
 		self = try coder.decode(content)
@@ -57,7 +62,7 @@ public extension Subtitles {
 
 	/// Create an SRT object from the content of a Data
 	init(data: Data, expectedExtension: String, encoding: String.Encoding = .utf8) throws {
-		guard let coder = Subtitles.Factory.shared.coder(fileExtension: expectedExtension) else {
+		guard let coder = Subtitles.Coder.coder(fileExtension: expectedExtension) else {
 			throw Subtitles.SRTError.unsupportedFileType(expectedExtension)
 		}
 		guard let content = String(data: data, encoding: encoding) else {
@@ -74,26 +79,26 @@ public extension Subtitles {
 	/// - Parameters:
 	///   - fileExtension: The extension of subtitle file to generate
 	static func encode(fileExtension: String, subtitles: Subtitles) throws -> String {
-		guard let coder = Subtitles.Factory.shared.coder(fileExtension: fileExtension) else {
+		guard let coder = Subtitles.Coder.coder(fileExtension: fileExtension) else {
 			throw Subtitles.SRTError.unsupportedFileType(fileExtension)
 		}
 		return try coder.encode(subtitles: subtitles)
 	}
 
-	/// Encode the entries into a string with the format matching the specified file extension
+	/// Encode the cues into a string with the format matching the specified file extension
 	/// - Parameters:
 	///   - fileExtension: The extension of subtitle file to generate
 	@inlinable func encode(fileExtension: String) throws -> String {
 		try Self.encode(fileExtension: fileExtension, subtitles: self)
 	}
 
-	/// Encode the SRT entries as a Data object
+	/// Encode the SRT cues as a Data object
 	/// - Parameters:
 	///   - fileExtension: The extension of subtitle file to generate
 	///   - encoding: The text encoding for the string
 	/// - Returns: The generated subtitles file as raw data
 	func data(fileExtension: String, encoding: String.Encoding = .utf8) throws -> Data {
-		guard let coder = Subtitles.Factory.shared.coder(fileExtension: fileExtension) else {
+		guard let coder = Subtitles.Coder.coder(fileExtension: fileExtension) else {
 			throw Subtitles.SRTError.unsupportedFileType(fileExtension)
 		}
 		let content = try coder.encode(subtitles: self)
@@ -109,13 +114,13 @@ public extension Subtitles {
 public extension Subtitles {
 	/// Return a new SRT object with the entries sorted by the position
 	var positionSorted: Subtitles {
-		let entries = self.entries.sorted { a, b in a.position ?? 0 < b.position ?? 0 }
-		return Subtitles(entries: entries)
+		let entries = self.cues.sorted { a, b in a.position ?? 0 < b.position ?? 0 }
+		return Subtitles(entries)
 	}
 
 	/// Return a new SRT object with the entries sorted by start time of each entry
 	var startTimeSorted: Subtitles {
-		let entries = self.entries.sorted { a, b in a.startTime < b.endTime }
-		return Subtitles(entries: entries)
+		let entries = self.cues.sorted { a, b in a.startTime < b.endTime }
+		return Subtitles(entries)
 	}
 }

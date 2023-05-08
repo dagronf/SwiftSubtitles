@@ -58,21 +58,21 @@ final class CommonTests: XCTestCase {
 	}
 
 	func testDoco1() throws {
-			let entry1 = Subtitles.Entry(
+			let entry1 = Subtitles.Cue(
 				position: 1,
 				startTime: Subtitles.Time(minute: 10),
 				endTime: Subtitles.Time(minute: 11),
 				text: "점점 더 많아지는\n시민들의 성난 목소리로..."
 			)
 
-			let entry2 = Subtitles.Entry(
+			let entry2 = Subtitles.Cue(
 				position: 2,
 				startTime: Subtitles.Time(minute: 13, second: 5),
 				endTime: Subtitles.Time(minute: 15, second: 10, millisecond: 101),
 				text: "Second entry"
 			)
 
-			let subtitles = Subtitles(entries: [entry1, entry2])
+			let subtitles = Subtitles([entry1, entry2])
 
 			// Encode based on the subtitle file extension
 			let content = try Subtitles.encode(fileExtension: "srt", subtitles: subtitles)
@@ -106,9 +106,9 @@ other lending institution
 		let coder = Subtitles.Coder.SRT()
 		let subtitles = try coder.decode(subtitleContent)
 
-		XCTAssertEqual(3, subtitles.entries.count)
-		XCTAssertEqual(subtitles.entries[0].startTime, Subtitles.Time(second: 3, millisecond: 400))
-		XCTAssertEqual(subtitles.entries[0].endTime, Subtitles.Time(second: 6, millisecond: 177))
-		XCTAssertEqual(subtitles.entries[0].text, "In this lesson, we're going to\nbe talking about finance. And")
+		XCTAssertEqual(3, subtitles.cues.count)
+		XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(second: 3, millisecond: 400))
+		XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(second: 6, millisecond: 177))
+		XCTAssertEqual(subtitles.cues[0].text, "In this lesson, we're going to\nbe talking about finance. And")
 	}
 }

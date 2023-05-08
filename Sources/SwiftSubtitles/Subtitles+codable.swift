@@ -23,20 +23,17 @@ public protocol SubtitlesCodable {
 extension Subtitles {
 	public class Coder {
 		private init() {}
-	}
 
-	/// A subtitle coder factory
-	public class Factory {
-		/// A common factory for instantiating coders
-		public static let shared = Factory()
-
-		/// Returns a coder that supports the specified file extension
-		public func coder(fileExtension: String) -> SubtitlesCodable? {
-			self.coders.first(where: { $0.extn == fileExtension })?.Create()
+		/// Retrieve a coder that supports the specified file extension
+		/// - Parameter fileExtension: The file extension for the coder
+		/// - Returns: The coder, or nil if a coder cannot be found
+		public static func coder(fileExtension: String) -> SubtitlesCodable? {
+			let extn = fileExtension.lowercased()
+			return Self.coders.first(where: { $0.extn == extn })?.Create()
 		}
 
 		/// The supported coders
-		private let coders: [SubtitlesCodable.Type] = [
+		private static let coders: [SubtitlesCodable.Type] = [
 			Subtitles.Coder.SRT.self,
 			Subtitles.Coder.VTT.self,
 			Subtitles.Coder.SBV.self,

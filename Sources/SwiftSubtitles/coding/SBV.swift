@@ -71,7 +71,7 @@ public extension Subtitles.Coder.SBV {
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = ""
 
-		try subtitles.entries.enumerated().forEach { item in
+		try subtitles.cues.enumerated().forEach { item in
 			let entry = item.element
 			let s = entry.startTime
 			let e = entry.endTime
@@ -92,7 +92,7 @@ public extension Subtitles.Coder.SBV {
 	}
 
 	func decode(_ content: String) throws -> Subtitles {
-		var results = [Subtitles.Entry]()
+		var results = [Subtitles.Cue]()
 
 		let lines = content.components(separatedBy: .newlines)
 
@@ -160,10 +160,10 @@ public extension Subtitles.Coder.SBV {
 				throw Subtitles.SRTError.invalidTime(index)
 			}
 
-			let entry = Subtitles.Entry(position: position, startTime: s, endTime: e, text: text)
+			let entry = Subtitles.Cue(position: position, startTime: s, endTime: e, text: text)
 			results.append(entry)
 			position += 1
 		}
-		return Subtitles(entries: results)
+		return Subtitles(results)
 	}
 }

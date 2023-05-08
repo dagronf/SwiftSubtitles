@@ -26,14 +26,14 @@
 
 import Foundation
 
-// MARK: - Entry
+// MARK: - Cue
 
 public extension Subtitles {
-	/// An entry in an SRT file
-	struct Entry: Equatable {
-		/// The cue identifier (optional) (used in VTT)
+	/// An cue entry in an SRT file
+	struct Cue: Equatable {
+		/// The identifier (used in VTT)
 		public let identifier: String?
-		/// The cue position (optional) (used for SRT)
+		/// The position (used in SRT)
 		public let position: Int?
 		/// The time to present the cue entry
 		public let startTime: Time

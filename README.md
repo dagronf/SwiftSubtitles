@@ -24,20 +24,20 @@ A Swift package for reading/writing subtitle formats (srt, svb, vtt).
 
 | Coder                  | Description                                               |
 |:-----------------------|:----------------------------------------------------------|
-| `Subtitles.SRTCodable` | A decoder/encoder for the SRT subtitle file format (.srt) |
-| `Subtitles.SBVCodable` | A decoder/encoder for the SBV subtitle file format (.sbv) |
-| `Subtitles.VTTCodable` | A decoder/encoder for the VTT subtitle file format (.vtt) |
+| `Subtitles.Coder.SRT`  | A decoder/encoder for the SRT subtitle file format (.srt) |
+| `Subtitles.Coder.SBV`  | A decoder/encoder for the SBV subtitle file format (.sbv) |
+| `Subtitles.Coder.VTT`  | A decoder/encoder for the VTT subtitle file format (.vtt) |
 
 ## Basic usage
 
 ### Decoding
 
-The basic decoding uses the file extension to determine the coder t
+Basic decoding uses the file extension to determine the coder to use when decoding.
 
 ```swift
 let subtitles = try Subtitles(fileURL: <some file url>)
-subtitles.entries.forEach { entry in
-	// Do something with 'entry'
+subtitles.cues.forEach { cue in
+	// Do something with 'cue'
 }
 ```
 
@@ -54,27 +54,27 @@ let encodedContent = try coder.encode(subtitles: subtitles)
 ### Encoding
 
 ```swift
-let entry1 = Subtitles.Entry(
+let cue1 = Subtitles.Cue(
 	position: 1,
 	startTime: Subtitles.Time(minute: 10),
 	endTime: Subtitles.Time(minute: 11),
 	text: "점점 더 많아지는\n시민들의 성난 목소리로..."
 )
 
-let entry2 = Subtitles.Entry(
+let cue2 = Subtitles.Cue(
 	position: 2,
 	startTime: Subtitles.Time(minute: 13, second: 5),
 	endTime: Subtitles.Time(minute: 15, second: 10, millisecond: 101),
 	text: "Second entry"
 )
 
-let subtitles = Subtitles(entries: [entry1, entry2])
+let subtitles = Subtitles([cue1, cue2])
 
 // Encode based on the subtitle file extension
 let content = try Subtitles.encode(fileExtension: "srt", subtitles: subtitles)
 
 // Encode using an explicit coder
-let coder = Subtitles.Coder.SRT()
+let coder = Subtitles.Coder.VTT()
 let content2 = try coder.encode(subtitles: subtitles)
 ```
 

@@ -62,7 +62,7 @@ public extension Subtitles.Coder.VTT {
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = "WEBVTT\n\n"
 
-		subtitles.entries.forEach { entry in
+		subtitles.cues.forEach { entry in
 			if let identifier = entry.identifier {
 				result += "\(identifier)"
 			}
@@ -156,7 +156,7 @@ public extension Subtitles.Coder.VTT {
 			return (s, e)
 		}
 
-		var results = [Subtitles.Entry]()
+		var results = [Subtitles.Cue]()
 
 		for section in sections {
 			guard section.count > 0 else {
@@ -219,7 +219,7 @@ public extension Subtitles.Coder.VTT {
 				index += 1
 			}
 
-			let entry = Subtitles.Entry(
+			let entry = Subtitles.Cue(
 				identifier: identifier,
 				startTime: times!.0,
 				endTime: times!.1,
@@ -228,6 +228,6 @@ public extension Subtitles.Coder.VTT {
 			results.append(entry)
 		}
 
-		return Subtitles(entries: results)
+		return Subtitles(results)
 	}
 }

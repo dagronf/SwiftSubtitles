@@ -55,7 +55,7 @@ public extension Subtitles.Coder.SRT {
 
 		var position: Int = 0
 
-		subtitles.entries.forEach { entry in
+		subtitles.cues.forEach { entry in
 			if !result.isEmpty {
 				result += "\n"
 			}
@@ -91,7 +91,7 @@ public extension Subtitles.Coder.SRT {
 			case text
 		}
 
-		var results = [Subtitles.Entry]()
+		var results = [Subtitles.Cue]()
 
 		let lines = content.components(separatedBy: .newlines)
 
@@ -118,7 +118,7 @@ public extension Subtitles.Coder.SRT {
 					if text.isEmpty {
 						throw Subtitles.SRTError.missingText(item.offset)
 					}
-					results.append(Subtitles.Entry(position: position, startTime: s, endTime: e, text: text))
+					results.append(Subtitles.Cue(position: position, startTime: s, endTime: e, text: text))
 
 					position = -1
 					start = nil
@@ -193,10 +193,10 @@ public extension Subtitles.Coder.SRT {
 				throw Subtitles.SRTError.invalidTime(-1)
 			}
 
-			let entry = Subtitles.Entry(position: position, startTime: s, endTime: e, text: text)
+			let entry = Subtitles.Cue(position: position, startTime: s, endTime: e, text: text)
 			results.append(entry)
 		}
 
-		return Subtitles(entries: results)
+		return Subtitles(results)
 	}
 }

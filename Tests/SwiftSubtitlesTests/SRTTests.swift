@@ -16,46 +16,46 @@ a subtitle - 2nd subtitle.
 """
 
 		let srt = try Subtitles(content: content, expectedExtension: "srt")
-		XCTAssertEqual(2, srt.entries.count)
-		XCTAssertEqual(srt.entries[0].text, "This is an example of a subtitle.")
-		XCTAssertEqual(srt.entries[0].startTime, Subtitles.Time(minute: 5, millisecond: 400))
-		XCTAssertEqual(srt.entries[0].startTime.timeInterval, 300.4, accuracy: 0.001)
-		XCTAssertEqual(srt.entries[0].endTime, Subtitles.Time(minute: 5, second: 15, millisecond: 300))
-		XCTAssertEqual(srt.entries[0].endTime.timeInterval, 315.3, accuracy: 0.001)
+		XCTAssertEqual(2, srt.cues.count)
+		XCTAssertEqual(srt.cues[0].text, "This is an example of a subtitle.")
+		XCTAssertEqual(srt.cues[0].startTime, Subtitles.Time(minute: 5, millisecond: 400))
+		XCTAssertEqual(srt.cues[0].startTime.timeInterval, 300.4, accuracy: 0.001)
+		XCTAssertEqual(srt.cues[0].endTime, Subtitles.Time(minute: 5, second: 15, millisecond: 300))
+		XCTAssertEqual(srt.cues[0].endTime.timeInterval, 315.3, accuracy: 0.001)
 
-		XCTAssertEqual(srt.entries[1].text, "This is an example of\na subtitle - 2nd subtitle.")
-		XCTAssertEqual(srt.entries[1].startTime.timeInterval, 316.4, accuracy: 0.001)
-		XCTAssertEqual(srt.entries[1].endTime.timeInterval, 325.3, accuracy: 0.001)
+		XCTAssertEqual(srt.cues[1].text, "This is an example of\na subtitle - 2nd subtitle.")
+		XCTAssertEqual(srt.cues[1].startTime.timeInterval, 316.4, accuracy: 0.001)
+		XCTAssertEqual(srt.cues[1].endTime.timeInterval, 325.3, accuracy: 0.001)
 
 		let encoded = try srt.encode(fileExtension: "srt")
 		XCTAssertFalse(encoded.isEmpty)
 	}
 
 	func testEncodeDoco() throws {
-		let entry1 = Subtitles.Entry(
+		let entry1 = Subtitles.Cue(
 			position: 1,
 			startTime: Subtitles.Time(minute: 10),
 			endTime: Subtitles.Time(minute: 11),
 			text: "점점 더 많아지는\n시민들의 성난 목소리로..."
 		)
 
-		let entry2 = Subtitles.Entry(
+		let entry2 = Subtitles.Cue(
 			position: 2,
 			startTime: Subtitles.Time(minute: 13, second: 5),
 			endTime: Subtitles.Time(minute: 15, second: 10, millisecond: 101),
 			text: "Second entry"
 		)
 
-		let srt = Subtitles(entries: [entry1, entry2])
+		let srt = Subtitles([entry1, entry2])
 
 		let coder = Subtitles.Coder.SRT()
 
 		let content = try coder.encode(subtitles: srt)
 		let decoded = try coder.decode(content)
 
-		XCTAssertEqual(2, decoded.entries.count)
-		XCTAssertEqual(decoded.entries[0], entry1)
-		XCTAssertEqual(decoded.entries[1], entry2)
+		XCTAssertEqual(2, decoded.cues.count)
+		XCTAssertEqual(decoded.cues[0], entry1)
+		XCTAssertEqual(decoded.cues[1], entry2)
 	}
 
 	func testExample2() throws {
@@ -95,10 +95,10 @@ Do grupo de Ralph Cifaretto.
 """
 
 		let srt = try Subtitles(content: content, expectedExtension: "srt")
-		XCTAssertEqual(7, srt.entries.count)
-		XCTAssertEqual(srt.entries[0].startTime, Subtitles.Time(minute: 1, second: 34, millisecond: 769))
-		XCTAssertEqual(srt.entries[0].text, "FamÃ­lia Soprano")
-		XCTAssertEqual(srt.entries[4].text, "Deu aula de balÃ© anos atrÃ¡s.")
+		XCTAssertEqual(7, srt.cues.count)
+		XCTAssertEqual(srt.cues[0].startTime, Subtitles.Time(minute: 1, second: 34, millisecond: 769))
+		XCTAssertEqual(srt.cues[0].text, "FamÃ­lia Soprano")
+		XCTAssertEqual(srt.cues[4].text, "Deu aula de balÃ© anos atrÃ¡s.")
 	}
 
 	func testExample3() throws {
@@ -120,16 +120,16 @@ other lending institution
 """
 
 		let srt = try Subtitles(content: content, expectedExtension: "srt")
-		XCTAssertEqual(3, srt.entries.count)
-		XCTAssertEqual(srt.entries[0].startTime.timeInterval, 3.4, accuracy: 0.0001)
-		XCTAssertEqual(srt.entries[0].endTime.timeInterval, 6.177, accuracy: 0.0001)
-		XCTAssertEqual(srt.entries[0].text, "In this lesson, we're going to\nbe talking about finance. And")
-		XCTAssertEqual(srt.entries[1].startTime.timeInterval, 6.177, accuracy: 0.0001)
-		XCTAssertEqual(srt.entries[1].endTime.timeInterval, 10.009, accuracy: 0.0001)
-		XCTAssertEqual(srt.entries[1].text, "one of the most important aspects\nof finance is interest.")
-		XCTAssertEqual(srt.entries[2].startTime.timeInterval, 10.009, accuracy: 0.0001)
-		XCTAssertEqual(srt.entries[2].endTime.timeInterval, 13.655, accuracy: 0.0001)
-		XCTAssertEqual(srt.entries[2].text, "When I go to a bank or some\nother lending institution")
+		XCTAssertEqual(3, srt.cues.count)
+		XCTAssertEqual(srt.cues[0].startTime.timeInterval, 3.4, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[0].endTime.timeInterval, 6.177, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[0].text, "In this lesson, we're going to\nbe talking about finance. And")
+		XCTAssertEqual(srt.cues[1].startTime.timeInterval, 6.177, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[1].endTime.timeInterval, 10.009, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[1].text, "one of the most important aspects\nof finance is interest.")
+		XCTAssertEqual(srt.cues[2].startTime.timeInterval, 10.009, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[2].endTime.timeInterval, 13.655, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[2].text, "When I go to a bank or some\nother lending institution")
 	}
 
 	func testWikiExample() throws {
@@ -158,35 +158,35 @@ There was no danger at all.
 """
 
 		let srt = try Subtitles(content: content, expectedExtension: "srt")
-		XCTAssertEqual(5, srt.entries.count)
+		XCTAssertEqual(5, srt.cues.count)
 
-		XCTAssertEqual(srt.entries[0].position, 1)
-		XCTAssertEqual(srt.entries[0].startTime, Subtitles.Time(minute: 2, second: 16, millisecond: 612))
-		XCTAssertEqual(srt.entries[0].endTime, Subtitles.Time(minute: 2, second: 19, millisecond: 376))
-		XCTAssertEqual(srt.entries[0].text, "Senator, we're making\nour final approach into Coruscant.")
+		XCTAssertEqual(srt.cues[0].position, 1)
+		XCTAssertEqual(srt.cues[0].startTime, Subtitles.Time(minute: 2, second: 16, millisecond: 612))
+		XCTAssertEqual(srt.cues[0].endTime, Subtitles.Time(minute: 2, second: 19, millisecond: 376))
+		XCTAssertEqual(srt.cues[0].text, "Senator, we're making\nour final approach into Coruscant.")
 
-		XCTAssertEqual(srt.entries[1].position, 2)
-		XCTAssertEqual(srt.entries[1].startTime, Subtitles.Time(minute: 2, second: 19, millisecond: 482))
-		XCTAssertEqual(srt.entries[1].endTime, Subtitles.Time(minute: 2, second: 21, millisecond: 609))
-		XCTAssertEqual(srt.entries[1].text, "Very good, Lieutenant.")
+		XCTAssertEqual(srt.cues[1].position, 2)
+		XCTAssertEqual(srt.cues[1].startTime, Subtitles.Time(minute: 2, second: 19, millisecond: 482))
+		XCTAssertEqual(srt.cues[1].endTime, Subtitles.Time(minute: 2, second: 21, millisecond: 609))
+		XCTAssertEqual(srt.cues[1].text, "Very good, Lieutenant.")
 
-		XCTAssertEqual(srt.entries[4].position, 5)
-		XCTAssertEqual(srt.entries[4].startTime, Subtitles.Time(minute: 3, second: 20, millisecond: 476))
-		XCTAssertEqual(srt.entries[4].endTime, Subtitles.Time(minute: 3, second: 22, millisecond: 671))
-		XCTAssertEqual(srt.entries[4].text, "There was no danger at all.")
+		XCTAssertEqual(srt.cues[4].position, 5)
+		XCTAssertEqual(srt.cues[4].startTime, Subtitles.Time(minute: 3, second: 20, millisecond: 476))
+		XCTAssertEqual(srt.cues[4].endTime, Subtitles.Time(minute: 3, second: 22, millisecond: 671))
+		XCTAssertEqual(srt.cues[4].text, "There was no danger at all.")
 	}
 
 	func testFile1() throws {
 		let fileURL = Bundle.module.url(forResource: "Teenage+Mutant+Ninja+Turtles.1990.Blu-ray", withExtension: "srt")!
 		let content = try Subtitles(fileURL: fileURL)
-		XCTAssertEqual(1072, content.entries.count)
+		XCTAssertEqual(1072, content.cues.count)
 
-		let e = content.entries[1071]
+		let e = content.cues[1071]
 
 //		200
 //		00:14:29,840 --> 00:14:31,080
 //		난 아직 볼일이 남았다고!
-		let s1 = content.entries[199]
+		let s1 = content.cues[199]
 		XCTAssertEqual(s1.position, 200)
 		XCTAssertEqual(s1.startTime.timeInterval, 869.84, accuracy: 0.0001)
 		XCTAssertEqual(s1.endTime.timeInterval, 871.08, accuracy: 0.0001)
@@ -204,31 +204,31 @@ There was no danger at all.
 	func testFile2() throws {
 		let fileURL = Bundle.module.url(forResource: "utf16-test", withExtension: "srt")!
 		let content = try Subtitles(fileURL: fileURL)
-		XCTAssertEqual(2, content.entries.count)
+		XCTAssertEqual(2, content.cues.count)
 
 		// Check a non-utf8 encoded file
-		XCTAssertEqual(content.entries[1].position, 1098)
-		XCTAssertEqual(content.entries[1].text, "中文鍵盤/中文键盘")
+		XCTAssertEqual(content.cues[1].position, 1098)
+		XCTAssertEqual(content.cues[1].text, "中文鍵盤/中文键盘")
 	}
 
 	func testMissingPositionals() throws {
-		let entry1 = Subtitles.Entry(
+		let entry1 = Subtitles.Cue(
 			startTime: Subtitles.Time(minute: 10),
 			endTime: Subtitles.Time(minute: 11),
 			text: "title 1"
 		)
-		let entry2 = Subtitles.Entry(
+		let entry2 = Subtitles.Cue(
 			startTime: Subtitles.Time(minute: 13),
 			endTime: Subtitles.Time(minute: 15),
 			text: "title 2"
 		)
 
 		let c = Subtitles.Coder.SRT()
-		let encoded = try c.encode(subtitles: Subtitles(entries: [entry1, entry2]))
+		let encoded = try c.encode(subtitles: Subtitles([entry1, entry2]))
 		let decoded = try c.decode(encoded)
-		XCTAssertEqual(decoded.entries.count, 2)
-		XCTAssertEqual(decoded.entries[0].position, 1)
-		XCTAssertEqual(decoded.entries[1].position, 2)
+		XCTAssertEqual(decoded.cues.count, 2)
+		XCTAssertEqual(decoded.cues[0].position, 1)
+		XCTAssertEqual(decoded.cues[1].position, 2)
 	}
 
 	func testBasicTimeError() throws {
