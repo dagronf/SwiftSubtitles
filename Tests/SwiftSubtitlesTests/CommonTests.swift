@@ -57,8 +57,7 @@ final class CommonTests: XCTestCase {
 		}
 	}
 
-	func testDoco() throws {
-		do {
+	func testDoco1() throws {
 			let entry1 = Subtitles.Entry(
 				position: 1,
 				startTime: Subtitles.Time(minute: 10),
@@ -84,6 +83,32 @@ final class CommonTests: XCTestCase {
 
 			XCTAssert(content2.count > 0)
 			XCTAssertEqual(content, content2)
-		}
+	}
+
+	func testDoco2() throws {
+		let subtitleContent = """
+1
+00:00:03,400 --> 00:00:06,177
+In this lesson, we're going to
+be talking about finance. And
+
+2
+00:00:06,177 --> 00:00:10,009
+one of the most important aspects
+of finance is interest.
+
+3
+00:00:10,009 --> 00:00:13,655
+When I go to a bank or some
+other lending institution
+"""
+
+		let coder = Subtitles.Coder.SRT()
+		let subtitles = try coder.decode(subtitleContent)
+
+		XCTAssertEqual(3, subtitles.entries.count)
+		XCTAssertEqual(subtitles.entries[0].startTime, Subtitles.Time(second: 3, millisecond: 400))
+		XCTAssertEqual(subtitles.entries[0].endTime, Subtitles.Time(second: 6, millisecond: 177))
+		XCTAssertEqual(subtitles.entries[0].text, "In this lesson, we're going to\nbe talking about finance. And")
 	}
 }

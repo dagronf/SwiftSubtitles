@@ -63,11 +63,8 @@ public extension Subtitles.Coder.VTT {
 		var result = "WEBVTT\n\n"
 
 		subtitles.entries.forEach { entry in
-//			if let position = entry.position {
-//				result += "\(position)"
-//			}
-			if let title = entry.title {
-				result += "\(title)"
+			if let identifier = entry.identifier {
+				result += "\(identifier)"
 			}
 			result += "\n"
 
@@ -178,7 +175,7 @@ public extension Subtitles.Coder.VTT {
 				continue
 			}
 
-			var title: String?
+			var identifier: String?
 			var times: (Subtitles.Time, Subtitles.Time)?
 
 			// 1. Optional cue identifier (string?)
@@ -196,7 +193,7 @@ public extension Subtitles.Coder.VTT {
 
 			if times == nil {
 				// Assume its a cue identifier
-				title = l1.line
+				identifier = l1.line
 
 				index += 1
 				guard index < section.count else {
@@ -223,8 +220,7 @@ public extension Subtitles.Coder.VTT {
 			}
 
 			let entry = Subtitles.Entry(
-				title: title,
-				position: -1,
+				identifier: identifier,
 				startTime: times!.0,
 				endTime: times!.1,
 				text: text
@@ -234,160 +230,4 @@ public extension Subtitles.Coder.VTT {
 
 		return Subtitles(entries: results)
 	}
-
-//		try lines.enumerated().forEach { item in
-//			let line = item.element.trimmingCharacters(in: .whitespaces)
-//			if line.isEmpty {
-//				if state == .blank {
-//					// just another separating line
-//				}
-//				else if state == .note || state == .style {
-//					// End of the note/style
-//					state = .blank
-//				}
-//			}
-//			else {
-//				if line.starts(with: "NOTE") {
-//					guard state == .blank else {
-//						throw Subtitles.SRTError.invalidFile
-//					}
-//					state = .note
-//				}
-//				else if line.starts(with: "STYLE") {
-//					guard state == .blank else {
-//						throw Subtitles.SRTError.invalidFile
-//					}
-//					state = .style
-//				}
-//				else {
-//					let matches = VTTTimeRegex__.matches(for: line)
-//					if matches.matches.count == 0 {
-//						// Possibly a cue identifier?
-//						let matches = CueIdentifierRegex__.matches(for: line)
-//						if matches.matches.count == 1 {
-//
-//						}
-//					}
-//					guard matches.matches.count ==  else {
-//						throw Subtitles.SRTError.invalidTime(index)
-//					}
-//				}
-//			}
-//		}
-//	}
-//
-//	func decode2(_ content: String) throws -> Subtitles {
-//		var results = [Subtitles.Entry]()
-//
-//		let lines = content.components(separatedBy: .newlines)
-//		guard lines.count > 0 else {
-//			throw Subtitles.SRTError.invalidFile
-//		}
-//		guard lines[0].starts(with: "WEBVTT") else {
-//			throw Subtitles.SRTError.invalidFile
-//		}
-//
-//		var index = 1
-//
-//		while index < lines.count {
-//			// Skip blank lines
-//			while index < lines.count && lines[index].isEmpty {
-//				index += 1
-//			}
-//			if index == lines.count {
-//				break
-//			}
-//
-//			if lines[index].starts(with: "NOTE") || lines[index].starts(with: "STYLE") {
-//				// Skip to the next blank
-//				while index < lines.count && lines[index].isEmpty == false {
-//					index += 1
-//				}
-//				index += 1
-//			}
-//
-//			guard index < lines.count else {
-//				throw Subtitles.SRTError.invalidFile
-//			}
-//
-//			// Optional cue position
-//			var position: Int?
-//			var title: String?
-//			do {
-//				let cueTitle = lines[index]
-//				let matches = CueIdentifierRegex__.matches(for: cueTitle)
-//				if matches.matches.count == 1 {
-//					let captures = matches[0].captures
-//					if let cueIndex = Int(cueTitle[captures[0]]) {
-//						position = cueIndex
-//					}
-//					else {
-//						position = nil
-//					}
-//
-//					let t = cueTitle[captures[1]]
-//					if t.isEmpty == false {
-//						title = String(t)
-//					}
-//					// Move to the next line
-//					index += 1
-//				}
-//			}
-//
-//			guard index < lines.count else {
-//				throw Subtitles.SRTError.unexpectedEOF
-//			}
-//
-//			// Time
-//			let timeLine = lines[index]
-//			let matches = VTTTimeRegex__.matches(for: timeLine)
-//			guard matches.matches.count == 1 else {
-//				throw Subtitles.SRTError.invalidTime(index)
-//			}
-//			let captures = matches[0].captures
-//			guard captures.count == 8 else {
-//				throw Subtitles.SRTError.invalidTime(index)
-//			}
-//
-//			let s_hour = UInt(timeLine[captures[0]]) ?? 0
-//			let s_min = UInt(timeLine[captures[1]]) ?? 0
-//
-//			let e_hour = UInt(timeLine[captures[4]]) ?? 0
-//			let e_min = UInt(timeLine[captures[5]]) ?? 0
-//
-//			guard
-//				let s_sec = UInt(timeLine[captures[2]]),
-//				let s_ms = UInt(timeLine[captures[3]]),
-//				let e_sec = UInt(timeLine[captures[6]]),
-//				let e_ms = UInt(timeLine[captures[7]])
-//			else {
-//				throw Subtitles.SRTError.invalidTime(index)
-//			}
-//
-//			let s = Subtitles.Time(hour: s_hour, minute: s_min, second: s_sec, millisecond: s_ms)
-//			let e = Subtitles.Time(hour: e_hour, minute: e_min, second: e_sec, millisecond: e_ms)
-//
-//			index += 1
-//			guard index < lines.count else {
-//				throw Subtitles.SRTError.unexpectedEOF
-//			}
-//
-//			// next is the text
-//			var text = ""
-//			// Skip to the next blank
-//			while index < lines.count && lines[index].isEmpty == false {
-//				if !text.isEmpty {
-//					text += "\n"
-//				}
-//				text += lines[index]
-//				index += 1
-//			}
-//
-//			let entry = Subtitles.Entry(title: title, position: position, startTime: s, endTime: e, text: text)
-//			results.append(entry)
-//
-//			index += 1
-//		}
-//		return Subtitles(entries: results)
-//	}
 }

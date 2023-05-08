@@ -32,7 +32,7 @@ A Swift package for reading/writing subtitle formats (srt, svb, vtt).
 
 ### Decoding
 
-The basic decoding uses the 
+The basic decoding uses the file extension to determine the coder t
 
 ```swift
 let subtitles = try Subtitles(fileURL: <some file url>)
@@ -45,7 +45,7 @@ You can also instantiate a coder object and use that directly if you know the ty
 
 ```swift
 let subtitleContent = ...
-let coder = Subtitles.SBVCodable()
+let coder = Subtitles.Coder.SBV()
 let subtitles = try coder.decode(subtitleContent)
 ...
 let encodedContent = try coder.encode(subtitles: subtitles)

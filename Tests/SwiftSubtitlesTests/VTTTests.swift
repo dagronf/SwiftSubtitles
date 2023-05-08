@@ -12,7 +12,7 @@ final class VTTTests: XCTestCase {
 
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 25, millisecond: 0), subtitles.entries[2].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 30, millisecond: 0), subtitles.entries[2].endTime)
-		XCTAssertEqual("3 This is the third chapter", subtitles.entries[2].title)
+		XCTAssertEqual("3 This is the third chapter", subtitles.entries[2].identifier)
 		XCTAssertEqual("- Ta en kopp", subtitles.entries[2].text)
 
 		let coder = Subtitles.Coder.VTT()
@@ -200,7 +200,7 @@ Transcrit par Célestes™
 
 		XCTAssertEqual(subtitles.entries[2].startTime, Subtitles.Time(hour: 3, second: 4))
 		XCTAssertEqual(subtitles.entries[2].endTime, Subtitles.Time(hour: 5, second: 5))
-		XCTAssertEqual(subtitles.entries[2].title, "crédit de transcription")
+		XCTAssertEqual(subtitles.entries[2].identifier, "crédit de transcription")
 		XCTAssertEqual(subtitles.entries[2].text, "Transcrit par Célestes™")
 
 		// Round trip

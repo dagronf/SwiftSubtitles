@@ -31,15 +31,20 @@ import Foundation
 public extension Subtitles {
 	/// An entry in an SRT file
 	struct Entry: Equatable {
-		/// The cue identifier (optional) (VTT)
-		public let title: String?
-		/// The cue position (optional) (SRT)
+		/// The cue identifier (optional) (used in VTT)
+		public let identifier: String?
+		/// The cue position (optional) (used for SRT)
 		public let position: Int?
+		/// The time to present the cue entry
 		public let startTime: Time
+		/// The time to dismiss the cue entry
 		public let endTime: Time
+		/// The text for the cue entry
 		public let text: String
+
+		/// Create a Cue entry
 		public init(
-			title: String? = nil,
+			identifier: String? = nil,
 			position: Int? = nil,
 			startTime: Time,
 			endTime: Time,
@@ -47,7 +52,7 @@ public extension Subtitles {
 		) {
 			assert(startTime < endTime)
 			assert(text.count > 0)
-			self.title = title
+			self.identifier = identifier
 			self.position = position
 			self.startTime = startTime
 			self.endTime = endTime
