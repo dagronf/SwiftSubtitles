@@ -1,6 +1,6 @@
-# SwiftSubtitles
+# Swift Subtitles
 
-A Swift package for reading/writing subtitle formats (srt, svb, vtt).
+A Swift package for reading/writing some common subtitle formats.
 
 <p align="center">
     <img src="https://img.shields.io/github/v/tag/dagronf/SwiftSubtitles" />
@@ -22,11 +22,11 @@ A Swift package for reading/writing subtitle formats (srt, svb, vtt).
 
 ## Available coders
 
-| Coder                  | Description                                               |
-|:-----------------------|:----------------------------------------------------------|
-| `Subtitles.Coder.SRT`  | A decoder/encoder for the SRT subtitle file format (.srt) |
-| `Subtitles.Coder.SBV`  | A decoder/encoder for the SBV subtitle file format (.sbv) |
-| `Subtitles.Coder.VTT`  | A decoder/encoder for the VTT subtitle file format (.vtt) |
+| Format          | Coder                  | File extension  |
+|:----------------|:-----------------------|:----------------|
+| SBV (SubViewer) | `Subtitles.Coder.SBV`  | `.sbv`          |
+| SRT (SubRip)    | `Subtitles.Coder.SRT`  | `.srt`          |
+| VTT (WebVTT)    | `Subtitles.Coder.VTT`  | `.vtt`          |
 
 ## Basic usage
 
@@ -77,6 +77,10 @@ let content = try Subtitles.encode(fileExtension: "srt", subtitles: subtitles)
 let coder = Subtitles.Coder.VTT()
 let content2 = try coder.encode(subtitles: subtitles)
 ```
+
+## Limitations
+
+* Some VTT functionality is not supported (NOTE, STYLE, REGION). These will be discarded on import. 
 
 ## License
 

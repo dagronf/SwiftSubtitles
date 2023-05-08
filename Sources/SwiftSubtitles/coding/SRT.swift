@@ -27,27 +27,16 @@
 import DSFRegex
 import Foundation
 
-/*
-
- WEBVTT
-
- 00:00:01.000 --> 00:00:05.330
- Good day everyone, my name is June Doe.
-
- 00:00:07.608 --> 00:00:15.290
- This video teaches you how to
- build a sandcastle on any beach.
-
- */
-
-private let SRTTimeRegex__ = try! DSFRegex(#"(\d+):(\d{1,2}):(\d{1,2}),(\d{3})\s-->\s(\d+):(\d{2}):(\d{1,2}),(\d{3})"#)
-
 extension Subtitles.Coder {
+	/// SRT (SubRip) decoder/encoder
 	public struct SRT: SubtitlesCodable {
 		public static var extn: String { "srt" }
 		public static func Create() -> Self { SRT() }
 	}
 }
+
+/// Regex for matching an SRT time string
+private let SRTTimeRegex__ = try! DSFRegex(#"(\d+):(\d{1,2}):(\d{1,2}),(\d{3})\s-->\s(\d+):(\d{2}):(\d{1,2}),(\d{3})"#)
 
 public extension Subtitles.Coder.SRT {
 	func encode(subtitles: Subtitles) throws -> String {
@@ -111,12 +100,12 @@ public extension Subtitles.Coder.SRT {
 				}
 				else if currentState == .text {
 					guard let s = start, let e = end else {
-						throw Subtitles.SRTError.invalidFile
+						throw SubTitlesError.invalidFile
 					}
 
 					// srt entry is complete
 					if text.isEmpty {
-						throw Subtitles.SRTError.missingText(item.offset)
+						throw SubTitlesError.missingText(item.offset)
 					}
 					results.append(Subtitles.Cue(position: position, startTime: s, endTime: e, text: text))
 
@@ -128,7 +117,7 @@ public extension Subtitles.Coder.SRT {
 					currentState = .blank
 				}
 				else {
-					throw Subtitles.SRTError.invalidFile
+					throw SubTitlesError.invalidFile
 				}
 			}
 			else {
@@ -136,7 +125,7 @@ public extension Subtitles.Coder.SRT {
 				if currentState == .blank {
 					// Should be the position
 					guard let p = Int(line) else {
-						throw Subtitles.SRTError.invalidPosition(item.offset + 1)
+						throw SubTitlesError.invalidPosition(item.offset + 1)
 					}
 					position = p
 					currentState = .position
@@ -145,12 +134,12 @@ public extension Subtitles.Coder.SRT {
 					// Should be the start/end  "00:05:00,400 --> 00:05:15,300"
 					let matches = SRTTimeRegex__.matches(for: line)
 					guard matches.count == 1 else {
-						throw Subtitles.SRTError.invalidTime(item.offset)
+						throw SubTitlesError.invalidTime(item.offset)
 					}
 
 					let captures = matches[0].captures
 					guard captures.count == 8 else {
-						throw Subtitles.SRTError.invalidTime(item.offset)
+						throw SubTitlesError.invalidTime(item.offset)
 					}
 
 					guard
@@ -164,14 +153,14 @@ public extension Subtitles.Coder.SRT {
 						let e_sec = UInt(line[captures[6]]),
 						let e_ms = UInt(line[captures[7]])
 					else {
-						throw Subtitles.SRTError.invalidTime(item.offset)
+						throw SubTitlesError.invalidTime(item.offset)
 					}
 
 					let s = Subtitles.Time(hour: s_hour, minute: s_min, second: s_sec, millisecond: s_ms)
 					let e = Subtitles.Time(hour: e_hour, minute: e_min, second: e_sec, millisecond: e_ms)
 
 					guard s < e else {
-						throw Subtitles.SRTError.startTimeAfterEndTime(item.offset)
+						throw SubTitlesError.startTimeAfterEndTime(item.offset)
 					}
 
 					start = s
@@ -190,7 +179,7 @@ public extension Subtitles.Coder.SRT {
 
 		if position != -1 {
 			guard let s = start, let e = end else {
-				throw Subtitles.SRTError.invalidTime(-1)
+				throw SubTitlesError.invalidTime(-1)
 			}
 
 			let entry = Subtitles.Cue(position: position, startTime: s, endTime: e, text: text)

@@ -27,45 +27,19 @@
 import DSFRegex
 import Foundation
 
-/*
- 0:00:01.000,0:00:03.000
- Hello, and welcome to our video!
-
- 0:00:04.000,0:00:06.000
- In this video, we will be discussing the SBV file format.
-
- 0:00:07.000,0:00:10.000
- The SBV format is commonly used for storing subtitles for videos.
- */
-
-/*
- 0:00:00.599,0:00:04.160
- >> ALICE: Hi, my name is Alice Miller and this is John Brown
-
- 0:00:04.160,0:00:06.770
- >> JOHN: and we're the owners of Miller Bakery.
-
- 0:00:06.770,0:00:10.880
- >> ALICE: Today we'll be teaching you how to make
- our famous chocolate chip cookies!
-
- 0:00:10.880,0:00:16.700
- [intro music]
-
- 0:00:16.700,0:00:21.480
- Okay, so we have all the ingredients laid out here
- */
-
-// https://support.google.com/youtube/answer/2734698?hl=en#zippy=%2Cbasic-file-formats%2Cadvanced-file-formats%2Csubviewer-sbv-example
-
-private let SBVTimeRegex__ = try! DSFRegex(#"^(\d+):(\d{1,2}):(\d{1,2})\.(\d{3}),(\d+):(\d{2}):(\d{1,2})\.(\d{3})$"#)
-
 extension Subtitles.Coder {
+	/// SBV (SubViewer) decoder/encoder
+	///
+	/// * [Format discussion](https://support.google.com/youtube/answer/2734698?hl=en#zippy=%2Cbasic-file-formats%2Cadvanced-file-formats%2Csubviewer-sbv-example)
 	public struct SBV: SubtitlesCodable {
 		public static var extn: String { "sbv" }
 		public static func Create() -> Self { SBV() }
 	}
 }
+
+/// Regex for matching an SBV time string
+private let SBVTimeRegex__ = try! DSFRegex(#"^(\d+):(\d{1,2}):(\d{1,2})\.(\d{3}),(\d+):(\d{2}):(\d{1,2})\.(\d{3})$"#)
+
 
 public extension Subtitles.Coder.SBV {
 	func encode(subtitles: Subtitles) throws -> String {
@@ -82,7 +56,7 @@ public extension Subtitles.Coder.SBV {
 			)
 
 			if entry.text.isEmpty {
-				throw Subtitles.SRTError.missingText(item.offset)
+				throw SubTitlesError.missingText(item.offset)
 			}
 
 			result += "\(entry.text)\n\n"
@@ -112,12 +86,12 @@ public extension Subtitles.Coder.SBV {
 			let timeLine = lines[index]
 			let matches = SBVTimeRegex__.matches(for: timeLine)
 			guard matches.count == 1 else {
-				throw Subtitles.SRTError.invalidTime(index)
+				throw SubTitlesError.invalidTime(index)
 			}
 
 			let captures = matches[0].captures
 			guard captures.count == 8 else {
-				throw Subtitles.SRTError.invalidTime(index)
+				throw SubTitlesError.invalidTime(index)
 			}
 
 			guard
@@ -131,20 +105,20 @@ public extension Subtitles.Coder.SBV {
 				let e_sec = UInt(timeLine[captures[6]]),
 				let e_ms = UInt(timeLine[captures[7]])
 			else {
-				throw Subtitles.SRTError.invalidTime(index)
+				throw SubTitlesError.invalidTime(index)
 			}
 
 			let s = Subtitles.Time(hour: s_hour, minute: s_min, second: s_sec, millisecond: s_ms)
 			let e = Subtitles.Time(hour: e_hour, minute: e_min, second: e_sec, millisecond: e_ms)
 
 			guard s < e else {
-				throw Subtitles.SRTError.startTimeAfterEndTime(index)
+				throw SubTitlesError.startTimeAfterEndTime(index)
 			}
 
 			index += 1
 
 			guard index < lines.count else {
-				throw Subtitles.SRTError.unexpectedEOF
+				throw SubTitlesError.unexpectedEOF
 			}
 
 			// Text should be next
@@ -157,7 +131,7 @@ public extension Subtitles.Coder.SBV {
 			}
 
 			if text.isEmpty {
-				throw Subtitles.SRTError.invalidTime(index)
+				throw SubTitlesError.invalidTime(index)
 			}
 
 			let entry = Subtitles.Cue(position: position, startTime: s, endTime: e, text: text)
@@ -167,3 +141,33 @@ public extension Subtitles.Coder.SBV {
 		return Subtitles(results)
 	}
 }
+
+
+/*
+ 0:00:01.000,0:00:03.000
+ Hello, and welcome to our video!
+
+ 0:00:04.000,0:00:06.000
+ In this video, we will be discussing the SBV file format.
+
+ 0:00:07.000,0:00:10.000
+ The SBV format is commonly used for storing subtitles for videos.
+ */
+
+/*
+ 0:00:00.599,0:00:04.160
+ >> ALICE: Hi, my name is Alice Miller and this is John Brown
+
+ 0:00:04.160,0:00:06.770
+ >> JOHN: and we're the owners of Miller Bakery.
+
+ 0:00:06.770,0:00:10.880
+ >> ALICE: Today we'll be teaching you how to make
+ our famous chocolate chip cookies!
+
+ 0:00:10.880,0:00:16.700
+ [intro music]
+
+ 0:00:16.700,0:00:21.480
+ Okay, so we have all the ingredients laid out here
+ */

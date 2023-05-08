@@ -1,5 +1,5 @@
 //
-//  SRT+error.swift
+//  Subtitles+error.swift
 //
 //  Copyright © 2023 Darren Ford. All rights reserved.
 //
@@ -26,17 +26,24 @@
 
 import Foundation
 
-extension Subtitles {
-	/// Errors thrown by the library
-	public enum SRTError: Error {
-		case unsupportedFileType(String)
-		case invalidFile
-		case unexpectedEOF
-		case invalidEncoding
-		case invalidPosition(Int)
-		case invalidTime(Int)
-		case startTimeAfterEndTime(Int)
-		case missingText(Int)
-		case invalidLine(Int)
-	}
+/// Errors thrown by the library
+public enum SubTitlesError: Error {
+	/// File type is not supported
+	case unsupportedFileType(String)
+	/// File is invalid
+	case invalidFile
+	/// Found end of file
+	case unexpectedEOF
+	/// Unsupported string encoding
+	case invalidEncoding
+	/// Expected an integer cue position
+	case invalidPosition(Int)
+	/// Time field could not be parsed
+	case invalidTime(Int)
+	/// End time occurs before the start time
+	case startTimeAfterEndTime(Int)
+	/// The text for a cue is missing
+	case missingText(Int)
+	/// Unexpected end of cue
+	case unexpectedEndOfCue(Int)
 }

@@ -28,8 +28,8 @@ import Foundation
 
 /// An Subtitles file representation
 public struct Subtitles: Equatable {
-	/// The file extension for the file format
-	public internal(set) var cues: [Cue] = []
+	/// Subtitle cues
+	public let cues: [Cue]
 
 	/// Create using an array of subtitle cues
 	public init(_ cues: [Cue]) {
@@ -40,10 +40,10 @@ public struct Subtitles: Equatable {
 // MARK: - Decoding
 
 public extension Subtitles {
-	/// Create an SRT object using the contents of a file
+	/// Create an subtitles object using the contents of a file
 	init(fileURL: URL) throws {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileURL.pathExtension) else {
-			throw Subtitles.SRTError.unsupportedFileType(fileURL.pathExtension)
+			throw SubTitlesError.unsupportedFileType(fileURL.pathExtension)
 		}
 
 		var encoding: String.Encoding = .utf8
@@ -52,21 +52,28 @@ public extension Subtitles {
 		self = try coder.decode(content)
 	}
 
-	/// Create an SRT object from the content of a string
+	/// Create an subtitles object from the content of a string
+	/// - Parameters:
+	///   - content: The string containing the subtitle content
+	///   - expectedExtension: The expected format for the content expressed as the subtitle format's file extension.
 	init(content: String, expectedExtension: String) throws {
 		guard let coder = Subtitles.Coder.coder(fileExtension: expectedExtension) else {
-			throw Subtitles.SRTError.unsupportedFileType(expectedExtension)
+			throw SubTitlesError.unsupportedFileType(expectedExtension)
 		}
 		self = try coder.decode(content)
 	}
 
-	/// Create an SRT object from the content of a Data
+	/// Create an subtitles object from the content of a Data
+	/// - Parameters:
+	///   - data: The data containing the subtitle content
+	///   - expectedExtension: The expected format for the content expressed as the subtitle format's file extension.
+	///   - encoding: The expected text encoding for the content
 	init(data: Data, expectedExtension: String, encoding: String.Encoding = .utf8) throws {
 		guard let coder = Subtitles.Coder.coder(fileExtension: expectedExtension) else {
-			throw Subtitles.SRTError.unsupportedFileType(expectedExtension)
+			throw SubTitlesError.unsupportedFileType(expectedExtension)
 		}
 		guard let content = String(data: data, encoding: encoding) else {
-			throw SRTError.invalidEncoding
+			throw SubTitlesError.invalidEncoding
 		}
 		self = try coder.decode(content)
 	}
@@ -80,7 +87,7 @@ public extension Subtitles {
 	///   - fileExtension: The extension of subtitle file to generate
 	static func encode(fileExtension: String, subtitles: Subtitles) throws -> String {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileExtension) else {
-			throw Subtitles.SRTError.unsupportedFileType(fileExtension)
+			throw SubTitlesError.unsupportedFileType(fileExtension)
 		}
 		return try coder.encode(subtitles: subtitles)
 	}
@@ -99,11 +106,11 @@ public extension Subtitles {
 	/// - Returns: The generated subtitles file as raw data
 	func data(fileExtension: String, encoding: String.Encoding = .utf8) throws -> Data {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileExtension) else {
-			throw Subtitles.SRTError.unsupportedFileType(fileExtension)
+			throw SubTitlesError.unsupportedFileType(fileExtension)
 		}
 		let content = try coder.encode(subtitles: self)
 		guard let data = content.data(using: encoding, allowLossyConversion: false) else {
-			throw SRTError.invalidEncoding
+			throw SubTitlesError.invalidEncoding
 		}
 		return data
 	}
@@ -112,13 +119,13 @@ public extension Subtitles {
 // MARK: - Sorting
 
 public extension Subtitles {
-	/// Return a new SRT object with the entries sorted by the position
+	/// Return a new subtitles object with the entries sorted by the position
 	var positionSorted: Subtitles {
 		let entries = self.cues.sorted { a, b in a.position ?? 0 < b.position ?? 0 }
 		return Subtitles(entries)
 	}
 
-	/// Return a new SRT object with the entries sorted by start time of each entry
+	/// Return a new subtitles object with the entries sorted by start time of each entry
 	var startTimeSorted: Subtitles {
 		let entries = self.cues.sorted { a, b in a.startTime < b.endTime }
 		return Subtitles(entries)

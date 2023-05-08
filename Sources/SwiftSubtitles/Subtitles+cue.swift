@@ -1,5 +1,5 @@
 //
-//  SRT+entry.swift
+//  Subtitles+cue.swift
 //
 //  Copyright © 2023 Darren Ford. All rights reserved.
 //
@@ -26,10 +26,8 @@
 
 import Foundation
 
-// MARK: - Cue
-
 public extension Subtitles {
-	/// An cue entry in an SRT file
+	/// An cue entry in a subtitles file
 	struct Cue: Equatable {
 		/// The identifier (used in VTT)
 		public let identifier: String?
@@ -41,7 +39,7 @@ public extension Subtitles {
 		public let endTime: Time
 		/// The text for the cue entry
 		public let text: String
-
+		
 		/// Create a Cue entry
 		public init(
 			identifier: String? = nil,

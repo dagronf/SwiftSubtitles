@@ -27,36 +27,19 @@
 import DSFRegex
 import Foundation
 
-/*
-
- WEBVTT
-
- 00:00:01.000 --> 00:00:05.330
- Good day everyone, my name is June Doe.
-
- 00:00:07.608 --> 00:00:15.290
- This video teaches you how to
- build a sandcastle on any beach.
-
- */
-
-// https://www.w3.org/TR/webvtt1/
-
-// 2 - ASDFASDF
-// 3
-//private let CueIdentifierRegex__ = try! DSFRegex(#"^(\d)(?:\s(.*))?$"#)
-
-private let VTTTimeRegex__ = try! DSFRegex(#"(?:(\d*):)?(?:(\d*):)(\d*)\.(\d{3})\s-->\s(?:(\d*):)?(?:(\d*):)(\d*)\.(\d{3})"#)
-
 extension Subtitles.Coder {
-	/// VTT codable file
+	/// VTT (WebVTT) decoder/Encoder
 	///
-	/// https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API
+	/// * [Mozilla definition](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)
+	/// * [W3 discussion](https://www.w3.org/TR/webvtt1/)
 	public struct VTT: SubtitlesCodable {
 		public static var extn: String { "vtt" }
 		public static func Create() -> Self { VTT() }
 	}
 }
+
+/// The time matching regex
+private let VTTTimeRegex__ = try! DSFRegex(#"(?:(\d*):)?(?:(\d*):)(\d*)\.(\d{3})\s-->\s(?:(\d*):)?(?:(\d*):)(\d*)\.(\d{3})"#)
 
 public extension Subtitles.Coder.VTT {
 	func encode(subtitles: Subtitles) throws -> String {
@@ -89,7 +72,7 @@ public extension Subtitles.Coder.VTT {
 			.map { (offset: $0.offset, element: $0.element.trimmingCharacters(in: .whitespaces)) }
 
 		guard lines[0].element.contains("WEBVTT") else {
-			throw Subtitles.SRTError.invalidFile
+			throw SubTitlesError.invalidFile
 		}
 
 		// Break up into sections
@@ -128,11 +111,11 @@ public extension Subtitles.Coder.VTT {
 		func parseTime(index: Int, timeLine: String) throws -> (Subtitles.Time, Subtitles.Time) {
 			let matches = VTTTimeRegex__.matches(for: timeLine)
 			guard matches.matches.count == 1 else {
-				throw Subtitles.SRTError.invalidTime(index)
+				throw SubTitlesError.invalidTime(index)
 			}
 			let captures = matches[0].captures
 			guard captures.count == 8 else {
-				throw Subtitles.SRTError.invalidTime(index)
+				throw SubTitlesError.invalidTime(index)
 			}
 
 			let s_hour = UInt(timeLine[captures[0]]) ?? 0
@@ -147,7 +130,7 @@ public extension Subtitles.Coder.VTT {
 				let e_sec = UInt(timeLine[captures[6]]),
 				let e_ms = UInt(timeLine[captures[7]])
 			else {
-				throw Subtitles.SRTError.invalidTime(index)
+				throw SubTitlesError.invalidTime(index)
 			}
 
 			let s = Subtitles.Time(hour: s_hour, minute: s_min, second: s_sec, millisecond: s_ms)
@@ -160,7 +143,7 @@ public extension Subtitles.Coder.VTT {
 
 		for section in sections {
 			guard section.count > 0 else {
-				throw Subtitles.SRTError.invalidFile
+				throw SubTitlesError.invalidFile
 			}
 
 			var index = 0
@@ -184,7 +167,7 @@ public extension Subtitles.Coder.VTT {
 				times = try parseTime(index: l1.index, timeLine: l1.line)
 				index += 1
 				guard index < section.count else {
-					throw Subtitles.SRTError.invalidLine(line.index)
+					throw SubTitlesError.unexpectedEndOfCue(line.index)
 				}
 			}
 			catch {
@@ -197,7 +180,7 @@ public extension Subtitles.Coder.VTT {
 
 				index += 1
 				guard index < section.count else {
-					throw Subtitles.SRTError.invalidLine(line.index)
+					throw SubTitlesError.unexpectedEndOfCue(line.index)
 				}
 				let l2 = section[index]
 				times = try parseTime(index: l2.index, timeLine: l2.line)
@@ -205,7 +188,7 @@ public extension Subtitles.Coder.VTT {
 			}
 
 			guard index < section.count else {
-				throw Subtitles.SRTError.invalidLine(line.index)
+				throw SubTitlesError.unexpectedEndOfCue(line.index)
 			}
 
 			// next is the text
@@ -217,6 +200,11 @@ public extension Subtitles.Coder.VTT {
 				}
 				text += section[index].line
 				index += 1
+			}
+
+			if text.isEmpty {
+				/// A cue without any text?
+				throw SubTitlesError.missingText(line.index)
 			}
 
 			let entry = Subtitles.Cue(

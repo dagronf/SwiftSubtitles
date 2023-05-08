@@ -1,5 +1,5 @@
 //
-//  SRT+time.swift
+//  Subtitles+time.swift
 //
 //  Copyright © 2023 Darren Ford. All rights reserved.
 //
@@ -27,7 +27,7 @@
 import Foundation
 
 public extension Subtitles {
-	/// A time definition for an SRT file
+	/// A time definition for a subtitles file
 	struct Time: Equatable, Comparable {
 		/// Create a Time
 		public init(hour: UInt = 0, minute: UInt = 0, second: UInt = 0, millisecond: UInt = 0) {
