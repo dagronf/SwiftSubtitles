@@ -84,9 +84,6 @@ public extension Subtitles.Time {
 		if lhs.second < rhs.second { return true }
 		if lhs.second > rhs.second { return false }
 
-		if lhs.millisecond < rhs.millisecond { return true }
-		if lhs.millisecond > rhs.millisecond { return false }
-
-		return false
+		return lhs.millisecond < rhs.millisecond
 	}
 }
