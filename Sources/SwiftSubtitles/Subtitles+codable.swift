@@ -43,6 +43,32 @@ public extension SubtitlesCodable {
 	/// The file extension supported by the coder
 	var extn: String { Self.extn }
 
+	/// Decode subtitles from raw data
+	/// - Parameters:
+	///   - data: The data
+	///   - encoding: The expected encoding of the content of the data
+	/// - Returns: Subtitles
+	func decode(_ data: Data, encoding: String.Encoding) throws -> Subtitles {
+		guard let content = String(data: data, encoding: encoding) else {
+			throw SubTitlesError.invalidEncoding
+		}
+		return try self.decode(content)
+	}
+
+
+	/// Encode the subtitles as raw data
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	///   - encoding: The string encoding to use
+	/// - Returns: Data
+	func encode(subtitles: Subtitles, encoding: String.Encoding) throws -> Data {
+		let content = try self.encode(subtitles: subtitles)
+		guard let data = content.data(using: encoding, allowLossyConversion: false) else {
+			throw SubTitlesError.invalidEncoding
+		}
+		return data
+	}
+
 	/// Decode the subtitles from a fileURL
 	func decode(fileURL: URL) throws -> Subtitles {
 		if fileURL.pathExtension.lowercased() != self.extn {

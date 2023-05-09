@@ -75,7 +75,7 @@ final class CommonTests: XCTestCase {
 			let subtitles = Subtitles([entry1, entry2])
 
 			// Encode based on the subtitle file extension
-			let content = try Subtitles.encode(fileExtension: "srt", subtitles: subtitles)
+			let content = try Subtitles.encode(subtitles, fileExtension: "srt")
 
 			// Encode using an explicit coder
 			let coder = Subtitles.Coder.SRT()

@@ -74,10 +74,7 @@ public extension Subtitles {
 		guard let coder = Subtitles.Coder.coder(fileExtension: expectedExtension) else {
 			throw SubTitlesError.unsupportedFileType(expectedExtension)
 		}
-		guard let content = String(data: data, encoding: encoding) else {
-			throw SubTitlesError.invalidEncoding
-		}
-		self = try coder.decode(content)
+		self = try coder.decode(data, encoding: encoding)
 	}
 }
 
@@ -86,19 +83,33 @@ public extension Subtitles {
 public extension Subtitles {
 	/// Encode subtitles into a string with the format matching the specified file extension
 	/// - Parameters:
+	///   - subtitles: The subtitles to encode
 	///   - fileExtension: The extension of subtitle file to generate
-	static func encode(fileExtension: String, subtitles: Subtitles) throws -> String {
+	static func encode(_ subtitles: Subtitles, fileExtension: String) throws -> String {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileExtension) else {
 			throw SubTitlesError.unsupportedFileType(fileExtension)
 		}
 		return try coder.encode(subtitles: subtitles)
 	}
 
+	/// Encode subtitles into a data object with the format matching the specified file extension
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	///   - fileExtension: The type of subtitles to write
+	///   - encoding: If the coder supports it, the string encoding
+	/// - Returns: Data
+	static func encode(_ subtitles: Subtitles, fileExtension: String, encoding: String.Encoding) throws -> Data {
+		guard let coder = Subtitles.Coder.coder(fileExtension: fileExtension) else {
+			throw SubTitlesError.unsupportedFileType(fileExtension)
+		}
+		return try coder.encode(subtitles: subtitles, encoding: encoding)
+	}
+
 	/// Encode the cues into a string with the format matching the specified file extension
 	/// - Parameters:
 	///   - fileExtension: The extension of subtitle file to generate
 	@inlinable func encode(fileExtension: String) throws -> String {
-		try Self.encode(fileExtension: fileExtension, subtitles: self)
+		try Self.encode(self, fileExtension: fileExtension)
 	}
 
 	/// Encode the SRT cues as a Data object
@@ -106,15 +117,11 @@ public extension Subtitles {
 	///   - fileExtension: The extension of subtitle file to generate
 	///   - encoding: The text encoding for the string
 	/// - Returns: The generated subtitles file as raw data
-	func data(fileExtension: String, encoding: String.Encoding = .utf8) throws -> Data {
+	func encode(fileExtension: String, encoding: String.Encoding = .utf8) throws -> Data {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileExtension) else {
 			throw SubTitlesError.unsupportedFileType(fileExtension)
 		}
-		let content = try coder.encode(subtitles: self)
-		guard let data = content.data(using: encoding, allowLossyConversion: false) else {
-			throw SubTitlesError.invalidEncoding
-		}
-		return data
+		return try coder.encode(subtitles: self, encoding: encoding)
 	}
 }
 
