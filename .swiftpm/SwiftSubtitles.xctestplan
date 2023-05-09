@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "0FD3E74D-AFD5-473B-8DE3-A48C54020EBE",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "SwiftSubtitlesTests",
+        "name" : "SwiftSubtitlesTests"
+      }
+    }
+  ],
+  "version" : 1
+}

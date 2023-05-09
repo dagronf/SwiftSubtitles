@@ -41,7 +41,6 @@ private let SRTTimeRegex__ = try! DSFRegex(#"(\d+):(\d{1,2}):(\d{1,2}),(\d{3})\s
 public extension Subtitles.Coder.SRT {
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = ""
-
 		var position: Int = 0
 
 		subtitles.cues.forEach { entry in

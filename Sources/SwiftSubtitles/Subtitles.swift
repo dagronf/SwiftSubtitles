@@ -41,13 +41,15 @@ public struct Subtitles: Equatable, Codable {
 
 public extension Subtitles {
 	/// Create an subtitles object using the contents of a file
-	init(fileURL: URL) throws {
+	init(fileURL: URL, expectedEncoding: String.Encoding = .utf8) throws {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileURL.pathExtension) else {
 			throw SubTitlesError.unsupportedFileType(fileURL.pathExtension)
 		}
 
-		var encoding: String.Encoding = .utf8
-		let content = try String(contentsOf: fileURL, usedEncoding: &encoding)
+		let data = try Data(contentsOf: fileURL)
+		guard let content = String(data: data, encoding: expectedEncoding) else {
+			throw SubTitlesError.invalidEncoding
+		}
 
 		self = try coder.decode(content)
 	}

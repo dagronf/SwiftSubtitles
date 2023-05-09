@@ -203,7 +203,7 @@ public extension Subtitles.Coder.VTT {
 			}
 
 			if text.isEmpty {
-				/// A cue without any text?
+				// A cue without any text? That's a paddlin'
 				throw SubTitlesError.missingText(line.index)
 			}
 
