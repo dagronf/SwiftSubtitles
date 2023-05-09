@@ -33,9 +33,33 @@ public protocol SubtitlesCodable {
 	/// Create an instance of the coder
 	static func Create() -> Self
 
+	/// Decode subtitles from the specified data
+	/// - Parameters:
+	///   - data: The data to decode
+	///   - encoding: The expected string encoding if the coder represents a text file
+	/// - Returns: The subtitles
+	func decode(_ data: Data, encoding: String.Encoding) throws -> Subtitles
+
+	/// Encode the specified subtitles to a data
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	///   - encoding: The string encoding to use if the coder generates text
+	/// - Returns: The encoded data
+	func encode(subtitles: Subtitles, encoding: String.Encoding) throws -> Data
+}
+
+/// A protocol for indicating that the coder generates text content
+public protocol SubtitlesTextCodable {
 	/// Decode subtitles from the specified string
+	/// - Parameters:
+	///   - content: The string to decode
+	/// - Returns: The subtitles
 	func decode(_ content: String) throws -> Subtitles
+
 	/// Encode the specified subtitles to a string
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	/// - Returns: The encoded string
 	func encode(subtitles: Subtitles) throws -> String
 }
 
@@ -43,41 +67,24 @@ public extension SubtitlesCodable {
 	/// The file extension supported by the coder
 	var extn: String { Self.extn }
 
-	/// Decode subtitles from raw data
+	/// Decode the subtitles from a file
 	/// - Parameters:
-	///   - data: The data
-	///   - encoding: The expected encoding of the content of the data
+	///   - fileURL: The url for the file to load
+	///   - encoding: The expected encoding for the file
 	/// - Returns: Subtitles
-	func decode(_ data: Data, encoding: String.Encoding) throws -> Subtitles {
-		guard let content = String(data: data, encoding: encoding) else {
-			throw SubTitlesError.invalidEncoding
-		}
-		return try self.decode(content)
-	}
-
-
-	/// Encode the subtitles as raw data
-	/// - Parameters:
-	///   - subtitles: The subtitles to encode
-	///   - encoding: The string encoding to use
-	/// - Returns: Data
-	func encode(subtitles: Subtitles, encoding: String.Encoding) throws -> Data {
-		let content = try self.encode(subtitles: subtitles)
-		guard let data = content.data(using: encoding, allowLossyConversion: false) else {
-			throw SubTitlesError.invalidEncoding
-		}
-		return data
-	}
-
-	/// Decode the subtitles from a fileURL
-	func decode(fileURL: URL) throws -> Subtitles {
+	func decode(fileURL: URL, encoding: String.Encoding) throws -> Subtitles {
 		if fileURL.pathExtension.lowercased() != self.extn {
-			Swift.print("Mismatched extensions")
+			Swift.print("Mismatched extensions?")
 		}
 
-		var usedEncoding: String.Encoding = .utf8
-		let str = try String(contentsOf: fileURL, usedEncoding: &usedEncoding)
-		return try self.decode(str)
+		if let coder = self as? SubtitlesTextCodable {
+			/// This coder encodes/decodes text
+			let content = try String(contentsOf: fileURL, encoding: encoding)
+			return try coder.decode(content)
+		}
+
+		let data = try Data(contentsOf: fileURL)
+		return try self.decode(data, encoding: encoding)
 	}
 }
 

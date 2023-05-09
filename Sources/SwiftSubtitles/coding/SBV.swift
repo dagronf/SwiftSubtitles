@@ -31,7 +31,7 @@ extension Subtitles.Coder {
 	/// SBV (SubViewer) decoder/encoder
 	///
 	/// * [Format discussion](https://support.google.com/youtube/answer/2734698?hl=en#zippy=%2Cbasic-file-formats%2Cadvanced-file-formats%2Csubviewer-sbv-example)
-	public struct SBV: SubtitlesCodable {
+	public struct SBV: SubtitlesCodable, SubtitlesTextCodable {
 		public static var extn: String { "sbv" }
 		public static func Create() -> Self { SBV() }
 	}
@@ -42,6 +42,23 @@ private let SBVTimeRegex__ = try! DSFRegex(#"^(\d+):(\d{1,2}):(\d{1,2})\.(\d{3})
 
 
 public extension Subtitles.Coder.SBV {
+	/// Encode subtitles as Data
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	///   - encoding: The encoding to use if the content is text
+	/// - Returns: The encoded Data
+	func encode(subtitles: Subtitles, encoding: String.Encoding) throws -> Data {
+		let content = try self.encode(subtitles: subtitles)
+		guard let data = content.data(using: encoding, allowLossyConversion: false) else {
+			throw SubTitlesError.invalidEncoding
+		}
+		return data
+	}
+
+	/// Encode subtitles as a String
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	/// - Returns: The encoded String
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = ""
 
@@ -64,7 +81,25 @@ public extension Subtitles.Coder.SBV {
 
 		return result
 	}
+}
 
+public extension Subtitles.Coder.SBV {
+	/// Decode subtitles from sbv data
+	/// - Parameters:
+	///   - data: The data to decode
+	///   - encoding: The string encoding for the data content
+	/// - Returns: Subtitles
+	func decode(_ data: Data, encoding: String.Encoding) throws -> Subtitles {
+		guard let content = String(data: data, encoding: encoding) else {
+			throw SubTitlesError.invalidEncoding
+		}
+		return try self.decode(content)
+	}
+
+	/// Decode subtitles from a sbv-coded string
+	/// - Parameters:
+	///   - content: The string
+	/// - Returns: Subtitles
 	func decode(_ content: String) throws -> Subtitles {
 		var results = [Subtitles.Cue]()
 

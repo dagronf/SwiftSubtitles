@@ -29,7 +29,7 @@ import Foundation
 
 extension Subtitles.Coder {
 	/// SRT (SubRip) decoder/encoder
-	public struct SRT: SubtitlesCodable {
+	public struct SRT: SubtitlesCodable, SubtitlesTextCodable {
 		public static var extn: String { "srt" }
 		public static func Create() -> Self { SRT() }
 	}
@@ -39,6 +39,23 @@ extension Subtitles.Coder {
 private let SRTTimeRegex__ = try! DSFRegex(#"(\d+):(\d{1,2}):(\d{1,2}),(\d{3})\s-->\s(\d+):(\d{2}):(\d{1,2}),(\d{3})"#)
 
 public extension Subtitles.Coder.SRT {
+	/// Encode subtitles as Data
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	///   - encoding: The encoding to use if the content is text
+	/// - Returns: The encoded Data
+	func encode(subtitles: Subtitles, encoding: String.Encoding) throws -> Data {
+		let content = try self.encode(subtitles: subtitles)
+		guard let data = content.data(using: encoding, allowLossyConversion: false) else {
+			throw SubTitlesError.invalidEncoding
+		}
+		return data
+	}
+
+	/// Encode subtitles as a String
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	/// - Returns: The encoded String
 	func encode(subtitles: Subtitles) throws -> String {
 		var result = ""
 		var position: Int = 0
@@ -70,8 +87,27 @@ public extension Subtitles.Coder.SRT {
 
 		return result
 	}
+}
 
+public extension Subtitles.Coder.SRT {
+	/// Decode subtitles from srt data
+	/// - Parameters:
+	///   - data: The data to decode
+	///   - encoding: The string encoding for the data content
+	/// - Returns: Subtitles
+	func decode(_ data: Data, encoding: String.Encoding) throws -> Subtitles {
+		guard let content = String(data: data, encoding: encoding) else {
+			throw SubTitlesError.invalidEncoding
+		}
+		return try self.decode(content)
+	}
+
+	/// Decode subtitles from a srt-coded string
+	/// - Parameters:
+	///   - content: The string
+	/// - Returns: Subtitles
 	func decode(_ content: String) throws -> Subtitles {
+
 		enum LineState {
 			case blank
 			case position

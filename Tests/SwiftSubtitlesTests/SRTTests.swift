@@ -178,7 +178,7 @@ There was no danger at all.
 
 	func testFile1() throws {
 		let fileURL = Bundle.module.url(forResource: "Teenage+Mutant+Ninja+Turtles.1990.Blu-ray", withExtension: "srt")!
-		let content = try Subtitles(fileURL: fileURL)
+		let content = try Subtitles(fileURL: fileURL, encoding: .utf8)
 		XCTAssertEqual(1072, content.cues.count)
 
 		let e = content.cues[1071]
@@ -203,7 +203,7 @@ There was no danger at all.
 
 	func testFile2() throws {
 		let fileURL = Bundle.module.url(forResource: "utf16-test", withExtension: "srt")!
-		let content = try Subtitles(fileURL: fileURL, expectedEncoding: .utf16)
+		let content = try Subtitles(fileURL: fileURL, encoding: .utf16)
 		XCTAssertEqual(2, content.cues.count)
 
 		// Check a non-utf8 encoded file

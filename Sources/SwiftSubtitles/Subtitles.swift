@@ -41,17 +41,11 @@ public struct Subtitles: Equatable, Codable {
 
 public extension Subtitles {
 	/// Create an subtitles object using the contents of a file
-	init(fileURL: URL, expectedEncoding: String.Encoding = .utf8) throws {
+	init(fileURL: URL, encoding: String.Encoding) throws {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileURL.pathExtension) else {
 			throw SubTitlesError.unsupportedFileType(fileURL.pathExtension)
 		}
-
-		let data = try Data(contentsOf: fileURL)
-		guard let content = String(data: data, encoding: expectedEncoding) else {
-			throw SubTitlesError.invalidEncoding
-		}
-
-		self = try coder.decode(content)
+		self = try coder.decode(fileURL: fileURL, encoding: encoding)
 	}
 
 	/// Create an subtitles object from the content of a string
@@ -62,6 +56,11 @@ public extension Subtitles {
 		guard let coder = Subtitles.Coder.coder(fileExtension: expectedExtension) else {
 			throw SubTitlesError.unsupportedFileType(expectedExtension)
 		}
+
+		guard let coder = coder as? SubtitlesTextCodable else {
+			throw SubTitlesError.coderGeneratesBinaryContent
+		}
+
 		self = try coder.decode(content)
 	}
 
@@ -70,7 +69,7 @@ public extension Subtitles {
 	///   - data: The data containing the subtitle content
 	///   - expectedExtension: The expected format for the content expressed as the subtitle format's file extension.
 	///   - encoding: The expected text encoding for the content
-	init(data: Data, expectedExtension: String, encoding: String.Encoding = .utf8) throws {
+	init(data: Data, expectedExtension: String, encoding: String.Encoding) throws {
 		guard let coder = Subtitles.Coder.coder(fileExtension: expectedExtension) else {
 			throw SubTitlesError.unsupportedFileType(expectedExtension)
 		}
@@ -88,6 +87,9 @@ public extension Subtitles {
 	static func encode(_ subtitles: Subtitles, fileExtension: String) throws -> String {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileExtension) else {
 			throw SubTitlesError.unsupportedFileType(fileExtension)
+		}
+		guard let coder = coder as? SubtitlesTextCodable else {
+			throw SubTitlesError.coderGeneratesBinaryContent
 		}
 		return try coder.encode(subtitles: subtitles)
 	}
@@ -117,7 +119,7 @@ public extension Subtitles {
 	///   - fileExtension: The extension of subtitle file to generate
 	///   - encoding: The text encoding for the string
 	/// - Returns: The generated subtitles file as raw data
-	func encode(fileExtension: String, encoding: String.Encoding = .utf8) throws -> Data {
+	func encode(fileExtension: String, encoding: String.Encoding) throws -> Data {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileExtension) else {
 			throw SubTitlesError.unsupportedFileType(fileExtension)
 		}

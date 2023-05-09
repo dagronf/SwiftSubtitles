@@ -58,31 +58,31 @@ final class CommonTests: XCTestCase {
 	}
 
 	func testDoco1() throws {
-			let entry1 = Subtitles.Cue(
-				position: 1,
-				startTime: Subtitles.Time(minute: 10),
-				endTime: Subtitles.Time(minute: 11),
-				text: "점점 더 많아지는\n시민들의 성난 목소리로..."
-			)
+		let entry1 = Subtitles.Cue(
+			position: 1,
+			startTime: Subtitles.Time(minute: 10),
+			endTime: Subtitles.Time(minute: 11),
+			text: "점점 더 많아지는\n시민들의 성난 목소리로..."
+		)
 
-			let entry2 = Subtitles.Cue(
-				position: 2,
-				startTime: Subtitles.Time(minute: 13, second: 5),
-				endTime: Subtitles.Time(minute: 15, second: 10, millisecond: 101),
-				text: "Second entry"
-			)
+		let entry2 = Subtitles.Cue(
+			position: 2,
+			startTime: Subtitles.Time(minute: 13, second: 5),
+			endTime: Subtitles.Time(minute: 15, second: 10, millisecond: 101),
+			text: "Second entry"
+		)
 
-			let subtitles = Subtitles([entry1, entry2])
+		let subtitles = Subtitles([entry1, entry2])
 
-			// Encode based on the subtitle file extension
-			let content = try Subtitles.encode(subtitles, fileExtension: "srt")
+		// Encode based on the subtitle file extension
+		let content = try Subtitles.encode(subtitles, fileExtension: "srt")
 
-			// Encode using an explicit coder
-			let coder = Subtitles.Coder.SRT()
-			let content2 = try coder.encode(subtitles: subtitles)
+		// Encode using an explicit coder
+		let coder = Subtitles.Coder.SRT()
+		let content2 = try coder.encode(subtitles: subtitles)
 
-			XCTAssert(content2.count > 0)
-			XCTAssertEqual(content, content2)
+		XCTAssert(content2.count > 0)
+		XCTAssertEqual(content, content2)
 	}
 
 	func testDoco2() throws {

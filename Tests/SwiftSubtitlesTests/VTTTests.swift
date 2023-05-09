@@ -4,7 +4,7 @@ import XCTest
 final class VTTTests: XCTestCase {
 	func testExample() throws {
 		let fileURL = Bundle.module.url(forResource: "sample", withExtension: "vtt")!
-		let subtitles = try Subtitles(fileURL: fileURL)
+		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
 		XCTAssertEqual(3, subtitles.cues.count)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 15, millisecond: 0), subtitles.cues[0].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 20, millisecond: 0), subtitles.cues[0].endTime)

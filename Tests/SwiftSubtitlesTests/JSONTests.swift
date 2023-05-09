@@ -5,7 +5,7 @@ final class JSONTests: XCTestCase {
 
 	func testJSON() throws {
 		let fileURL = Bundle.module.url(forResource: "captions", withExtension: "sbv")!
-		let subtitles = try Subtitles(fileURL: fileURL)
+		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
 
 		let coder = Subtitles.Coder.JSON()
 		let content = try coder.encode(subtitles: subtitles)

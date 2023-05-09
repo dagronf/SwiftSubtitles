@@ -46,4 +46,6 @@ public enum SubTitlesError: Error {
 	case missingText(Int)
 	/// Unexpected end of cue
 	case unexpectedEndOfCue(Int)
+	/// The coder only supports binary coding
+	case coderGeneratesBinaryContent
 }

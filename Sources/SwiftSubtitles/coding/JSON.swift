@@ -28,25 +28,53 @@ import Foundation
 
 extension Subtitles.Coder {
 	/// A JSON coder
-	public struct JSON: SubtitlesCodable {
+	public struct JSON: SubtitlesCodable, SubtitlesTextCodable {
 		public static var extn: String { "json-subtitles" }
 		public static func Create() -> Self { JSON() }
 	}
 }
 
 public extension Subtitles.Coder.JSON {
+	/// Encode subtitles as Data
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	///   - encoding: The encoding to use if the content is text
+	/// - Returns: The encoded Data
+	func encode(subtitles: Subtitles, encoding: String.Encoding) throws -> Data {
+		try JSONEncoder().encode(subtitles)
+	}
+
+	/// Encode subtitles as a String
+	/// - Parameters:
+	///   - subtitles: The subtitles to encode
+	/// - Returns: The encoded String
 	func encode(subtitles: Subtitles) throws -> String {
-		let data = try JSONEncoder().encode(subtitles)
+		let data = try self.encode(subtitles: subtitles, encoding: .utf8)
 		guard let content = String(data: data, encoding: .utf8) else {
 			throw SubTitlesError.invalidEncoding
 		}
 		return content
 	}
+}
 
+public extension Subtitles.Coder.JSON {
+	/// Decode subtitles from json data
+	/// - Parameters:
+	///   - data: The data to decode
+	///   - encoding: The string encoding for the data content
+	/// - Returns: Subtitles
+	func decode(_ data: Data, encoding: String.Encoding) throws -> Subtitles {
+		try JSONDecoder().decode(Subtitles.self, from: data)
+	}
+
+	/// Decode subtitles from a json string
+	/// - Parameters:
+	///   - content: The string
+	/// - Returns: Subtitles
 	func decode(_ content: String) throws -> Subtitles {
-		guard let data = content.data(using: .utf8, allowLossyConversion: false) else {
+		guard let data = content.data(using: .utf8) else {
 			throw SubTitlesError.invalidEncoding
 		}
-		return try JSONDecoder().decode(Subtitles.self, from: data)
+		return try self.decode(data, encoding: .utf8)
 	}
 }
