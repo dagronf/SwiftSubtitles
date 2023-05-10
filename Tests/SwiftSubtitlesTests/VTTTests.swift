@@ -209,4 +209,33 @@ Transcrit par Célestes™
 		XCTAssertEqual(3, decoded.cues.count)
 		XCTAssertEqual(subtitles, decoded)
 	}
+
+	func testAnotherExample() throws {
+		// https://clideo.com/resources/subtitle-file-formats-overview
+		let content = """
+WEBVTT
+Kind: captions
+Language: en
+
+00:09.000 --> 00:11.000
+1st subtitle.
+
+00:11.000 --> 00:13.000
+2nd subtitle.
+"""
+		let coder = Subtitles.Coder.VTT()
+		let subtitles = try coder.decode(content)
+		XCTAssertEqual(2, subtitles.cues.count)
+
+		XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(second: 9))
+		XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(second: 11))
+		XCTAssertNil(subtitles.cues[0].identifier)
+		XCTAssertEqual(subtitles.cues[0].text, "1st subtitle.")
+
+		XCTAssertEqual(subtitles.cues[1].startTime, Subtitles.Time(second: 11))
+		XCTAssertEqual(subtitles.cues[1].endTime, Subtitles.Time(second: 13))
+		XCTAssertNil(subtitles.cues[1].identifier)
+		XCTAssertEqual(subtitles.cues[1].text, "2nd subtitle.")
+	}
+
 }

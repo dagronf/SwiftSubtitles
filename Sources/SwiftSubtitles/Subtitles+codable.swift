@@ -111,5 +111,6 @@ extension Subtitles.Coder {
 		Subtitles.Coder.VTT.self,
 		Subtitles.Coder.SBV.self,
 		Subtitles.Coder.JSON.self,
+		Subtitles.Coder.SUB.self,
 	]
 }

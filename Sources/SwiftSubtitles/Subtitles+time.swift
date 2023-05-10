@@ -40,6 +40,11 @@ public extension Subtitles {
 			self.millisecond = millisecond
 		}
 
+		/// Simple text representation
+		public var text: String {
+			String(format: "%02d:%02d:%02d.%03d", hour, minute, second, millisecond)
+		}
+
 		/// The hour
 		public let hour: UInt
 		/// The minute

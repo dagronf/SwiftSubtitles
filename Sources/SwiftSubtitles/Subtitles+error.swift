@@ -48,4 +48,6 @@ public enum SubTitlesError: Error {
 	case unexpectedEndOfCue(Int)
 	/// The coder only supports binary coding
 	case coderGeneratesBinaryContent
+	///
+	case coderDoesntSupportEncoding
 }

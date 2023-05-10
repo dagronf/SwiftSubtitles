@@ -45,6 +45,19 @@ public extension Subtitles {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileURL.pathExtension) else {
 			throw SubTitlesError.unsupportedFileType(fileURL.pathExtension)
 		}
+
+		do {
+			if let coder = coder as? SubtitlesTextCodable {
+				var usedEncoding: String.Encoding = .ascii
+				let s = try String(contentsOf: fileURL, usedEncoding: &usedEncoding)
+				self = try coder.decode(s)
+				return
+			}
+		}
+		catch {
+			// Fall back to trying the binary coder
+		}
+
 		self = try coder.decode(fileURL: fileURL, encoding: encoding)
 	}
 

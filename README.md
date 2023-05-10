@@ -22,11 +22,14 @@ A Swift package for reading/writing some common subtitle formats.
 
 ## Available coders
 
-| Format          | Coder                  | File extension  |
-|:----------------|:-----------------------|:----------------|
-| SBV (SubViewer) | `Subtitles.Coder.SBV`  | `.sbv`          |
-| SRT (SubRip)    | `Subtitles.Coder.SRT`  | `.srt`          |
-| VTT (WebVTT)    | `Subtitles.Coder.VTT`  | `.vtt`          |
+| Format           | Coder                  | File extension  |
+|:-----------------|:-----------------------|:----------------|
+| SBV (SubViewer)  | `Subtitles.Coder.SBV`  | `.sbv`          |
+| SUB (MicroDVD)*  | `Subtitles.Coder.SUB`  | `.sub`          |
+| SRT (SubRip)     | `Subtitles.Coder.SRT`  | `.srt`          |
+| VTT (WebVTT)     | `Subtitles.Coder.VTT`  | `.vtt`          |
+
+* Read-only
 
 ## Basic usage
 
