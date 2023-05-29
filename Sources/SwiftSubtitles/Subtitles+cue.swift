@@ -56,5 +56,20 @@ public extension Subtitles {
 			self.endTime = endTime
 			self.text = text
 		}
+
+		/// The duration of the cue in seconds
+		@inlinable public var duration: Double {
+			endTime.timeInSeconds - startTime.timeInSeconds
+		}
+
+		/// Returns true if this cue contains the seconds value
+		@inlinable public func contains(secondsValue seconds: Double) -> Bool {
+			seconds >= startTime.timeInSeconds && seconds <= endTime.timeInSeconds
+		}
+
+		/// Returns true if this cue contains the time value
+		@inlinable public func contains(time: Time) -> Bool {
+			self.contains(secondsValue: time.timeInSeconds)
+		}
 	}
 }

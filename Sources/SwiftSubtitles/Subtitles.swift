@@ -35,6 +35,16 @@ public struct Subtitles: Equatable, Codable {
 	public init(_ cues: [Cue]) {
 		self.cues = cues
 	}
+
+	/// Return the first cue containing the seconds value
+	@inlinable public func firstCue(containing secondsValue: Double) -> Cue? {
+		self.cues.first { $0.contains(secondsValue: secondsValue) }
+	}
+
+	/// Return the first cue containing the seconds value
+	@inlinable public func firstCue(containing time: Time) -> Cue? {
+		self.firstCue(containing: time.timeInSeconds)
+	}
 }
 
 // MARK: - Decoding

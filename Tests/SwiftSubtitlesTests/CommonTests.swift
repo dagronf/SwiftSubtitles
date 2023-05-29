@@ -148,4 +148,46 @@ other lending institution
 		XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(second: 6, millisecond: 177))
 		XCTAssertEqual(subtitles.cues[0].text, "In this lesson, we're going to\nbe talking about finance. And")
 	}
+
+	func testCue() throws {
+		do {
+			let cue1 = Subtitles.Cue(
+				startTime: Subtitles.Time(timeInSeconds: 10.500),
+				endTime: .init(timeInSeconds: 10.600),
+				text: "This is a test"
+			)
+
+			XCTAssertEqual(0.1, cue1.duration, accuracy: 0.001)
+
+			XCTAssertFalse(cue1.contains(secondsValue: 10.4999999))
+			XCTAssertTrue(cue1.contains(secondsValue: 10.500))
+			XCTAssertTrue(cue1.contains(secondsValue: 10.501))
+
+			XCTAssertTrue(cue1.contains(secondsValue: 10.600))
+			XCTAssertFalse(cue1.contains(secondsValue: 10.6001))
+			XCTAssertFalse(cue1.contains(secondsValue: 10.6000000001))
+			XCTAssertFalse(cue1.contains(secondsValue: 10.601))
+		}
+
+		do {
+			let cue1 = Subtitles.Cue(
+				startTime: Subtitles.Time(timeInSeconds: 10.500),
+				endTime: .init(timeInSeconds: 10.600),
+				text: "This is a test"
+			)
+			let cue2 = Subtitles.Cue(
+				startTime: Subtitles.Time(timeInSeconds: 10.600),
+				endTime: .init(timeInSeconds: 10.700),
+				text: "This is the second"
+			)
+			let sts = Subtitles([cue1, cue2])
+			XCTAssertNil(sts.firstCue(containing: 8))
+
+			let sts1 = try XCTUnwrap(sts.firstCue(containing: 10.501))
+			XCTAssertEqual(sts1.text, "This is a test")
+
+			let sts2 = try XCTUnwrap(sts.firstCue(containing: 10.601))
+			XCTAssertEqual(sts2.text, "This is the second")
+		}
+	}
 }
