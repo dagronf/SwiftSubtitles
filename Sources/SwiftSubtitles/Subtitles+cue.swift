@@ -57,6 +57,56 @@ public extension Subtitles {
 			self.text = text
 		}
 
+		/// Create a cue entry from a start time and duration
+		/// - Parameters:
+		///   - identifier: The cue's identifier
+		///   - position: The cue's position
+		///   - startTime: The start time for the cue
+		///   - duration: The duration (in seconds) for the cue
+		///   - text: The cue's text
+		public init(
+			identifier: String? = nil,
+			position: Int? = nil,
+			startTime: Time,
+			duration: Double,
+			text: String
+		) {
+			assert(duration >= 0)
+			
+			self.identifier = identifier
+			self.position = position
+			self.text = text
+
+			self.startTime = startTime
+			self.endTime = Time(timeInSeconds: startTime.timeInSeconds + duration)
+		}
+
+		/// Create a cue entry from a start time and duration
+		/// - Parameters:
+		///   - identifier: The cue's identifier
+		///   - position: The cue's position
+		///   - startTime: The start time (in seconds) for the cue
+		///   - duration: The duration (in seconds) for the cue
+		///   - text: The cue's text
+		public init(
+			identifier: String? = nil,
+			position: Int? = nil,
+			startTime: Double,
+			duration: Double,
+			text: String
+		) {
+			assert(startTime >= 0)
+			assert(duration >= 0)
+
+			self.init(
+				identifier: identifier,
+				position: position,
+				startTime: .init(timeInSeconds: startTime),
+				duration: duration,
+				text: text
+			)
+		}
+
 		/// The duration of the cue in seconds
 		@inlinable public var duration: Double {
 			endTime.timeInSeconds - startTime.timeInSeconds

@@ -190,4 +190,14 @@ other lending institution
 			XCTAssertEqual(sts2.text, "This is the second")
 		}
 	}
+
+	func testBuilding() throws {
+		do {
+			let cue1 = Subtitles.Cue(startTime: 10, duration: 0.25, text: "hi there")
+			XCTAssertEqual(cue1.startTime, .init(timeInSeconds: 10))
+			XCTAssertEqual(cue1.duration, 0.25)
+			XCTAssertEqual(cue1.endTime, .init(timeInSeconds: 10 + 0.25))
+			XCTAssertEqual(cue1.text, "hi there")
+		}
+	}
 }
