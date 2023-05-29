@@ -19,13 +19,13 @@ a subtitle - 2nd subtitle.
 		XCTAssertEqual(2, srt.cues.count)
 		XCTAssertEqual(srt.cues[0].text, "This is an example of a subtitle.")
 		XCTAssertEqual(srt.cues[0].startTime, Subtitles.Time(minute: 5, millisecond: 400))
-		XCTAssertEqual(srt.cues[0].startTime.timeInterval, 300.4, accuracy: 0.001)
+		XCTAssertEqual(srt.cues[0].startTime.timeInSeconds, 300.4, accuracy: 0.001)
 		XCTAssertEqual(srt.cues[0].endTime, Subtitles.Time(minute: 5, second: 15, millisecond: 300))
-		XCTAssertEqual(srt.cues[0].endTime.timeInterval, 315.3, accuracy: 0.001)
+		XCTAssertEqual(srt.cues[0].endTime.timeInSeconds, 315.3, accuracy: 0.001)
 
 		XCTAssertEqual(srt.cues[1].text, "This is an example of\na subtitle - 2nd subtitle.")
-		XCTAssertEqual(srt.cues[1].startTime.timeInterval, 316.4, accuracy: 0.001)
-		XCTAssertEqual(srt.cues[1].endTime.timeInterval, 325.3, accuracy: 0.001)
+		XCTAssertEqual(srt.cues[1].startTime.timeInSeconds, 316.4, accuracy: 0.001)
+		XCTAssertEqual(srt.cues[1].endTime.timeInSeconds, 325.3, accuracy: 0.001)
 
 		let encoded = try srt.encode(fileExtension: "srt")
 		XCTAssertFalse(encoded.isEmpty)
@@ -121,14 +121,14 @@ other lending institution
 
 		let srt = try Subtitles(content: content, expectedExtension: "srt")
 		XCTAssertEqual(3, srt.cues.count)
-		XCTAssertEqual(srt.cues[0].startTime.timeInterval, 3.4, accuracy: 0.0001)
-		XCTAssertEqual(srt.cues[0].endTime.timeInterval, 6.177, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[0].startTime.timeInSeconds, 3.4, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[0].endTime.timeInSeconds, 6.177, accuracy: 0.0001)
 		XCTAssertEqual(srt.cues[0].text, "In this lesson, we're going to\nbe talking about finance. And")
-		XCTAssertEqual(srt.cues[1].startTime.timeInterval, 6.177, accuracy: 0.0001)
-		XCTAssertEqual(srt.cues[1].endTime.timeInterval, 10.009, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[1].startTime.timeInSeconds, 6.177, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[1].endTime.timeInSeconds, 10.009, accuracy: 0.0001)
 		XCTAssertEqual(srt.cues[1].text, "one of the most important aspects\nof finance is interest.")
-		XCTAssertEqual(srt.cues[2].startTime.timeInterval, 10.009, accuracy: 0.0001)
-		XCTAssertEqual(srt.cues[2].endTime.timeInterval, 13.655, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[2].startTime.timeInSeconds, 10.009, accuracy: 0.0001)
+		XCTAssertEqual(srt.cues[2].endTime.timeInSeconds, 13.655, accuracy: 0.0001)
 		XCTAssertEqual(srt.cues[2].text, "When I go to a bank or some\nother lending institution")
 	}
 
@@ -188,16 +188,16 @@ There was no danger at all.
 //		난 아직 볼일이 남았다고!
 		let s1 = content.cues[199]
 		XCTAssertEqual(s1.position, 200)
-		XCTAssertEqual(s1.startTime.timeInterval, 869.84, accuracy: 0.0001)
-		XCTAssertEqual(s1.endTime.timeInterval, 871.08, accuracy: 0.0001)
+		XCTAssertEqual(s1.startTime.timeInSeconds, 869.84, accuracy: 0.0001)
+		XCTAssertEqual(s1.endTime.timeInSeconds, 871.08, accuracy: 0.0001)
 		XCTAssertEqual(s1.text, "난 아직 볼일이 남았다고!")
 
 //		1072
 //		01:27:46,720 --> 01:27:47,926
 //		내가 좀 웃겼지!
 		XCTAssertEqual(e.position, 1072)
-		XCTAssertEqual(e.startTime.timeInterval, 5266.72, accuracy: 0.0001)
-		XCTAssertEqual(e.endTime.timeInterval, 5267.926, accuracy: 0.0001)
+		XCTAssertEqual(e.startTime.timeInSeconds, 5266.72, accuracy: 0.0001)
+		XCTAssertEqual(e.endTime.timeInSeconds, 5267.926, accuracy: 0.0001)
 		XCTAssertEqual(e.text, "내가 좀 웃겼지!")
 	}
 

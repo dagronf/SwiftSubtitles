@@ -128,8 +128,8 @@ public extension Subtitles.Coder.SUB {
 			}
 
 			let s = Subtitles.Cue(
-				startTime: Subtitles.Time(interval: st),
-				endTime: Subtitles.Time(interval: en),
+				startTime: Subtitles.Time(timeInSeconds: st),
+				endTime: Subtitles.Time(timeInSeconds: en),
 				text: text
 			)
 			results.append(s)

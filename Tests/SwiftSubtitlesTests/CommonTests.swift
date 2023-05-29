@@ -16,9 +16,9 @@ final class CommonTests: XCTestCase {
 				let s2  = UInt.random(in: 0 ..< 60)
 				let ms2 = UInt.random(in: 0 ..< 1000)
 				let t1 = Subtitles.Time(hour: h1, minute: m1, second: s1, millisecond: ms1)
-				let i1 = t1.timeInterval
+				let i1 = t1.timeInSeconds
 				let t2 = Subtitles.Time(hour: h2, minute: m2, second: s2, millisecond: ms2)
-				let i2 = t2.timeInterval
+				let i2 = t2.timeInSeconds
 				XCTAssertEqual(t1 < t2, i1 < i2)
 			}
 		}
@@ -34,8 +34,8 @@ final class CommonTests: XCTestCase {
 		}
 
 		do {
-			let e1 = Subtitles.Time(interval: 1)
-			let e2 = Subtitles.Time(interval: 2)
+			let e1 = Subtitles.Time(timeInSeconds: 1)
+			let e2 = Subtitles.Time(timeInSeconds: 2)
 			XCTAssertLessThan(e1, e2)
 		}
 
@@ -54,6 +54,43 @@ final class CommonTests: XCTestCase {
 			let e1 = Subtitles.Time(minute: 3, second: 10, millisecond: 500)
 			let e2 = Subtitles.Time(hour: 1, minute: 3, second: 10, millisecond: 500)
 			XCTAssertTrue(e1 < e2)
+		}
+	}
+
+	func testRawSeconds() throws {
+		// https://www.calculateme.com/time/hours-minutes-seconds/to-seconds/
+		do {
+			let t1 = Subtitles.Time(timeInSeconds: 1432)
+			XCTAssertEqual(0, t1.hour)
+			XCTAssertEqual(23, t1.minute)
+			XCTAssertEqual(52, t1.second)
+			XCTAssertEqual(0, t1.millisecond)
+		}
+		do {
+			let t1 = Subtitles.Time(timeInSeconds: 7620.201)
+			XCTAssertEqual(2, t1.hour)
+			XCTAssertEqual(7, t1.minute)
+			XCTAssertEqual(0, t1.second)
+			XCTAssertEqual(201, t1.millisecond)
+		}
+		do {
+			let e1 = Subtitles.Time(timeInSeconds: 125.6)
+			let e2 = Subtitles.Time(timeInSeconds: 125.7)
+			XCTAssertTrue(e1 < e2)
+		}
+		do {
+			let t1 = Subtitles.Time(timeInSeconds: 1432.001)
+			let t2 = Subtitles.Time(timeInSeconds: 1432.001)
+			XCTAssertEqual(t1, t2)
+			let t3 = Subtitles.Time(timeInSeconds: 1432.002)
+			XCTAssertNotEqual(t1, t3)
+			let t4 = Subtitles.Time(timeInSeconds: 1432.00111)
+			XCTAssertEqual(t1, t4)
+
+			XCTAssertEqual(Subtitles.Time(timeInSeconds: 0), Subtitles.Time(timeInSeconds: 0))
+			XCTAssertEqual(Subtitles.Time(timeInSeconds: 1432), Subtitles.Time(timeInSeconds: 1432.0001))
+			XCTAssertNotEqual(Subtitles.Time(timeInSeconds: 1432), Subtitles.Time(timeInSeconds: 1432.001))
+			XCTAssertNotEqual(Subtitles.Time(timeInSeconds: 1431.999), Subtitles.Time(timeInSeconds: 1432))
 		}
 	}
 

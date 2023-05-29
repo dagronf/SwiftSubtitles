@@ -28,16 +28,34 @@ import Foundation
 
 public extension Subtitles {
 	/// A time definition for a subtitles file
-	struct Time: Hashable, Comparable, Codable {
+	struct Time: Hashable, Comparable, Codable, Equatable {
 		/// Create a Time
 		public init(hour: UInt = 0, minute: UInt = 0, second: UInt = 0, millisecond: UInt = 0) {
-			self.hour = hour
 			assert(minute < 60)
-			self.minute = minute
 			assert(second < 60)
-			self.second = second
 			assert(millisecond < 1000)
+
+			self.hour = hour
+			self.minute = minute
+			self.second = second
 			self.millisecond = millisecond
+
+			var results: Double = Double(self.hour) * 3600
+			results += Double(self.minute) * 60
+			results += Double(self.second)
+			results += Double(self.millisecond) * 0.001
+			self.timeInSeconds = results
+		}
+
+		/// Create a time from a raw seconds value
+		public init(timeInSeconds seconds: Double) {
+			assert(seconds >= 0)
+			self.timeInSeconds = seconds
+			let time = UInt(seconds)
+			self.millisecond = UInt((seconds.truncatingRemainder(dividingBy: 1)) * 1000)
+			self.second = time % 60
+			self.minute = (time / 60) % 60
+			self.hour = (time / 3600)
 		}
 
 		/// Simple text representation
@@ -53,25 +71,8 @@ public extension Subtitles {
 		public let second: UInt
 		/// The millisecond
 		public let millisecond: UInt
-	}
-}
-
-// MARK: - TimeInterval routines
-
-public extension Subtitles.Time {
-	/// Create a new Time instance from a TimeInterval
-	init(interval: TimeInterval) {
-		assert(interval >= 0)
-		let time = UInt(interval)
-		self.millisecond = UInt((interval.truncatingRemainder(dividingBy: 1)) * 1000)
-		self.second = time % 60
-		self.minute = (time / 60) % 60
-		self.hour = (time / 3600)
-	}
-
-	/// Return the time value as a TimeInterval
-	var timeInterval: TimeInterval {
-		(Double(self.hour) * 3600) + (Double(self.minute) * 60) + Double(self.second) + (Double(self.millisecond) / 1000)
+		/// The total time in seconds
+		public let timeInSeconds: Double
 	}
 }
 
@@ -80,15 +81,29 @@ public extension Subtitles.Time {
 public extension Subtitles.Time {
 	/// Returns true if the left time value is less than the right
 	static func < (lhs: Subtitles.Time, rhs: Subtitles.Time) -> Bool {
-		if lhs.hour < rhs.hour { return true }
-		if lhs.hour > rhs.hour { return false }
+		lhs.timeInSeconds < rhs.timeInSeconds
+	}
 
-		if lhs.minute < rhs.minute { return true }
-		if lhs.minute > rhs.minute { return false }
-
-		if lhs.second < rhs.second { return true }
-		if lhs.second > rhs.second { return false }
-
-		return lhs.millisecond < rhs.millisecond
+	/// Returns true if lhs and rhs are equal within a 1ms difference
+	static func == (lhs: Subtitles.Time, rhs: Subtitles.Time) -> Bool {
+		UInt(lhs.timeInSeconds * 1000) == UInt(rhs.timeInSeconds * 1000)
 	}
 }
+
+// MARK: - CMTime helpers
+
+#if canImport(CoreMedia)
+
+import CoreMedia
+
+public extension Subtitles.Time {
+	/// Create a time value from a CMTime (millisecond accuracy)
+	init(time: CMTime) {
+		self.init(timeInSeconds: CMTimeGetSeconds(time))
+	}
+
+	/// This time as a CMTime.
+	var cmTime: CMTime { CMTime(seconds: self.timeInSeconds, preferredTimescale: 1000) }
+}
+
+#endif
