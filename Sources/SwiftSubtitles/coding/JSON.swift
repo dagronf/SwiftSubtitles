@@ -31,6 +31,7 @@ extension Subtitles.Coder {
 	public struct JSON: SubtitlesCodable, SubtitlesTextCodable {
 		public static var extn: String { "json-subtitles" }
 		public static func Create() -> Self { JSON() }
+		public init() { }
 	}
 }
 

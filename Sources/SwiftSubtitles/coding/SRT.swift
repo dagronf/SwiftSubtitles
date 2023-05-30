@@ -32,6 +32,7 @@ extension Subtitles.Coder {
 	public struct SRT: SubtitlesCodable, SubtitlesTextCodable {
 		public static var extn: String { "srt" }
 		public static func Create() -> Self { SRT() }
+		public init() { }
 	}
 }
 

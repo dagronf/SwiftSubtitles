@@ -35,6 +35,7 @@ extension Subtitles.Coder {
 	public struct VTT: SubtitlesCodable, SubtitlesTextCodable {
 		public static var extn: String { "vtt" }
 		public static func Create() -> Self { VTT() }
+		public init() { }
 	}
 }
 

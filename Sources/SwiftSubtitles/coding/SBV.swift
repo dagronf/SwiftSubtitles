@@ -34,6 +34,7 @@ extension Subtitles.Coder {
 	public struct SBV: SubtitlesCodable, SubtitlesTextCodable {
 		public static var extn: String { "sbv" }
 		public static func Create() -> Self { SBV() }
+		public init() { }
 	}
 }
 
