@@ -200,4 +200,39 @@ other lending institution
 			XCTAssertEqual(cue1.text, "hi there")
 		}
 	}
+
+	func testNextCue() throws {
+
+		let cue1 = Subtitles.Cue(startTime: 10, duration: 0.25, text: "hi there 1")
+		let cue2 = Subtitles.Cue(startTime: 15, duration: 0, text: "hi there 2")
+
+		let ss = Subtitles([cue1, cue2])
+
+		XCTAssertNil(ss.firstCue(containing: 2))
+		XCTAssertEqual(0, ss.nextCueIndex(for: 2))
+
+		// Should be nil, as we are inside a cue
+		XCTAssertNil(ss.nextCueIndex(for: 10.1))
+
+		XCTAssertNil(ss.firstCue(containing: 12.3))
+		XCTAssertEqual(1, ss.nextCueIndex(for: 12.3))
+
+		XCTAssertNil(ss.nextCueIndex(for: 20))
+
+		do {
+			var t = try XCTUnwrap(ss.cueType(for: 12.3))
+			XCTAssert(t.isInCue == false)
+			XCTAssertEqual(t.cueIndex, 1)
+
+			t = try XCTUnwrap(ss.cueType(for: 0))
+			XCTAssert(t.isInCue == false)
+			XCTAssertEqual(t.cueIndex, 0)
+
+			t = try XCTUnwrap(ss.cueType(for: 10.15))
+			XCTAssert(t.isInCue == true)
+			XCTAssertEqual(t.cueIndex, 0)
+
+			XCTAssertNil(ss.cueType(for: 16))
+		}
+	}
 }

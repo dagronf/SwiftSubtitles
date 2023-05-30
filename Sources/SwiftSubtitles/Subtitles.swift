@@ -33,17 +33,59 @@ public struct Subtitles: Equatable, Codable {
 
 	/// Create using an array of subtitle cues
 	public init(_ cues: [Cue]) {
-		self.cues = cues
+		self.cues = cues.sorted { a, b in a.startTime < b.startTime }
 	}
 
 	/// Return the first cue containing the seconds value
 	@inlinable public func firstCue(containing secondsValue: Double) -> Cue? {
 		self.cues.first { $0.contains(secondsValue: secondsValue) }
 	}
+}
 
+public extension Subtitles {
 	/// Return the first cue containing the seconds value
-	@inlinable public func firstCue(containing time: Time) -> Cue? {
+	@inlinable func firstCue(containing time: Time) -> Cue? {
 		self.firstCue(containing: time.timeInSeconds)
+	}
+
+	/// Locate the cue that either contains the time value, or is the _next_ cue after the time value
+	func nextCueIndex(for secondsValue: Double) -> Int? {
+		guard let first = self.cues.first else { return nil }
+		if first.startTime.timeInSeconds > secondsValue {
+			return 0
+		}
+
+		// Check if we are before the first cue
+		if first.startTime.timeInSeconds > secondsValue {
+			return 0
+		}
+
+		for index in (0 ..< self.cues.count - 1) {
+			let curr = self.cues[index]
+			let next = self.cues[index + 1]
+
+			if secondsValue > curr.endTime.timeInSeconds && secondsValue < next.startTime.timeInSeconds {
+				return index + 1
+			}
+		}
+		return nil
+	}
+
+	struct CueTypeResult {
+		/// Is the time inside an existing cue?
+		let isInCue: Bool
+		/// If we're inside a cue, the index of the cue. If not, the index of the _next_ cue
+		let cueIndex: Int
+	}
+
+	func cueType(for secondsValue: Double) -> CueTypeResult? {
+		if let c = self.cues.enumerated().first(where: { $0.element.contains(secondsValue: secondsValue) }) {
+			return CueTypeResult(isInCue: true, cueIndex: c.offset)
+		}
+		if let c = self.nextCueIndex(for: secondsValue) {
+			return CueTypeResult(isInCue: false, cueIndex: c)
+		}
+		return nil
 	}
 }
 
@@ -161,7 +203,7 @@ public extension Subtitles {
 
 	/// Return a new subtitles object with the entries sorted by start time of each entry
 	var startTimeSorted: Subtitles {
-		let entries = self.cues.sorted { a, b in a.startTime < b.endTime }
+		let entries = self.cues.sorted { a, b in a.startTime < b.startTime }
 		return Subtitles(entries)
 	}
 }
