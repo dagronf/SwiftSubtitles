@@ -1,16 +1,25 @@
 {
   "object": {
-	 "pins": [
-		{
-		  "package": "DSFRegex",
-		  "repositoryURL": "https://github.com/dagronf/DSFRegex",
-		  "state": {
-			 "branch": null,
-			 "revision": "29f9a2924e318ab3a3c39692bcc48757cf2756e4",
-			 "version": "3.1.0"
-		  }
-		}
-	 ]
+    "pins": [
+      {
+        "package": "DSFRegex",
+        "repositoryURL": "https://github.com/dagronf/DSFRegex",
+        "state": {
+          "branch": null,
+          "revision": "29f9a2924e318ab3a3c39692bcc48757cf2756e4",
+          "version": "3.1.0"
+        }
+      },
+      {
+        "package": "TinyCSV",
+        "repositoryURL": "https://github.com/dagronf/TinyCSV",
+        "state": {
+          "branch": null,
+          "revision": "dbc773c78169b26fb1b539eb17f405a814f76cfc",
+          "version": "0.2.0"
+        }
+      }
+    ]
   },
   "version": 1
 }

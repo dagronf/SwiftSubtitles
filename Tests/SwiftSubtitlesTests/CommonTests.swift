@@ -221,15 +221,15 @@ other lending institution
 
 		do {
 			var t = try XCTUnwrap(ss.cueType(for: 12.3))
-			XCTAssert(t.isInCue == false)
+			XCTAssert(t.isInsideCue == false)
 			XCTAssertEqual(t.cueIndex, 1)
 
 			t = try XCTUnwrap(ss.cueType(for: 0))
-			XCTAssert(t.isInCue == false)
+			XCTAssert(t.isInsideCue == false)
 			XCTAssertEqual(t.cueIndex, 0)
 
 			t = try XCTUnwrap(ss.cueType(for: 10.15))
-			XCTAssert(t.isInCue == true)
+			XCTAssert(t.isInsideCue == true)
 			XCTAssertEqual(t.cueIndex, 0)
 
 			XCTAssertNil(ss.cueType(for: 16))

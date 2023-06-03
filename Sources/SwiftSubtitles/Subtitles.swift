@@ -71,19 +71,19 @@ public extension Subtitles {
 		return nil
 	}
 
-	struct CueTypeResult {
+	struct CueTypeResult: Hashable {
 		/// Is the time inside an existing cue?
-		let isInCue: Bool
+		public let isInsideCue: Bool
 		/// If we're inside a cue, the index of the cue. If not, the index of the _next_ cue
-		let cueIndex: Int
+		public let cueIndex: Int
 	}
 
 	func cueType(for secondsValue: Double) -> CueTypeResult? {
 		if let c = self.cues.enumerated().first(where: { $0.element.contains(secondsValue: secondsValue) }) {
-			return CueTypeResult(isInCue: true, cueIndex: c.offset)
+			return CueTypeResult(isInsideCue: true, cueIndex: c.offset)
 		}
 		if let c = self.nextCueIndex(for: secondsValue) {
-			return CueTypeResult(isInCue: false, cueIndex: c)
+			return CueTypeResult(isInsideCue: false, cueIndex: c)
 		}
 		return nil
 	}
