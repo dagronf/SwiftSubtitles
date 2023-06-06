@@ -97,7 +97,11 @@ During decoding, the coder ignores the header if it exists, and assumes a partic
 
 ### Row format
 
-The expected format is `<position>, <start-time>, <end-time>, <text>`
+The header text for the CSV is not important, the ordering of the fields determine what type of data to expect
+
+Detected row formats :-
+
+* `<position>, <start-time>, <end-time>, <text>`
 
 * position: The position of the cue (subtitle text) within the subtitles
 * start-time: The time where the text appears on the screen
@@ -111,12 +115,18 @@ The expected format is `<position>, <start-time>, <end-time>, <text>`
 * Common style: `00:00:00:000`
 * milliseconds: `102727`
 
-#### An example using common style text formats
+#### Examples using common style text formats
 
 ```
 No.,Timecode In,Timecode Out,Subtitle
 1, 00:00:00:599, 00:00:04.160, ">> ALICE: Hi, my name is Alice Miller and this is John Brown"
 2, 00:00:04:160, 00:00:06.770, ">> JOHN: and we're the owners of ""Miller Bakery""."
+```
+
+```
+Position,Start time,End Time,Text
+51,00:00:00:599,00:00:04.160,">> ALICE: Hi, my name is Alice Miller and this is John Brown"
+52,00:00:04:160,00:00:06.770,">> JOHN: and we're the owners of ""Miller Bakery""."
 ```
 
 #### An example using millisecond durations and containing line feeds within the text

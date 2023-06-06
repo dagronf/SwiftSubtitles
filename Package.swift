@@ -18,7 +18,7 @@ let package = Package(
 	],
 	dependencies: [
 		.package(url: "https://github.com/dagronf/DSFRegex", from: "3.1.0"),
-		.package(url: "https://github.com/dagronf/TinyCSV", .upToNextMinor(from: "0.2.0"))
+		.package(url: "https://github.com/dagronf/TinyCSV", .upToNextMinor(from: "0.5.1"))
 	],
 	targets: [
 		.target(
