@@ -35,12 +35,33 @@ extension Subtitles.Coder {
 	/// Mime-type: text/csv
 	public struct CSV: SubtitlesCodable, SubtitlesTextCodable {
 		public static var extn: String { "csv" }
+		/// Create a CSV parser with default parsing options
 		public static func Create() -> Self { CSV() }
-		public init() { }
+
+		/// Create a CSV coder/decoder
+		/// - Parameters:
+		///   - delimiter: The delimiter to use, or nil for auto-detect (default comma) (decoding/encoding)
+		///   - fieldEscapeCharacter: The field escape character (decoding)
+		///   - commentCharacter: The comment character (decoding)
+		///   - headerLineCount: The number of lines at the start of the text to ignore (decoding)
+		public init(
+			delimiter: TinyCSV.Delimiter? = nil,
+			fieldEscapeCharacter: Character? = nil,
+			commentCharacter: Character? = nil,
+			headerLineCount: UInt? = nil
+		) {
+			self.delimiter = delimiter
+			self.fieldEscapeCharacter = fieldEscapeCharacter
+			self.commentCharacter = commentCharacter
+			self.headerLineCount = headerLineCount
+		}
+
+		private let delimiter: TinyCSV.Delimiter?
+		private let fieldEscapeCharacter: Character?
+		private let commentCharacter: Character?
+		private let headerLineCount: UInt?
 	}
 }
-
-// https://www.rfc-editor.org/rfc/rfc4180.html
 
 public extension Subtitles.Coder.CSV {
 	/// Encode subtitles as Data
@@ -84,16 +105,22 @@ public extension Subtitles.Coder.CSV {
 
 			results.append(row)
 		}
-		return TinyCSV.Coder().encode(csvdata: results, delimiter: .comma)
+		return TinyCSV.Coder().encode(csvdata: results, delimiter: delimiter ?? .comma)
 	}
 }
 
 public extension Subtitles.Coder.CSV {
-	/// Decode subtitles from json data
+	/// Decode subtitles from csv data
 	/// - Parameters:
 	///   - data: The data to decode
 	///   - encoding: The string encoding for the data content
 	/// - Returns: Subtitles
+	///
+	/// **Expected Format**:
+	///
+	/// 	`Position,Timecode In,Timecode Out,Text`
+	///
+	///  Note that the titles in the header don't matter, just the row content
 	func decode(_ data: Data, encoding: String.Encoding) throws -> Subtitles {
 		guard let str = String(data: data, encoding: encoding) else {
 			throw SubTitlesError.invalidEncoding
@@ -101,51 +128,72 @@ public extension Subtitles.Coder.CSV {
 		return try self.decode(str)
 	}
 
-	/// Decode subtitles from a json string
+	/// Decode subtitles from a csv string
 	/// - Parameters:
 	///   - content: The string
 	/// - Returns: Subtitles
+	///
+	/// **Expected Format**:
+	///
+	/// 	`Position,Timecode In,Timecode Out,Text`
+	///
+	///  Note that the titles in the header don't matter, just the row content
 	func decode(_ content: String) throws -> Subtitles {
-		// "No.,Timecode In,Timecode Out,Subtitle"
-		let csv = TinyCSV.Coder().decode(text: content)
+		let parser = TinyCSV.Coder()
 		var cues: [Subtitles.Cue] = []
 
-		for row in csv.records {
-			if row.count < 4 {
-				// Skip?
-				continue
-			}
+		var warnings: [String] = []
 
-			// Index
-			let indexS = row[0]
-			guard let index = Int(indexS) else {
-				// Skip?
-				continue
-			}
+		parser.startDecoding(
+			text: content,
+			delimiter: delimiter,
+			fieldEscapeCharacter: fieldEscapeCharacter,
+			commentCharacter: commentCharacter,
+			headerLineCount: headerLineCount,
+			emitField: nil,
+			emitRecord: { row, columns in
+				guard columns.count >= 4 else {
+					warnings.append("ROW[\(row)]: Invalid number of cells")
+					return true
+				}
 
-			// Start time
-			guard let startTime = try? parseTime(index: 0, timeString: row[1]) else {
-				// Skip?
-				continue
-			}
+				guard let position = Int(columns[0]) else {
+					warnings.append("ROW[\(row)]: Invalid position field '\(columns[0])'")
+					return true
+				}
 
-			// End time
-			guard let endTime = try? parseTime(index: 0, timeString: row[2]) else {
-				// Skip?
-				continue
-			}
+				guard let startTime = try? parseTime(index: 0, timeString: columns[1]) else {
+					warnings.append("ROW[\(row)],POSITION[\(position)]: Invalid start time '\(columns[1])'")
+					return true
+				}
 
-			let text = row[3]
+				guard let endTime = try? parseTime(index: 0, timeString: columns[2]) else {
+					warnings.append("ROW[\(row)],POSITION[\(position)]: Invalid end time '\(columns[2])'")
+					return true
+				}
 
-			cues.append(
-				Subtitles.Cue(
-					position: index,
-					startTime: startTime,
-					endTime: endTime,
-					text: text
+				let text = columns[3]
+				guard text.count > 0 else {
+					warnings.append("ROW[\(row)],POSITION[\(position)]: Empty cue text")
+					return true
+				}
+
+				cues.append(
+					Subtitles.Cue(
+						position: position,
+						startTime: startTime,
+						endTime: endTime,
+						text: text
+					)
 				)
-			)
+				return true
+			}
+		)
+
+		if warnings.count > 0 {
+			Swift.print(warnings.joined(separator: "\n"))
 		}
+
 		return Subtitles(cues)
 	}
 }
