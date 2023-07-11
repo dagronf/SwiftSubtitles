@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                 = "SwiftSubtitles"
-  s.version              = "0.9.0"
+  s.version              = "0.9.1"
   s.summary              = "A Swift package for reading/writing some common subtitle formats."
   s.description          = <<-DESC
     A Swift package for reading/writing subtitle formats (srt, sbv, sub, vtt, csv).
@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.platforms            = { :ios => "12.0", :tvos => "12.0", :osx => "10.13", :watchos => "6.0" }
   s.swift_versions       = ['5.4', '5.5', '5.6', '5.7', '5.8']
   s.dependency           'DSFRegex', '~> 3.3.1'
-  s.dependency           'TinyCSV', '~> 0.5.3'
+  s.dependency           'TinyCSV', '~> 0.6.1'
 end
