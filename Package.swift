@@ -7,8 +7,8 @@ let package = Package(
 	name: "SwiftSubtitles",
 	platforms: [
 		.macOS(.v10_13),
-		.iOS(.v13),
-		.tvOS(.v13),
+		.iOS(.v12),
+		.tvOS(.v12),
 		.watchOS(.v4)
 	],
 	products: [
