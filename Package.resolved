@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/dagronf/DSFRegex",
         "state": {
           "branch": null,
-          "revision": "29f9a2924e318ab3a3c39692bcc48757cf2756e4",
-          "version": "3.1.0"
+          "revision": "f1ce5c208384bb238b07905d140c2e60182e3601",
+          "version": "3.3.1"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/dagronf/TinyCSV",
         "state": {
           "branch": null,
-          "revision": "a3083226aee2d3a1c1a5dceb84838826322cdfaa",
-          "version": "0.5.1"
+          "revision": "63f30830cd986de84cd844d59926cf1aa2009f0b",
+          "version": "0.5.3"
         }
       }
     ]
