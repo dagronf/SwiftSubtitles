@@ -104,7 +104,7 @@ public extension Subtitles.Coder.SBV {
 	func decode(_ content: String) throws -> Subtitles {
 		var results = [Subtitles.Cue]()
 
-		let lines = content.components(separatedBy: .newlines)
+		let lines = content.lines
 
 		var position: Int = 1
 

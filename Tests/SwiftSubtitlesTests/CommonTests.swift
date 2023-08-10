@@ -235,4 +235,14 @@ other lending institution
 			XCTAssertNil(ss.cueType(for: 16))
 		}
 	}
+    
+    func testStringLines() throws {
+        let crLfString = "WEBVTT\r\n\r\n00:00:05.312 --> 00:00:06.729 line:90%,end position:50%,center align:center\r\nIt’s 9:00 a.m.\r\n\r\n00:00:06.729 --> 00:00:08.687 line:90%,end position:50%,center align:center\r\non a Tuesday morning"
+        let nlString = "WEBVTT\n\n00:00:05.312 --> 00:00:06.729 line:90%,end position:50%,center align:center\nIt’s 9:00 a.m.\n\n00:00:06.729 --> 00:00:08.687 line:90%,end position:50%,center align:center\non a Tuesday morning"
+        let crLFLines = crLfString.lines
+        let nlLines = nlString.lines
+
+        XCTAssertEqual(crLFLines, nlLines)
+        XCTAssertEqual(crLFLines.count, 7)
+    }
 }

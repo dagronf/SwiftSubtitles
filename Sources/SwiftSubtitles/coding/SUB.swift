@@ -89,7 +89,7 @@ public extension Subtitles.Coder.SUB {
 	/// - Returns: Subtitles
 	func decode(_ content: String) throws -> Subtitles {
 		var results = [Subtitles.Cue]()
-		let lines = content.components(separatedBy: .newlines)
+		let lines = content.lines
 
 		/// {0}{25}{y:i}Hello!|{y:b}How are you?
 

@@ -118,7 +118,7 @@ public extension Subtitles.Coder.SRT {
 
 		var results = [Subtitles.Cue]()
 
-		let lines = content.components(separatedBy: .newlines)
+		let lines = content.lines
 
 		var currentState: LineState = .blank
 
