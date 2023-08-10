@@ -2,23 +2,18 @@
 
 A Swift package for reading/writing some common subtitle formats.
 
-<p align="center">
-    <img src="https://img.shields.io/github/v/tag/dagronf/SwiftSubtitles" />
-    <img src="https://img.shields.io/badge/Swift-5.4-orange.svg" />
-    <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
-    <a href="https://swift.org/package-manager">
-        <img src="https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat" alt="Swift Package Manager" />
-    </a>
-</p>
+![tag](https://img.shields.io/github/v/tag/dagronf/SwiftSubtitles)
+![Swift](https://img.shields.io/badge/Swift-5.4-orange.svg)
+[![License MIT](https://img.shields.io/badge/license-MIT-magenta.svg)](https://github.com/dagronf/SwiftSubtitles/blob/master/LICENSE) 
+![SPM](https://img.shields.io/badge/spm-compatible-maroon.svg)
+![Build](https://img.shields.io/github/actions/workflow/status/dagronf/SwiftSubtitles/swift.yml)
 
-<p align="center">
-    <img src="https://img.shields.io/badge/macOS-10.13+-red" />
-    <img src="https://img.shields.io/badge/macCatalyst-2+-purple" />
-    <img src="https://img.shields.io/badge/iOS-13+-blue" />
-    <img src="https://img.shields.io/badge/tvOS-13+-orange" />
-    <img src="https://img.shields.io/badge/watchOS-4+-yellow" />
-    <img src="https://img.shields.io/badge/Linux-compatible-orange" />
-</p>
+![macOS](https://img.shields.io/badge/macOS-10.13+-darkblue)
+![iOS](https://img.shields.io/badge/iOS-13+-crimson)
+![tvOS](https://img.shields.io/badge/tvOS-13+-forestgreen)
+![watchOS](https://img.shields.io/badge/watchOS-4+-indigo)
+![macCatalyst](https://img.shields.io/badge/macCatalyst-2+-orangered)
+![Linux](https://img.shields.io/badge/Linux-compatible-peru)
 
 ## Available coders
 
