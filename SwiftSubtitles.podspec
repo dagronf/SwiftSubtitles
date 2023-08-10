@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                 = "SwiftSubtitles"
-  s.version              = "0.10.2"
+  s.version              = "0.10.3"
   s.summary              = "A Swift package for reading/writing some common subtitle formats."
   s.description          = <<-DESC
     A Swift package for reading/writing subtitle formats (srt, sbv, sub, vtt, csv).

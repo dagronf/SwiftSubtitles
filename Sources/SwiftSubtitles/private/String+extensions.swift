@@ -1,5 +1,5 @@
 //
-//  String+subtitles.swift
+//  String+extensions.swift
 //
 //  Copyright © 2023 Darren Ford. All rights reserved.
 //
@@ -24,16 +24,19 @@
 //  SOFTWARE.
 //
 
-
 import Foundation
 
-extension String {
-    var lines: [String] {
-        var linesArray = [String]()
-        // Split the string into lines using any type of newline (CR, LF, or CRLF)
-        enumerateLines { line, _ in
-            linesArray.append(line)
-        }
-        return linesArray
-    }
+internal extension String {
+	/// Split the string into its component lines
+	///
+	/// Much more reliable than `content.components(separatedBy: .newlines)`
+	/// which unfortunately splits `\r\n` into _two_ lines, one being an empty line.
+	var lines: [String] {
+		var linesArray = [String]()
+		// Split the string into lines using any type of newline (CR, LF, or CRLF)
+		self.enumerateLines { line, _ in
+			linesArray.append(line)
+		}
+		return linesArray
+	}
 }
