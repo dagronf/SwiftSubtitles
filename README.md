@@ -9,9 +9,9 @@ A Swift package for reading/writing some common subtitle formats.
 ![Build](https://img.shields.io/github/actions/workflow/status/dagronf/SwiftSubtitles/swift.yml)
 
 ![macOS](https://img.shields.io/badge/macOS-10.13+-darkblue)
-![iOS](https://img.shields.io/badge/iOS-13+-crimson)
-![tvOS](https://img.shields.io/badge/tvOS-13+-forestgreen)
-![watchOS](https://img.shields.io/badge/watchOS-4+-indigo)
+![iOS](https://img.shields.io/badge/iOS-12+-crimson)
+![tvOS](https://img.shields.io/badge/tvOS-12+-forestgreen)
+![watchOS](https://img.shields.io/badge/watchOS-6+-indigo)
 ![macCatalyst](https://img.shields.io/badge/macCatalyst-2+-orangered)
 ![Linux](https://img.shields.io/badge/Linux-compatible-peru)
 
