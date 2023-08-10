@@ -1,0 +1,26 @@
+name: Build and run tests
+
+on: [ push, pull_request ]
+
+jobs:
+  macos_tests:
+    name: Unit tests on macOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: swift build -v -c release
+      - name: Run tests
+        run: swift test -v -c release
+
+  ubuntu_tests:
+    name: Unit tests on Ubuntu
+    runs-on: ubuntu-latest
+    container:
+      image: swift:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: swift build -v -c release
+      - name: Run tests
+        run: swift test -v -c release
