@@ -103,7 +103,7 @@ public extension Subtitles.Coder.VTT {
 	/// - Returns: Subtitles
 	func decode(_ content: String) throws -> Subtitles {
 		let lines = content
-			.components(separatedBy: .newlines)
+			.lines
 			.enumerated()
 			.map { (offset: $0.offset, element: $0.element.trimmingCharacters(in: .whitespaces)) }
 
