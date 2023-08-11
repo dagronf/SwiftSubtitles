@@ -238,60 +238,92 @@ Language: en
 		XCTAssertEqual(subtitles.cues[1].text, "2nd subtitle.")
 	}
 
-    func testCommaDecimalHandling() throws {
-        let contentWithCommas = """
+	func testCommaDecimalHandling() throws {
+		let contentWithCommas = """
 WEBVTT
 
 00:00:01,000 --> 00:00:04,000
 Never drink liquid nitrogen.
 """
 
-        let coder = Subtitles.Coder.VTT()
-        let subtitlesWithCommas = try coder.decode(contentWithCommas)
+		let coder = Subtitles.Coder.VTT()
+		let subtitlesWithCommas = try coder.decode(contentWithCommas)
 
-        XCTAssertEqual(subtitlesWithCommas.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
-        XCTAssertEqual(subtitlesWithCommas.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
-    }
+		XCTAssertEqual(subtitlesWithCommas.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
+		XCTAssertEqual(subtitlesWithCommas.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
+	}
 
-    func testDotDecimalHandling() throws {
-        let contentWithDots = """
+	func testDotDecimalHandling() throws {
+		let contentWithDots = """
 WEBVTT
 
 00:00:01.000 --> 00:00:04.000
 Never drink liquid nitrogen.
 """
 
-        let coder = Subtitles.Coder.VTT()
-        let subtitlesWithDots = try coder.decode(contentWithDots)
+		let coder = Subtitles.Coder.VTT()
+		let subtitlesWithDots = try coder.decode(contentWithDots)
 
-        XCTAssertEqual(subtitlesWithDots.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
-        XCTAssertEqual(subtitlesWithDots.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
-    }
+		XCTAssertEqual(subtitlesWithDots.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
+		XCTAssertEqual(subtitlesWithDots.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
+	}
 
-    func testSpaceHandling() throws {
-        // Test with spaces around '-->'
-        let contentWithSpaces = """
+	func testSpaceHandling() throws {
+		// Test with spaces around '-->'
+		let contentWithSpaces = """
 WEBVTT
 
 00:00:01.000  -->  00:00:04.000
 Never drink liquid nitrogen.
 """
-        let coder = Subtitles.Coder.VTT()
-        var subtitles = try coder.decode(contentWithSpaces)
+		let coder = Subtitles.Coder.VTT()
+		var subtitles = try coder.decode(contentWithSpaces)
 
-        XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
-        XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
+		XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
+		XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
 
-        // Test without spaces around '-->'
-        let contentWithoutSpaces = """
+		// Test without spaces around '-->'
+		let contentWithoutSpaces = """
 WEBVTT
 
 00:00:01.000-->00:00:04.000
 Never drink liquid nitrogen.
 """
-        subtitles = try coder.decode(contentWithoutSpaces)
+		subtitles = try coder.decode(contentWithoutSpaces)
 
-        XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
-        XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
-    }
+		XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
+		XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
+	}
+
+	func testSimpleSampleWithSlashRSlashN() throws {
+		let fileURL = Bundle.module.url(forResource: "simple-sample-rn", withExtension: "vtt")!
+		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
+		XCTAssertEqual(2, subtitles.cues.count)
+
+		XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(millisecond: 500))
+		XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(second: 2))
+		XCTAssertNil(subtitles.cues[0].identifier)
+		XCTAssertEqual(subtitles.cues[0].text, "The Web is always changing")
+
+		XCTAssertEqual(subtitles.cues[1].startTime, Subtitles.Time(second: 2, millisecond: 500))
+		XCTAssertEqual(subtitles.cues[1].endTime, Subtitles.Time(second: 4, millisecond: 300))
+		XCTAssertNil(subtitles.cues[1].identifier)
+		XCTAssertEqual(subtitles.cues[1].text, "and the way we access it is changing")
+	}
+
+	func testSampleWithSlashRSlashN() throws {
+		let fileURL = Bundle.module.url(forResource: "upc-video-subtitles-en", withExtension: "vtt")!
+		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
+		XCTAssertEqual(8, subtitles.cues.count)
+
+		XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(second: 3, millisecond: 500))
+		XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(second: 5))
+		XCTAssertEqual("1", subtitles.cues[0].identifier)
+		XCTAssertEqual(subtitles.cues[0].text, "Everyone wants the most from life")
+
+		XCTAssertEqual(subtitles.cues[6].startTime, Subtitles.Time(second: 26, millisecond: 500))
+		XCTAssertEqual(subtitles.cues[6].endTime, Subtitles.Time(second: 27, millisecond: 500))
+		XCTAssertEqual("7", subtitles.cues[6].identifier)
+		XCTAssertEqual(subtitles.cues[6].text, "UPC")
+	}
 }
