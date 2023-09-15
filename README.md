@@ -81,6 +81,9 @@ let content2 = try coder.encode(subtitles: subtitles)
 
 There appears to be no formal CSV specification for subtitles, so this coder tries to make a generic "enough" encoder/decoder to make it easier for an app to export into a spreadsheet or google docs.
 
+<details>
+<summary>Click here for more details on supported CSV formats</summary>
+
 The CSV must conform to [RFC 4180](https://www.rfc-editor.org/rfc/rfc4180.html)
 
 * Text that contains double-quotes must be double-double-quoted (eg. ">> ALICE: My cat is named ""cat"" and is quite arrogant")
@@ -132,6 +135,8 @@ Position,Start time,End Time,Text
 2, 102727, 104562, "Тук пише, че 5 години сте бил"
 3, 104646, 107232, "мениджър на ресторант ""Ръсти Скапър""."
 ```
+
+</details>
 
 ## Limitations
 
