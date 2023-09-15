@@ -92,7 +92,10 @@ public extension Subtitles {
 // MARK: - Decoding
 
 public extension Subtitles {
-	/// Create an subtitles object using the contents of a file
+	/// Create a subtitles container using the contents of a file
+	/// - Parameters:
+	///   - fileURL: The URL of the text file containing subtitles
+	///   - encoding: The expected text encoding for the file
 	init(fileURL: URL, encoding: String.Encoding) throws {
 		guard let coder = Subtitles.Coder.coder(fileExtension: fileURL.pathExtension) else {
 			throw SubTitlesError.unsupportedFileType(fileURL.pathExtension)
@@ -113,7 +116,7 @@ public extension Subtitles {
 		self = try coder.decode(fileURL: fileURL, encoding: encoding)
 	}
 
-	/// Create an subtitles object from the content of a string
+	/// Create a subtitles container from the content of a string
 	/// - Parameters:
 	///   - content: The string containing the subtitle content
 	///   - expectedExtension: The expected format for the content expressed as the subtitle format's file extension.
@@ -129,7 +132,7 @@ public extension Subtitles {
 		self = try coder.decode(content)
 	}
 
-	/// Create an subtitles object from the content of a Data
+	/// Create a subtitles container from the content of a Data
 	/// - Parameters:
 	///   - data: The data containing the subtitle content
 	///   - expectedExtension: The expected format for the content expressed as the subtitle format's file extension.

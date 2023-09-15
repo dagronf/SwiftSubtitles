@@ -41,6 +41,12 @@ public extension Subtitles {
 		public let text: String
 		
 		/// Create a Cue entry
+		/// - Parameters:
+		///   - identifier: The cue identifier (optional)
+		///   - position: The cue position (optional) - used for SRT encoding/decoding
+		///   - startTime: The time to start displaying the cue
+		///   - endTime: The time to stop displaying the cue
+		///   - text: The cue text
 		public init(
 			identifier: String? = nil,
 			position: Int? = nil,
