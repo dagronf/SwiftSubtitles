@@ -40,7 +40,7 @@ extension Subtitles.Coder {
 }
 
 /// The time matching regex
-private let VTTTimeRegex__ = try! DSFRegex(#"(?:(\d*):)?(?:(\d*):)(\d*)\.(\d{3})\s-->\s(?:(\d*):)?(?:(\d*):)(\d*)\.(\d{3})"#)
+private let VTTTimeRegex__ = try! DSFRegex(#"(?:(\d*):)?(?:(\d*):)(\d*)[.,](\d{3})\s*-->\s*(?:(\d*):)?(?:(\d*):)(\d*)[.,](\d{3})"#)
 
 public extension Subtitles.Coder.VTT {
 	/// Encode subtitles as Data

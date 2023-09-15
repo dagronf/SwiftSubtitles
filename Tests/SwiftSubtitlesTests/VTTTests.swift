@@ -238,4 +238,60 @@ Language: en
 		XCTAssertEqual(subtitles.cues[1].text, "2nd subtitle.")
 	}
 
+    func testCommaDecimalHandling() throws {
+        let contentWithCommas = """
+WEBVTT
+
+00:00:01,000 --> 00:00:04,000
+Never drink liquid nitrogen.
+"""
+
+        let coder = Subtitles.Coder.VTT()
+        let subtitlesWithCommas = try coder.decode(contentWithCommas)
+
+        XCTAssertEqual(subtitlesWithCommas.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
+        XCTAssertEqual(subtitlesWithCommas.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
+    }
+
+    func testDotDecimalHandling() throws {
+        let contentWithDots = """
+WEBVTT
+
+00:00:01.000 --> 00:00:04.000
+Never drink liquid nitrogen.
+"""
+
+        let coder = Subtitles.Coder.VTT()
+        let subtitlesWithDots = try coder.decode(contentWithDots)
+
+        XCTAssertEqual(subtitlesWithDots.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
+        XCTAssertEqual(subtitlesWithDots.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
+    }
+
+    func testSpaceHandling() throws {
+        // Test with spaces around '-->'
+        let contentWithSpaces = """
+WEBVTT
+
+00:00:01.000  -->  00:00:04.000
+Never drink liquid nitrogen.
+"""
+        let coder = Subtitles.Coder.VTT()
+        var subtitles = try coder.decode(contentWithSpaces)
+
+        XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
+        XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
+
+        // Test without spaces around '-->'
+        let contentWithoutSpaces = """
+WEBVTT
+
+00:00:01.000-->00:00:04.000
+Never drink liquid nitrogen.
+"""
+        subtitles = try coder.decode(contentWithoutSpaces)
+
+        XCTAssertEqual(subtitles.cues[0].startTime, Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0))
+        XCTAssertEqual(subtitles.cues[0].endTime, Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0))
+    }
 }
