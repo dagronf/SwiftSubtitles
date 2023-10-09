@@ -202,9 +202,6 @@ public extension Subtitles.Coder.VTT {
 			do {
 				times = try parseTime(index: l1.index, timeLine: l1.line)
 				index += 1
-				guard index < section.count else {
-					throw SubTitlesError.unexpectedEndOfCue(line.index)
-				}
 			}
 			catch {
 				// Might have a cue identifier? Just ignore this failure
@@ -215,16 +212,9 @@ public extension Subtitles.Coder.VTT {
 				identifier = l1.line
 
 				index += 1
-				guard index < section.count else {
-					throw SubTitlesError.unexpectedEndOfCue(line.index)
-				}
 				let l2 = section[index]
 				times = try parseTime(index: l2.index, timeLine: l2.line)
 				index += 1
-			}
-
-			guard index < section.count else {
-				throw SubTitlesError.unexpectedEndOfCue(line.index)
 			}
 
 			// next is the text
@@ -236,11 +226,6 @@ public extension Subtitles.Coder.VTT {
 				}
 				text += section[index].line
 				index += 1
-			}
-
-			if text.isEmpty {
-				// A cue without any text? That's a paddlin'
-				throw SubTitlesError.missingText(line.index)
 			}
 
 			let entry = Subtitles.Cue(
