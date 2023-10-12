@@ -49,7 +49,6 @@ public extension Subtitles {
 			text: String
 		) {
 			assert(startTime < endTime)
-			assert(text.count > 0)
 			self.identifier = identifier
 			self.position = position
 			self.startTime = startTime

@@ -326,4 +326,72 @@ Never drink liquid nitrogen.
 		XCTAssertEqual("7", subtitles.cues[6].identifier)
 		XCTAssertEqual(subtitles.cues[6].text, "UPC")
 	}
+
+    func testVTTCueWithEmptyPayload() throws {
+        // An empty payload is valid.
+        let vttSampleWithEmptyPayload = """
+WEBVTT
+
+00:01.000 --> 00:04.000
+
+"""
+        let coder = Subtitles.Coder.VTT()
+        let subtitles = try coder.decode(vttSampleWithEmptyPayload)
+        XCTAssertEqual(1, subtitles.cues.count, "Expected 1 cue, got \(subtitles.cues.count)")
+    }
+
+    func testVTTWithCueTimingsButNoPayload() throws {
+        // Cue timings with no linefeed indicates no payload.
+        let vttWithoutPayload = "WEBVTT\n00:00:01.000 --> 00:00:04.000"
+        let coder = Subtitles.Coder.VTT()
+        let subtitles = try coder.decode(vttWithoutPayload)
+        XCTAssertEqual(0, subtitles.cues.count, "Expected 0 cues, got \(subtitles.cues.count)")
+        let text = subtitles.cues.first?.text
+        XCTAssertNil(text, "Expected nil, got \(text ?? "")")
+    }
+
+    func testVTTWithEmptyAndMultilineCues() throws {
+        // A newline must precede a cue, but an empty payload is valid.
+        let sampleVTTContent = """
+WEBVTT
+
+00:00:01.000 --> 00:00:04.000
+
+00:00:05.000 --> 00:00:08.000
+- This is first line of the subtitle.
+- This is the second line of the subtitle.
+
+00:00:09.000 --> 00:00:12.000
+
+"""
+        let coder = Subtitles.Coder.VTT()
+        let subtitles = try coder.decode(sampleVTTContent)
+        XCTAssertEqual(3, subtitles.cues.count, "Expected 3 cues, got \(subtitles.cues.count)")
+        // Accessing the middle cue with multiline text.
+        let multilineText = subtitles.cues[1].text
+        let lines = multilineText.split(separator: "\n")
+        let numberOfLines = lines.count
+        XCTAssertEqual(2, numberOfLines, "Expected 2 lines, got \(numberOfLines)")
+    }
+
+    func testMissingNewlineTreatsTimeLineAsText() throws {
+        // An empty newline must precede a cue.
+        // A time line without one is considered text.
+        let vttWithoutNewlineBeforeSecondCue = """
+WEBVTT
+
+00:00:01.000 --> 00:00:04.000
+00:00:05.000 --> 00:00:08.000
+"""
+        let coder = Subtitles.Coder.VTT()
+        let subtitles = try coder.decode(vttWithoutNewlineBeforeSecondCue)
+        XCTAssertEqual(1, subtitles.cues.count, "Expected 1 cue, got \(subtitles.cues.count)")
+        let startTimeSecond = subtitles.cues.first?.startTime.second
+        let endTimeSecond = subtitles.cues.first?.endTime.second
+        let text = subtitles.cues.first?.text
+        XCTAssertEqual(startTimeSecond, 1, "Expected 1 second, got \(startTimeSecond ?? 0)")
+        XCTAssertEqual(endTimeSecond, 4, "Expected 4 seconds, got \(endTimeSecond ?? 0)")
+        let expectedText = "00:00:05.000 --> 00:00:08.000"
+        XCTAssertEqual(text, expectedText, "Expected \(expectedText), got \(text ?? "")")
+    }
 }
