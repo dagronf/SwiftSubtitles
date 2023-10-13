@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "AA420D68-BF7C-4360-8F84-DC77009DA69A",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Subtitle Viewer.xcodeproj",
+      "identifier" : "234950E02A09AE90006A33D4",
+      "name" : "Subtitle Viewer"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/..",
+        "identifier" : "SwiftSubtitlesTests",
+        "name" : "SwiftSubtitlesTests"
+      }
+    }
+  ],
+  "version" : 1
+}
