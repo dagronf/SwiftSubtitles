@@ -144,12 +144,10 @@ Position,Start time,End Time,Text
 
 ## License
 
-MIT. Use it for anything you want, just attribute my work if you do. Let me know if you do use it somewhere, I'd love to hear about it!
-
 ```
 MIT License
 
-Copyright (c) 2023 Darren Ford
+Copyright (c) 2024 Darren Ford
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
