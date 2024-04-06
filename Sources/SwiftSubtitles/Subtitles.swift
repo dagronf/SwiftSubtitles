@@ -28,6 +28,12 @@ import Foundation
 
 /// An Subtitles file representation
 public struct Subtitles: Equatable, Codable {
+
+	public static var empty: Subtitles = Subtitles([])
+
+	/// Do we have any cues
+	public var isEmpty: Bool { self.cues.isEmpty }
+
 	/// Subtitle cues
 	public let cues: [Cue]
 
@@ -208,6 +214,11 @@ public extension Subtitles {
 	var startTimeSorted: Subtitles {
 		let entries = self.cues.sorted { a, b in a.startTime < b.startTime }
 		return Subtitles(entries)
+	}
+	
+	/// Returns all of the text contained within the cues
+	var text: [String] {
+		self.cues.map { $0.text }
 	}
 }
 

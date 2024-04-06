@@ -126,12 +126,11 @@ class TextEncodingAccessoryView: NSViewController {
 		do {
 			let textContent: String?
 			if let encoding = self.encoding {
-				textContent = try String(contentsOf: selection, encoding: encoding)
+				textContent = try? String(contentsOf: selection, encoding: encoding)
 			}
 			else {
 				var usedEncoding: String.Encoding = .ascii
-				textContent = try String(contentsOf: selection, usedEncoding: &usedEncoding)
-				Swift.print(textContent)
+				textContent = try? String(contentsOf: selection, usedEncoding: &usedEncoding)
 			}
 
 			if let text = textContent, !text.isEmpty {
@@ -144,14 +143,11 @@ class TextEncodingAccessoryView: NSViewController {
 				self.decodedTextView.string = ""
 			}
 		}
-		catch {
-			Swift.print(error)
-		}
 	}
 }
 
 extension TextEncodingAccessoryView: NSOpenSavePanelDelegate {
-	func panelSelectionDidChange(_ sender: Any?) {
+	@IBAction func panelSelectionDidChange(_ sender: Any?) {
 		self.selectedFile = (sender as? NSOpenPanel)?.urls.first
 		self.sync()
 	}

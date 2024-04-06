@@ -20,20 +20,6 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>SubViewer subtitle file</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>public.subtitles.srt</string>
-			</array>
-			<key>NSDocumentClass</key>
-			<string>$(PRODUCT_MODULE_NAME).Document</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeName</key>
 			<string>SubRip subtitle file</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
@@ -41,7 +27,21 @@
 			<string>Default</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>public.subrip</string>
+				<string>public.srt</string>
+			</array>
+			<key>NSDocumentClass</key>
+			<string>$(PRODUCT_MODULE_NAME).Document</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>SubViewer subtitle file</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.sbv</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string>$(PRODUCT_MODULE_NAME).Document</string>
@@ -121,11 +121,11 @@
 				<string>public.plain-text</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>SRT subtitle file</string>
+			<string>SubRip subtitle file</string>
 			<key>UTTypeIcons</key>
 			<dict/>
 			<key>UTTypeIdentifier</key>
-			<string>public.subtitles.srt</string>
+			<string>public.srt</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -140,11 +140,11 @@
 				<string>public.plain-text</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>SBV subtitle file</string>
+			<string>SubViewer subtitle file</string>
 			<key>UTTypeIcons</key>
 			<dict/>
 			<key>UTTypeIdentifier</key>
-			<string>public.subviewer</string>
+			<string>public.sbv</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

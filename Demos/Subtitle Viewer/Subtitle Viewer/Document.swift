@@ -16,6 +16,13 @@ class DocumentController: NSDocumentController {
 
 	var openAccessory: TextEncodingAccessoryView? = nil
 
+	override func documentClass(forType typeName: String) -> AnyClass? {
+		let c = super.documentClass(forType: typeName)
+		Swift.print(c)
+		Swift.print(typeName)
+		return c
+	}
+
 	override func openDocument(_ sender: Any?) {
 		let a = TextEncodingAccessoryView()
 		self.openAccessory = a

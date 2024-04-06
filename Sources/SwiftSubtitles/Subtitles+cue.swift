@@ -27,8 +27,15 @@
 import Foundation
 
 public extension Subtitles {
+
+	/// The unique identifier type for a Cue
+	typealias CueIdentifier = Identifier<Cue, UUID>
+
 	/// An cue entry in a subtitles file
-	struct Cue: Equatable, Codable {
+	struct Cue: Equatable, Identifiable, Codable {
+		/// A unique identifier for _this_ object. It is not involved in equality checks
+		public let id: CueIdentifier
+
 		/// The identifier (used in VTT)
 		public let identifier: String?
 		/// The position (used in SRT)
@@ -50,6 +57,17 @@ public extension Subtitles {
 		/// Is the start time and end time valid?
 		@inlinable public var isValidTime: Bool { self.startTimeInSeconds >= 0 && self.duration > 0 }
 
+		/// Check if two cues are equal.
+		///
+		/// This equality check does NOT take into account `id`
+		public static func == (lhs: Cue, rhs: Cue) -> Bool {
+			lhs.identifier == rhs.identifier &&
+			lhs.position == rhs.position &&
+			lhs.startTime == rhs.startTime &&
+			lhs.endTime == rhs.endTime &&
+			lhs.text == rhs.text
+		}
+
 		/// Create a Cue entry
 		/// - Parameters:
 		///   - identifier: The cue identifier (optional)
@@ -65,6 +83,8 @@ public extension Subtitles {
 			text: String
 		) {
 			assert(startTime < endTime)
+			self.id = Identifier<Self, UUID>(id: UUID())
+			
 			self.identifier = identifier
 			self.position = position
 			self.startTime = startTime
@@ -87,6 +107,8 @@ public extension Subtitles {
 			text: String
 		) {
 			assert(startTimeInSeconds <= endTimeInSeconds)
+			self.id = Identifier<Self, UUID>(id: UUID())
+
 			self.identifier = identifier
 			self.position = position
 			self.startTime = Time(timeInSeconds: startTimeInSeconds)
@@ -110,6 +132,7 @@ public extension Subtitles {
 		) {
 			assert(duration >= 0)
 
+			self.id = Identifier<Self, UUID>(id: UUID())
 			self.identifier = identifier
 			self.position = position
 			self.text = text

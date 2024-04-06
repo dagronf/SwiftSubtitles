@@ -27,6 +27,16 @@
 import DSFRegex
 import Foundation
 
+#if canImport(UniformTypeIdentifiers)
+import UniformTypeIdentifiers
+@available(macOS 11.0, iOS 14, tvOS 14, *)
+extension UTType {
+	public static var srt: UTType {
+		UTType(importedAs: "public.srt", conformingTo: .plainText)
+	}
+}
+#endif
+
 extension Subtitles.Coder {
 	/// SRT (SubRip) decoder/encoder
 	public struct SRT: SubtitlesCodable, SubtitlesTextCodable {
