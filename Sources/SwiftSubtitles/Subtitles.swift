@@ -38,7 +38,7 @@ public struct Subtitles: Equatable, Codable {
 
 	/// Return the first cue containing the seconds value
 	@inlinable public func firstCue(containing secondsValue: Double) -> Cue? {
-		self.cues.first { $0.contains(secondsValue: secondsValue) }
+		self.cues.first { $0.contains(timeInSeconds: secondsValue) }
 	}
 }
 
@@ -51,20 +51,20 @@ public extension Subtitles {
 	/// Locate the cue that either contains the time value, or is the _next_ cue after the time value
 	func nextCueIndex(for secondsValue: Double) -> Int? {
 		guard let first = self.cues.first else { return nil }
-		if first.startTime.timeInSeconds > secondsValue {
+		if first.startTimeInSeconds > secondsValue {
 			return 0
 		}
 
 		// Check if we are before the first cue
-		if first.startTime.timeInSeconds > secondsValue {
+		if first.startTimeInSeconds > secondsValue {
 			return 0
 		}
 
-		for index in (0 ..< self.cues.count - 1) {
+		for index in 0 ..< (self.cues.count - 1) {
 			let curr = self.cues[index]
 			let next = self.cues[index + 1]
 
-			if secondsValue > curr.endTime.timeInSeconds && secondsValue < next.startTime.timeInSeconds {
+			if secondsValue > curr.endTimeInSeconds, secondsValue < next.startTimeInSeconds {
 				return index + 1
 			}
 		}
@@ -79,7 +79,7 @@ public extension Subtitles {
 	}
 
 	func cueType(for secondsValue: Double) -> CueTypeResult? {
-		if let c = self.cues.enumerated().first(where: { $0.element.contains(secondsValue: secondsValue) }) {
+		if let c = self.cues.enumerated().first(where: { $0.element.contains(timeInSeconds: secondsValue) }) {
 			return CueTypeResult(isInsideCue: true, cueIndex: c.offset)
 		}
 		if let c = self.nextCueIndex(for: secondsValue) {
@@ -208,5 +208,41 @@ public extension Subtitles {
 	var startTimeSorted: Subtitles {
 		let entries = self.cues.sorted { a, b in a.startTime < b.startTime }
 		return Subtitles(entries)
+	}
+}
+
+// MARK: - Time shifting
+
+public extension Subtitles {
+	/// Insert a time duration within the subtitles
+	/// - Parameters:
+	///   - durationInSeconds: The duration to insert
+	///   - timeInSeconds: The time at which to insert the duration
+	/// - Returns: A new set of subtitles with the duration inserted
+	///
+	/// If shifting backwards in time (ie. duration is negative), all times clamp to 0
+	func timeShifting(
+		by durationInSeconds: Double,
+		at timeInSeconds: Double = 0
+	) -> Subtitles {
+		let shifted = self.cues.map { $0.inserting(durationInSeconds, at: timeInSeconds) }
+		return Subtitles(shifted)
+	}
+}
+
+// MARK: - Validation and sanitization
+
+public extension Subtitles {
+	/// Return the indexes of any cues with invalid durations (eg.
+	/// - Returns: An array of the indexes of cues with invalid durations
+	func indexesOfInvalidCues() -> [Int] {
+		self.cues.enumerated().filter { !$0.element.isValidTime }.map { $0.offset }
+	}
+
+	/// Remove any cues that start before time 0 or their duration is zero
+	/// - Returns: A subtitles object containing only the valid cues
+	func removingInvalidCues() -> Subtitles {
+		let c = self.cues.filter { $0.isValidTime }
+		return Subtitles(c)
 	}
 }

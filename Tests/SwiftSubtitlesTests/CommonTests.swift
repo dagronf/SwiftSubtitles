@@ -159,14 +159,14 @@ other lending institution
 
 			XCTAssertEqual(0.1, cue1.duration, accuracy: 0.001)
 
-			XCTAssertFalse(cue1.contains(secondsValue: 10.4999999))
-			XCTAssertTrue(cue1.contains(secondsValue: 10.500))
-			XCTAssertTrue(cue1.contains(secondsValue: 10.501))
+			XCTAssertFalse(cue1.contains(timeInSeconds: 10.4999999))
+			XCTAssertTrue(cue1.contains(timeInSeconds: 10.500))
+			XCTAssertTrue(cue1.contains(timeInSeconds: 10.501))
 
-			XCTAssertTrue(cue1.contains(secondsValue: 10.600))
-			XCTAssertFalse(cue1.contains(secondsValue: 10.6001))
-			XCTAssertFalse(cue1.contains(secondsValue: 10.6000000001))
-			XCTAssertFalse(cue1.contains(secondsValue: 10.601))
+			XCTAssertTrue(cue1.contains(timeInSeconds: 10.600))
+			XCTAssertFalse(cue1.contains(timeInSeconds: 10.6001))
+			XCTAssertFalse(cue1.contains(timeInSeconds: 10.6000000001))
+			XCTAssertFalse(cue1.contains(timeInSeconds: 10.601))
 		}
 
 		do {
@@ -235,14 +235,14 @@ other lending institution
 			XCTAssertNil(ss.cueType(for: 16))
 		}
 	}
-    
-    func testStringLines() throws {
-        let crLfString = "WEBVTT\r\n\r\n00:00:05.312 --> 00:00:06.729 line:90%,end position:50%,center align:center\r\nIt’s 9:00 a.m.\r\n\r\n00:00:06.729 --> 00:00:08.687 line:90%,end position:50%,center align:center\r\non a Tuesday morning"
-        let nlString = "WEBVTT\n\n00:00:05.312 --> 00:00:06.729 line:90%,end position:50%,center align:center\nIt’s 9:00 a.m.\n\n00:00:06.729 --> 00:00:08.687 line:90%,end position:50%,center align:center\non a Tuesday morning"
-        let crLFLines = crLfString.lines
-        let nlLines = nlString.lines
 
-        XCTAssertEqual(crLFLines, nlLines)
-        XCTAssertEqual(crLFLines.count, 7)
-    }
+	func testStringLines() throws {
+		let crLfString = "WEBVTT\r\n\r\n00:00:05.312 --> 00:00:06.729 line:90%,end position:50%,center align:center\r\nIt’s 9:00 a.m.\r\n\r\n00:00:06.729 --> 00:00:08.687 line:90%,end position:50%,center align:center\r\non a Tuesday morning"
+		let nlString = "WEBVTT\n\n00:00:05.312 --> 00:00:06.729 line:90%,end position:50%,center align:center\nIt’s 9:00 a.m.\n\n00:00:06.729 --> 00:00:08.687 line:90%,end position:50%,center align:center\non a Tuesday morning"
+		let crLFLines = crLfString.lines
+		let nlLines = nlString.lines
+
+		XCTAssertEqual(crLFLines, nlLines)
+		XCTAssertEqual(crLFLines.count, 7)
+	}
 }

@@ -28,7 +28,7 @@ import Foundation
 
 public extension Subtitles {
 	/// A time definition for a subtitles file
-	struct Time: Hashable, Comparable, Codable, Equatable {
+	struct Time: Hashable, Comparable, Codable, Equatable, CustomDebugStringConvertible {
 		/// Create a Time
 		public init(hour: UInt = 0, minute: UInt = 0, second: UInt = 0, millisecond: UInt = 0) {
 			assert(minute < 60)
@@ -59,6 +59,9 @@ public extension Subtitles {
 		}
 
 		/// Simple text representation
+		public var debugDescription: String { "Time: \(self.text)" }
+
+		/// Simple time text representation
 		public var text: String {
 			String(format: "%02d:%02d:%02d.%03d", hour, minute, second, millisecond)
 		}
@@ -87,6 +90,33 @@ public extension Subtitles.Time {
 	/// Returns true if lhs and rhs are equal within a 1ms difference
 	static func == (lhs: Subtitles.Time, rhs: Subtitles.Time) -> Bool {
 		UInt(lhs.timeInSeconds * 1000) == UInt(rhs.timeInSeconds * 1000)
+	}
+}
+
+// MARK: - Time shifting
+
+public extension Subtitles.Time {
+	/// Timeshift the time
+	/// - Parameter durationInSeconds: The number of seconds to shift the time
+	/// - Returns: A new time
+	///
+	/// Clamps to 0 if the resulting time becomes negative
+	func timeshifting(by durationInSeconds: Double) -> Subtitles.Time {
+		Subtitles.Time(timeInSeconds: max(0, self.timeInSeconds + durationInSeconds))
+	}
+
+	/// Add a time in seconds to this time
+	///
+	/// Clamps to 0 if the resulting time becomes negative
+	static func +(_ left: Subtitles.Time, _ right: Double) -> Subtitles.Time {
+		left.timeshifting(by: right)
+	}
+
+	/// Subtract a seconds value from this time
+	///
+	/// Clamps to 0 if the resulting time becomes negative
+	static func -(_ left: Subtitles.Time, _ right: Double) -> Subtitles.Time {
+		left.timeshifting(by: -right)
 	}
 }
 
