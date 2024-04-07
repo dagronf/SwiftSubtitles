@@ -12,7 +12,7 @@ extension Data {
 	init(fileURL: URL, maxByteCount: Int) throws {
 
 		guard let stream = InputStream(url: fileURL) else {
-			fatalError()
+			throw CocoaError(.fileNoSuchFile)
 		}
 
 		// Allocate a c-style buffer to write into
