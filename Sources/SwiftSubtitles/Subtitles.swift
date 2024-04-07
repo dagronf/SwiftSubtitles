@@ -135,7 +135,7 @@ public extension Subtitles {
 			throw SubTitlesError.coderGeneratesBinaryContent
 		}
 
-		self = try coder.decode(content)
+		self = try coder.decode(content.dropBomIfNeeded())
 	}
 
 	/// Create a subtitles container from the content of a Data

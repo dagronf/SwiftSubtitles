@@ -40,3 +40,14 @@ internal extension String {
 		return linesArray
 	}
 }
+
+// https://gist.github.com/krzyzanowskim/f2ca3e1e4f6dfd490fc35630b823eaac
+// The character \uFEFF is the BOM character for all UTFs (8, 16 LE and 16 BE)
+private let _bom: Character = "\u{feff}"
+
+internal extension String {
+	/// Remove a BOM character from the start of the string if it exists
+	func dropBomIfNeeded() -> String {
+		self.first == _bom ? String(self.dropFirst()) : self
+	}
+}
