@@ -1,6 +1,8 @@
 import XCTest
 @testable import SwiftSubtitles
 
+import Gzip
+
 final class CommonTests: XCTestCase {
 
 	func testTimeSorting() throws {
@@ -244,5 +246,19 @@ other lending institution
 
 		XCTAssertEqual(crLFLines, nlLines)
 		XCTAssertEqual(crLFLines.count, 7)
+	}
+
+	func testGzippedSrtFile() throws {
+		let fileURL = Bundle.module.url(forResource: "zorro.srt", withExtension: "gz")!
+		let data = try Data(contentsOf: fileURL).gunzipped()
+		let str = String(data: data, encoding: .utf8)!
+
+		let subtitles = try Subtitles(content: str, expectedExtension: "srt")
+		XCTAssertEqual(1293, subtitles.cues.count)
+
+		let match = try XCTUnwrap(subtitles.cues.first { $0.position == 1279 })
+		XCTAssertEqual(match.text, "No.")
+		XCTAssertEqual(match.startTime, .init(hour: 1, minute: 29, second: 25, millisecond: 324))
+		XCTAssertEqual(match.endTime, .init(hour: 1, minute: 29, second: 26, millisecond: 658))
 	}
 }
