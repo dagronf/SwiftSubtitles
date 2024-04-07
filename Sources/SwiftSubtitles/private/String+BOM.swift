@@ -1,5 +1,5 @@
 //
-//  String+extensions.swift
+//  String+BOM.swift
 //
 //  Copyright © 2024 Darren Ford. All rights reserved.
 //
@@ -26,17 +26,18 @@
 
 import Foundation
 
-internal extension String {
-	/// Split the string into its component lines
-	///
-	/// Much more reliable than `content.components(separatedBy: .newlines)`
-	/// which unfortunately splits `\r\n` into _two_ lines, one being an empty line.
-	var lines: [String] {
-		var linesArray = [String]()
-		// Split the string into lines using any type of newline (CR, LF, or CRLF)
-		self.enumerateLines { line, _ in
-			linesArray.append(line)
-		}
-		return linesArray
+/// With thanks to [Marcin Krzyzanowski](https://gist.github.com/krzyzanowskim)
+/// https://gist.github.com/krzyzanowskim/f2ca3e1e4f6dfd490fc35630b823eaac
+
+/// The character \uFEFF is the BOM character for all UTFs (8, 16 LE and 16 BE)
+private let _bom: Character = "\u{feff}"
+
+extension String {
+	/// Returns true if the string starts with a known BOM character
+	func hasBOM() -> Bool { self.first == _bom }
+
+	/// Remove a BOM character from the start of the string if it exists
+	func removingBOM() -> String {
+		(self.first == _bom) ? String(self.dropFirst()) : self
 	}
 }
