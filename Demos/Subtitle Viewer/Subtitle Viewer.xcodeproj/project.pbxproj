@@ -17,6 +17,7 @@
 		23793C112A0B638700C96C96 /* TextEncodingAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23793C0F2A0B638700C96C96 /* TextEncodingAccessoryView.swift */; };
 		23793C122A0B638700C96C96 /* TextEncodingAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23793C102A0B638700C96C96 /* TextEncodingAccessoryView.xib */; };
 		23793C1F2A0B84A700C96C96 /* Data+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23793C1E2A0B84A700C96C96 /* Data+extensions.swift */; };
+		23D64CB32BC2558300365B1B /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D64CB22BC2558300365B1B /* DocumentController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		23793C0F2A0B638700C96C96 /* TextEncodingAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEncodingAccessoryView.swift; sourceTree = "<group>"; };
 		23793C102A0B638700C96C96 /* TextEncodingAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEncodingAccessoryView.xib; sourceTree = "<group>"; };
 		23793C1E2A0B84A700C96C96 /* Data+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extensions.swift"; sourceTree = "<group>"; };
+		23D64CB22BC2558300365B1B /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				234950E42A09AE90006A33D4 /* AppDelegate.swift */,
 				234950E62A09AE90006A33D4 /* ViewController.swift */,
 				234950E82A09AE90006A33D4 /* Document.swift */,
+				23D64CB22BC2558300365B1B /* DocumentController.swift */,
 				234951002A0B1018006A33D4 /* RSVerticallyCenteredTextFieldCell.swift */,
 				234950EA2A09AE91006A33D4 /* Assets.xcassets */,
 				234950EC2A09AE91006A33D4 /* Main.storyboard */,
@@ -170,6 +173,7 @@
 			files = (
 				234951012A0B1018006A33D4 /* RSVerticallyCenteredTextFieldCell.swift in Sources */,
 				234950E72A09AE90006A33D4 /* ViewController.swift in Sources */,
+				23D64CB32BC2558300365B1B /* DocumentController.swift in Sources */,
 				234950E52A09AE90006A33D4 /* AppDelegate.swift in Sources */,
 				23793C1F2A0B84A700C96C96 /* Data+extensions.swift in Sources */,
 				23793C112A0B638700C96C96 /* TextEncodingAccessoryView.swift in Sources */,
