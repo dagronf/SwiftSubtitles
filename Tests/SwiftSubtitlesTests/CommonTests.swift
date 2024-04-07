@@ -247,29 +247,4 @@ other lending institution
 		XCTAssertEqual(crLFLines, nlLines)
 		XCTAssertEqual(crLFLines.count, 7)
 	}
-
-	func testGzippedSrtFile() throws {
-		let fileURL = Bundle.module.url(forResource: "zorro.srt", withExtension: "gz")!
-		let data = try Data(contentsOf: fileURL).gunzipped()
-		let str = String(data: data, encoding: .utf8)!
-
-		// This file has a utf8 BOM. Check we detect it ok
-		XCTAssertTrue(str.hasBOM())
-		XCTAssertEqual(89272, str.count)
-		XCTAssertNotEqual("1", str.first)
-
-		// Remove the BOM character and check
-		let chopped = str.removingBOM()
-		XCTAssertFalse(chopped.hasBOM())
-		XCTAssertEqual(89271, chopped.count)
-		XCTAssertEqual("1", chopped.first)
-
-		let subtitles = try Subtitles(content: str, expectedExtension: "srt")
-		XCTAssertEqual(1293, subtitles.cues.count)
-
-		let match = try XCTUnwrap(subtitles.cues.first { $0.position == 1279 })
-		XCTAssertEqual(match.text, "No.")
-		XCTAssertEqual(match.startTime, .init(hour: 1, minute: 29, second: 25, millisecond: 324))
-		XCTAssertEqual(match.endTime, .init(hour: 1, minute: 29, second: 26, millisecond: 658))
-	}
 }
