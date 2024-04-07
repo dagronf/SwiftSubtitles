@@ -1,7 +1,7 @@
 //
 //  VTT.swift
 //
-//  Copyright © 2023 Darren Ford. All rights reserved.
+//  Copyright © 2024 Darren Ford. All rights reserved.
 //
 //  MIT License
 //
@@ -103,7 +103,7 @@ public extension Subtitles.Coder.VTT {
 	/// - Returns: Subtitles
 	func decode(_ content: String) throws -> Subtitles {
 		let lines = content
-			.dropBomIfNeeded()
+			.removingBOM()
 			.lines
 			.enumerated()
 			.map { (offset: $0.offset, element: $0.element.trimmingCharacters(in: .whitespaces)) }

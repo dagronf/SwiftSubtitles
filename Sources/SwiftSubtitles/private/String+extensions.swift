@@ -1,7 +1,7 @@
 //
 //  String+extensions.swift
 //
-//  Copyright © 2023 Darren Ford. All rights reserved.
+//  Copyright © 2024 Darren Ford. All rights reserved.
 //
 //  MIT License
 //
@@ -43,11 +43,15 @@ internal extension String {
 
 // https://gist.github.com/krzyzanowskim/f2ca3e1e4f6dfd490fc35630b823eaac
 // The character \uFEFF is the BOM character for all UTFs (8, 16 LE and 16 BE)
+
 private let _bom: Character = "\u{feff}"
 
 internal extension String {
+	/// Does this string start with a BOM?
+	func hasBOM() -> Bool { self.first == _bom }
+
 	/// Remove a BOM character from the start of the string if it exists
-	func dropBomIfNeeded() -> String {
+	func removingBOM() -> String {
 		self.first == _bom ? String(self.dropFirst()) : self
 	}
 }

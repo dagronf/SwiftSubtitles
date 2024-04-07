@@ -1,7 +1,7 @@
 //
 //  SRT.swift
 //
-//  Copyright © 2023 Darren Ford. All rights reserved.
+//  Copyright © 2024 Darren Ford. All rights reserved.
 //
 //  MIT License
 //
@@ -128,7 +128,7 @@ public extension Subtitles.Coder.SRT {
 
 		var results = [Subtitles.Cue]()
 
-		let lines = content.dropBomIfNeeded().lines
+		let lines = content.removingBOM().lines
 
 		var currentState: LineState = .blank
 
