@@ -30,15 +30,11 @@ class Document: NSDocument {
 		let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
 		self.addWindowController(windowController)
 
-		guard let split = windowController.contentViewController as? NSSplitViewController else {
-			fatalError()
-		}
-
-		guard let vc = split.splitViewItems[0].viewController as? ViewController else {
-			fatalError()
-		}
-
-		guard let te = split.splitViewItems[1].viewController as? SubtitleTextContentViewController else {
+		guard 
+			let split = windowController.contentViewController as? NSSplitViewController,
+			let vc = split.splitViewItems[0].viewController as? ViewController,
+			let te = split.splitViewItems[1].viewController as? SubtitleTextContentViewController
+		else {
 			fatalError()
 		}
 
@@ -53,7 +49,7 @@ class Document: NSDocument {
 	}
 
 	override func read(from url: URL, ofType typeName: String) throws {
-		self.textContent = try String(contentsOf: url)
+		self.textContent = try String(contentsOf: url, encoding: DocumentController.selected ?? .utf8)
 		self.subtitles = try Subtitles(fileURL: url, encoding: DocumentController.selected ?? .utf8)
 	}
 }

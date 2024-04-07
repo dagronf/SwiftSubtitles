@@ -709,9 +709,9 @@
                 <splitViewController id="21j-sO-JrR" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="QbA-WW-8KC"/>
-                        <splitViewItem id="Sdp-zL-K1N"/>
+                        <splitViewItem holdingPriority="400" id="Sdp-zL-K1N"/>
                     </splitViewItems>
-                    <splitView key="splitView" dividerStyle="paneSplitter" vertical="YES" id="nzM-9Q-phk">
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="nzM-9Q-phk">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -798,11 +798,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="zH4-gX-Qp6">
-                                                            <rect key="frame" x="71" y="0.0" width="29" height="23"/>
+                                                            <rect key="frame" x="71" y="0.0" width="28" height="23"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tPM-Wd-ATX">
-                                                                    <rect key="frame" x="0.0" y="4" width="29" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="4" width="28" height="15"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="npI-fl-P71">
                                                                         <font key="font" size="13" name="Menlo-Regular"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -835,7 +835,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="startCell" verticalHuggingPriority="100" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="yM1-mn-JZb">
-                                                            <rect key="frame" x="117" y="0.0" width="116" height="23"/>
+                                                            <rect key="frame" x="116.5" y="0.0" width="116" height="23"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="cyY-t1-ZaK">
                                                                     <rect key="frame" x="0.0" y="4" width="116" height="15"/>
@@ -871,7 +871,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="endCell" verticalHuggingPriority="100" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="PyR-wi-igE">
-                                                            <rect key="frame" x="250" y="0.0" width="127" height="23"/>
+                                                            <rect key="frame" x="249.5" y="0.0" width="127" height="23"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="PS1-gL-fyO">
                                                                     <rect key="frame" x="0.0" y="4" width="127" height="15"/>
@@ -907,7 +907,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="textCell" horizontalHuggingPriority="10" verticalHuggingPriority="999" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="7P6-Ln-SHg">
-                                                            <rect key="frame" x="394" y="0.0" width="171" height="21"/>
+                                                            <rect key="frame" x="393.5" y="0.0" width="171" height="21"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="10" verticalHuggingPriority="999" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="999" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKF-jW-E6L">
                                                                     <rect key="frame" x="0.0" y="3" width="171" height="15"/>
