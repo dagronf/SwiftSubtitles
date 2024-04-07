@@ -287,9 +287,10 @@ Fish and chips
 		}
 	}
 
-	func testGzippedSrtFile() throws {
-		let fileURL = Bundle.module.url(forResource: "zorro.srt", withExtension: "gz")!
-		let data = try Data(contentsOf: fileURL).gunzipped()
+	func testSRTFileWithBOM() throws {
+		// This file
+		let fileURL = Bundle.module.url(forResource: "zorro", withExtension: "srt")!
+		let data = try Data(contentsOf: fileURL)
 		let str = String(data: data, encoding: .utf8)!
 
 		// This file has a utf8 BOM. Check we detect it ok

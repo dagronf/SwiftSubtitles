@@ -17,8 +17,7 @@ let package = Package(
 	],
 	dependencies: [
 		.package(url: "https://github.com/dagronf/DSFRegex", from: "3.3.1"),
-		.package(url: "https://github.com/dagronf/TinyCSV", .upToNextMinor(from: "1.0.0")),
-		.package(url: "https://github.com/1024jp/GzipSwift", .upToNextMinor(from: "6.0.1"))
+		.package(url: "https://github.com/dagronf/TinyCSV", .upToNextMinor(from: "1.0.0"))
 	],
 	targets: [
 		.target(
@@ -30,10 +29,7 @@ let package = Package(
 		),
 		.testTarget(
 			name: "SwiftSubtitlesTests",
-			dependencies: [
-				"SwiftSubtitles",
-				.product(name: "Gzip", package: "GzipSwift")
-			],
+			dependencies: [ "SwiftSubtitles" ],
 			resources: [
 				.process("resources"),
 			]

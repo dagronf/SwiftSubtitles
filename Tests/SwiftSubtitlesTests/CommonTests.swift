@@ -1,8 +1,6 @@
 import XCTest
 @testable import SwiftSubtitles
 
-import Gzip
-
 final class CommonTests: XCTestCase {
 
 	func testTimeSorting() throws {
