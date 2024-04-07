@@ -1,7 +1,7 @@
 //
-//  String+extensions.swift
+//  Identifier.swift
 //
-//  Copyright © 2023 Darren Ford. All rights reserved.
+//  Copyright © 2024 Darren Ford. All rights reserved.
 //
 //  MIT License
 //
@@ -26,28 +26,19 @@
 
 import Foundation
 
-internal extension String {
-	/// Split the string into its component lines
-	///
-	/// Much more reliable than `content.components(separatedBy: .newlines)`
-	/// which unfortunately splits `\r\n` into _two_ lines, one being an empty line.
-	var lines: [String] {
-		var linesArray = [String]()
-		// Split the string into lines using any type of newline (CR, LF, or CRLF)
-		self.enumerateLines { line, _ in
-			linesArray.append(line)
-		}
-		return linesArray
-	}
+/// A type-safe identifier
+public struct Identifier<ObjectType, ValueType: Hashable & Codable>: Hashable {
+	let id: ValueType
 }
 
-// https://gist.github.com/krzyzanowskim/f2ca3e1e4f6dfd490fc35630b823eaac
-// The character \uFEFF is the BOM character for all UTFs (8, 16 LE and 16 BE)
-private let _bom: Character = "\u{feff}"
+extension Identifier: Codable {
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.singleValueContainer()
+		self.id = try container.decode(ValueType.self)
+	}
 
-internal extension String {
-	/// Remove a BOM character from the start of the string if it exists
-	func dropBomIfNeeded() -> String {
-		self.first == _bom ? String(self.dropFirst()) : self
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.singleValueContainer()
+		try container.encode(self.id)
 	}
 }

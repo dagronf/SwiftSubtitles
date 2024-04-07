@@ -27,6 +27,16 @@
 import DSFRegex
 import Foundation
 
+#if canImport(UniformTypeIdentifiers)
+import UniformTypeIdentifiers
+@available(macOS 11.0, iOS 14, tvOS 14, *)
+extension UTType {
+	public static var srt: UTType {
+		UTType(importedAs: "public.srt", conformingTo: .plainText)
+	}
+}
+#endif
+
 extension Subtitles.Coder {
 	/// SRT (SubRip) decoder/encoder
 	public struct SRT: SubtitlesCodable, SubtitlesTextCodable {
@@ -118,7 +128,7 @@ public extension Subtitles.Coder.SRT {
 
 		var results = [Subtitles.Cue]()
 
-		let lines = content.lines
+		let lines = content.dropBomIfNeeded().lines
 
 		var currentState: LineState = .blank
 
@@ -139,10 +149,7 @@ public extension Subtitles.Coder.SRT {
 						throw SubTitlesError.invalidFile
 					}
 
-					// srt entry is complete
-					if text.isEmpty {
-						throw SubTitlesError.missingText(item.offset)
-					}
+					// Note that the text _may_ be empty (some SRT files online had empty text in cues)
 					results.append(Subtitles.Cue(position: position, startTime: s, endTime: e, text: text))
 
 					position = -1

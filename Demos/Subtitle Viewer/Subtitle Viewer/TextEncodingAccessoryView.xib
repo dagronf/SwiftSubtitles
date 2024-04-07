@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TextEncodingAccessoryView" customModule="Subtitle_Viewer" customModuleProvider="target">
+            <connections>
+                <outlet property="decodedTextView" destination="ILi-eS-VF1" id="Zs2-0z-lHc"/>
+                <outlet property="encodingPopup" destination="csX-9p-aNB" id="aYt-lf-p0l"/>
+                <outlet property="stateLabel" destination="Ige-GU-EPd" id="mhi-ov-pfD"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="153"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="10" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="10" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HfI-SD-9F6">
+                    <rect key="frame" x="90" y="8" width="300" height="137"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pab-1v-svY">
+                            <rect key="frame" x="68" y="117" width="165" height="20"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7l4-NQ-F1B">
+                                    <rect key="frame" x="-2" y="3" width="90" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Text Encoding" id="qCb-TV-AGp">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="csX-9p-aNB">
+                                    <rect key="frame" x="91" y="-4" width="78" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Rvi-nk-Aw6" id="arV-IP-KA1">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="a0P-sj-Bm4">
+                                            <items>
+                                                <menuItem title="Item 1" state="on" id="Rvi-nk-Aw6"/>
+                                                <menuItem title="Item 2" id="OCc-Dh-1Os"/>
+                                                <menuItem title="Item 3" id="IBp-2d-VLd"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                    <connections>
+                                        <action selector="panelSelectionDidChange:" target="-2" id="h4N-JP-rDs"/>
+                                    </connections>
+                                </popUpButton>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <box horizontalHuggingPriority="10" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="rUa-25-eSh">
+                            <rect key="frame" x="0.0" y="106" width="300" height="5"/>
+                        </box>
+                        <scrollView horizontalHuggingPriority="10" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kmz-MI-DzF">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                            <clipView key="contentView" drawsBackground="NO" id="zUR-SH-Usb">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textView wantsLayer="YES" editable="NO" selectable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" smartInsertDelete="YES" id="ILi-eS-VF1">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <size key="minSize" width="300" height="100"/>
+                                        <size key="maxSize" width="10000000" height="10000000"/>
+                                        <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    </textView>
+                                </subviews>
+                            </clipView>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="VCK-gA-vS1"/>
+                            </constraints>
+                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="vZ9-x3-dGV">
+                                <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </scroller>
+                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="lXH-Xf-DKk">
+                                <rect key="frame" x="225" y="0.0" width="15" height="135"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </scroller>
+                        </scrollView>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ige-GU-EPd">
+                    <rect key="frame" x="217" y="66" width="46" height="21"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="5iy-eV-bik">
+                        <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Ige-GU-EPd" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="0vh-cZ-6fJ"/>
+                <constraint firstItem="HfI-SD-9F6" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="8" id="1Ou-OG-WBc"/>
+                <constraint firstItem="HfI-SD-9F6" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="A8G-5e-H2u"/>
+                <constraint firstItem="Ige-GU-EPd" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Fbh-xG-pOv"/>
+                <constraint firstAttribute="bottom" secondItem="HfI-SD-9F6" secondAttribute="bottom" constant="8" id="p8P-nc-PeW"/>
+                <constraint firstItem="HfI-SD-9F6" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" multiplier="0.625" id="wwT-CE-eej"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="295.5"/>
+        </customView>
+    </objects>
+</document>
