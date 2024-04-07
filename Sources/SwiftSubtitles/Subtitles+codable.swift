@@ -1,7 +1,7 @@
 //
 //  Subtitles+codable.swift
 //
-//  Copyright © 2023 Darren Ford. All rights reserved.
+//  Copyright © 2024 Darren Ford. All rights reserved.
 //
 //  MIT License
 //

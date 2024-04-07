@@ -1,7 +1,7 @@
 //
 //  Subtitles.swift
 //
-//  Copyright © 2023 Darren Ford. All rights reserved.
+//  Copyright © 2024 Darren Ford. All rights reserved.
 //
 //  MIT License
 //
@@ -135,7 +135,7 @@ public extension Subtitles {
 			throw SubTitlesError.coderGeneratesBinaryContent
 		}
 
-		self = try coder.decode(content.dropBomIfNeeded())
+		self = try coder.decode(content.removingBOM())
 	}
 
 	/// Create a subtitles container from the content of a Data
