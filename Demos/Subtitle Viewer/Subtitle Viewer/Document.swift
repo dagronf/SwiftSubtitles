@@ -10,6 +10,7 @@ import SwiftSubtitles
 
 class Document: NSDocument {
 
+	var textContent: String = ""
 	public fileprivate(set) var subtitles: Subtitles = Subtitles([])
 
 	var contentViewController: NSViewController?
@@ -29,11 +30,20 @@ class Document: NSDocument {
 		let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
 		self.addWindowController(windowController)
 
-		guard let vc = windowController.contentViewController as? ViewController else {
+		guard let split = windowController.contentViewController as? NSSplitViewController else {
+			fatalError()
+		}
+
+		guard let vc = split.splitViewItems[0].viewController as? ViewController else {
+			fatalError()
+		}
+
+		guard let te = split.splitViewItems[1].viewController as? SubtitleTextContentViewController else {
 			fatalError()
 		}
 
 		vc.subtitles = subtitles
+		te.content = self.textContent
 	}
 
 	override func data(ofType typeName: String) throws -> Data {
@@ -43,6 +53,7 @@ class Document: NSDocument {
 	}
 
 	override func read(from url: URL, ofType typeName: String) throws {
+		self.textContent = try String(contentsOf: url)
 		self.subtitles = try Subtitles(fileURL: url, encoding: DocumentController.selected ?? .utf8)
 	}
 }

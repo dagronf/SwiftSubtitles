@@ -42,7 +42,28 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
 			return nil
 		}
 
-		if tableColumn?.identifier.rawValue == "startTime" {
+		if tableColumn?.identifier.rawValue == "id" {
+			guard
+				let raw = subtitleTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("startCell"), owner: self),
+				let cell = raw as? NSTableCellView
+			else {
+				fatalError()
+			}
+			cell.textField?.stringValue = "\(cue.identifier ?? "")"
+			return cell
+		}
+		else if tableColumn?.identifier.rawValue == "position" {
+			guard
+				let raw = subtitleTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("startCell"), owner: self),
+				let cell = raw as? NSTableCellView
+			else {
+				fatalError()
+			}
+			let text = if let p = cue.position { "\(p)" } else { "" }
+			cell.textField?.stringValue = text
+			return cell
+		}
+		else if tableColumn?.identifier.rawValue == "startTime" {
 			guard
 				let raw = subtitleTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("startCell"), owner: self),
 				let cell = raw as? NSTableCellView
@@ -64,7 +85,7 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
 		}
 		else if tableColumn?.identifier.rawValue == "text" {
 			guard
-				let raw = subtitleTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("textCell"), owner: self),
+				let raw = subtitleTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("startCell"), owner: self),
 				let cell = raw as? NSTableCellView
 			else {
 				fatalError()

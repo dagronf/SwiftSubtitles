@@ -18,6 +18,7 @@
 		23793C122A0B638700C96C96 /* TextEncodingAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23793C102A0B638700C96C96 /* TextEncodingAccessoryView.xib */; };
 		23793C1F2A0B84A700C96C96 /* Data+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23793C1E2A0B84A700C96C96 /* Data+extensions.swift */; };
 		23D64CB32BC2558300365B1B /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D64CB22BC2558300365B1B /* DocumentController.swift */; };
+		23D64CB52BC2587600365B1B /* SubtitleTextContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D64CB42BC2587600365B1B /* SubtitleTextContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		23793C102A0B638700C96C96 /* TextEncodingAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEncodingAccessoryView.xib; sourceTree = "<group>"; };
 		23793C1E2A0B84A700C96C96 /* Data+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extensions.swift"; sourceTree = "<group>"; };
 		23D64CB22BC2558300365B1B /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
+		23D64CB42BC2587600365B1B /* SubtitleTextContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleTextContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				23793C0F2A0B638700C96C96 /* TextEncodingAccessoryView.swift */,
 				23793C102A0B638700C96C96 /* TextEncodingAccessoryView.xib */,
 				23793C1E2A0B84A700C96C96 /* Data+extensions.swift */,
+				23D64CB42BC2587600365B1B /* SubtitleTextContentViewController.swift */,
 			);
 			path = "Subtitle Viewer";
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				23D64CB32BC2558300365B1B /* DocumentController.swift in Sources */,
 				234950E52A09AE90006A33D4 /* AppDelegate.swift in Sources */,
 				23793C1F2A0B84A700C96C96 /* Data+extensions.swift in Sources */,
+				23D64CB52BC2587600365B1B /* SubtitleTextContentViewController.swift in Sources */,
 				23793C112A0B638700C96C96 /* TextEncodingAccessoryView.swift in Sources */,
 				234950E92A09AE90006A33D4 /* Document.swift in Sources */,
 			);
