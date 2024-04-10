@@ -7,24 +7,12 @@
 
 import Foundation
 import AppKit
+import SwiftUI
 
 import SwiftSubtitles
 
 /// Note that this is instantiated in the Storyboard
 class DocumentController: NSDocumentController {
-
-	/// auto encoding == nil
-	static var selected: String.Encoding? = nil
-
-	var openAccessory: TextEncodingAccessoryView? = nil
-
-//	override func documentClass(forType typeName: String) -> AnyClass? {
-//		let c = super.documentClass(forType: typeName)
-//		Swift.print(c)
-//		Swift.print(typeName)
-//		return c
-//	}
-
 	override func openDocument(_ sender: Any?) {
 		let a = TextEncodingAccessoryView()
 		self.openAccessory = a

@@ -24,7 +24,7 @@ private let encodingMap: [(String, String.Encoding)] = [
 	("Western (ISO Latin 1)", .isoLatin1),
 	("Western (ISO Latin 2)", .isoLatin2),
 	("Japanese (EUC)", .japaneseEUC),
-	("Western (macOS Roman)", .macOSRoman),
+	("Western (Mac OS Roman)", .macOSRoman),
 ]
 
 class TextEncodingAccessoryView: NSViewController {

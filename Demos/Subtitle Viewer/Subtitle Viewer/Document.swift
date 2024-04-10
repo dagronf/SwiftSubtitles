@@ -8,16 +8,26 @@
 import Cocoa
 import SwiftSubtitles
 
-class Document: NSDocument {
+import SwiftUI
 
-	var textContent: String = ""
+protocol DocumentContent: AnyObject {
+	var textContent: ContentModel { get }
+	var subtitles: Subtitles { get }
+
+	func changeEncoding(_ enc: String.Encoding?)
+	func close()
+}
+
+let ContentChangedNotificationTitle = NSNotification.Name("ContentChangedNotificationTitle")
+
+class Document: NSDocument, DocumentContent {
+
+	var textContent: ContentModel
 	public fileprivate(set) var subtitles: Subtitles = Subtitles([])
 
-	var contentViewController: NSViewController?
-
 	override init() {
+		self.textContent = ContentModel(fileURL: URL(fileURLWithPath: ""))
 		super.init()
-		// Add your subclass-specific initialization here.
 	}
 
 	override class var autosavesInPlace: Bool {
@@ -30,16 +40,11 @@ class Document: NSDocument {
 		let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
 		self.addWindowController(windowController)
 
-		guard 
-			let split = windowController.contentViewController as? NSSplitViewController,
-			let vc = split.splitViewItems[0].viewController as? ViewController,
-			let te = split.splitViewItems[1].viewController as? SubtitleTextContentViewController
-		else {
+		guard let c = windowController.contentViewController as? PrimaryViewController else {
 			fatalError()
 		}
 
-		vc.subtitles = subtitles
-		te.content = self.textContent
+		c.document = self
 	}
 
 	override func data(ofType typeName: String) throws -> Data {
@@ -49,88 +54,25 @@ class Document: NSDocument {
 	}
 
 	override func read(from url: URL, ofType typeName: String) throws {
-		self.textContent = try String(contentsOf: url, encoding: DocumentController.selected ?? .utf8)
-		self.subtitles = try Subtitles(fileURL: url, encoding: DocumentController.selected ?? .utf8)
+				/// Attempt to load the text from the URL
+		self.textContent = ContentModel(fileURL: url)
+
+		if let content = self.textContent.text {
+			self.subtitles = try Subtitles(content: content, expectedExtension: url.pathExtension)
+		}
+	}
+
+	func changeEncoding(_ enc: String.Encoding?) {
+		self.textContent = self.textContent.reopen(using: enc)
+		if let content = self.textContent.text {
+			do {
+				self.subtitles = try Subtitles(content: content, expectedExtension: fileURL!.pathExtension)
+			}
+			catch {
+				self.subtitles = Subtitles.empty
+			}
+		}
+
+		NotificationCenter.default.post(name: ContentChangedNotificationTitle, object: self)
 	}
 }
-
-//public class UTI: Hashable, CustomStringConvertible, CustomDebugStringConvertible {
-//
-//	private let rawCFValue: CFString
-//
-//	public lazy var rawValue: String = { self.rawCFValue as String }()
-//
-//	public var description: String {
-//		let rawDescription = UTTypeCopyDescription(rawCFValue)?.takeRetainedValue()
-//		return rawDescription.map { $0 as String } ?? self.rawValue
-//	}
-//	public var debugDescription: String { return self.rawValue }
-//
-//	private convenience init?(tagClass: CFString, tag: String, conformingTo: UTI?) {
-//		guard let raw = UTTypeCreatePreferredIdentifierForTag(tagClass, tag as CFString, conformingTo?.rawCFValue) else { return nil }
-//		let rawCFString = raw.takeRetainedValue()
-//		self.init(rawCFString)
-//	}
-//
-//	public convenience init?(fileExtension: String, conformingTo: UTI? = nil) {
-//		self.init(tagClass: kUTTagClassFilenameExtension, tag: fileExtension, conformingTo: conformingTo)
-//	}
-//
-//	public convenience init?(fileURL: URL, conformingTo: UTI? = nil) {
-//		self.init(tagClass: kUTTagClassFilenameExtension, tag: fileURL.pathExtension, conformingTo: conformingTo)
-//	}
-//
-//	public init(uti: String) {
-//		self.rawCFValue = uti as CFString
-//	}
-//
-//	public init(rawValue: String) {
-//		self.rawCFValue = rawValue as CFString
-//	}
-//
-//	public init(_ cfValue: CFString) {
-//		self.rawCFValue = cfValue
-//	}
-//
-//	public func conformsTo(_ other: UTI) -> Bool {
-//		return UTTypeConformsTo(self.rawCFValue, other.rawCFValue)
-//	}
-//
-//	public func hash(into hasher: inout Hasher) {
-//		hasher.combine(self.rawValue)
-//	}
-//
-//	public static func == (lhs: UTI, rhs: UTI) -> Bool {
-//		return UTTypeEqual(lhs.rawCFValue, rhs.rawCFValue)
-//	}
-//
-//	public lazy var isDynamic: Bool = { [unowned self] in
-//		UTTypeIsDynamic(self.rawCFValue)
-//	}()
-//
-//	public lazy var preferredMIMEType: String? = { [unowned self] in
-//		self.preferredTag(for: kUTTagClassMIMEType)
-//	}()
-//
-//	public lazy var preferredFileExtension: String? = { [unowned self] in
-//		self.preferredTag(for: kUTTagClassFilenameExtension)
-//	}()
-//
-//	public lazy var mimeTypes: [String] = { [unowned self] in
-//		self.tags(for: kUTTagClassMIMEType)
-//	}()
-//
-//	public lazy var fileExtensions: [String] = { [unowned self] in
-//		self.tags(for: kUTTagClassFilenameExtension)
-//	}()
-//
-//	private func preferredTag(for tagClass: CFString) -> String? {
-//		guard let raw = UTTypeCopyPreferredTagWithClass(rawCFValue, tagClass) else { return nil }
-//		return raw.takeRetainedValue() as String
-//	}
-//
-//	private func tags(for tagClass: CFString) -> [String] {
-//		guard let raw = UTTypeCopyAllTagsWithClass(rawCFValue, tagClass) else { return [] }
-//		return raw.takeRetainedValue() as? [String] ?? []
-//	}
-//}

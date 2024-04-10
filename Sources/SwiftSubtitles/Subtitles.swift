@@ -93,6 +93,11 @@ public extension Subtitles {
 		}
 		return nil
 	}
+
+	/// The first cue chronologically
+	@inlinable var firstCue: Cue? { self.cues.first }
+	/// The last cue chronologically
+	@inlinable var lastCue: Cue? { self.cues.last }
 }
 
 // MARK: - Decoding

@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2301447D2BC60B3A0058C83A /* String+decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301447C2BC60B3A0058C83A /* String+decoding.swift */; };
+		2301447F2BC60D750058C83A /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301447E2BC60D750058C83A /* ContentModel.swift */; };
+		230144812BC625140058C83A /* PrimaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230144802BC625140058C83A /* PrimaryViewController.swift */; };
+		230144832BC754540058C83A /* TextEncodings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230144822BC754540058C83A /* TextEncodings.swift */; };
 		234950E52A09AE90006A33D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234950E42A09AE90006A33D4 /* AppDelegate.swift */; };
-		234950E72A09AE90006A33D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234950E62A09AE90006A33D4 /* ViewController.swift */; };
+		234950E72A09AE90006A33D4 /* SubtitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234950E62A09AE90006A33D4 /* SubtitleViewController.swift */; };
 		234950E92A09AE90006A33D4 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234950E82A09AE90006A33D4 /* Document.swift */; };
 		234950EB2A09AE91006A33D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 234950EA2A09AE91006A33D4 /* Assets.xcassets */; };
 		234950EE2A09AE91006A33D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234950EC2A09AE91006A33D4 /* Main.storyboard */; };
@@ -17,14 +21,23 @@
 		23793C112A0B638700C96C96 /* TextEncodingAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23793C0F2A0B638700C96C96 /* TextEncodingAccessoryView.swift */; };
 		23793C122A0B638700C96C96 /* TextEncodingAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23793C102A0B638700C96C96 /* TextEncodingAccessoryView.xib */; };
 		23793C1F2A0B84A700C96C96 /* Data+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23793C1E2A0B84A700C96C96 /* Data+extensions.swift */; };
+		23C0694F2BC8BFE10024B406 /* MacTextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0694E2BC8BFE10024B406 /* MacTextEditorView.swift */; };
+		23C069512BC8C0150024B406 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C069502BC8C0150024B406 /* LineNumberRulerView.swift */; };
+		23CFE71A2BC3668C007DBA69 /* TextEncodingSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CFE7192BC3668C007DBA69 /* TextEncodingSelectorView.swift */; };
+		23CFE71D2BC37A7D007DBA69 /* macos-roman.sub in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE71C2BC37A7D007DBA69 /* macos-roman.sub */; };
+		23CFE7202BC384DF007DBA69 /* DSFSearchField in Frameworks */ = {isa = PBXBuildFile; productRef = 23CFE71F2BC384DF007DBA69 /* DSFSearchField */; };
 		23D64CB32BC2558300365B1B /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D64CB22BC2558300365B1B /* DocumentController.swift */; };
 		23D64CB52BC2587600365B1B /* SubtitleTextContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D64CB42BC2587600365B1B /* SubtitleTextContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2301447C2BC60B3A0058C83A /* String+decoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+decoding.swift"; sourceTree = "<group>"; };
+		2301447E2BC60D750058C83A /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		230144802BC625140058C83A /* PrimaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryViewController.swift; sourceTree = "<group>"; };
+		230144822BC754540058C83A /* TextEncodings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEncodings.swift; sourceTree = "<group>"; };
 		234950E12A09AE90006A33D4 /* Subtitle Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Subtitle Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		234950E42A09AE90006A33D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		234950E62A09AE90006A33D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		234950E62A09AE90006A33D4 /* SubtitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleViewController.swift; sourceTree = "<group>"; };
 		234950E82A09AE90006A33D4 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		234950EA2A09AE91006A33D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		234950ED2A09AE91006A33D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,6 +49,10 @@
 		23793C0F2A0B638700C96C96 /* TextEncodingAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEncodingAccessoryView.swift; sourceTree = "<group>"; };
 		23793C102A0B638700C96C96 /* TextEncodingAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEncodingAccessoryView.xib; sourceTree = "<group>"; };
 		23793C1E2A0B84A700C96C96 /* Data+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extensions.swift"; sourceTree = "<group>"; };
+		23C0694E2BC8BFE10024B406 /* MacTextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacTextEditorView.swift; sourceTree = "<group>"; };
+		23C069502BC8C0150024B406 /* LineNumberRulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
+		23CFE7192BC3668C007DBA69 /* TextEncodingSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEncodingSelectorView.swift; sourceTree = "<group>"; };
+		23CFE71C2BC37A7D007DBA69 /* macos-roman.sub */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "macos-roman.sub"; sourceTree = "<group>"; };
 		23D64CB22BC2558300365B1B /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 		23D64CB42BC2587600365B1B /* SubtitleTextContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleTextContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,12 +63,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				234950F92A09AEC0006A33D4 /* SwiftSubtitles in Frameworks */,
+				23CFE7202BC384DF007DBA69 /* DSFSearchField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2301447B2BC60B1E0058C83A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				230144822BC754540058C83A /* TextEncodings.swift */,
+				2301447C2BC60B3A0058C83A /* String+decoding.swift */,
+				23C0694E2BC8BFE10024B406 /* MacTextEditorView.swift */,
+				23C069502BC8C0150024B406 /* LineNumberRulerView.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		234950D82A09AE90006A33D4 = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +103,9 @@
 		234950E32A09AE90006A33D4 /* Subtitle Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				2301447B2BC60B1E0058C83A /* utils */,
+				23CFE71B2BC37A62007DBA69 /* resources */,
 				234950E42A09AE90006A33D4 /* AppDelegate.swift */,
-				234950E62A09AE90006A33D4 /* ViewController.swift */,
 				234950E82A09AE90006A33D4 /* Document.swift */,
 				23D64CB22BC2558300365B1B /* DocumentController.swift */,
 				234951002A0B1018006A33D4 /* RSVerticallyCenteredTextFieldCell.swift */,
@@ -86,7 +116,11 @@
 				23793C0F2A0B638700C96C96 /* TextEncodingAccessoryView.swift */,
 				23793C102A0B638700C96C96 /* TextEncodingAccessoryView.xib */,
 				23793C1E2A0B84A700C96C96 /* Data+extensions.swift */,
+				234950E62A09AE90006A33D4 /* SubtitleViewController.swift */,
 				23D64CB42BC2587600365B1B /* SubtitleTextContentViewController.swift */,
+				23CFE7192BC3668C007DBA69 /* TextEncodingSelectorView.swift */,
+				2301447E2BC60D750058C83A /* ContentModel.swift */,
+				230144802BC625140058C83A /* PrimaryViewController.swift */,
 			);
 			path = "Subtitle Viewer";
 			sourceTree = "<group>";
@@ -96,6 +130,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23CFE71B2BC37A62007DBA69 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				23CFE71C2BC37A7D007DBA69 /* macos-roman.sub */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +158,7 @@
 			name = "Subtitle Viewer";
 			packageProductDependencies = (
 				234950F82A09AEC0006A33D4 /* SwiftSubtitles */,
+				23CFE71F2BC384DF007DBA69 /* DSFSearchField */,
 			);
 			productName = "Subtitle Viewer";
 			productReference = 234950E12A09AE90006A33D4 /* Subtitle Viewer.app */;
@@ -146,6 +189,7 @@
 			);
 			mainGroup = 234950D82A09AE90006A33D4;
 			packageReferences = (
+				23CFE71E2BC384DF007DBA69 /* XCRemoteSwiftPackageReference "DSFSearchField" */,
 			);
 			productRefGroup = 234950E22A09AE90006A33D4 /* Products */;
 			projectDirPath = "";
@@ -161,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23CFE71D2BC37A7D007DBA69 /* macos-roman.sub in Resources */,
 				23793C122A0B638700C96C96 /* TextEncodingAccessoryView.xib in Resources */,
 				234950EB2A09AE91006A33D4 /* Assets.xcassets in Resources */,
 				234950EE2A09AE91006A33D4 /* Main.storyboard in Resources */,
@@ -175,11 +220,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				234951012A0B1018006A33D4 /* RSVerticallyCenteredTextFieldCell.swift in Sources */,
-				234950E72A09AE90006A33D4 /* ViewController.swift in Sources */,
+				23C069512BC8C0150024B406 /* LineNumberRulerView.swift in Sources */,
+				230144812BC625140058C83A /* PrimaryViewController.swift in Sources */,
+				234950E72A09AE90006A33D4 /* SubtitleViewController.swift in Sources */,
 				23D64CB32BC2558300365B1B /* DocumentController.swift in Sources */,
+				2301447D2BC60B3A0058C83A /* String+decoding.swift in Sources */,
 				234950E52A09AE90006A33D4 /* AppDelegate.swift in Sources */,
 				23793C1F2A0B84A700C96C96 /* Data+extensions.swift in Sources */,
 				23D64CB52BC2587600365B1B /* SubtitleTextContentViewController.swift in Sources */,
+				23C0694F2BC8BFE10024B406 /* MacTextEditorView.swift in Sources */,
+				230144832BC754540058C83A /* TextEncodings.swift in Sources */,
+				2301447F2BC60D750058C83A /* ContentModel.swift in Sources */,
+				23CFE71A2BC3668C007DBA69 /* TextEncodingSelectorView.swift in Sources */,
 				23793C112A0B638700C96C96 /* TextEncodingAccessoryView.swift in Sources */,
 				234950E92A09AE90006A33D4 /* Document.swift in Sources */,
 			);
@@ -333,7 +385,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.dagronf.swiftsubtitles.Subtitle-Viewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -363,7 +415,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.dagronf.swiftsubtitles.Subtitle-Viewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -395,10 +447,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		23CFE71E2BC384DF007DBA69 /* XCRemoteSwiftPackageReference "DSFSearchField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dagronf/DSFSearchField";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		234950F82A09AEC0006A33D4 /* SwiftSubtitles */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftSubtitles;
+		};
+		23CFE71F2BC384DF007DBA69 /* DSFSearchField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CFE71E2BC384DF007DBA69 /* XCRemoteSwiftPackageReference "DSFSearchField" */;
+			productName = DSFSearchField;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
