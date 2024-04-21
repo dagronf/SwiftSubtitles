@@ -245,4 +245,20 @@ other lending institution
 		XCTAssertEqual(crLFLines, nlLines)
 		XCTAssertEqual(crLFLines.count, 7)
 	}
+
+	func testTextExtraction() throws {
+		let fileURL = Bundle.module.url(forResource: "captions", withExtension: "sbv")!
+		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
+
+		// This returns all the cue text as an array of strings (one for each cue)
+		let allCueText = subtitles.text
+		XCTAssertEqual(6, allCueText.count)
+
+		// Create a single sentence from the text
+		let mergedSentence = allCueText.reduce("") { partialResult, cueText in
+			let cleaned = cueText.replacingOccurrences(of: "\n", with: " ")
+			return partialResult + cleaned
+		}
+		XCTAssertGreaterThan(mergedSentence.count, 0)
+	}
 }
