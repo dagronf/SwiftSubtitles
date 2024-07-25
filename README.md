@@ -24,6 +24,7 @@ A Swift package for reading/writing some common subtitle formats.
 | SRT (SubRip)     | `Subtitles.Coder.SRT`  | `.srt`          |
 | VTT (WebVTT)     | `Subtitles.Coder.VTT`  | `.vtt`          |
 | CSV              | `Subtitles.Coder.CSV`  | `.csv`          |
+| JSON             | `Subtitles.Coder.JSON` | `.json`         |
 
 * Read-only
 
