@@ -261,4 +261,20 @@ other lending institution
 		}
 		XCTAssertGreaterThan(mergedSentence.count, 0)
 	}
+
+	func testOptionalSpeakerField() throws {
+		let cue1 = Subtitles.Cue(startTime: 10, duration: 0.25, text: "hi there 1", speaker: "Fred")
+		let cue2 = Subtitles.Cue(startTime: 15, duration: 0, text: "hi there 2")
+		let cue3 = Subtitles.Cue(startTime: 15, duration: 1.11, text: "hi there 3", speaker: "Barbara")
+
+		let ss = Subtitles([cue1, cue2, cue3])
+
+		let data = try JSONEncoder().encode(ss)
+		let recon = try JSONDecoder().decode(Subtitles.self, from: data)
+
+		XCTAssertEqual(3, recon.cues.count)
+		XCTAssertEqual(recon.cues[0], cue1)
+		XCTAssertEqual(recon.cues[1], cue2)
+		XCTAssertEqual(recon.cues[2], cue3)
+	}
 }

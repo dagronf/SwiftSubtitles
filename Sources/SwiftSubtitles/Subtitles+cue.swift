@@ -46,6 +46,8 @@ public extension Subtitles {
 		public let endTime: Time
 		/// The text for the cue entry
 		public let text: String
+		/// The speaker for the entry
+		public let speaker: String?
 
 		/// The start time in seconds
 		@inlinable public var startTimeInSeconds: Double { self.startTime.timeInSeconds }
@@ -75,12 +77,14 @@ public extension Subtitles {
 		///   - startTime: The time to start displaying the cue
 		///   - endTime: The time to stop displaying the cue
 		///   - text: The cue text
+		///   - speaker: The speaker for the cue
 		public init(
 			identifier: String? = nil,
 			position: Int? = nil,
 			startTime: Time,
 			endTime: Time,
-			text: String
+			text: String,
+			speaker: String? = nil
 		) {
 			assert(startTime < endTime)
 			self.id = Identifier<Self, UUID>(id: UUID())
@@ -90,6 +94,7 @@ public extension Subtitles {
 			self.startTime = startTime
 			self.endTime = endTime
 			self.text = text
+			self.speaker = speaker
 		}
 
 		/// Create a Cue entry
@@ -99,12 +104,14 @@ public extension Subtitles {
 		///   - startTimeInSeconds: The time to start displaying the cue
 		///   - endTimeInSeconds: The time to stop displaying the cue
 		///   - text: The cue text
+		///   - speaker: The speaker for the cue
 		public init(
 			identifier: String? = nil,
 			position: Int? = nil,
 			startTimeInSeconds: Double,
 			endTimeInSeconds: Double,
-			text: String
+			text: String,
+			speaker: String? = nil
 		) {
 			assert(startTimeInSeconds <= endTimeInSeconds)
 			self.id = Identifier<Self, UUID>(id: UUID())
@@ -114,6 +121,7 @@ public extension Subtitles {
 			self.startTime = Time(timeInSeconds: startTimeInSeconds)
 			self.endTime = Time(timeInSeconds: endTimeInSeconds)
 			self.text = text
+			self.speaker = speaker
 		}
 
 		/// Create a cue entry from a start time and duration
@@ -123,12 +131,14 @@ public extension Subtitles {
 		///   - startTime: The start time for the cue
 		///   - duration: The duration (in seconds) for the cue
 		///   - text: The cue's text
+		///   - speaker: The speaker for the cue
 		public init(
 			identifier: String? = nil,
 			position: Int? = nil,
 			startTime: Time,
 			duration: Double,
-			text: String
+			text: String,
+			speaker: String? = nil
 		) {
 			assert(duration >= 0)
 
@@ -136,6 +146,7 @@ public extension Subtitles {
 			self.identifier = identifier
 			self.position = position
 			self.text = text
+			self.speaker = speaker
 
 			self.startTime = startTime
 			self.endTime = Time(timeInSeconds: startTime.timeInSeconds + duration)
@@ -148,12 +159,14 @@ public extension Subtitles {
 		///   - startTime: The start time (in seconds) for the cue
 		///   - duration: The duration (in seconds) for the cue
 		///   - text: The cue's text
+		///   - speaker: The speaker for the cue
 		public init(
 			identifier: String? = nil,
 			position: Int? = nil,
 			startTime: Double,
 			duration: Double,
-			text: String
+			text: String,
+			speaker: String? = nil
 		) {
 			assert(startTime >= 0)
 			assert(duration >= 0)
@@ -163,7 +176,8 @@ public extension Subtitles {
 				position: position,
 				startTime: .init(timeInSeconds: startTime),
 				duration: duration,
-				text: text
+				text: text,
+				speaker: speaker
 			)
 		}
 
