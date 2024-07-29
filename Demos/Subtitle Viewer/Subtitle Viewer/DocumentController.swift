@@ -13,6 +13,10 @@ import SwiftSubtitles
 
 /// Note that this is instantiated in the Storyboard
 class DocumentController: NSDocumentController {
+
+	static var selected: String.Encoding? = nil
+	var openAccessory: TextEncodingAccessoryView? = nil
+
 	override func openDocument(_ sender: Any?) {
 		let a = TextEncodingAccessoryView()
 		self.openAccessory = a
