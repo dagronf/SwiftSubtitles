@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "segments": [
+    {
+      "speaker": "Darth Vader",
+      "startTime": 0.5,
+      "endTime": 0.75,
+      "body": "I"
+    },
+    {
+      "speaker": "Darth Vader",
+      "startTime": 1,
+      "endTime": 1.25,
+      "body": "am"
+    },
+    {
+      "speaker": "Darth Vader",
+      "startTime": 1.5,
+      "endTime": 2.0,
+      "body": "your"
+    },
+    {
+      "speaker": "Darth Vader",
+      "startTime": 2.25,
+      "endTime": 2.50,
+      "body": "father."
+    },
+    {
+      "speaker": "Luke",
+      "startTime": 2.75,
+      "endTime": 3.0,
+      "body": "Nooooo"
+    }
+  ]
+}

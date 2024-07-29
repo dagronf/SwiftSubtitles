@@ -17,14 +17,14 @@ A Swift package for reading/writing some common subtitle formats.
 
 ## Available coders
 
-| Format           | Coder                  | File extension  |
-|:-----------------|:-----------------------|:----------------|
-| SBV (SubViewer)  | `Subtitles.Coder.SBV`  | `.sbv`          |
-| SUB (MicroDVD)*  | `Subtitles.Coder.SUB`  | `.sub`          |
-| SRT (SubRip)     | `Subtitles.Coder.SRT`  | `.srt`          |
-| VTT (WebVTT)     | `Subtitles.Coder.VTT`  | `.vtt`          |
-| CSV              | `Subtitles.Coder.CSV`  | `.csv`          |
-| JSON (Podcast Index) | `Subtitles.Coder.JSONPodcastsIndex | `.json` |
+| Format               | Coder                               | File extension  |
+|:---------------------|:------------------------------------|:----------------|
+| SBV (SubViewer)      | `Subtitles.Coder.SBV`               | `.sbv`          |
+| SUB (MicroDVD)*      | `Subtitles.Coder.SUB`               | `.sub`          |
+| SRT (SubRip)         | `Subtitles.Coder.SRT`               | `.srt`          |
+| VTT (WebVTT)         | `Subtitles.Coder.VTT`               | `.vtt`          |
+| CSV                  | `Subtitles.Coder.CSV`               | `.csv`          |
+| JSON (Podcast Index) | `Subtitles.Coder.JSONPodcastsIndex` | `.json`         |
 
 * Read-only
 
@@ -78,7 +78,13 @@ let coder = Subtitles.Coder.VTT()
 let content2 = try coder.encode(subtitles: subtitles)
 ```
 
-## CSV coding/encoding
+## Resources
+
+### Podcast Index Transcript
+
+Format is documented [here](https://github.com/Podcastindex-org/podcast-namespace/blob/main/transcripts/transcripts.md#json)
+
+### CSV coding/encoding
 
 There appears to be no formal CSV specification for subtitles, so this coder tries to make a generic "enough" encoder/decoder to make it easier for an app to export into a spreadsheet or google docs.
 

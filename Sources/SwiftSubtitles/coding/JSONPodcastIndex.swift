@@ -1,7 +1,35 @@
+//
+//  Copyright © 2024 Darren Ford, SergioEstevao. All rights reserved.
+//
+//  MIT License
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//
+
+// An encoder/decoder for the Podcast Index Transcript format
+//
+// See: https://github.com/Podcastindex-org/podcast-namespace/blob/main/transcripts/transcripts.md#json
+
 import Foundation
 
 extension Subtitles.Coder {
-	/// A JSON coder
+	/// A [Podcast Index Transcript](https://github.com/Podcastindex-org/podcast-namespace/blob/main/transcripts/transcripts.md#json) encoder/decoder
 	public struct JSONPodcastIndex: SubtitlesCodable, SubtitlesTextCodable, Codable {
 		public static var extn: String { "json" }
 		public static func Create() -> Self { JSONPodcastIndex() }
@@ -15,10 +43,15 @@ extension Subtitles.Coder {
 			self.segments = segments
 		}
 
+		/// A segment
 		public struct Segment: Codable {
+			/// The segment speaker
 			let speaker: String?
+			/// Start time in seconds
 			let startTime: Double
+			/// End time in seconds
 			let endTime: Double
+			/// The text for the segment
 			let body: String
 		}
 
