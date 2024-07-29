@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22690"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -860,7 +860,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" misplaced="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" usesAutomaticRowHeights="YES" headerView="H60-f4-Ggh" viewBased="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K6g-vZ-LQ5">
-                                            <rect key="frame" x="0.0" y="0.0" width="684" height="197"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="801" height="197"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1049,6 +1049,43 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
+                                                <tableColumn identifier="speaker" width="100" minWidth="10" maxWidth="3.4028234663852886e+38" id="oy9-yl-DbN" userLabel="Speaker">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Speaker">
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="X6z-no-MNf">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="textCell" horizontalHuggingPriority="10" verticalHuggingPriority="999" verticalCompressionResistancePriority="999" misplaced="YES" id="zIw-k0-M4J">
+                                                            <rect key="frame" x="504" y="0.0" width="100" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <subviews>
+                                                                <textField horizontalHuggingPriority="10" verticalHuggingPriority="999" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="999" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqs-59-Gxm">
+                                                                    <rect key="frame" x="0.0" y="3" width="100" height="30"/>
+                                                                    <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Table View Cell" id="gcL-z6-4Fn" customClass="RSVerticallyCenteredTextFieldCell" customModule="Subtitle_Viewer" customModuleProvider="target">
+                                                                        <font key="font" size="13" name="Menlo-Regular"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="fqs-59-Gxm" secondAttribute="trailing" constant="2" id="2De-vc-BN2"/>
+                                                                <constraint firstItem="fqs-59-Gxm" firstAttribute="top" secondItem="zIw-k0-M4J" secondAttribute="top" constant="3" id="6jX-6g-Tdk"/>
+                                                                <constraint firstAttribute="bottom" secondItem="fqs-59-Gxm" secondAttribute="bottom" constant="3" id="7DY-jA-AcL"/>
+                                                                <constraint firstItem="fqs-59-Gxm" firstAttribute="leading" secondItem="zIw-k0-M4J" secondAttribute="leading" constant="2" id="WKH-11-w1U"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="fqs-59-Gxm" id="m8n-Bo-PIh"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
                                                 <tableColumn identifier="text" width="173.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="cy2-Sq-qRY">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Text">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1062,7 +1099,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="textCell" horizontalHuggingPriority="10" verticalHuggingPriority="999" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="7P6-Ln-SHg">
-                                                            <rect key="frame" x="504" y="0.0" width="171" height="21"/>
+                                                            <rect key="frame" x="621" y="0.0" width="171" height="21"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="10" verticalHuggingPriority="999" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="999" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKF-jW-E6L">
                                                                     <rect key="frame" x="0.0" y="3" width="171" height="15"/>
@@ -1102,7 +1139,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" wantsLayer="YES" id="H60-f4-Ggh">
-                                    <rect key="frame" x="0.0" y="0.0" width="684" height="28"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="801" height="28"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>

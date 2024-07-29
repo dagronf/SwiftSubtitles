@@ -123,6 +123,26 @@ extension SubtitleViewController: NSTableViewDelegate, NSTableViewDataSource {
 			cell.textField?.stringValue = cue.endTime.text
 			return cell
 		}
+		else if tableColumn?.identifier.rawValue == "speaker" {
+			guard
+				let raw = subtitleTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("startCell"), owner: self),
+				let cell = raw as? NSTableCellView
+			else {
+				fatalError()
+			}
+
+			if let speaker = cue.speaker {
+				cell.textField?.alignment = .natural
+				cell.textField?.textColor = NSColor.textColor
+				cell.textField?.stringValue = speaker
+			}
+			else {
+				cell.textField?.stringValue = "-"
+				cell.textField?.alignment = .center
+				cell.textField?.textColor = NSColor.tertiaryLabelColor
+			}
+			return cell
+		}
 		else if tableColumn?.identifier.rawValue == "text" {
 			guard
 				let raw = subtitleTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("startCell"), owner: self),

@@ -28,6 +28,10 @@ extension Data {
 		var upper = maxByteCount
 		while upper > 0 {
 			let bytesRead = stream.read(buffer_pointer, maxLength: upper)
+			if bytesRead == 0 {
+				// No more data in the stream
+				break
+			}
 			result.append(buffer_pointer, count: bytesRead)
 			upper -= bytesRead
 		}

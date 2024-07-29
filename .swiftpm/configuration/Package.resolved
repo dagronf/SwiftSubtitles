@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "DSFSearchField",
-        "repositoryURL": "https://github.com/dagronf/DSFSearchField",
-        "state": {
-          "branch": null,
-          "revision": "8f118439e1e74b3afb8dc8cbdc049d7979aa045e",
-          "version": "2.2.2"
-        }
-      },
-      {
         "package": "TinyCSV",
         "repositoryURL": "https://github.com/dagronf/TinyCSV",
         "state": {
