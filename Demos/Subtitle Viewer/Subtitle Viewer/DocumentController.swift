@@ -33,7 +33,7 @@ class DocumentController: NSDocumentController {
 		openPanel.allowsMultipleSelection = false
 		openPanel.canChooseFiles = true
 		openPanel.canChooseDirectories = false
-		openPanel.allowedFileTypes = ["srt", "sub", "vtt", "sbv", "csv"]
+		openPanel.allowedFileTypes = ["srt", "sub", "vtt", "sbv", "csv", "json"]
 
 		openPanel.accessoryView = a.view
 		openPanel.delegate = openAccessory
