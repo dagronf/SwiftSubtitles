@@ -1,0 +1,23 @@
+{
+    "version": "1.0.0",
+    "segments": [
+        {
+            "speaker": "Peter",
+            "startTime": 2.15,
+            "endTime": 2.20,
+            "body": "This video was recorded and uploaded to Youtube."
+        },
+        {
+            "speaker": null,
+            "startTime": 2.20,
+            "endTime": 2.25,
+            "body": "Then, after the video had been processed and had captions auto-generated for it by Youtube!"
+        },
+        {
+            "speaker": "Peter",
+            "startTime": 2.25,
+            "endTime": 2.30,
+            "body": "I converted the captions from another file."
+        }
+    ]
+}
