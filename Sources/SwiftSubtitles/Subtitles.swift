@@ -225,6 +225,11 @@ public extension Subtitles {
 	var text: [String] {
 		self.cues.map { $0.text }
 	}
+
+	/// The unique speakers within the subtitles
+	var uniqueSpeakers: Set<String> {
+		Set(self.cues.compactMap { $0.speaker })
+	}
 }
 
 // MARK: - Time shifting

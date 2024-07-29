@@ -14,6 +14,9 @@ final class JSONPodcastIndexTests: XCTestCase {
 		XCTAssertEqual(Subtitles.Time(timeInSeconds: 2.30), subtitles.cues[2].endTime)
 		XCTAssertEqual("I converted the captions from another file.", subtitles.cues[2].text)
 
+		let speakers = subtitles.uniqueSpeakers
+		XCTAssertEqual(Set(["Peter"]), speakers)
+
 		let coder = Subtitles.Coder.VTT()
 		let encoded = try coder.encode(subtitles: subtitles)
 		let decoded = try coder.decode(encoded)
@@ -35,6 +38,9 @@ final class JSONPodcastIndexTests: XCTestCase {
 		XCTAssertEqual(2.75, subtitles.cues[4].startTimeInSeconds)
 		XCTAssertEqual(3.0, subtitles.cues[4].endTimeInSeconds)
 		XCTAssertEqual("Nooooo", subtitles.cues[4].text)
+
+		let speakers = subtitles.uniqueSpeakers
+		XCTAssertEqual(Set(["Darth Vader", "Luke"]), speakers)
 
 		let enc = Subtitles.Coder.JSONPodcastIndex()
 		let encodedData = try enc.encode(subtitles: subtitles, encoding: .utf8)

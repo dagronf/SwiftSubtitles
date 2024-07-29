@@ -32,6 +32,9 @@ Okay, so we have all the ingredients laid out here
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 16, millisecond: 700), subtitles.cues[4].startTime)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 21, millisecond: 480), subtitles.cues[4].endTime)
 
+		// Verify that we don't have any speakers
+		XCTAssertEqual(0, subtitles.uniqueSpeakers.count)
+
 		let encoded = try coder.encode(subtitles: subtitles)
 		let decoded = try coder.decode(encoded)
 
