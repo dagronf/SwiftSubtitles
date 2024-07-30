@@ -28,6 +28,11 @@ import Foundation
 import DSFRegex
 import TinyCSV
 
+/// A CSV coder
+///
+/// By default, the CSV is assumed to have the format `position,startTime,endTime,text`
+/// however this can be configured in the constructor if required
+
 extension Subtitles.Coder {
 	/// A basic CSV coder
 	///
@@ -38,25 +43,45 @@ extension Subtitles.Coder {
 		/// Create a CSV parser with default parsing options
 		public static func Create() -> Self { CSV() }
 
+		/// Available fields for parsing/writing
+		public enum Field {
+			case identifier
+			case position
+			case startTime
+			case startTimeInSeconds
+			case endTime
+			case endTimeInSeconds
+			case durationInSeconds
+			case speaker
+			case text
+		}
+
+		/// Default expected field order
+		public static let DefaultFields: [Field] = [.position, .startTime, .endTime, .text]
+
 		/// Create a CSV coder/decoder
 		/// - Parameters:
+		///   - fields: The fields and expected order within a row
 		///   - delimiter: The delimiter to use, or nil for auto-detect (default comma) (decoding/encoding)
 		///   - fieldEscapeCharacter: The field escape character (decoding)
 		///   - commentCharacter: The comment character (decoding)
 		///   - headerLineCount: The number of lines at the start of the text to ignore (decoding)
 		public init(
-			delimiter: TinyCSV.Delimiter? = nil,
+			fields: [Field] = Subtitles.Coder.CSV.DefaultFields,
+			delimiter: TinyCSV.Delimiter = .comma,
 			fieldEscapeCharacter: Character? = nil,
 			commentCharacter: Character? = nil,
 			headerLineCount: UInt? = nil
 		) {
+			self.fields = fields
 			self.delimiter = delimiter
 			self.fieldEscapeCharacter = fieldEscapeCharacter
 			self.commentCharacter = commentCharacter
 			self.headerLineCount = headerLineCount
 		}
 
-		private let delimiter: TinyCSV.Delimiter?
+		private let fields: [Field]
+		private let delimiter: TinyCSV.Delimiter
 		private let fieldEscapeCharacter: Character?
 		private let commentCharacter: Character?
 		private let headerLineCount: UInt?
@@ -83,29 +108,44 @@ public extension Subtitles.Coder.CSV {
 	/// - Returns: The encoded String
 	func encode(subtitles: Subtitles) throws -> String {
 		var results: [[String]] = []
-		results.append(["No.","Timecode In","Timecode Out","Subtitle"])
+		//results.append(["No.","Timecode In","Timecode Out","Subtitle"])
 		for cue in subtitles.cues.enumerated() {
 			var row: [String] = []
 
-			// Add the position
-			row.append("\(cue.offset + 1)")
-
-			// Add the start time
-			let start = cue.element.startTime
-			let startS = String(format: "%02d:%02d:%02d:%03d", start.hour, start.minute, start.second, start.millisecond)
-			row.append(startS)
-
-			// Add the end time
-			let end = cue.element.endTime
-			let endS = String(format: "%02d:%02d:%02d:%03d", end.hour, end.minute, end.second, end.millisecond)
-			row.append(endS)
-
-			// Add the text
-			row.append(cue.element.text)
-
+			for field in self.fields {
+				switch field {
+				case .identifier:
+					row.append(cue.element.identifier ?? "")
+				case .position:
+					if let p = cue.element.position {
+						row.append("\(p)")
+					}
+					else {
+						row.append("")
+					}
+				case .startTime:
+					let start = cue.element.startTime
+					let startS = String(format: "%02d:%02d:%02d:%03d", start.hour, start.minute, start.second, start.millisecond)
+					row.append(startS)
+				case .endTime:
+					let start = cue.element.endTime
+					let startS = String(format: "%02d:%02d:%02d:%03d", start.hour, start.minute, start.second, start.millisecond)
+					row.append(startS)
+				case .durationInSeconds:
+					row.append("\(cue.element.duration)")
+				case .speaker:
+					row.append(cue.element.speaker ?? "")
+				case .text:
+					row.append(cue.element.text)
+				case .startTimeInSeconds:
+					row.append("\(cue.element.startTimeInSeconds)")
+				case .endTimeInSeconds:
+					row.append("\(cue.element.endTimeInSeconds)")
+				}
+			}
 			results.append(row)
 		}
-		return TinyCSV.Coder().encode(csvdata: results, delimiter: delimiter ?? .comma)
+		return TinyCSV.Coder().encode(csvdata: results, delimiter: delimiter)
 	}
 }
 
@@ -142,57 +182,96 @@ public extension Subtitles.Coder.CSV {
 		let parser = TinyCSV.Coder()
 		var cues: [Subtitles.Cue] = []
 
-		var warnings: [String] = []
-
 		parser.startDecoding(
 			text: content,
-			delimiter: delimiter,
-			fieldEscapeCharacter: fieldEscapeCharacter,
+			delimiter: self.delimiter,
+			fieldEscapeCharacter: self.fieldEscapeCharacter,
 			commentCharacter: commentCharacter,
 			headerLineCount: headerLineCount,
 			emitField: nil,
 			emitRecord: { row, columns in
-				guard columns.count >= 4 else {
-					warnings.append("ROW[\(row)]: Invalid number of cells")
-					return true
+				var identifier: String?
+				var position: Int?
+				var speaker: String?
+				var text: String = ""
+				var startTime: Subtitles.Time?
+				var endTime: Subtitles.Time?
+				var duration: Double?
+
+				for column in columns.enumerated() {
+					if column.offset >= fields.count {
+						// Ignore field
+						continue
+					}
+
+					switch fields[column.offset] {
+					case .identifier:
+						identifier = column.element
+					case .position:
+						position = Int(column.element)
+					case .startTime:
+						if let s = try? parseTime(index: column.offset, timeString: column.element) {
+							startTime = s
+						}
+					case .startTimeInSeconds:
+						if let s = Double(column.element) {
+							startTime = Subtitles.Time(timeInSeconds: s)
+						}
+					case .endTime:
+						if let e = try? parseTime(index: column.offset, timeString: column.element) {
+							endTime = e
+						}
+					case .endTimeInSeconds:
+						if let e = Double(column.element) {
+							endTime = Subtitles.Time(timeInSeconds: e)
+						}
+					case .durationInSeconds:
+						duration = Double(column.element)
+					case .speaker:
+						speaker = column.element
+					case .text:
+						text = column.element
+					}
 				}
 
-				guard let position = Int(columns[0]) else {
-					warnings.append("ROW[\(row)]: Invalid position field '\(columns[0])'")
-					return true
-				}
+				let cue: Subtitles.Cue? = {
+					if endTime == nil && duration == nil {
+						// If no duration is specified, just make the end time equal to the start time
+						endTime = startTime
+					}
 
-				guard let startTime = try? parseTime(index: 0, timeString: columns[1]) else {
-					warnings.append("ROW[\(row)],POSITION[\(position)]: Invalid start time '\(columns[1])'")
-					return true
-				}
+					if let s = startTime, let e = endTime {
+						return Subtitles.Cue(
+							identifier: identifier,
+							position: position,
+							startTime: s,
+							endTime: e,
+							text: text,
+							speaker: speaker
+						)
+					}
+					else if let s = startTime, let d = duration {
+						return Subtitles.Cue(
+							identifier: identifier,
+							position: position,
+							startTime: s,
+							duration: d,
+							text: text,
+							speaker: speaker
+						)
+					}
+					else {
+						// Invalid start/end/duration time combo
+						return nil
+					}
+				}()
 
-				guard let endTime = try? parseTime(index: 0, timeString: columns[2]) else {
-					warnings.append("ROW[\(row)],POSITION[\(position)]: Invalid end time '\(columns[2])'")
-					return true
+				if let cue = cue {
+					cues.append(cue)
 				}
-
-				let text = columns[3]
-				guard text.count > 0 else {
-					warnings.append("ROW[\(row)],POSITION[\(position)]: Empty cue text")
-					return true
-				}
-
-				cues.append(
-					Subtitles.Cue(
-						position: position,
-						startTime: startTime,
-						endTime: endTime,
-						text: text
-					)
-				)
 				return true
 			}
 		)
-
-		if warnings.count > 0 {
-			Swift.print(warnings.joined(separator: "\n"))
-		}
 
 		return Subtitles(cues)
 	}
@@ -205,7 +284,6 @@ private extension Subtitles.Coder.CSV {
 	static let CSVTimeFormatTens__ = try! DSFRegex(#"^(\d+):(\d{1,2}):(\d{1,2})[,\.:](\d{2})$"#)
 
 	func parseTime(index: Int, timeString: String) throws -> Subtitles.Time {
-
 		// If we can parse the string as an integer, assume it is milliseconds
 		if let tm = Int(timeString) {
 			return Subtitles.Time(timeInSeconds: Double(tm) / 1000.0)
