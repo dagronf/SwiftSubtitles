@@ -30,9 +30,9 @@ import Foundation
 
 extension Subtitles.Coder {
 	/// A [Podcast Index Transcript](https://github.com/Podcastindex-org/podcast-namespace/blob/main/transcripts/transcripts.md#json) encoder/decoder
-	public struct JSONPodcastIndex: SubtitlesCodable, SubtitlesTextCodable, Codable {
+	public struct PodcastsIndex: SubtitlesCodable, SubtitlesTextCodable, Codable {
 		public static var extn: String { "json" }
-		public static func Create() -> Self { JSONPodcastIndex() }
+		public static func Create() -> Self { PodcastsIndex() }
 		public init() {
 			version = "1.0.0"
 			segments = []
@@ -60,7 +60,7 @@ extension Subtitles.Coder {
 	}
 }
 
-public extension Subtitles.Coder.JSONPodcastIndex {
+public extension Subtitles.Coder.PodcastsIndex {
 	/// Encode subtitles as Data
 	/// - Parameters:
 	///   - subtitles: The subtitles to encode
@@ -77,7 +77,7 @@ public extension Subtitles.Coder.JSONPodcastIndex {
 			)
 			segments.append(segment)
 		}
-		return try JSONEncoder().encode(Subtitles.Coder.JSONPodcastIndex(version: "1.0.0", segments: segments))
+		return try JSONEncoder().encode(Subtitles.Coder.PodcastsIndex(version: "1.0.0", segments: segments))
 	}
 
 	/// Encode subtitles as a String
@@ -93,14 +93,14 @@ public extension Subtitles.Coder.JSONPodcastIndex {
 	}
 }
 
-public extension Subtitles.Coder.JSONPodcastIndex {
+public extension Subtitles.Coder.PodcastsIndex {
 	/// Decode subtitles from json data
 	/// - Parameters:
 	///   - data: The data to decode
 	///   - encoding: The string encoding for the data content
 	/// - Returns: Subtitles
 	func decode(_ data: Data, encoding: String.Encoding) throws -> Subtitles {
-		let value =  try JSONDecoder().decode(Subtitles.Coder.JSONPodcastIndex.self, from: data)
+		let value =  try JSONDecoder().decode(Subtitles.Coder.PodcastsIndex.self, from: data)
 		var cues = [Subtitles.Cue]()
 		for segment in value.segments {
 			let cue = Subtitles.Cue(

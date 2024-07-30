@@ -1,7 +1,7 @@
 import XCTest
 @testable import SwiftSubtitles
 
-final class JSONPodcastIndexTests: XCTestCase {
+final class PodcastIndexTests: XCTestCase {
 	func testExample() throws {
 		let fileURL = try resourceURL(forResource: "sample", withExtension: "json")
 		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
@@ -42,7 +42,7 @@ final class JSONPodcastIndexTests: XCTestCase {
 		let speakers = subtitles.uniqueSpeakers
 		XCTAssertEqual(Set(["Darth Vader", "Luke"]), speakers)
 
-		let enc = Subtitles.Coder.JSONPodcastIndex()
+		let enc = Subtitles.Coder.PodcastsIndex()
 		let encodedData = try enc.encode(subtitles: subtitles, encoding: .utf8)
 
 		let decoded = try enc.decode(encodedData, encoding: .utf8)
