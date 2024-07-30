@@ -135,7 +135,7 @@ public extension Subtitles.Coder.CSV {
 		var results: [[String]] = []
 
 		if self.exportColumnHeaders {
-			let titles = fields.map {
+			let titles: [String] = fields.map {
 				switch $0 {
 				case .identifier(let title): return title
 				case .position(let title): return title
