@@ -88,4 +88,21 @@ our famous chocolate chip cookies!"
 		XCTAssertEqual(subtitles.cues[6].startTime, Subtitles.Time(timeInSeconds: 119953 / 1000))
 		XCTAssertEqual(subtitles.cues[6].endTime, Subtitles.Time(timeInSeconds: 122872 / 1000))
 	}
+
+	func testBasicLoadWithLineBreaks() throws {
+		let fileURL = try resourceURL(forResource: "captions_edited", withExtension: "csv")
+		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
+		XCTAssertEqual(6, subtitles.cues.count)
+
+		XCTAssertEqual(subtitles.cues[4].startTime, Subtitles.Time(second: 17, millisecond: 690))
+		XCTAssertEqual(subtitles.cues[4].endTime, Subtitles.Time(second: 24, millisecond: 810))
+		XCTAssertNil(subtitles.cues[4].speaker)
+		XCTAssertEqual(subtitles.cues[4].text, "Next I ran the SBV file through the SBV file\nconverter to produce JSON, HTML, and text")
+
+		// Round trip
+		let coder = Subtitles.Coder.CSV()
+		let enc = try coder.encode(subtitles: subtitles, encoding: .utf8)
+		let dec = try coder.decode(enc, encoding: .utf8)
+		XCTAssertEqual(dec, subtitles)
+	}
 }

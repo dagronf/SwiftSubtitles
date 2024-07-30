@@ -100,18 +100,8 @@ This library uses [TinyCSV](https://github.com/dagronf/TinyCSV) for CSV coding/d
 
 During decoding, the coder ignores the header if it exists, and assumes a particular ordering for the columns
 
-### Row format
-
-The header text for the CSV is not important, the ordering of the fields determine what type of data to expect
-
-Detected row formats :-
-
-* `<position>, <start-time>, <end-time>, <text>`
-
-* position: The position of the cue (subtitle text) within the subtitles
-* start-time: The time where the text appears on the screen
-* end-time: The time where the text is removed from the screen
-* The text to display
+By default, the encoder/decoder assumes a `<position>, <start-time>, <end-time>, <text>` format, however this
+can be configured in the coder's initializer.
 
 #### Time formats supported for decoding
 

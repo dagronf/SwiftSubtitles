@@ -1,0 +1,9 @@
+No.,Timecode In,Timecode Out,Subtitle
+"1","00:00:00,940","00:00:05,050","This is a test of the SBV file converter."
+"2","00:00:05,050","00:00:08,240","This video was recorded and uploaded to Youtube."
+"3","00:00:08,240","00:00:14,079","Then, after the video had been processed and
+had captions auto-generated for it by Youtube,"
+"4","00:00:14,079","00:00:17,690","I downloaded the captions as an SBV file."
+"5","00:00:17,690","00:00:24,810","Next I ran the SBV file through the SBV file
+converter to produce JSON, HTML, and text"
+"6","00:00:24,810","00:00:25,430","files."

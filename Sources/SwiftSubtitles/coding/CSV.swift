@@ -28,36 +28,57 @@ import Foundation
 import DSFRegex
 import TinyCSV
 
-/// A CSV coder
-///
-/// By default, the CSV is assumed to have the format `position,startTime,endTime,text`
-/// however this can be configured in the constructor if required
-
 extension Subtitles.Coder {
 	/// A basic CSV coder
 	///
 	/// UTI: public.comma-separated-values-text
 	/// Mime-type: text/csv
+	///
+	/// By default, the CSV is assumed to have the format `position,startTime,endTime,text`
+	/// however this can be configured in the constructor if required.
+	///
+	/// Detected Time formats :-
+	/// * SBV style: `00:00:00.000`
+	/// * SRT style: `00:00:00,000`
+	/// * Common style: `00:00:00:000`
+	/// * milliseconds: `102727`
 	public struct CSV: SubtitlesCodable, SubtitlesTextCodable {
+		/// The format's expected extension
 		public static var extn: String { "csv" }
 		/// Create a CSV parser with default parsing options
 		public static func Create() -> Self { CSV() }
 
-		/// Available fields for parsing/writing
+		/// Available fields for parsing/writing with the column title
+		///
+		/// The column title is only used for encoding (ignored during decoding)
 		public enum Field {
-			case identifier
-			case position
-			case startTime
-			case startTimeInSeconds
-			case endTime
-			case endTimeInSeconds
-			case durationInSeconds
-			case speaker
-			case text
+			/// The cue's identifier
+			case identifier(title: String)
+			/// The cue's position
+			case position(title: String)
+			/// The start time
+			case startTime(title: String)
+			/// The start time (in seconds)
+			case startTimeInSeconds(title: String)
+			/// The end time
+			case endTime(title: String)
+			/// The end time (in seconds)
+			case endTimeInSeconds(title: String)
+			/// The duration (in seconds)
+			case durationInSeconds(title: String)
+			/// The speaker
+			case speaker(title: String)
+			/// The cue text
+			case text(title: String)
 		}
 
 		/// Default expected field order
-		public static let DefaultFields: [Field] = [.position, .startTime, .endTime, .text]
+		public static let DefaultFields: [Field] = [
+			.position(title: "No."),
+			.startTime(title: "Timecode In"),
+			.endTime(title: "Timecode Out"),
+			.text(title: "Subtitle")
+		]
 
 		/// Create a CSV coder/decoder
 		/// - Parameters:
@@ -66,18 +87,21 @@ extension Subtitles.Coder {
 		///   - fieldEscapeCharacter: The field escape character (decoding)
 		///   - commentCharacter: The comment character (decoding)
 		///   - headerLineCount: The number of lines at the start of the text to ignore (decoding)
+		///   - exportColumnHeaders: If true, write a column header row (encoding)
 		public init(
 			fields: [Field] = Subtitles.Coder.CSV.DefaultFields,
 			delimiter: TinyCSV.Delimiter = .comma,
 			fieldEscapeCharacter: Character? = nil,
 			commentCharacter: Character? = nil,
-			headerLineCount: UInt? = nil
+			headerLineCount: UInt? = nil,
+			exportColumnHeaders: Bool = true
 		) {
 			self.fields = fields
 			self.delimiter = delimiter
 			self.fieldEscapeCharacter = fieldEscapeCharacter
 			self.commentCharacter = commentCharacter
 			self.headerLineCount = headerLineCount
+			self.exportColumnHeaders = exportColumnHeaders
 		}
 
 		private let fields: [Field]
@@ -85,6 +109,7 @@ extension Subtitles.Coder {
 		private let fieldEscapeCharacter: Character?
 		private let commentCharacter: Character?
 		private let headerLineCount: UInt?
+		private let exportColumnHeaders: Bool
 	}
 }
 
@@ -108,7 +133,24 @@ public extension Subtitles.Coder.CSV {
 	/// - Returns: The encoded String
 	func encode(subtitles: Subtitles) throws -> String {
 		var results: [[String]] = []
-		//results.append(["No.","Timecode In","Timecode Out","Subtitle"])
+
+		if self.exportColumnHeaders {
+			let titles = fields.map {
+				switch $0 {
+				case .identifier(let title): return title
+				case .position(let title): return title
+				case .startTime(let title): return title
+				case .startTimeInSeconds(let title): return title
+				case .endTime(let title): return title
+				case .endTimeInSeconds(let title): return title
+				case .durationInSeconds(let title): return title
+				case .speaker(let title): return title
+				case .text(let title): return title
+				}
+			}
+			results.append(titles)
+		}
+
 		for cue in subtitles.cues.enumerated() {
 			var row: [String] = []
 
