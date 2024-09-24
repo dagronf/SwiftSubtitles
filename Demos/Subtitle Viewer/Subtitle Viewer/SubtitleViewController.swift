@@ -103,6 +103,16 @@ extension SubtitleViewController: NSTableViewDelegate, NSTableViewDataSource {
 			}
 			return cell
 		}
+		else if tableColumn?.identifier.rawValue == "isZeroLength" {
+			guard
+				let raw = subtitleTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("isZeroLengthCell"), owner: self),
+				let cell = raw as? NSTableCellView
+			else {
+				fatalError()
+			}
+			cell.textField?.stringValue = cue.isZeroLength() ? "🔴" : ""
+			return cell
+		}
 		else if tableColumn?.identifier.rawValue == "startTime" {
 			guard
 				let raw = subtitleTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("startCell"), owner: self),

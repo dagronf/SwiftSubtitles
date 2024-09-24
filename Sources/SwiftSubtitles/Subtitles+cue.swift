@@ -78,6 +78,8 @@ public extension Subtitles {
 		///   - endTime: The time to stop displaying the cue
 		///   - text: The cue text
 		///   - speaker: The speaker for the cue
+		///
+		/// NOTE: If the start time is greater than the end time, the end time is shifted to the start time
 		public init(
 			identifier: String? = nil,
 			position: Int? = nil,
@@ -86,13 +88,12 @@ public extension Subtitles {
 			text: String,
 			speaker: String? = nil
 		) {
-			assert(startTime < endTime)
 			self.id = Identifier<Self, UUID>(id: UUID())
 			
 			self.identifier = identifier
 			self.position = position
 			self.startTime = startTime
-			self.endTime = endTime
+			self.endTime = max(startTime, endTime)  // Make sure that the end time is always >= the start time
 			self.text = text
 			self.speaker = speaker
 		}
@@ -102,9 +103,12 @@ public extension Subtitles {
 		///   - identifier: The cue identifier (optional)
 		///   - position: The cue position (optional) - used for SRT encoding/decoding
 		///   - startTimeInSeconds: The time to start displaying the cue
-		///   - endTimeInSeconds: The time to stop displaying the cue
+		///   - endTimeInSeconds: The time to stop displaying the cue.
 		///   - text: The cue text
 		///   - speaker: The speaker for the cue
+		///
+		/// NOTE: If the start time is greater than the end time, the end time is shifted to the start time to create a
+		/// zero-time cue
 		public init(
 			identifier: String? = nil,
 			position: Int? = nil,
@@ -113,15 +117,14 @@ public extension Subtitles {
 			text: String,
 			speaker: String? = nil
 		) {
-			assert(startTimeInSeconds <= endTimeInSeconds)
-			self.id = Identifier<Self, UUID>(id: UUID())
-
-			self.identifier = identifier
-			self.position = position
-			self.startTime = Time(timeInSeconds: startTimeInSeconds)
-			self.endTime = Time(timeInSeconds: endTimeInSeconds)
-			self.text = text
-			self.speaker = speaker
+			self.init(
+				identifier: identifier,
+				position: position,
+				startTime: Time(timeInSeconds: startTimeInSeconds),
+				endTime: Time(timeInSeconds: endTimeInSeconds),
+				text: text,
+				speaker: speaker
+			)
 		}
 
 		/// Create a cue entry from a start time and duration
@@ -141,15 +144,14 @@ public extension Subtitles {
 			speaker: String? = nil
 		) {
 			assert(duration >= 0)
-
-			self.id = Identifier<Self, UUID>(id: UUID())
-			self.identifier = identifier
-			self.position = position
-			self.text = text
-			self.speaker = speaker
-
-			self.startTime = startTime
-			self.endTime = Time(timeInSeconds: startTime.timeInSeconds + duration)
+			self.init(
+				identifier: identifier,
+				position: position,
+				startTime: startTime,
+				endTime: Time(timeInSeconds: startTime.timeInSeconds + duration),
+				text: text,
+				speaker: speaker
+			)
 		}
 
 		/// Create a cue entry from a start time and duration
@@ -170,7 +172,6 @@ public extension Subtitles {
 		) {
 			assert(startTime >= 0)
 			assert(duration >= 0)
-
 			self.init(
 				identifier: identifier,
 				position: position,
@@ -203,6 +204,12 @@ public extension Subtitles {
 		/// - Returns: True if the cue occurs AFTER the specified time, false otherwise
 		@inlinable public func startsAfter(time: Time) -> Bool {
 			self.startsAfter(timeInSeconds: time.timeInSeconds)
+		}
+
+		/// Is this cue zero length?
+		/// - Returns: True if the cue is zero length, false otherwise
+		@inlinable public func isZeroLength() -> Bool {
+			self.startTime == self.endTime
 		}
 	}
 }

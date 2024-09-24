@@ -266,4 +266,14 @@ public extension Subtitles {
 		let c = self.cues.filter { $0.isValidTime }
 		return Subtitles(c)
 	}
+
+	/// Return the index of the first cue with the specified identifier
+	func cueIndex(forPosition pos: Int) -> Int? {
+		self.cues.firstIndex { $0.position == pos }
+	}
+
+	/// Returns all the cues that are zero length
+	@inlinable func cuesOfZeroLength() -> [Subtitles.Cue] {
+		self.cues.filter { $0.isZeroLength() }
+	}
 }

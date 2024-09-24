@@ -40,8 +40,6 @@ public enum SubTitlesError: Error {
 	case invalidPosition(Int)
 	/// Time field could not be parsed
 	case invalidTime(Int)
-	/// End time occurs before the start time
-	case startTimeAfterEndTime(Int)
 	/// The text for a cue is missing
 	case missingText(Int)
 	/// Unexpected end of cue
