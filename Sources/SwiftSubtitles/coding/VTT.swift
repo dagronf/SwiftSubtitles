@@ -41,6 +41,8 @@ extension Subtitles.Coder {
 
 /// The time matching regex
 private let VTTTimeRegex__ = try! DSFRegex(#"(?:(\d*):)?(?:(\d*):)(\d*)[.,](\d{3})\s*-->\s*(?:(\d*):)?(?:(\d*):)(\d*)[.,](\d{3})"#)
+/// Regex for matching a speaker tag <v.loud Esme>This is a test
+private let VTTSpeakerRegex__ = try! DSFRegex(#"<v[^ ]* ([^>]*)>"#)
 
 public extension Subtitles.Coder.VTT {
 	/// Encode subtitles as Data
@@ -76,6 +78,11 @@ public extension Subtitles.Coder.VTT {
 				s.hour, s.minute, s.second, s.millisecond,
 				e.hour, e.minute, e.second, e.millisecond
 			)
+
+			// If there's a speaker
+			if let sanitized = entry.speaker?.replacingCharacters(in: "<>", with: ".") {
+				result += "<v \(sanitized)>"
+			}
 
 			result += "\(entry.text)\n\n"
 		}
@@ -229,11 +236,28 @@ public extension Subtitles.Coder.VTT {
 				index += 1
 			}
 
+			// Check to see if the text contains a speaker tag. If so extract it
+			// If there are multiple speaker tags they are ignored
+			let matches = VTTSpeakerRegex__.matches(for: text)
+			var speaker: String?
+			if matches.count == 1 {
+				let captures = matches[0].captures
+				if captures.count == 1 {
+					// Grab the speaker
+					let r = captures[0]
+					speaker = String(text[r])
+
+					// Strip the speaker tag out of the text
+					text.removeSubrange(matches[0].range)
+				}
+			}
+
 			let entry = Subtitles.Cue(
 				identifier: identifier,
 				startTime: times!.0,
 				endTime: times!.1,
-				text: text
+				text: text,
+				speaker: speaker
 			)
 			results.append(entry)
 		}

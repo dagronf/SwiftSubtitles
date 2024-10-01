@@ -26,7 +26,7 @@
 
 import Foundation
 
-internal extension String {
+extension String {
 	/// Split the string into its component lines
 	///
 	/// Much more reliable than `content.components(separatedBy: .newlines)`
@@ -38,5 +38,24 @@ internal extension String {
 			linesArray.append(line)
 		}
 		return linesArray
+	}
+
+	/// Replace the specified characters in this string with the given string
+	/// - Parameters:
+	///   - characters: The characters to replace
+	///   - r: The replacement characters
+	/// - Returns: A new String with the characters replaced
+	func replacingCharacters(in chars: String, with replacement: String) -> String {
+		var result = ""
+		result.reserveCapacity(self.count)
+		self.forEach { ch in
+			if chars.contains(ch) {
+				result.append(replacement)
+			}
+			else {
+				result.append(ch)
+			}
+		}
+		return result
 	}
 }
