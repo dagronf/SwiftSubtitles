@@ -46,6 +46,8 @@ public enum SubTitlesError: Error {
 	case unexpectedEndOfCue(Int)
 	/// The coder only supports binary coding
 	case coderGeneratesBinaryContent
-	///
+	/// The coder doesn't support encoding
 	case coderDoesntSupportEncoding
+	/// Start or end time is too large for the export format
+	case timeTooLargeToExport(Subtitles.Cue)
 }

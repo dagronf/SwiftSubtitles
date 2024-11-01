@@ -113,6 +113,7 @@ extension Subtitles.Coder {
 		Subtitles.Coder.JSON.self,
 		Subtitles.Coder.SUB.self,
 		Subtitles.Coder.CSV.self,
-        Subtitles.Coder.PodcastsIndex.self,
+		Subtitles.Coder.PodcastsIndex.self,
+		Subtitles.Coder.LRC.self,
 	]
 }

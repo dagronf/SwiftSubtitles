@@ -25,6 +25,7 @@ A Swift package for reading/writing some common subtitle formats.
 | VTT (WebVTT)          | `Subtitles.Coder.VTT`            | `.vtt`          |
 | CSV                   | `Subtitles.Coder.CSV`            | `.csv`          |
 | JSON (Podcasts Index) | `Subtitles.Coder.PodcastsIndex`  | `.json`         |
+| LRC (Lyrics file)     | `Subtitles.Coder.LRC`            | `.lrc`          |
 
 * Read-only
 
@@ -138,6 +139,8 @@ Position,Start time,End Time,Text
 ## Limitations
 
 * Some VTT functionality is not supported (NOTE, STYLE, REGION). These will be discarded on import. 
+* Lyrics (LRC) file import discards ID tags.
+* Lyrics (LRC) file _export_ discards end times (LRC file format only supports start times)
 
 ## License
 
