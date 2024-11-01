@@ -26,6 +26,16 @@
 
 import Foundation
 
+#if canImport(UniformTypeIdentifiers)
+import UniformTypeIdentifiers
+@available(macOS 11.0, iOS 14, tvOS 14, watchOS 7, *)
+extension UTType {
+	public static var sub: UTType {
+		UTType(importedAs: "public.microdvd.sub", conformingTo: .plainText)
+	}
+}
+#endif
+
 public extension Subtitles.Coder {
 	/// SUB (MicroDVD) decoder/encoder
 	///

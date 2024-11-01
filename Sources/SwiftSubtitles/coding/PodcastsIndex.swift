@@ -28,6 +28,16 @@
 
 import Foundation
 
+#if canImport(UniformTypeIdentifiers)
+import UniformTypeIdentifiers
+@available(macOS 11.0, iOS 14, tvOS 14, watchOS 7, *)
+extension UTType {
+	public static var podcastsIndex: UTType {
+		UTType(importedAs: "public.podcastsindex", conformingTo: .json)
+	}
+}
+#endif
+
 extension Subtitles.Coder {
 	/// A [Podcast Index Transcript](https://github.com/Podcastindex-org/podcast-namespace/blob/main/transcripts/transcripts.md#json) encoder/decoder
 	public struct PodcastsIndex: SubtitlesCodable, SubtitlesTextCodable, Codable {

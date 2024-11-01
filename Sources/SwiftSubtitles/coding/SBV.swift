@@ -27,6 +27,16 @@
 import DSFRegex
 import Foundation
 
+#if canImport(UniformTypeIdentifiers)
+import UniformTypeIdentifiers
+@available(macOS 11.0, iOS 14, tvOS 14, watchOS 7, *)
+extension UTType {
+	public static var sbv: UTType {
+		UTType(importedAs: "public.sbv", conformingTo: .plainText)
+	}
+}
+#endif
+
 extension Subtitles.Coder {
 	/// SBV (SubViewer) decoder/encoder
 	///

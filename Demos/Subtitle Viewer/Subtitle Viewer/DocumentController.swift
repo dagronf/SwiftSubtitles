@@ -9,6 +9,7 @@ import Foundation
 import AppKit
 import SwiftUI
 
+import UniformTypeIdentifiers
 import SwiftSubtitles
 
 /// Note that this is instantiated in the Storyboard
@@ -25,7 +26,18 @@ class DocumentController: NSDocumentController {
 		openPanel.allowsMultipleSelection = false
 		openPanel.canChooseFiles = true
 		openPanel.canChooseDirectories = false
-		openPanel.allowedFileTypes = ["srt", "sub", "vtt", "sbv", "csv", "json"]
+
+		openPanel.allowedContentTypes = [
+			UTType.srt,
+			UTType.sub,
+			UTType.vtt,
+			UTType.sbv,
+			UTType.commaSeparatedText,
+			UTType.json,
+			UTType.lrc
+		]
+
+		//openPanel.allowedFileTypes = ["srt", "sub", "vtt", "sbv", "csv", "json", "lrc"]
 
 		openPanel.accessoryView = a.view
 		openPanel.delegate = openAccessory
