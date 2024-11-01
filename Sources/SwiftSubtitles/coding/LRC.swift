@@ -42,26 +42,31 @@ extension UTType {
 #endif
 
 extension Subtitles.Coder {
-	/// SRT (SubRip) decoder/encoder
+	/// LRC (Lyrics) decoder/encoder
 	public struct LRC: SubtitlesCodable, SubtitlesTextCodable {
-
-		/// Sub-seconds encoding format
+		/// Sub-second encoding format
 		///
-		/// The standard as per Wikipedia shows that the sub-second format is 'hundredths of a second'
-		/// HOWEVER - some lrc files show millisecond values
-		public enum MillisecondsFormat: CaseIterable {
-			case hundredthsOfASecond
-			case milliseconds
+		/// The standard as per [Wikipedia](https://en.wikipedia.org/wiki/LRC_(file_format)) shows that the
+		/// sub-second format is 'hundredths of a second'. HOWEVER - some lrc files show millisecond values.
+		public enum TimeFormat: CaseIterable {
+			/// [xx:yy.zz] Minutes, seconds, hundredths of a second
+			case minutesSecondsHundredths
+			/// [xx:yy.zzz] Minutes, seconds, milliseconds
+			case minutesSecondsMilliseconds
 		}
 
 		/// file extension
 		public static var extn: String { "lrc" }
-		/// Create an LRC coder
+		/// Create a default LRC coder
 		public static func Create() -> Self { LRC() }
 
-		public let subsecondsFormat: MillisecondsFormat
-		public init(subsecondsFormat: MillisecondsFormat = .hundredthsOfASecond) {
-			self.subsecondsFormat = subsecondsFormat
+		/// The time format to use when encoding
+		public let timeFormat: TimeFormat
+
+		/// Create an LRC (lyric) encoder
+		/// - Parameter timeFormat: The formatting to use for the time when encoding
+		public init(timeFormat: TimeFormat = .minutesSecondsHundredths) {
+			self.timeFormat = timeFormat
 		}
 	}
 }
@@ -98,11 +103,11 @@ public extension Subtitles.Coder.LRC {
 
 			let seconds = entry.startTime.second
 			let subseconds: UInt
-			switch self.subsecondsFormat {
-			case .hundredthsOfASecond:
+			switch self.timeFormat {
+			case .minutesSecondsHundredths:
 				subseconds = entry.startTime.millisecond / 10
 				result += String(format: "[%02d:%02d.%02d]", minutes, seconds, subseconds)
-			case .milliseconds:
+			case .minutesSecondsMilliseconds:
 				subseconds = entry.startTime.millisecond
 				result += String(format: "[%02d:%02d.%03d]", minutes, seconds, subseconds)
 			}

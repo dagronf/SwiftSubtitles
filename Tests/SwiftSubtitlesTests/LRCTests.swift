@@ -114,14 +114,31 @@ final class LRCTests: XCTestCase {
 		XCTAssertEqual("furisosogu", subs.cues[31].text)
 	}
 
+	func testMixedLineTimeFormats() throws {
+		let content = "[00:31.01][00:55.710][01:22.101]Mixed time line"
+		let subs = try Subtitles.Coder.LRC().decode(content)
+		// 3 cues
+		XCTAssertEqual(3, subs.cues.count)
+		// All text should be the same
+		XCTAssertEqual(1, Set(subs.cues.map { $0.text }).count)
+		XCTAssertEqual("Mixed time line", subs.cues[0].text)
+
+		XCTAssertEqual(Subtitles.Time(second: 31, millisecond: 10), subs.cues[0].startTime)
+		XCTAssertEqual(0, subs.cues[0].duration)
+		XCTAssertEqual(Subtitles.Time(second: 55, millisecond: 710), subs.cues[1].startTime)
+		XCTAssertEqual(0, subs.cues[1].duration)
+		XCTAssertEqual(Subtitles.Time(minute: 1, second: 22, millisecond: 101), subs.cues[2].startTime)
+		XCTAssertEqual(0, subs.cues[2].duration)
+	}
+
 	func testBasicEncode() throws {
 		// Read in content
 		let fileURL = try resourceURL(forResource: "captions_edited", withExtension: "csv")
 		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
 		XCTAssertEqual(6, subtitles.cues.count)
 
-		try Subtitles.Coder.LRC.MillisecondsFormat.allCases.forEach { format in
-			let lrc = Subtitles.Coder.LRC(subsecondsFormat: format)
+		try Subtitles.Coder.LRC.TimeFormat.allCases.forEach { format in
+			let lrc = Subtitles.Coder.LRC(timeFormat: format)
 
 			let lrcEncoded = try lrc.encode(subtitles: subtitles)
 			let lrcDecoded = try lrc.decode(lrcEncoded)
@@ -134,11 +151,11 @@ final class LRCTests: XCTestCase {
 			XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 5, millisecond: 050), c1.startTime)
 			XCTAssertEqual("This video was recorded and uploaded to Youtube.", c1.text)
 			let c3 = lrcDecoded.cues[3]
-			if format == .milliseconds {
-				XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 14, millisecond: 079), c3.startTime)
-			}
-			else {
+			switch format {
+			case .minutesSecondsHundredths:
 				XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 14, millisecond: 070), c3.startTime)
+			case .minutesSecondsMilliseconds:
+				XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 14, millisecond: 079), c3.startTime)
 			}
 			XCTAssertEqual("I downloaded the captions as an SBV file.", c3.text)
 		}
