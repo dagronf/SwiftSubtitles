@@ -85,6 +85,18 @@ let content2 = try coder.encode(subtitles: subtitles)
 
 Format is documented [here](https://github.com/Podcastindex-org/podcast-namespace/blob/main/transcripts/transcripts.md#json)
 
+### Lyrics file format
+
+Format is documented [here](https://en.wikipedia.org/wiki/LRC_(file_format))
+
+The format defines the sub-second timing as 'hundredths of a second', however some online sample files use milliseconds
+instead. This encoder supports both for decoding, and the encoder supports both formats when writing.
+
+```
+[00:12.41]Is it that sweet? I guess so
+[00:12.419]Is it that sweet? I guess so
+```
+
 ### CSV coding/encoding
 
 There appears to be no formal CSV specification for subtitles, so this coder tries to make a generic "enough" encoder/decoder to make it easier for an app to export into a spreadsheet or google docs.

@@ -107,10 +107,7 @@ final class LRCTests: XCTestCase {
 			[01:19.485]
 			"""
 
-		let subs = try Subtitles.Coder.LRC()
-			.decode(str)
-
-		Swift.print(subs)
+		let subs = try Subtitles.Coder.LRC().decode(str)
 
 		XCTAssertEqual(34, subs.cues.count)
 		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 1, second: 13, millisecond: 699), subs.cues[31].startTime)
