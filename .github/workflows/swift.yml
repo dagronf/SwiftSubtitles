@@ -7,7 +7,7 @@ jobs:
     name: Unit tests on macOS
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build
         run: swift build -v -c release
       - name: Run tests
@@ -19,7 +19,7 @@ jobs:
     container:
       image: swift:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build
         run: swift build -v -c release
       - name: Run tests
