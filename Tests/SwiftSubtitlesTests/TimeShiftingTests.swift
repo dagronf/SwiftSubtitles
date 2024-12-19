@@ -16,6 +16,8 @@ final class TimeShiftingTests: XCTestCase {
 		let fileURL = Bundle.module.url(forResource: "upc-video-subtitles-en", withExtension: "vtt")!
 		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
 
+		XCTAssertEqual(8, subtitles.cues.count)
+
 		do {
 			// Insert at the start
 			let n = subtitles.timeShifting(by: 1)

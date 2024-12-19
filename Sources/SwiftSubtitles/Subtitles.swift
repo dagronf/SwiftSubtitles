@@ -251,6 +251,36 @@ public extension Subtitles {
 	}
 }
 
+// MARK: - Mapping
+
+public extension Subtitles {
+
+	/// Create a new subtitles object by removing all cues with empty text
+	func removingEmptyCues() -> Subtitles {
+		Subtitles(self.cues.filter { $0.text.count > 0} )
+	}
+
+	/// Returns a new subtitles object with positions matching the order of the cues
+	/// - Returns: Subtitles
+	func setIncrementingPositionValues() -> Subtitles {
+		let cues = self.cues
+			.enumerated()
+			.map {
+				let position = $0.0 + 1
+				let cue = $0.1
+				return Subtitles.Cue(
+					identifier: cue.identifier,
+					position: position,
+					startTime: cue.startTime,
+					duration: cue.duration,
+					text: cue.text,
+					speaker: cue.speaker
+				)
+			}
+		return Subtitles(cues)
+	}
+}
+
 // MARK: - Validation and sanitization
 
 public extension Subtitles {
