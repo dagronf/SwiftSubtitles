@@ -123,7 +123,7 @@ public extension Subtitles.Coder.VTT {
 			.removingBOM()
 			.lines
 			.enumerated()
-			.map { (offset: $0.offset, element: $0.element.trimmingCharacters(in: .whitespaces)) }
+			.map { (offset: $0.offset, element: $0.element) }
 
 		guard lines[0].element.contains("WEBVTT") else {
 			throw SubTitlesError.invalidFile
@@ -135,7 +135,7 @@ public extension Subtitles.Coder.VTT {
 		var inSection = false
 		var currentLines = [(index: Int, line: String)]()
 		lines.forEach { item in
-			let line = item.element.trimmingCharacters(in: .whitespaces)
+			let line = item.element
 			if line.isEmpty {
 				if inSection == true {
 					// End of section
@@ -229,10 +229,20 @@ public extension Subtitles.Coder.VTT {
 				// Assume its a cue identifier
 				identifier = l1.line
 
+				// Next line should be the times
 				index += 1
-				let l2 = section[index]
-				times = try parseTime(index: l2.index, timeLine: l2.line)
-				index += 1
+
+				if index < section.count {
+					let l2 = section[index]
+					times = try parseTime(index: l2.index, timeLine: l2.line)
+					index += 1
+				}
+			}
+
+			// Check if we've found a time value. If not, then skip it
+			guard let times = times else {
+				// WebVTT format error? Cannot find time definition
+				continue
 			}
 
 			// next is the text
@@ -264,8 +274,8 @@ public extension Subtitles.Coder.VTT {
 
 			let entry = Subtitles.Cue(
 				identifier: identifier,
-				startTime: times!.0,
-				endTime: times!.1,
+				startTime: times.0,
+				endTime: times.1,
 				text: text,
 				speaker: speaker
 			)

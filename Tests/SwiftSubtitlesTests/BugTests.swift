@@ -42,4 +42,17 @@ final class BugTests: XCTestCase {
 		XCTAssertFalse(st.cues[1].isZeroLength())
 		XCTAssertEqual(0.001, st.cues[1].duration, accuracy: 0.0001)
 	}
+
+	func testCrash13() throws {
+		// https://github.com/dagronf/SwiftSubtitles/issues/13
+		// This file crashed the VTT importer.
+		// It's a very odd file (but appears to be valid vtt) and I'm guessing its AI generated with lots of
+		// duplicate lines, cues containing only a single space.
+		// The issue was that I was trimming lines of whitespace, which would nuke some of the
+		// cue entries that contained only a single space (?). The code logic made an assumption
+		// regarding the length of an array and as such busted.
+		let fileURL = Bundle.module.url(forResource: "crash_13", withExtension: "vtt")!
+		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
+		XCTAssertEqual(99, subtitles.cues.count)
+	}
 }
