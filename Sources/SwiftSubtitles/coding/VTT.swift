@@ -125,7 +125,8 @@ public extension Subtitles.Coder.VTT {
 			.enumerated()
 			.map { (offset: $0.offset, element: $0.element) }
 
-        guard let firstLine = lines.first, firstLine.element.contains("WEBVTT") else {
+		// If there are no lines, or the first line isn't 'WEBVTT' then invalid file
+		guard let firstLine = lines.first, firstLine.element.contains("WEBVTT") else {
 			throw SubTitlesError.invalidFile
 		}
 

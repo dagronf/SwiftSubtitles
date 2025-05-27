@@ -2,29 +2,29 @@ import XCTest
 @testable import SwiftSubtitles
 
 final class VTTTests: XCTestCase {
-    func testExample() throws {
-        let fileURL = Bundle.module.url(forResource: "sample", withExtension: "vtt")!
-        let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
-        XCTAssertEqual(3, subtitles.cues.count)
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 15, millisecond: 0), subtitles.cues[0].startTime)
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 20, millisecond: 0), subtitles.cues[0].endTime)
-        XCTAssertEqual("- Ta en kopp varmt te.\n- Det är inte varmt.", subtitles.cues[0].text)
+	func testExample() throws {
+		let fileURL = Bundle.module.url(forResource: "sample", withExtension: "vtt")!
+		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
+		XCTAssertEqual(3, subtitles.cues.count)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 15, millisecond: 0), subtitles.cues[0].startTime)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 20, millisecond: 0), subtitles.cues[0].endTime)
+		XCTAssertEqual("- Ta en kopp varmt te.\n- Det är inte varmt.", subtitles.cues[0].text)
 
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 25, millisecond: 0), subtitles.cues[2].startTime)
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 30, millisecond: 0), subtitles.cues[2].endTime)
-        XCTAssertEqual("3 This is the third chapter", subtitles.cues[2].identifier)
-        XCTAssertEqual("- Ta en kopp", subtitles.cues[2].text)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 25, millisecond: 0), subtitles.cues[2].startTime)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 2, second: 30, millisecond: 0), subtitles.cues[2].endTime)
+		XCTAssertEqual("3 This is the third chapter", subtitles.cues[2].identifier)
+		XCTAssertEqual("- Ta en kopp", subtitles.cues[2].text)
 
-        let coder = Subtitles.Coder.VTT()
-        let encoded = try coder.encode(subtitles: subtitles)
-        let decoded = try coder.decode(encoded)
-        XCTAssertEqual(3, decoded.cues.count)
+		let coder = Subtitles.Coder.VTT()
+		let encoded = try coder.encode(subtitles: subtitles)
+		let decoded = try coder.decode(encoded)
+		XCTAssertEqual(3, decoded.cues.count)
 
-        XCTAssertEqual(subtitles, decoded)
-    }
+		XCTAssertEqual(subtitles, decoded)
+	}
 
-    func testDecode() throws {
-        let vtt = """
+	func testDecode() throws {
+		let vtt = """
 WEBVTT
 
 00:01.000 --> 00:04.000
@@ -34,36 +34,29 @@ WEBVTT
 - It will perforate your stomach.
 - You could die.
 """
-        let coder = Subtitles.Coder.VTT()
-        let subtitles = try coder.decode(vtt)
-        XCTAssertEqual(2, subtitles.cues.count)
-        XCTAssertEqual("- Never drink liquid nitrogen.", subtitles.cues[0].text)
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0), subtitles.cues[0].startTime)
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0), subtitles.cues[0].endTime)
+		let coder = Subtitles.Coder.VTT()
+		let subtitles = try coder.decode(vtt)
+		XCTAssertEqual(2, subtitles.cues.count)
+		XCTAssertEqual("- Never drink liquid nitrogen.", subtitles.cues[0].text)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0), subtitles.cues[0].startTime)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0), subtitles.cues[0].endTime)
 
-        XCTAssertEqual("- It will perforate your stomach.\n- You could die.", subtitles.cues[1].text)
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 5, millisecond: 0), subtitles.cues[1].startTime)
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 9, millisecond: 0), subtitles.cues[1].endTime)
+		XCTAssertEqual("- It will perforate your stomach.\n- You could die.", subtitles.cues[1].text)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 5, millisecond: 0), subtitles.cues[1].startTime)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 9, millisecond: 0), subtitles.cues[1].endTime)
 
-        let encoded = try coder.encode(subtitles: subtitles)
-        let decoded = try coder.decode(encoded)
-        XCTAssertEqual(2, decoded.cues.count)
+		let encoded = try coder.encode(subtitles: subtitles)
+		let decoded = try coder.decode(encoded)
+		XCTAssertEqual(2, decoded.cues.count)
 
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0), subtitles.cues[0].startTime)
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0), subtitles.cues[0].endTime)
-        XCTAssertEqual("- Never drink liquid nitrogen.", decoded.cues[0].text)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 1, millisecond: 0), subtitles.cues[0].startTime)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 4, millisecond: 0), subtitles.cues[0].endTime)
+		XCTAssertEqual("- Never drink liquid nitrogen.", decoded.cues[0].text)
 
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 5, millisecond: 0), subtitles.cues[1].startTime)
-        XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 9, millisecond: 0), subtitles.cues[1].endTime)
-        XCTAssertEqual("- It will perforate your stomach.\n- You could die.", decoded.cues[1].text)
-    }
-
-    func testEmptyDecode() throws {
-        let vtt = """
-            """
-        let coder = Subtitles.Coder.VTT()
-        XCTAssertThrowsError(try coder.decode(vtt))
-    }
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 5, millisecond: 0), subtitles.cues[1].startTime)
+		XCTAssertEqual(Subtitles.Time(hour: 0, minute: 0, second: 9, millisecond: 0), subtitles.cues[1].endTime)
+		XCTAssertEqual("- It will perforate your stomach.\n- You could die.", decoded.cues[1].text)
+	}
 
 	func testMicrosoftTests() throws {
 		// https://support.microsoft.com/en-us/office/create-closed-captions-for-a-video-b1cfb30f-5b00-4435-beeb-2a25e115024b
@@ -360,9 +353,9 @@ WEBVTT
 		XCTAssertNil(text, "Expected nil, got \(text ?? "")")
 	}
 
-    func testVTTWithEmptyAndMultilineCues() throws {
-        // A newline must precede a cue, but an empty payload is valid.
-        let sampleVTTContent = """
+	func testVTTWithEmptyAndMultilineCues() throws {
+		// A newline must precede a cue, but an empty payload is valid.
+		let sampleVTTContent = """
 WEBVTT
 
 00:00:01.000 --> 00:00:04.000
@@ -374,15 +367,15 @@ WEBVTT
 00:00:09.000 --> 00:00:12.000
 
 """
-		 let coder = Subtitles.Coder.VTT()
-		 let subtitles = try coder.decode(sampleVTTContent)
-		 XCTAssertEqual(3, subtitles.cues.count, "Expected 3 cues, got \(subtitles.cues.count)")
-		 // Accessing the middle cue with multiline text.
-		 let multilineText = subtitles.cues[1].text
-		 let lines = multilineText.split(separator: "\n")
-		 let numberOfLines = lines.count
-		 XCTAssertEqual(2, numberOfLines, "Expected 2 lines, got \(numberOfLines)")
-	 }
+		let coder = Subtitles.Coder.VTT()
+		let subtitles = try coder.decode(sampleVTTContent)
+		XCTAssertEqual(3, subtitles.cues.count, "Expected 3 cues, got \(subtitles.cues.count)")
+		// Accessing the middle cue with multiline text.
+		let multilineText = subtitles.cues[1].text
+		let lines = multilineText.split(separator: "\n")
+		let numberOfLines = lines.count
+		XCTAssertEqual(2, numberOfLines, "Expected 2 lines, got \(numberOfLines)")
+	}
 
 	func testMissingNewlineTreatsTimeLineAsText() throws {
 		// An empty newline must precede a cue.
@@ -446,5 +439,22 @@ WEBVTT
 		let content = try Subtitles.Coder.VTT().encode(subtitles: subtitles)
 		XCTAssert(content.count > 0)
 		XCTAssertFalse(content.contains("<v"))  // Should be no <v tags
+	}
+
+	func testEmptyVTTFailureBug16() throws {
+		// Test for fixing error #16 (https://github.com/dagronf/SwiftSubtitles/pull/16)
+
+		// Completely empty data
+		XCTAssertThrowsError(try Subtitles(data: Data(), expectedExtension: "vtt", encoding: .utf8))
+
+		// Completely empty text
+		let vtt = """
+"""
+		let coder = Subtitles.Coder.VTT()
+		XCTAssertThrowsError(try coder.decode(vtt))
+
+		// Completely empty file
+		let fileURL = Bundle.module.url(forResource: "empty", withExtension: "vtt")!
+		XCTAssertThrowsError(try Subtitles(fileURL: fileURL, encoding: .utf8))
 	}
 }
