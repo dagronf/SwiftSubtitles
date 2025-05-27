@@ -125,7 +125,7 @@ public extension Subtitles.Coder.VTT {
 			.enumerated()
 			.map { (offset: $0.offset, element: $0.element) }
 
-		guard lines[0].element.contains("WEBVTT") else {
+        guard let firstLine = lines.first, firstLine.element.contains("WEBVTT") else {
 			throw SubTitlesError.invalidFile
 		}
 
