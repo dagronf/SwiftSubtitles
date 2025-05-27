@@ -19,3 +19,14 @@ func resourceURL(forResource resource: String, withExtension extn: String) throw
 	}
 	return url
 }
+
+/// Load data from a resource
+/// - Parameters:
+///   - resource: The resource name
+///   - extn: The resource extension
+/// - Throws: `cannotFindResource` if the resource cannot be found
+/// - Returns: The data content of the resource file
+func resourceData(resource: String, withExtension extn: String) throws -> Data {
+	let url = try resourceURL(forResource: resource, withExtension: extn)
+	return try Data(contentsOf: url)
+}

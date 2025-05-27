@@ -454,7 +454,7 @@ WEBVTT
 		XCTAssertThrowsError(try coder.decode(vtt))
 
 		// Completely empty file
-		let fileURL = Bundle.module.url(forResource: "empty", withExtension: "vtt")!
+		let fileURL = try resourceURL(forResource: "empty", withExtension: "vtt")
 		XCTAssertThrowsError(try Subtitles(fileURL: fileURL, encoding: .utf8))
 	}
 }
