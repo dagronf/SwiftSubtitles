@@ -54,4 +54,13 @@ final class TimeExpressionTests: XCTestCase {
 		XCTAssertEqual(0.0055, TimeExpression.Offset(value: 5.5, metric: .milliseconds).secondsValue)
 		XCTAssertEqual(2736, TimeExpression.Offset(value: 0.76, metric: .hours).secondsValue)
 	}
+
+	func testBasicEncode() throws {
+		let fileURL = try resourceURL(forResource: "stby", withExtension: "csv")
+		let subtitles = try Subtitles(fileURL: fileURL, encoding: .utf8)
+
+		let result = try Subtitles.Coder.TTML().encode(subtitles: subtitles)
+		XCTAssert(result.count > 0)
+	}
+
 }

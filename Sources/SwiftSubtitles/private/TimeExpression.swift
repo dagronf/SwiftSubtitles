@@ -31,26 +31,26 @@ import Foundation
 // MARK: - Data Models
 
 /// Parsing a TTML TimeExpression
-public enum TimeExpression: Equatable {
+enum TimeExpression: Equatable {
 	case time(TimeExpression.Clock)
 	case duration(TimeExpression.Offset)
 
-	public static func parse(_ string: String) -> TimeExpression? {
+	static func parse(_ string: String) -> TimeExpression? {
 		__parseTimeExpression(string)
 	}
 
 	/// Create a time value
-	public static func time(hours: Int, minutes: Int, seconds: Int, fraction: Int? = nil, frames: Int? = nil, subFrames: Int? = nil) -> TimeExpression {
+	static func time(hours: Int, minutes: Int, seconds: Int, fraction: Int? = nil, frames: Int? = nil, subFrames: Int? = nil) -> TimeExpression {
 		.time(TimeExpression.Clock(hours: hours, minutes: minutes, seconds: seconds, fraction: fraction, frames: frames, subFrames: subFrames))
 	}
 
 	/// Create a duration value
-	public static func offsetTime(value: Double, metric: Metric) -> TimeExpression {
+	static func offsetTime(value: Double, metric: Metric) -> TimeExpression {
 		.duration(TimeExpression.Offset(value: value, metric: metric))
 	}
 }
 
-public extension TimeExpression {
+extension TimeExpression {
 	enum Metric: String, CaseIterable, Equatable {
 		case hours = "h"
 		case minutes = "m"
@@ -62,13 +62,13 @@ public extension TimeExpression {
 
 	/// An absolute clock time
 	struct Clock: Equatable, Comparable {
-		public let hours: Int
-		public let minutes: Int
-		public let seconds: Int
-		public let fraction: Int?
-		public let frames: Int?
-		public let subFrames: Int?
-		public init(hours: Int, minutes: Int, seconds: Int, fraction: Int? = nil, frames: Int? = nil, subFrames: Int? = nil) {
+		let hours: Int
+		let minutes: Int
+		let seconds: Int
+		let fraction: Int?
+		let frames: Int?
+		let subFrames: Int?
+		init(hours: Int, minutes: Int, seconds: Int, fraction: Int? = nil, frames: Int? = nil, subFrames: Int? = nil) {
 			self.hours = hours
 			self.minutes = minutes
 			self.seconds = seconds
@@ -100,7 +100,7 @@ public extension TimeExpression {
 		/// Return the raw seconds value for this time
 		///
 		/// If frames or subframes are used, this function returns nil
-		public var secondsValue: Double? {
+		var secondsValue: Double? {
 			if self.frames != nil || self.subFrames != nil {
 				return nil
 			}
@@ -113,7 +113,7 @@ public extension TimeExpression {
 			return result
 		}
 
-		public static func < (lhs: Clock, rhs: Clock) -> Bool {
+		static func < (lhs: Clock, rhs: Clock) -> Bool {
 			if lhs.hours < rhs.hours { return true }
 			if lhs.minutes < rhs.minutes { return true }
 			if lhs.seconds < rhs.seconds { return true }
@@ -133,15 +133,15 @@ public extension TimeExpression {
 
 	/// A relative clock time
 	struct Offset: Equatable {
-		public let value: Double
-		public let metric: Metric
-		public init(value: Double, metric: Metric) {
+		let value: Double
+		let metric: Metric
+		init(value: Double, metric: Metric) {
 			self.value = value
 			self.metric = metric
 		}
 
 		/// Returns the TimeExpression string representation
-		public var stringValue: String {
+		var stringValue: String {
 			let nf = NumberFormatter()
 			nf.minimumFractionDigits = 0
 			nf.maximumFractionDigits = 3
@@ -153,7 +153,7 @@ public extension TimeExpression {
 		/// The offset as a seconds value
 		///
 		/// If frames or ticks is specified, this function returns nil
-		public var secondsValue: Double? {
+		var secondsValue: Double? {
 			switch metric {
 			case .hours:
 				return value * 3600
@@ -177,7 +177,7 @@ public extension TimeExpression {
 extension Subtitles.Time {
 	/// Return this time as a TTML time expression
 	/// - Returns: A time expression
-	public var ttmlTimeExpression: TimeExpression.Clock {
+	var ttmlTimeExpression: TimeExpression.Clock {
 		return TimeExpression.Clock(
 			hours: Int(self.hour),
 			minutes: Int(self.minute),
@@ -187,7 +187,7 @@ extension Subtitles.Time {
 	}
 
 	/// Return this time as a TTML time formatted string
-	@inlinable public var ttmlTimeExpressionString: String {
+	var ttmlTimeExpressionString: String {
 		self.ttmlTimeExpression.stringValue
 	}
 }
