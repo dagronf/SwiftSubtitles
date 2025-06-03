@@ -35,8 +35,9 @@ enum TimeExpression: Equatable {
 	case time(TimeExpression.Clock)
 	case duration(TimeExpression.Offset)
 
-	static func parse(_ string: String) -> TimeExpression? {
-		__parseTimeExpression(string)
+	static func parse(_ string: String?) -> TimeExpression? {
+		guard let string else { return nil }
+		return __parseTimeExpression(string)
 	}
 
 	/// Create a time value
@@ -47,6 +48,22 @@ enum TimeExpression: Equatable {
 	/// Create a duration value
 	static func offsetTime(value: Double, metric: Metric) -> TimeExpression {
 		.duration(TimeExpression.Offset(value: value, metric: metric))
+	}
+
+	///  Convert a time expression value to a cue time
+	/// - Returns: A cue time
+	func asSubtitleCueTime() -> Subtitles.Time {
+		switch self {
+		case .duration(let d):
+			return Subtitles.Time(timeInSeconds: d.value)
+		case .time(let t):
+			return Subtitles.Time(
+				hour: UInt(t.hours.clamped(0 ... 999)),
+				minute: UInt(t.minutes.clamped(0 ... 59)),
+				second: UInt(t.seconds.clamped(0 ... 59)),
+				millisecond: UInt((t.fraction ?? 0).clamped(0 ... 999))
+			)
+		}
 	}
 }
 

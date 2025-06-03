@@ -1,0 +1,17 @@
+<tt ttp:cellResolution="60 20" xml:lang="en" xmlns="http://www.w3.org/ns/ttml"
+  xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:tts="http://www.w3.org/ns/ttml#styling">
+  <head>
+    <layout>
+      <region xml:id="r1" tts:color="white" tts:origin="10c 4c" tts:extent="40c 2c" tts:displayAlign="after"/>
+    </layout>
+  </head>
+  <body>
+    <div region="r1">
+      <p begin="0s" end="8s">Lorem ipsum dolor sit</p>
+      <p begin="4s" end="12s">Amet consectetur adipiscing elit</p>
+      <p begin="8s" end="18s">Sed do eiusmod tempor incididunt labore</p>
+      <p begin="14s" end="25s">et dolore magna aliqua</p>
+      <p begin="18s" end="29s">Ut enim ad minim veniam quis, nostrud</p>
+    </div>
+  </body>
+</tt>

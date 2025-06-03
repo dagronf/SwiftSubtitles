@@ -51,7 +51,8 @@ class DocumentController: NSDocumentController {
 			UTType.sbv,
 			UTType.commaSeparatedText,
 			UTType.json,
-			UTType.lrc
+			UTType.lrc,
+			UTType.ttml,
 		]
 
 		//openPanel.allowedFileTypes = ["srt", "sub", "vtt", "sbv", "csv", "json", "lrc"]

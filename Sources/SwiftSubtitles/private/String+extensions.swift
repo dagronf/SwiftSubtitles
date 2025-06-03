@@ -66,4 +66,24 @@ extension String {
 			.replacingOccurrences(of: "\"", with: "&quot;")
 			.replacingOccurrences(of: "'", with: "&apos;")
 	}
+
+	/// Return a XML-unescaped representation
+	/// - Returns: An html safe string
+	func xmlUnescaped() -> String {
+		return self.replacingOccurrences(of: "&amp;", with: "&")
+			.replacingOccurrences(of: "&lt;", with: "<")
+			.replacingOccurrences(of: "&gt;", with: ">")
+			.replacingOccurrences(of: "&quot;", with: "\"")
+			.replacingOccurrences(of: "&apos;", with: "'")
+	}
+}
+
+extension Array where Element == String {
+	/// Remove empty lines
+	@inlinable func removingEmptyLines() -> Self {
+		self.compactMap {
+			if $0.isEmpty { return nil }
+			else { return $0 }
+		}
+	}
 }

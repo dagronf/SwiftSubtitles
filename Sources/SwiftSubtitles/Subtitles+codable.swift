@@ -113,5 +113,6 @@ extension Subtitles.Coder {
 		Subtitles.Coder.CSV.self,
 		Subtitles.Coder.PodcastsIndex.self,
 		Subtitles.Coder.LRC.self,
+		Subtitles.Coder.TTML.self,
 	]
 }

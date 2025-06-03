@@ -26,6 +26,7 @@ A Swift package for reading/writing some common subtitle formats.
 | CSV                   | `Subtitles.Coder.CSV`            | `.csv`          |
 | JSON (Podcasts Index) | `Subtitles.Coder.PodcastsIndex`  | `.json`         |
 | LRC (Lyrics file)     | `Subtitles.Coder.LRC`            | `.lrc`          |
+| TTML (Timed text)     | `Subtitles.Coder.TTML`           | `.ttml`         |
 
 * Read-only
 

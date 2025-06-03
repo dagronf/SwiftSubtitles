@@ -24,6 +24,11 @@
 
 import Foundation
 
+#if canImport(FoundationXML)
+// For non-apple platforms it seems that the XML parser has been shifted into its own module
+import FoundationXML
+#endif
+
 #if canImport(UniformTypeIdentifiers)
 import UniformTypeIdentifiers
 @available(macOS 11.0, iOS 14, tvOS 14, watchOS 7, *)
@@ -95,20 +100,121 @@ public extension Subtitles.Coder.TTML {
 }
 
 public extension Subtitles.Coder.TTML {
+	/// Decode subtitles from a sbv-coded string
+	/// - Parameters:
+	///   - content: The string
+	/// - Returns: Subtitles
+	func decode(_ content: String) throws -> Subtitles {
+		guard let data = content.data(using: .utf8) else {
+			throw SubTitlesError.invalidEncoding
+		}
+		return try self.decode(data, encoding: .utf8)
+	}
+
 	/// Decode subtitles from sbv data
 	/// - Parameters:
 	///   - data: The data to decode
 	///   - encoding: The string encoding for the data content
 	/// - Returns: Subtitles
 	func decode(_ data: Data, encoding: String.Encoding) throws -> Subtitles {
-		throw SubTitlesError.coderDoesntSupportEncoding
+		let parser = XMLParser(data: data)
+		let decoder = TTMLDecoder()
+		parser.delegate = decoder
+
+		if parser.parse() == false {
+			throw SubTitlesError.invalidFile
+		}
+
+		var results: [Subtitles.Cue] = []
+
+		for subtitle in decoder.subtitles {
+			guard let begin = TimeExpression.parse(subtitle.begin)?.asSubtitleCueTime() else {
+				continue
+			}
+
+			let duration = TimeExpression.parse(subtitle.duration)?.asSubtitleCueTime()
+			let end = TimeExpression.parse(subtitle.end)?.asSubtitleCueTime()
+
+			let text = subtitle.text
+				.xmlUnescaped()
+				.lines
+				.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+				.removingEmptyLines()
+				.joined(separator: "\n")
+				.xmlUnescaped()
+
+			if let duration {
+				results.append(Subtitles.Cue(startTime: begin, duration: duration.timeInSeconds, text: text))
+			}
+			else if let end {
+				results.append(Subtitles.Cue(startTime: begin, endTime: end, text: text))
+			}
+			else {
+				// ??
+			}
+		}
+		if results.count == 0 {
+			throw SubTitlesError.invalidEncoding
+		}
+		return Subtitles(results)
+	}
+}
+
+class TTMLDecoder: NSObject, XMLParserDelegate {
+
+	class ActiveSubtitle {
+		var begin: String
+		var duration: String?
+		var end: String?
+		var text = ""
+		init(begin: String, duration: String?, end: String?) {
+			self.begin = begin
+			self.end = end
+		}
 	}
 
-	/// Decode subtitles from a sbv-coded string
-	/// - Parameters:
-	///   - content: The string
-	/// - Returns: Subtitles
-	func decode(_ content: String) throws -> Subtitles {
-		throw SubTitlesError.coderDoesntSupportEncoding
+	var inBody = false
+	var active: ActiveSubtitle?
+
+	var subtitles: [ActiveSubtitle] = []
+
+	var acceptableElements = ["p", "span", "div"]
+
+	func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+		if elementName == "tt",
+			attributeDict["xmlns"] != "http://www.w3.org/ns/ttml"
+		{
+			parser.abortParsing()
+		}
+
+		if elementName == "body" {
+			inBody = true
+		}
+		else if acceptableElements.contains(elementName) && inBody == true {
+			if	let begin = attributeDict["begin"] {
+				let duration = attributeDict["dur"]
+				let end = attributeDict["end"]
+				self.active = ActiveSubtitle(begin: begin, duration: duration, end: end)
+			}
+		}
+	}
+
+	func parser(_ parser: XMLParser, foundCharacters string: String) {
+		if let active {
+			active.text += string
+		}
+	}
+
+	func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+		if elementName == "body" {
+			inBody = false
+		}
+		else if let active, acceptableElements.contains(elementName) && inBody == true {
+			subtitles.append(active)
+			self.active = nil
+		}
+		else if let active, elementName == "br" {
+			active.text += "\n"
+		}
 	}
 }

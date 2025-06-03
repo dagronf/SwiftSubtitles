@@ -1,0 +1,1309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tt xmlns="http://www.w3.org/ns/ttml" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ttp:timeBase="media" xmlns:tts="http://www.w3.org/ns/ttml#styling" xml:lang="en" xmlns:ttm="http://www.w3.org/ns/ttml#metadata">
+  <head>
+    <metadata>
+      <ttm:title></ttm:title>
+    </metadata>
+    <styling>
+      <style xml:id="s0" tts:backgroundColor="black" tts:fontStyle="normal" tts:fontSize="16px" tts:fontFamily="sansSerif" tts:color="white" />
+    </styling>
+    <layout>
+      <region tts:extent="80% 40%" tts:origin="10% 10%" tts:displayAlign="before" tts:textAlign="start" xml:id="topLeft" />
+      <region tts:extent="80% 40%" tts:origin="10% 30%" tts:displayAlign="center" tts:textAlign="start" xml:id="centerLeft" />
+      <region tts:extent="80% 40%" tts:origin="10% 50%" tts:displayAlign="after" tts:textAlign="start" xml:id="bottomLeft" />
+      <region tts:extent="80% 40%" tts:origin="10% 10%" tts:displayAlign="before" tts:textAlign="center" xml:id="topCenter" />
+      <region tts:extent="80% 40%" tts:origin="10% 30%" tts:displayAlign="center" tts:textAlign="center" xml:id="centerСenter" />
+      <region tts:extent="80% 40%" tts:origin="10% 50%" tts:displayAlign="after" tts:textAlign="center" xml:id="bottomCenter" />
+      <region tts:extent="80% 40%" tts:origin="10% 10%" tts:displayAlign="before" tts:textAlign="end" xml:id="topRight" />
+      <region tts:extent="80% 40%" tts:origin="10% 30%" tts:displayAlign="center" tts:textAlign="end" xml:id="centerRight" />
+      <region tts:extent="80% 40%" tts:origin="10% 50%" tts:displayAlign="after" tts:textAlign="end" xml:id="bottomRight" />
+    </layout>
+  </head>
+  <body style="s0">
+    <div>
+      <p begin="21.888s" xml:id="p0" end="24.686s">I don&#039;t want you to think<br />of this as just a film...</p>
+      <p begin="24.858s" xml:id="p1" end="28.294s">...some process of converting<br />electrons and magnetic impulses...</p>
+      <p begin="28.461s" xml:id="p2" end="30.52s">...into shapes and figures<br />and sounds.</p>
+      <p begin="30.697s" xml:id="p3" end="32.665s">No. Listen to me.</p>
+      <p begin="32.832s" xml:id="p4" end="36.666s">We&#039;re here to make<br />a dent in the universe.</p>
+      <p begin="36.836s" xml:id="p5" end="38.963s">Otherwise, why even be here?</p>
+      <p begin="39.139s" xml:id="p6" end="41.664s">We&#039;re creating a completely<br />new consciousness...</p>
+      <p begin="41.841s" xml:id="p7" end="44.571s">...like an artist or a poet.</p>
+      <p begin="44.744s" xml:id="p8" end="46.575s">That&#039;s how you have to think of this.</p>
+      <p begin="46.746s" xml:id="p9" end="49.909s">We&#039;re rewriting the history of human<br />thought with what we&#039;re doing.</p>
+      <p begin="50.083s" xml:id="p10" end="52.574s">Right. Well, Steven, at the moment<br />I&#039;m more worried...</p>
+      <p begin="52.752s" xml:id="p11" end="56.483s">...about getting light on the actress.<br />You know what I mean?</p>
+      <p begin="59.225s" xml:id="p12" end="61.125s">Simon. Excuse me a second.</p>
+      <p begin="66.533s" xml:id="p13" end="68.467s">- Michelle.<br />- Yeah?</p>
+      <p begin="68.635s" xml:id="p14" end="71.195s">Michelle, walk...<br />Yes, walk towards lens slowly.</p>
+      <p begin="71.371s" xml:id="p15" end="73.032s">Like this?</p>
+      <p begin="74.307s" xml:id="p16" end="77.799s">Okay. Right. Right.</p>
+      <p begin="88.488s" xml:id="p17" end="91.514s">I always wondered what it<br />must have been like for Steve.</p>
+      <p begin="91.691s" xml:id="p18" end="94.387s">I mean, ever since we were kids,<br />everything he ever did...</p>
+      <p begin="94.561s" xml:id="p19" end="98.224s">...was somewhere between a religious<br />experience and some sort of crusade.</p>
+      <p begin="98.498s" xml:id="p20" end="99.795s">Like with this commercial.</p>
+      <p begin="99.966s" xml:id="p21" end="103.299s">It was practically a legend<br />from the time Ridley Scott filmed it.</p>
+      <p begin="103.47s" xml:id="p22" end="106.132s">Like the book, 1984,<br />with all the downtrodden masses...</p>
+      <p begin="106.306s" xml:id="p23" end="108.797s">... and that one huge spark<br />of rebellion...</p>
+      <p begin="108.975s" xml:id="p24" end="112.24s">... against the evil Big Brother<br />who ran everything.</p>
+      <p begin="113.513s" xml:id="p25" end="114.946s">Go, go, go.</p>
+      <p begin="115.882s" xml:id="p26" end="117.713s">Smoke it up, please.</p>
+      <p begin="118.718s" xml:id="p27" end="120.948s">And you three.<br />That&#039;s right, you&#039;ll come with me.</p>
+      <p begin="121.121s" xml:id="p28" end="123.555s">The rest of you stay in the back.</p>
+      <p begin="139.405s" xml:id="p29" end="143.341s">- is a more powerful weapon<br />than any fleet or army on Earth.</p>
+      <p begin="144.01s" xml:id="p30" end="147.002s">We are one people with one will.</p>
+      <p begin="147.18s" xml:id="p31" end="150.513s">One resolve. One cause.</p>
+      <p begin="150.75s" xml:id="p32" end="153.241s">Our enemies shall talk<br />themselves to death...</p>
+      <p begin="153.419s" xml:id="p33" end="158.015s">... and we will bury them<br />with their own confusion.</p>
+      <p begin="158.191s" xml:id="p34" end="161.456s">We shall prevail.</p>
+      <p begin="166.132s" xml:id="p35" end="167.531s">And then 13 years later...</p>
+      <p begin="167.7s" xml:id="p36" end="170.897s">... Steve has to stand up<br />on that stage in Boston.</p>
+      <p begin="171.07s" xml:id="p37" end="172.56s">Man, that was...</p>
+      <p begin="172.739s" xml:id="p38" end="174.434s">That was weird.</p>
+      <p begin="174.908s" xml:id="p39" end="176.705s">The era...</p>
+      <p begin="176.943s" xml:id="p40" end="180.936s">...of competition between us is over.</p>
+      <p begin="182.215s" xml:id="p41" end="184.046s">Thank you, Bill.</p>
+      <p begin="184.517s" xml:id="p42" end="186.576s">Thank you for standing with us.</p>
+      <p begin="186.753s" xml:id="p43" end="189.221s">The world&#039;s a better place<br />because of it.</p>
+      <p begin="189.389s" xml:id="p44" end="191.914s">Microsoft is gonna ruin Apple.<br />You can&#039;t trust them.</p>
+      <p begin="192.091s" xml:id="p45" end="193.581s">I know.</p>
+      <p begin="193.76s" xml:id="p46" end="198.459s">I realize that this news<br />may be shocking to some of you.</p>
+      <p begin="198.631s" xml:id="p47" end="200.997s">I mean,<br />Steve talking to Bill Gates...</p>
+      <p begin="201.167s" xml:id="p48" end="204.193s">... who&#039;s staring down<br />like he&#039;s Big Brother, and he was.</p>
+      <p begin="204.37s" xml:id="p49" end="207.066s">For years, Steve almost went crazy<br />over what Bill was doing to him...</p>
+      <p begin="207.24s" xml:id="p50" end="210.175s">... and now he&#039;s up there on that stage,<br />in front of the world...</p>
+      <p begin="210.343s" xml:id="p51" end="213.278s">... telling everybody he&#039;s practically<br />the Second Coming.</p>
+      <p begin="214.247s" xml:id="p52" end="216.772s">I mean, how do you get<br />from there to here?</p>
+      <p begin="224.057s" xml:id="p53" end="225.854s">There was a disturbance<br />on the campus...</p>
+      <p begin="227.427s" xml:id="p54" end="230.555s">... of the University<br />of California at Berkeley.</p>
+      <p begin="230.73s" xml:id="p55" end="233.79s">The Santa Barbara campus<br />reported a small-scale riot as well.</p>
+      <p begin="233.967s" xml:id="p56" end="236.8s">- The demonstrators said they were...<br />- More than 400 students...</p>
+      <p begin="236.97s" xml:id="p57" end="239.438s">... have taken part<br />in the demonstration.</p>
+      <p begin="241.674s" xml:id="p58" end="245.508s">In the morning, police began launching<br />tear-gas grenades to break up the crowd.</p>
+      <p begin="245.678s" xml:id="p59" end="248.613s">Student leaders are anxious<br />to meet with university officials...</p>
+      <p begin="248.781s" xml:id="p60" end="250.681s">... to express their views on Vietnam.</p>
+      <p begin="251.017s" xml:id="p61" end="254.111s">- What the hell are we doing here?<br />- Let&#039;s get out of here.</p>
+      <p begin="255.755s" xml:id="p62" end="258.155s">Stay back. Hold it.<br />Hold it there. Get back.</p>
+      <p begin="290.089s" xml:id="p63" end="292.08s">- Don&#039;t drop the box!<br />- I&#039;m not!</p>
+      <p begin="292.258s" xml:id="p64" end="293.725s">Come on.</p>
+      <p begin="304.871s" xml:id="p65" end="306.361s">You okay?</p>
+      <p begin="306.706s" xml:id="p66" end="308.833s">Those guys think<br />they&#039;re revolutionaries.</p>
+      <p begin="309.008s" xml:id="p67" end="310.737s">- They&#039;re not. We are.<br />- We are?</p>
+      <p begin="311.311s" xml:id="p68" end="313.211s">You know, Steve was<br />never like you or me.</p>
+      <p begin="313.379s" xml:id="p69" end="316.678s">He always saw things differently.<br />Even then when I was in Berkeley...</p>
+      <p begin="316.849s" xml:id="p70" end="319.875s">... I&#039;d see something and just see<br />kilobytes or circuit boards...</p>
+      <p begin="320.053s" xml:id="p71" end="323.079s">... while he&#039;d see karma or the meaning<br />of the universe.</p>
+      <p begin="324.49s" xml:id="p72" end="328.688s">Steve and I found this weird guy<br />who was a hero around Berkeley...</p>
+      <p begin="328.861s" xml:id="p73" end="331.091s">... all because he found a way<br />to beat the system.</p>
+      <p begin="331.264s" xml:id="p74" end="333.198s">This guy was called Captain Crunch...</p>
+      <p begin="333.366s" xml:id="p75" end="336.995s">...because he figured out<br />this little whistle...</p>
+      <p begin="337.17s" xml:id="p76" end="339.604s">...that you found in boxes<br />of Cap&#039;n Crunch cereal...</p>
+      <p begin="339.772s" xml:id="p77" end="342.969s">...had the same tones as AT&amp;T&#039;s<br />long-distance equipment.</p>
+      <p begin="343.476s" xml:id="p78" end="346.343s">So you got free phone calls<br />anywhere in the world...</p>
+      <p begin="346.512s" xml:id="p79" end="348.878s">... with this thing I built<br />called the blue box.</p>
+      <p begin="349.048s" xml:id="p80" end="351.175s">And then we tested it out<br />by calling the pope.</p>
+      <p begin="351.351s" xml:id="p81" end="352.682s">- You talk to him.<br />- No, no, no.</p>
+      <p begin="352.852s" xml:id="p82" end="354.683s">They&#039;re putting you<br />through to the pope?</p>
+      <p begin="354.854s" xml:id="p83" end="357.322s">I totally figured it out, man.</p>
+      <p begin="357.79s" xml:id="p84" end="361.226s">I figured it out. I know what it&#039;s about.<br />You know what it&#039;s about?</p>
+      <p begin="362.495s" xml:id="p85" end="364.395s">It&#039;s about power.</p>
+      <p begin="364.564s" xml:id="p86" end="366.327s">Right on, man.</p>
+      <p begin="366.632s" xml:id="p87" end="368.259s">It&#039;s like those weird countries...</p>
+      <p begin="368.434s" xml:id="p88" end="371.096s">...where the army guys<br />overthrow the president.</p>
+      <p begin="371.27s" xml:id="p89" end="373.295s">The first thing that they take over...</p>
+      <p begin="373.473s" xml:id="p90" end="377.933s">...are the ways people communicate,<br />you know, radio, TV, newspapers.</p>
+      <p begin="378.511s" xml:id="p91" end="379.842s">Far-out, man.</p>
+      <p begin="380.346s" xml:id="p92" end="382.61s">Information is power.</p>
+      <p begin="385.918s" xml:id="p93" end="388.512s">I kept building the boxes,<br />and Steve kept selling them...</p>
+      <p begin="388.688s" xml:id="p94" end="391.316s">... until one day, we almost<br />got busted by some cops...</p>
+      <p begin="391.491s" xml:id="p95" end="395.188s">... who, thank God, didn&#039;t even<br />know what a blue box was.</p>
+      <p begin="397.497s" xml:id="p96" end="400.261s">You might wanna try a haircut, boys.</p>
+      <p begin="400.933s" xml:id="p97" end="404.733s">So I started trying to build something<br />that wasn&#039;t gonna get us in trouble.</p>
+      <p begin="405.238s" xml:id="p98" end="407.365s">- That&#039;s not a blue box.<br />- It&#039;s a computer.</p>
+      <p begin="407.54s" xml:id="p99" end="410.065s">Woz, we need blue boxes,<br />not computers.</p>
+      <p begin="410.243s" xml:id="p100" end="413.212s">- I got a reporter from Mercury News coming.<br />- What for?</p>
+      <p begin="413.379s" xml:id="p101" end="417.315s">My mom phoned, told them I was building<br />a computer, and they wanna do a story.</p>
+      <p begin="417.483s" xml:id="p102" end="419.041s">Woz, give me a break.</p>
+      <p begin="419.218s" xml:id="p103" end="422.654s">Hey, let me ask you something,<br />seriously. Look at me.</p>
+      <p begin="422.822s" xml:id="p104" end="425.882s">Do you wanna get stuck here<br />the rest of your life in this hellhole?</p>
+      <p begin="426.058s" xml:id="p105" end="429.152s">Look, this is where I grew up, okay?<br />It&#039;s not a hellhole. Shoot.</p>
+      <p begin="429.328s" xml:id="p106" end="432.126s">I know your newspaper will find<br />Steve&#039;s computer fascinating.</p>
+      <p begin="432.298s" xml:id="p107" end="434.698s">He&#039;s so ingenious.<br />He built it all from spare parts.</p>
+      <p begin="434.867s" xml:id="p108" end="436.425s">Steven, the reporter is...</p>
+      <p begin="438.171s" xml:id="p109" end="440.002s">Hi. It caught fire.</p>
+      <p begin="440.173s" xml:id="p110" end="444.132s">My first chance at fame,<br />and the computer catches fire.</p>
+      <p begin="444.31s" xml:id="p111" end="446.278s">Sorry.</p>
+      <p begin="450.216s" xml:id="p112" end="451.683s">When I was still at Berkeley...</p>
+      <p begin="451.851s" xml:id="p113" end="453.842s">... I kept making<br />weird electronic gadgets...</p>
+      <p begin="454.02s" xml:id="p114" end="456.648s">... that were basically just jokes.</p>
+      <p begin="458.09s" xml:id="p115" end="460.923s">But, hey, you know, jokes are important.</p>
+      <p begin="466.165s" xml:id="p116" end="469.225s">The problem back then was<br />me and Steve and his girlfriend...</p>
+      <p begin="469.402s" xml:id="p117" end="470.63s">... were pretty much broke.</p>
+      <p begin="470.803s" xml:id="p118" end="474.671s">So we ended up doing some pretty<br />nutty things just to make money.</p>
+      <p begin="474.841s" xml:id="p119" end="476.433s">I know where we can get a job.</p>
+      <p begin="476.609s" xml:id="p120" end="479.237s">- Saw it on the bulletin board there.<br />- What kind of job?</p>
+      <p begin="479.412s" xml:id="p121" end="481.937s">I don&#039;t know. It seems<br />sort of like show business.</p>
+      <p begin="482.415s" xml:id="p122" end="486.715s">Dressing up as Alice in Wonderland<br />and stuff for a bunch of kids?</p>
+      <p begin="489.489s" xml:id="p123" end="492.458s">But, you know, Steve wasn&#039;t<br />exactly cut out for that stuff.</p>
+      <p begin="498.764s" xml:id="p124" end="500.459s">Maybe in a past life...</p>
+      <p begin="500.633s" xml:id="p125" end="503.363s">...I was a poet or an artist.</p>
+      <p begin="503.536s" xml:id="p126" end="507.529s">You know, maybe you talk about<br />past lives and all that stuff...</p>
+      <p begin="507.707s" xml:id="p127" end="509.766s">...because, well,<br />you don&#039;t know who you are.</p>
+      <p begin="510.877s" xml:id="p128" end="513.778s">What the hell are you talking about?<br />I don&#039;t know who I am?</p>
+      <p begin="514.213s" xml:id="p129" end="516.477s">Well, you don&#039;t.<br />I mean, you told me...</p>
+      <p begin="516.649s" xml:id="p130" end="519.083s">I don&#039;t wanna talk about it<br />with you or anyone else.</p>
+      <p begin="519.485s" xml:id="p131" end="521.419s">I&#039;m just trying to help.</p>
+      <p begin="527.994s" xml:id="p132" end="530.554s">It wasn&#039;t like Steve and I<br />lost touch with each other...</p>
+      <p begin="530.73s" xml:id="p133" end="532.96s">...but he was definitely<br />in places I wasn&#039;t...</p>
+      <p begin="533.499s" xml:id="p134" end="535.091s">...like some ashram in India...</p>
+      <p begin="535.268s" xml:id="p135" end="538.795s">...and communes up in Oregon<br />where they picked apples all day.</p>
+      <p begin="539.238s" xml:id="p136" end="541.138s">It was pretty much<br />of a journey for Steve.</p>
+      <p begin="541.307s" xml:id="p137" end="544.276s">The kind that&#039;s as much<br />on the inside as on the outside.</p>
+      <p begin="544.443s" xml:id="p138" end="548.106s">I mean, he definitely must<br />have been to weird places.</p>
+      <p begin="556.789s" xml:id="p139" end="558.347s">See the new Playmate?<br />Miss October?</p>
+      <p begin="559.926s" xml:id="p140" end="562.52s">Hey, man, Miss August is way better.</p>
+      <p begin="562.695s" xml:id="p141" end="564.424s">Boobs out to here.</p>
+      <p begin="564.597s" xml:id="p142" end="567.794s">Honest to God, Ballmer.<br />You have no culture.</p>
+      <p begin="568.434s" xml:id="p143" end="572.336s">Yeah, right.<br />Like you go around reading Plato.</p>
+      <p begin="573.372s" xml:id="p144" end="574.805s">You&#039;re the only guy I know...</p>
+      <p begin="574.974s" xml:id="p145" end="577.772s">...who could make furniture<br />out of Playboys, for God sakes.</p>
+      <p begin="577.944s" xml:id="p146" end="580.174s">Look, you got enough<br />to make a chair.</p>
+      <p begin="580.58s" xml:id="p147" end="582.571s">You don&#039;t have to worry<br />about them moving...</p>
+      <p begin="582.748s" xml:id="p148" end="584.773s">...because they&#039;re stuck together.<br />- Get out.</p>
+      <p begin="584.951s" xml:id="p149" end="587.351s">- They&#039;re all stuck together.<br />- Sometimes back then...</p>
+      <p begin="587.52s" xml:id="p150" end="589.112s">... I could&#039;ve throttled Bill Gates.</p>
+      <p begin="589.288s" xml:id="p151" end="592.121s">The guy could turn any human situation<br />into a poker game.</p>
+      <p begin="592.291s" xml:id="p152" end="594.225s">Forget about classes. Poker.</p>
+      <p begin="594.393s" xml:id="p153" end="597.191s">The fact that the world might<br />end tonight? No problem, poker.</p>
+      <p begin="597.363s" xml:id="p154" end="600.264s">Or we&#039;re finally deciphering<br />the meaning of life.</p>
+      <p begin="600.433s" xml:id="p155" end="601.73s">More poker.</p>
+      <p begin="601.901s" xml:id="p156" end="604.028s">And winning. The guy&#039;d have<br />a hairball if he&#039;d lost...</p>
+      <p begin="604.203s" xml:id="p157" end="606.0s">... which wasn&#039;t often,<br />let me tell you.</p>
+      <p begin="606.172s" xml:id="p158" end="608.504s">- Full house.<br />- Oh, man.</p>
+      <p begin="609.842s" xml:id="p159" end="611.4s">Hey, Bill.</p>
+      <p begin="612.678s" xml:id="p160" end="614.305s">Our rooms were like a casino.</p>
+      <p begin="614.88s" xml:id="p161" end="616.643s">Actually, a messy casino.</p>
+      <p begin="616.816s" xml:id="p162" end="620.081s">And Bill slept wherever he fell down.</p>
+      <p begin="625.324s" xml:id="p163" end="628.157s">Bill, the revolution&#039;s starting<br />without us.</p>
+      <p begin="628.327s" xml:id="p164" end="631.296s">Bill and Paul Allen had known<br />each other since they were kids.</p>
+      <p begin="631.464s" xml:id="p165" end="633.694s">If the word &quot;passion&quot;<br />entered into their lives...</p>
+      <p begin="633.866s" xml:id="p166" end="635.993s">... it was for one thing: Computers.</p>
+      <p begin="636.168s" xml:id="p167" end="640.002s">Especially this one made by some guy<br />in Albuquerque of all places.</p>
+      <p begin="641.107s" xml:id="p168" end="643.598s">What is this, porn for engineers?</p>
+      <p begin="644.677s" xml:id="p169" end="646.838s">Oh, jeez, the Altair.</p>
+      <p begin="647.413s" xml:id="p170" end="649.108s">Am I missing something?</p>
+      <p begin="649.281s" xml:id="p171" end="653.081s">I mean, Miss October, I can understand,<br />but what is this?</p>
+      <p begin="653.586s" xml:id="p172" end="655.986s">This is better than Miss October.</p>
+      <p begin="657.757s" xml:id="p173" end="658.985s">This is a computer.</p>
+      <p begin="659.158s" xml:id="p174" end="661.251s">- Oh, God.<br />- The article says...</p>
+      <p begin="661.427s" xml:id="p175" end="664.191s">...that they need someone<br />to figure out a language for it.</p>
+      <p begin="664.363s" xml:id="p176" end="667.389s">Right now<br />it just sits there and blinks.</p>
+      <p begin="671.17s" xml:id="p177" end="674.765s">Whoever talks to this Ed Roberts<br />has gotta go to Albuquerque to see him.</p>
+      <p begin="674.94s" xml:id="p178" end="677.966s">You should go because you look<br />better for that stuff than I do.</p>
+      <p begin="678.477s" xml:id="p179" end="680.445s">- I do not.<br />- You both look terrible.</p>
+      <p begin="680.613s" xml:id="p180" end="683.047s">- Just get used to it.<br />- What are we supposed to do?</p>
+      <p begin="683.215s" xml:id="p181" end="686.241s">It&#039;s simple.<br />You call him and say you&#039;re Paul.</p>
+      <p begin="686.419s" xml:id="p182" end="688.979s">And then Paul goes to Albuquerque<br />and says he&#039;s Paul.</p>
+      <p begin="696.762s" xml:id="p183" end="698.229s">So, what are you gonna say?</p>
+      <p begin="700.633s" xml:id="p184" end="702.692s">Hi, Mr. Ed Roberts, please.</p>
+      <p begin="703.002s" xml:id="p185" end="706.768s">This is Paul Allen, calling<br />from Cambridge, Massachusetts.</p>
+      <p begin="708.674s" xml:id="p186" end="712.007s">It&#039;s our job to find out what this guy<br />doesn&#039;t know that he needs...</p>
+      <p begin="712.511s" xml:id="p187" end="715.173s">...but does need and make sure<br />he knows he does need it...</p>
+      <p begin="715.347s" xml:id="p188" end="717.872s">...and that we&#039;re the only ones<br />to give him the answer.</p>
+      <p begin="718.05s" xml:id="p189" end="719.54s">What?</p>
+      <p begin="721.353s" xml:id="p190" end="724.345s">- Mr. Roberts?<br />- Yes, sir, Mr. Allen.</p>
+      <p begin="724.523s" xml:id="p191" end="728.323s">I tell you, I believe that we&#039;ve<br />got one hot product here.</p>
+      <p begin="728.494s" xml:id="p192" end="731.93s">The reason I can speak that way is<br />because I&#039;ve taken over 50 calls...</p>
+      <p begin="732.098s" xml:id="p193" end="735.295s">...from people wanting to come to<br />work with us on this Altair project.</p>
+      <p begin="736.869s" xml:id="p194" end="738.894s">So here&#039;s the deal.</p>
+      <p begin="739.605s" xml:id="p195" end="742.597s">I snuck two women into my room.</p>
+      <p begin="743.576s" xml:id="p196" end="744.941s">And they&#039;re naked.</p>
+      <p begin="745.111s" xml:id="p197" end="747.511s">I mean, like, really naked.</p>
+      <p begin="747.68s" xml:id="p198" end="751.548s">You know, like, gorgeous naked.</p>
+      <p begin="752.952s" xml:id="p199" end="754.943s">So don&#039;t say I never<br />did anything for you...</p>
+      <p begin="755.121s" xml:id="p200" end="757.919s">...because they&#039;re waiting<br />for you right now.</p>
+      <p begin="758.958s" xml:id="p201" end="760.357s">Drop dead, Ballmer.</p>
+      <p begin="760.526s" xml:id="p202" end="762.824s">Oh, and I told them...</p>
+      <p begin="762.995s" xml:id="p203" end="765.759s">...that you were writing<br />a computer language...</p>
+      <p begin="765.931s" xml:id="p204" end="768.399s">...and right away,<br />they start moaning for it.</p>
+      <p begin="768.567s" xml:id="p205" end="771.229s">&quot;Oh, computer languages.</p>
+      <p begin="771.403s" xml:id="p206" end="772.768s">Oh, Fortran.</p>
+      <p begin="772.938s" xml:id="p207" end="775.907s">Oh, Fortran. &quot;</p>
+      <p begin="777.81s" xml:id="p208" end="779.334s">Will you cut it out, Steve.</p>
+      <p begin="779.512s" xml:id="p209" end="783.812s">Excuse me, I&#039;m just trying<br />to save you guys from...</p>
+      <p begin="784.35s" xml:id="p210" end="787.217s">...wasting your entire<br />Harvard reading week...</p>
+      <p begin="787.386s" xml:id="p211" end="790.378s">...over this Traf-O-Data simulator...</p>
+      <p begin="790.556s" xml:id="p212" end="794.652s">...while everyone else<br />is out getting drunk or laid.</p>
+      <p begin="795.895s" xml:id="p213" end="798.455s">- Paul, are those parts binary?<br />- I give up. I give up.</p>
+      <p begin="798.631s" xml:id="p214" end="800.223s">I give up. I give up.</p>
+      <p begin="841.54s" xml:id="p215" end="843.235s">Oh, duck, Bill.</p>
+      <p begin="850.349s" xml:id="p216" end="853.75s">Oh, you know, Bill, I think you gotta<br />come up with a better pickup line.</p>
+      <p begin="853.919s" xml:id="p217" end="856.979s">Asking her what her SAT score is<br />is definitely not gonna do it.</p>
+      <p begin="857.79s" xml:id="p218" end="859.087s">I forgot to write a loader.</p>
+      <p begin="859.258s" xml:id="p219" end="861.055s">That&#039;s not an improvement, Bill.</p>
+      <p begin="861.26s" xml:id="p220" end="864.388s">No, no. I just realized something.<br />Paul&#039;s on his way to Albuquerque.</p>
+      <p begin="864.563s" xml:id="p221" end="867.726s">I forgot to write the loader that connects<br />the computer to the Teletype.</p>
+      <p begin="868.067s" xml:id="p222" end="871.4s">And if he starts that machine,<br />and it can&#039;t read the tape, we&#039;re dead.</p>
+      <p begin="875.941s" xml:id="p223" end="878.273s">Unless he did it on the plane,<br />I&#039;m finished.</p>
+      <p begin="878.444s" xml:id="p224" end="880.742s">- It&#039;s something I just realized.<br />- I hope so.</p>
+      <p begin="881.08s" xml:id="p225" end="884.106s">If this Albuquerque thing had worked,<br />I was gonna quit Harvard.</p>
+      <p begin="885.317s" xml:id="p226" end="886.841s">Are you crazy?</p>
+      <p begin="887.519s" xml:id="p227" end="889.453s">I gotta be a doctor or something.</p>
+      <p begin="892.758s" xml:id="p228" end="895.158s">Gynecologist, maybe.</p>
+      <p begin="896.028s" xml:id="p229" end="897.256s">- Come on.<br />- I&#039;m flying.</p>
+      <p begin="897.429s" xml:id="p230" end="899.226s">Yeah, you&#039;re flying.</p>
+      <p begin="899.498s" xml:id="p231" end="901.09s">- Here we go.<br />- Ballmer.</p>
+      <p begin="902.935s" xml:id="p232" end="905.335s">You&#039;re the only guy I know<br />who pays the strippers...</p>
+      <p begin="905.504s" xml:id="p233" end="907.472s">...to put their clothes on.</p>
+      <p begin="908.574s" xml:id="p234" end="909.836s">Come on, drunkie.</p>
+      <p begin="917.716s" xml:id="p235" end="919.183s">Okay.</p>
+      <p begin="922.688s" xml:id="p236" end="924.588s">Hey, Bill...</p>
+      <p begin="924.757s" xml:id="p237" end="927.089s">...it&#039;s either the clothes or you,<br />but something...</p>
+      <p begin="927.259s" xml:id="p238" end="929.022s">...definitely needs to be hosed down.</p>
+      <p begin="929.194s" xml:id="p239" end="930.991s">- Sorry we failed.<br />- Come on.</p>
+      <p begin="932.298s" xml:id="p240" end="935.096s">- Good night.<br />- Sorry we failed.</p>
+      <p begin="937.403s" xml:id="p241" end="940.304s">Bill, Bill, Bill.</p>
+      <p begin="944.977s" xml:id="p242" end="946.638s">Bill, Bill, Bill.</p>
+      <p begin="956.355s" xml:id="p243" end="957.947s">It&#039;s an Altair.</p>
+      <p begin="958.123s" xml:id="p244" end="961.058s">They gave it to us as a gift.</p>
+      <p begin="962.361s" xml:id="p245" end="964.42s">We blew them away.</p>
+      <p begin="969.668s" xml:id="p246" end="971.829s">Woz, do we have to have mice?</p>
+      <p begin="972.004s" xml:id="p247" end="974.097s">Come on, I like mice. This is Irving.</p>
+      <p begin="974.273s" xml:id="p248" end="976.434s">Hey, man, you are putting poison<br />into your body.</p>
+      <p begin="976.608s" xml:id="p249" end="978.473s">Hey, hey, come on.<br />Give me those.</p>
+      <p begin="978.644s" xml:id="p250" end="981.169s">- That&#039;s french fries, man.<br />- That&#039;s what I mean.</p>
+      <p begin="981.347s" xml:id="p251" end="984.578s">French fries, all-American food.<br />Come on.</p>
+      <p begin="984.75s" xml:id="p252" end="986.684s">I can&#039;t eat like you do.</p>
+      <p begin="986.852s" xml:id="p253" end="989.252s">Eating fruit all the time.<br />That&#039;s weird.</p>
+      <p begin="989.688s" xml:id="p254" end="993.351s">It&#039;s not weird. It&#039;s pure.<br />Makes the soul pure.</p>
+      <p begin="993.525s" xml:id="p255" end="997.928s">Oh, wait, wait. You gotta listen to this.<br />I got a great one today.</p>
+      <p begin="999.098s" xml:id="p256" end="1002.295s">Did you hear about the drunk who<br />came staggering out of the subway...</p>
+      <p begin="1002.468s" xml:id="p257" end="1005.301s">... and said, &quot;Man, I got lost<br />in some guy&#039;s basement.</p>
+      <p begin="1005.471s" xml:id="p258" end="1008.531s">You should&#039;ve seen the set<br />of trains he had&quot;?</p>
+      <p begin="1011.276s" xml:id="p259" end="1015.144s">- the Bay Area Dial-a-Joke Line,<br />making your day a barrel of laughs.</p>
+      <p begin="1015.314s" xml:id="p260" end="1016.906s">I got a new book of Polish jokes.</p>
+      <p begin="1017.082s" xml:id="p261" end="1019.107s">Man, it&#039;ll keep me going for years.</p>
+      <p begin="1019.284s" xml:id="p262" end="1021.275s">- Why?<br />- Why?</p>
+      <p begin="1021.453s" xml:id="p263" end="1023.478s">It makes people laugh.</p>
+      <p begin="1023.655s" xml:id="p264" end="1027.318s">I got people phoning in every day<br />just to hear my latest joke.</p>
+      <p begin="1027.493s" xml:id="p265" end="1028.721s">It makes their day better.</p>
+      <p begin="1029.194s" xml:id="p266" end="1030.855s">Are you sure this thing&#039;s<br />gonna work?</p>
+      <p begin="1031.03s" xml:id="p267" end="1033.225s">- Lf it doesn&#039;t catch fire.<br />- Don&#039;t even joke.</p>
+      <p begin="1033.899s" xml:id="p268" end="1035.696s">I like jokes.</p>
+      <p begin="1036.735s" xml:id="p269" end="1037.963s">Jokes make me feel good.</p>
+      <p begin="1046.912s" xml:id="p270" end="1049.574s">You know, I hired<br />a private detective today.</p>
+      <p begin="1052.151s" xml:id="p271" end="1054.176s">I wanna find my mother.</p>
+      <p begin="1054.62s" xml:id="p272" end="1055.985s">My real mother.</p>
+      <p begin="1056.622s" xml:id="p273" end="1058.419s">You never talk about that stuff<br />with me.</p>
+      <p begin="1059.391s" xml:id="p274" end="1061.484s">That part about being adopted and all.</p>
+      <p begin="1061.66s" xml:id="p275" end="1065.027s">Guy says he can probably find her.</p>
+      <p begin="1065.998s" xml:id="p276" end="1068.865s">Why do you always get freaked<br />out when Arlene asks about it?</p>
+      <p begin="1069.034s" xml:id="p277" end="1071.832s">Arlene? Arlene&#039;s got her own problems.</p>
+      <p begin="1072.004s" xml:id="p278" end="1076.338s">My parents don&#039;t want her in the house.<br />She phones me a million times a day.</p>
+      <p begin="1078.444s" xml:id="p279" end="1081.14s">At least I&#039;m working on my stuff.</p>
+      <p begin="1092.091s" xml:id="p280" end="1093.752s">Feel better?</p>
+      <p begin="1099.998s" xml:id="p281" end="1102.865s">Now, Steve, tell the others<br />what you&#039;re feeling.</p>
+      <p begin="1104.47s" xml:id="p282" end="1106.267s">Like...</p>
+      <p begin="1108.073s" xml:id="p283" end="1110.769s">- Like it&#039;s gone.<br />- What is?</p>
+      <p begin="1111.577s" xml:id="p284" end="1113.238s">The anger.</p>
+      <p begin="1114.179s" xml:id="p285" end="1116.34s">Like the anger&#039;s gone.</p>
+      <p begin="1118.083s" xml:id="p286" end="1119.675s">It&#039;s gone.</p>
+      <p begin="1137.069s" xml:id="p287" end="1140.266s">Back then, our big thrill was going to<br />this thing they called the Homebrew Club.</p>
+      <p begin="1140.439s" xml:id="p288" end="1142.566s">It was where guys<br />spent all their spare time...</p>
+      <p begin="1142.741s" xml:id="p289" end="1145.938s">... trying to get access to computers<br />owned by the local corporations.</p>
+      <p begin="1146.111s" xml:id="p290" end="1149.171s">And people would go there<br />and show the stuff they just built.</p>
+      <p begin="1149.348s" xml:id="p291" end="1151.839s">Except most of it<br />didn&#039;t really work all that well.</p>
+      <p begin="1152.017s" xml:id="p292" end="1155.783s">- Read in the Popular Electronics<br />issue about a year ago...</p>
+      <p begin="1155.954s" xml:id="p293" end="1158.718s">...about the new Altair 8800.</p>
+      <p begin="1158.891s" xml:id="p294" end="1162.554s">I was nervous that day we walked<br />in with my homemade computer...</p>
+      <p begin="1162.861s" xml:id="p295" end="1165.125s">... but I got a charge out of it.<br />All those guys...</p>
+      <p begin="1165.297s" xml:id="p296" end="1167.925s">... coming over and wanting<br />to talk to me.</p>
+      <p begin="1170.969s" xml:id="p297" end="1172.869s">The schematics we have...</p>
+      <p begin="1173.038s" xml:id="p298" end="1174.835s">- What is this thing?<br />- Check it out.</p>
+      <p begin="1175.007s" xml:id="p299" end="1176.907s">The first computer<br />you&#039;re ever gonna see.</p>
+      <p begin="1177.075s" xml:id="p300" end="1178.474s">What&#039;s the screen for?</p>
+      <p begin="1178.644s" xml:id="p301" end="1181.169s">I was never good at talking<br />to people in those days...</p>
+      <p begin="1181.346s" xml:id="p302" end="1184.543s">... but Steve, he was amazing.</p>
+      <p begin="1184.716s" xml:id="p303" end="1188.709s">Alexander Graham Bell when he heard his<br />first ring, that&#039;s as revolutionary as this is.</p>
+      <p begin="1188.887s" xml:id="p304" end="1192.516s">He&#039;s talking about the Altair? I never<br />had a problem till I tried to use it.</p>
+      <p begin="1192.691s" xml:id="p305" end="1196.252s">All of a sudden we found out what<br />we wanted to do with our lives.</p>
+      <p begin="1196.428s" xml:id="p306" end="1198.828s">- It was all we ever wanted.<br />- To 30.</p>
+      <p begin="1198.997s" xml:id="p307" end="1202.057s">Here is the first personal computer<br />that you&#039;re gonna wanna buy.</p>
+      <p begin="1206.038s" xml:id="p308" end="1209.235s">Man, 50! We sold 50.</p>
+      <p begin="1209.408s" xml:id="p309" end="1212.4s">IBM is gonna be<br />loading in their pants.</p>
+      <p begin="1212.578s" xml:id="p310" end="1214.512s">I don&#039;t even think<br />IBM knows who we are.</p>
+      <p begin="1214.68s" xml:id="p311" end="1217.046s">Good. This is guerrilla warfare.</p>
+      <p begin="1217.216s" xml:id="p312" end="1219.912s">- They&#039;re the enemy.<br />- They are?</p>
+      <p begin="1220.085s" xml:id="p313" end="1224.317s">I used to think maybe Steve was<br />born obsessed with wiping out IBM.</p>
+      <p begin="1224.489s" xml:id="p314" end="1225.956s">And in a way, you could see why.</p>
+      <p begin="1226.124s" xml:id="p315" end="1228.649s">I mean, in those days,<br />as far as we were concerned...</p>
+      <p begin="1228.827s" xml:id="p316" end="1231.193s">...IBM was practically<br />like the Pentagon.</p>
+      <p begin="1233.332s" xml:id="p317" end="1236.062s">Here were a bunch of guys<br />who dressed exactly the same...</p>
+      <p begin="1236.235s" xml:id="p318" end="1237.532s">... and sang company songs.</p>
+      <p begin="1246.111s" xml:id="p319" end="1247.942s">I mean, we were<br />these scruffy crazies...</p>
+      <p begin="1248.113s" xml:id="p320" end="1252.277s">... messing around with computer stuff<br />the IBM guys thought was, like, toys.</p>
+      <p begin="1252.451s" xml:id="p321" end="1254.282s">But what did they know?</p>
+      <p begin="1260.892s" xml:id="p322" end="1263.224s">- Where&#039;s your VW?<br />- Sold it.</p>
+      <p begin="1263.595s" xml:id="p323" end="1267.691s">1350 bucks. We&#039;re on our way.</p>
+      <p begin="1267.866s" xml:id="p324" end="1269.595s">- Steve.<br />- What?</p>
+      <p begin="1269.768s" xml:id="p325" end="1272.566s">- What&#039;s the problem?<br />- I don&#039;t know if I can build these.</p>
+      <p begin="1272.738s" xml:id="p326" end="1275.707s">Hey, Woz, I assume we&#039;re speaking<br />the same language, right?</p>
+      <p begin="1275.874s" xml:id="p327" end="1278.934s">Dan, Elizabeth,<br />I&#039;m not speaking Swahili, am I?</p>
+      <p begin="1279.244s" xml:id="p328" end="1281.508s">I&#039;m here to inform you<br />our universe is unfolding...</p>
+      <p begin="1281.68s" xml:id="p329" end="1283.705s">But I still don&#039;t think<br />I can build them.</p>
+      <p begin="1283.882s" xml:id="p330" end="1285.611s">I work for Hewlett-Packard sometimes.</p>
+      <p begin="1285.784s" xml:id="p331" end="1287.513s">- Yeah, and?<br />- My dad pointed it out...</p>
+      <p begin="1287.686s" xml:id="p332" end="1289.881s">...they get first chance<br />in anything I invent.</p>
+      <p begin="1290.289s" xml:id="p333" end="1292.189s">- What?<br />- I can&#039;t help it.</p>
+      <p begin="1292.357s" xml:id="p334" end="1294.257s">It&#039;s on the paper I signed.</p>
+      <p begin="1294.426s" xml:id="p335" end="1297.759s">Damn it, Woz!<br />We get our shot, our destiny...</p>
+      <p begin="1297.929s" xml:id="p336" end="1300.591s">...and now we gotta turn it<br />all over to these businessmen?</p>
+      <p begin="1319.217s" xml:id="p337" end="1322.88s">Steve. It is Steve, isn&#039;t it?</p>
+      <p begin="1323.889s" xml:id="p338" end="1326.858s">Yeah. Steve, you say<br />that this gadget of yours...</p>
+      <p begin="1327.025s" xml:id="p339" end="1329.391s">...is for ordinary people.</p>
+      <p begin="1330.062s" xml:id="p340" end="1333.998s">What on earth would ordinary<br />people want with computers?</p>
+      <p begin="1368.1s" xml:id="p341" end="1369.59s">What?</p>
+      <p begin="1375.874s" xml:id="p342" end="1377.603s">What?</p>
+      <p begin="1378.143s" xml:id="p343" end="1380.077s">They hated it.</p>
+      <p begin="1381.079s" xml:id="p344" end="1383.274s">They hated it.</p>
+      <p begin="1383.448s" xml:id="p345" end="1385.109s">They hated it.</p>
+      <p begin="1418.049s" xml:id="p346" end="1420.142s">Whenever Steve went<br />to a bank to get a loan...</p>
+      <p begin="1420.318s" xml:id="p347" end="1423.845s">...it was like they were Eskimos,<br />and we had a refrigerator to sell them.</p>
+      <p begin="1424.022s" xml:id="p348" end="1427.48s">Okay, so Steve didn&#039;t look<br />like a business guy. But who did?</p>
+      <p begin="1427.659s" xml:id="p349" end="1431.186s">Business guys and bankers thought<br />you&#039;d just barfed on their shoes...</p>
+      <p begin="1431.363s" xml:id="p350" end="1434.799s">... if you tried to interest them<br />in computers for ordinary people.</p>
+      <p begin="1434.966s" xml:id="p351" end="1436.934s">I mean, go figure.</p>
+      <p begin="1483.682s" xml:id="p352" end="1484.91s">Where&#039;s your beard?</p>
+      <p begin="1485.75s" xml:id="p353" end="1488.014s">In the bathroom. Shaved it off.</p>
+      <p begin="1488.186s" xml:id="p354" end="1489.949s">Well, how come?</p>
+      <p begin="1491.289s" xml:id="p355" end="1493.348s">Because banks don&#039;t like beards.</p>
+      <p begin="1493.525s" xml:id="p356" end="1495.083s">So we called ourselves Apple...</p>
+      <p begin="1495.26s" xml:id="p357" end="1497.421s">...and started making<br />those little computers.</p>
+      <p begin="1497.596s" xml:id="p358" end="1499.655s">Me, Steve and his friends<br />Elizabeth and Dan.</p>
+      <p begin="1499.831s" xml:id="p359" end="1502.698s">All of us sweating away<br />in Steve&#039;s parents&#039; garage.</p>
+      <p begin="1503.635s" xml:id="p360" end="1506.468s">It&#039;s like sometimes not knowing<br />how crazy something is...</p>
+      <p begin="1506.638s" xml:id="p361" end="1508.105s">...is a good thing.</p>
+      <p begin="1508.273s" xml:id="p362" end="1509.9s">You&#039;re just goofing around...</p>
+      <p begin="1510.075s" xml:id="p363" end="1513.374s">...until someone like Mike<br />shows up and says, &quot;Wow. &quot;</p>
+      <p begin="1513.545s" xml:id="p364" end="1516.241s">- Steve Jobs?<br />- Jobs.</p>
+      <p begin="1516.414s" xml:id="p365" end="1518.939s">Oh, right. I&#039;m sorry. Mike Markula.</p>
+      <p begin="1519.951s" xml:id="p366" end="1522.112s">- Hey, Mike. How you doing?<br />- I&#039;m well.</p>
+      <p begin="1522.287s" xml:id="p367" end="1524.312s">The man who put intelligence<br />into Intel.</p>
+      <p begin="1524.489s" xml:id="p368" end="1525.717s">- Yeah...<br />- No smoking in here.</p>
+      <p begin="1525.891s" xml:id="p369" end="1528.155s">Oh, I&#039;m sorry about that. Yeah.</p>
+      <p begin="1528.326s" xml:id="p370" end="1530.294s">- Valentine said you might call.<br />- Yeah.</p>
+      <p begin="1530.462s" xml:id="p371" end="1533.363s">- Welcome to Apple Computers.<br />- Thank you. Here it is, huh?</p>
+      <p begin="1533.632s" xml:id="p372" end="1535.896s">I was looking for a venture<br />opportunity like this.</p>
+      <p begin="1536.234s" xml:id="p373" end="1538.702s">What kind of venture money<br />are we talking about, Mike?</p>
+      <p begin="1539.004s" xml:id="p374" end="1542.804s">We start with about a quarter million<br />dollars and see what happens.</p>
+      <p begin="1544.309s" xml:id="p375" end="1546.174s">Excuse me?</p>
+      <p begin="1547.712s" xml:id="p376" end="1550.044s">Quarter million dollars.<br />You must be Steve Wozniak.</p>
+      <p begin="1550.215s" xml:id="p377" end="1551.773s">- Yeah.<br />- Mike Markula.</p>
+      <p begin="1552.083s" xml:id="p378" end="1553.88s">A quarter million dollars into this?</p>
+      <p begin="1554.052s" xml:id="p379" end="1556.213s">- Yep.<br />- What&#039;s the catch?</p>
+      <p begin="1557.289s" xml:id="p380" end="1559.723s">- No catch, just business.<br />- That&#039;s the catch...</p>
+      <p begin="1559.891s" xml:id="p381" end="1561.552s">...because this ain&#039;t just business.</p>
+      <p begin="1561.826s" xml:id="p382" end="1564.954s">This is practically spiritual.</p>
+      <p begin="1565.13s" xml:id="p383" end="1567.189s">This is about overthrowing dead culture.</p>
+      <p begin="1569.367s" xml:id="p384" end="1571.597s">- Dead gods.<br />- Okay, look.</p>
+      <p begin="1571.77s" xml:id="p385" end="1575.103s">You guys wanna be operating out<br />of a garage, that&#039;s fine with me.</p>
+      <p begin="1575.273s" xml:id="p386" end="1577.707s">But this is a ground-zero operation here.</p>
+      <p begin="1577.876s" xml:id="p387" end="1580.401s">Steve Wozniak&#039;s employee number one.<br />You&#039;re number two.</p>
+      <p begin="1580.579s" xml:id="p388" end="1582.24s">Wait a minute.</p>
+      <p begin="1583.448s" xml:id="p389" end="1585.439s">I&#039;m employee number one.</p>
+      <p begin="1585.617s" xml:id="p390" end="1587.778s">- Woz?<br />- Doesn&#039;t matter to me.</p>
+      <p begin="1587.953s" xml:id="p391" end="1590.387s">- I&#039;m employee number one.<br />- I&#039;m not saying anything.</p>
+      <p begin="1590.555s" xml:id="p392" end="1592.887s">- I wasn&#039;t implying anything.<br />- Then I&#039;ll be zero.</p>
+      <p begin="1593.058s" xml:id="p393" end="1595.822s">- Woz, you can be number one.<br />- I&#039;ll be zero. Okay?</p>
+      <p begin="1595.994s" xml:id="p394" end="1598.155s">Even though things<br />were changing like crazy...</p>
+      <p begin="1598.33s" xml:id="p395" end="1600.594s">... venture capitalists<br />and bankers and all that...</p>
+      <p begin="1600.765s" xml:id="p396" end="1603.529s">... some things still stayed the same,<br />especially with Steve.</p>
+      <p begin="1603.702s" xml:id="p397" end="1606.227s">- I don&#039;t want it, Steve.<br />- It&#039;ll make you nice.</p>
+      <p begin="1607.305s" xml:id="p398" end="1609.603s">Woz, you and me.</p>
+      <p begin="1609.774s" xml:id="p399" end="1612.572s">This is your mother telling you<br />to drop this beautiful acid...</p>
+      <p begin="1612.744s" xml:id="p400" end="1614.541s">Your mother wouldn&#039;t approve either.</p>
+      <p begin="1614.713s" xml:id="p401" end="1617.341s">- Get that away from me. &quot;Man. &quot;<br />- Man, come on.</p>
+      <p begin="1617.682s" xml:id="p402" end="1619.047s">I&#039;d be careful.</p>
+      <p begin="1619.217s" xml:id="p403" end="1621.549s">Baby, it&#039;s you and me.<br />Take a little trip?</p>
+      <p begin="1621.72s" xml:id="p404" end="1623.017s">- No, thanks, Steve.<br />- Come on.</p>
+      <p begin="1623.188s" xml:id="p405" end="1625.486s">- Steve, no.<br />- What&#039;s the matter with you guys?</p>
+      <p begin="1626.024s" xml:id="p406" end="1630.222s">It&#039;s like living with a bunch<br />of squares and stiffs.</p>
+      <p begin="1631.096s" xml:id="p407" end="1632.358s">More for me.</p>
+      <p begin="1634.566s" xml:id="p408" end="1638.696s">Oh, I&#039;m standing.<br />I&#039;m standing in front of something.</p>
+      <p begin="1638.87s" xml:id="p409" end="1641.395s">It&#039;s a field of wheat.</p>
+      <p begin="1641.706s" xml:id="p410" end="1644.937s">Oh, and I hear classical music playing.<br />Do you hear it?</p>
+      <p begin="1645.11s" xml:id="p411" end="1646.372s">Do you hear it?</p>
+      <p begin="1646.544s" xml:id="p412" end="1650.207s">I&#039;m conducting classical music!</p>
+      <p begin="1654.119s" xml:id="p413" end="1657.054s">Everything&#039;s moving with the wind.</p>
+      <p begin="1657.222s" xml:id="p414" end="1660.316s">Everything&#039;s moving with the wind.</p>
+      <p begin="1669.934s" xml:id="p415" end="1673.802s">Everything&#039;s moving<br />just the way I want it to.</p>
+      <p begin="1673.972s" xml:id="p416" end="1675.94s">Everything.</p>
+      <p begin="1692.123s" xml:id="p417" end="1693.556s">Steve.</p>
+      <p begin="1695.593s" xml:id="p418" end="1697.06s">Hey...</p>
+      <p begin="1697.696s" xml:id="p419" end="1699.823s">...how am I gonna get home?</p>
+      <p begin="1710.442s" xml:id="p420" end="1712.672s">- It&#039;s not bad when there&#039;s no wind.<br />- Yeah?</p>
+      <p begin="1712.844s" xml:id="p421" end="1714.471s">What is that?</p>
+      <p begin="1718.083s" xml:id="p422" end="1720.95s">Bring down a pallet with six more.</p>
+      <p begin="1726.925s" xml:id="p423" end="1729.587s">- Oh, man.<br />- What?</p>
+      <p begin="1729.761s" xml:id="p424" end="1733.219s">I was just thinking about Harvard.<br />It&#039;ll pass.</p>
+      <p begin="1734.132s" xml:id="p425" end="1735.793s">Hey, Paul.</p>
+      <p begin="1736.468s" xml:id="p426" end="1738.959s">Right on schedule.<br />How you doing?</p>
+      <p begin="1739.137s" xml:id="p427" end="1741.867s">- Good to see you.<br />- Hi, Ed.</p>
+      <p begin="1743.508s" xml:id="p428" end="1745.066s">So...</p>
+      <p begin="1745.844s" xml:id="p429" end="1748.108s">...are you...? Are you Bill?</p>
+      <p begin="1748.279s" xml:id="p430" end="1749.507s">Are you Ed?</p>
+      <p begin="1751.249s" xml:id="p431" end="1753.41s">Well, I&#039;ll be damned.</p>
+      <p begin="1761.025s" xml:id="p432" end="1763.05s">Signing bonus?</p>
+      <p begin="1765.063s" xml:id="p433" end="1768.43s">I&#039;ve never given a signing bonus<br />in all my life.</p>
+      <p begin="1768.6s" xml:id="p434" end="1771.797s">You know, Ed, in our other contracts,<br />we always get a signing bonus.</p>
+      <p begin="1771.97s" xml:id="p435" end="1774.996s">- Other contracts?<br />- Yeah, our other contracts.</p>
+      <p begin="1775.173s" xml:id="p436" end="1777.038s">Well, I don&#039;t know.</p>
+      <p begin="1777.208s" xml:id="p437" end="1779.142s">I don&#039;t know.</p>
+      <p begin="1789.087s" xml:id="p438" end="1790.645s">Okay.</p>
+      <p begin="1791.089s" xml:id="p439" end="1793.023s">- Two thousand.<br />- Four thousand.</p>
+      <p begin="1793.324s" xml:id="p440" end="1795.258s">- What?<br />- Of course.</p>
+      <p begin="1795.527s" xml:id="p441" end="1797.961s">Next, Ed, this business<br />of a $ 15 royalty...</p>
+      <p begin="1798.129s" xml:id="p442" end="1801.656s">...for BASIC sold in every 4K Altair,<br />it&#039;s just not acceptable.</p>
+      <p begin="1801.833s" xml:id="p443" end="1804.927s">Let me tell you something, boy.<br />This ain&#039;t the way I do business.</p>
+      <p begin="1805.103s" xml:id="p444" end="1808.163s">And I especially don&#039;t like<br />being dictated to by some little...</p>
+      <p begin="1808.339s" xml:id="p445" end="1810.83s">Ed, Ed, this is not about dictating.</p>
+      <p begin="1811.009s" xml:id="p446" end="1813.569s">You see, this is about reality.</p>
+      <p begin="1813.745s" xml:id="p447" end="1818.842s">The reality is that your machine is<br />brilliant, but it needs our language.</p>
+      <p begin="1819.017s" xml:id="p448" end="1822.043s">And without it, you know,<br />it&#039;s just a tin box that lights up.</p>
+      <p begin="1825.757s" xml:id="p449" end="1829.557s">So let&#039;s double our royalty<br />from $ 15 to $30 a copy.</p>
+      <p begin="1836.0s" xml:id="p450" end="1838.059s">So back then I get postcards<br />from these guys.</p>
+      <p begin="1838.236s" xml:id="p451" end="1841.467s">&quot;Wish you were here,&quot; and all that.<br />Yeah, right, Albuquerque.</p>
+      <p begin="1841.639s" xml:id="p452" end="1843.869s">Bill and Paul were living<br />in this crummy motel...</p>
+      <p begin="1844.042s" xml:id="p453" end="1847.671s">... acting like they had a clue about<br />being in the computer business.</p>
+      <p begin="1847.846s" xml:id="p454" end="1849.609s">- Eureka.<br />- What?</p>
+      <p begin="1849.781s" xml:id="p455" end="1852.875s">I created a program<br />that can play blackjack.</p>
+      <p begin="1853.284s" xml:id="p456" end="1856.048s">Chris, you&#039;ve been here two days,<br />and you&#039;re into blackjack?</p>
+      <p begin="1856.221s" xml:id="p457" end="1857.916s">Yeah, so?</p>
+      <p begin="1858.089s" xml:id="p458" end="1859.92s">So you got work to do.</p>
+      <p begin="1864.696s" xml:id="p459" end="1866.357s">Oh, God, no.</p>
+      <p begin="1866.531s" xml:id="p460" end="1869.022s">Not Frank Sinatra. Not &quot;My Way. &quot;</p>
+      <p begin="1869.2s" xml:id="p461" end="1871.134s">Not again. Spare us.</p>
+      <p begin="1882.547s" xml:id="p462" end="1885.345s">So, Paul, I&#039;m putting in $909,<br />and you&#039;re in for 606...</p>
+      <p begin="1885.516s" xml:id="p463" end="1887.347s">...and we&#039;re keeping<br />the Microsoft name.</p>
+      <p begin="1887.619s" xml:id="p464" end="1890.952s">You know how you told Ed that<br />we&#039;re leasing whole office buildings?</p>
+      <p begin="1891.122s" xml:id="p465" end="1893.386s">What if he finds out<br />our corporate headquarters...</p>
+      <p begin="1893.558s" xml:id="p466" end="1896.322s">...are in that roach motel<br />with two student employees?</p>
+      <p begin="1900.164s" xml:id="p467" end="1901.563s">You think they&#039;re hookers?</p>
+      <p begin="1901.833s" xml:id="p468" end="1904.165s">Either that or motel inspectors.</p>
+      <p begin="1904.335s" xml:id="p469" end="1906.769s">I saw that one going in and out<br />of the motel room...</p>
+      <p begin="1906.938s" xml:id="p470" end="1909.168s">...about a dozen times yesterday.</p>
+      <p begin="1913.745s" xml:id="p471" end="1915.872s">Oh, baby.</p>
+      <p begin="1922.487s" xml:id="p472" end="1925.615s">- I quit Harvard for this?<br />- You wanted glamour.</p>
+      <p begin="1925.79s" xml:id="p473" end="1927.587s">- You got glamour.<br />- Come on, baby.</p>
+      <p begin="1927.792s" xml:id="p474" end="1932.092s">Quit bitching<br />or else go get us that pizza.</p>
+      <p begin="1933.965s" xml:id="p475" end="1935.364s">Oh, yeah.</p>
+      <p begin="1939.737s" xml:id="p476" end="1942.171s">Oh, baby, come on. Yes!</p>
+      <p begin="1984.882s" xml:id="p477" end="1989.376s">Rise and shine. Wakey wakey.<br />Your 9:30&#039;s here.</p>
+      <p begin="1989.554s" xml:id="p478" end="1992.25s">You left your MasterCard<br />in the restaurant again yesterday.</p>
+      <p begin="1992.423s" xml:id="p479" end="1995.79s">That&#039;s the third time this month.<br />The hotel in Dallas called and said...</p>
+      <p begin="1995.96s" xml:id="p480" end="1998.554s">...you left your suit in the room<br />when you checked out.</p>
+      <p begin="1998.73s" xml:id="p481" end="2002.757s">Hertz called back and said<br />they will never rent you a car again.</p>
+      <p begin="2002.934s" xml:id="p482" end="2005.903s">Two more speeding citations in the mail<br />and wash your hair.</p>
+      <p begin="2006.07s" xml:id="p483" end="2009.597s">No, comb your hair, wash it later<br />and change your shirt.</p>
+      <p begin="2012.477s" xml:id="p484" end="2014.274s">It&#039;s over there.</p>
+      <p begin="2020.485s" xml:id="p485" end="2024.581s">We&#039;re here for our 9:30<br />with your president, Mr. Gates.</p>
+      <p begin="2031.729s" xml:id="p486" end="2033.321s">Mr...</p>
+      <p begin="2033.498s" xml:id="p487" end="2034.795s">...Gates?</p>
+      <p begin="2041.339s" xml:id="p488" end="2042.567s">Hello?</p>
+      <p begin="2042.74s" xml:id="p489" end="2047.074s">Oh, I forgot to tell you.<br />Paul left a message. He said to tell you...</p>
+      <p begin="2047.245s" xml:id="p490" end="2050.737s">...if you get thrown in jail again tonight,<br />you&#039;re on your own.</p>
+      <p begin="2050.915s" xml:id="p491" end="2054.248s">You have to find somebody else<br />to bail you out.</p>
+      <p begin="2054.419s" xml:id="p492" end="2056.216s">Okay?</p>
+      <p begin="2059.524s" xml:id="p493" end="2063.984s">- Jeez, Bill, isn&#039;t this Paul&#039;s car?<br />- You know, I figured it out.</p>
+      <p begin="2065.096s" xml:id="p494" end="2067.189s">Exercise is bad for your health.</p>
+      <p begin="2067.365s" xml:id="p495" end="2071.358s">You see, if you take a normal pulse rate,<br />70 per minute...</p>
+      <p begin="2071.536s" xml:id="p496" end="2075.028s">...times the average life span,<br />which is 75 years...</p>
+      <p begin="2075.206s" xml:id="p497" end="2077.333s">- Too fast, Bill. Please.<br />- Let&#039;s see, that&#039;s...</p>
+      <p begin="2078.409s" xml:id="p498" end="2082.607s">...70 times 60 minutes,<br />times 24 hours, times 365 days.</p>
+      <p begin="2082.78s" xml:id="p499" end="2085.078s">- Come on, please.<br />- That&#039;s 37 million heartbeats...</p>
+      <p begin="2085.249s" xml:id="p500" end="2086.648s">...times 75 years.</p>
+      <p begin="2086.818s" xml:id="p501" end="2088.046s">Slow down.</p>
+      <p begin="2096.294s" xml:id="p502" end="2098.558s">Hey, Chris. Take a look.</p>
+      <p begin="2101.766s" xml:id="p503" end="2103.7s">Bill.</p>
+      <p begin="2104.802s" xml:id="p504" end="2106.292s">No way, man.</p>
+      <p begin="2107.405s" xml:id="p505" end="2109.305s">Bill.</p>
+      <p begin="2110.775s" xml:id="p506" end="2112.174s">The keys are in it.</p>
+      <p begin="2112.343s" xml:id="p507" end="2114.504s">I don&#039;t know if this<br />is such a good idea, Bill.</p>
+      <p begin="2114.679s" xml:id="p508" end="2117.91s">Can you get off that thing? Come on.</p>
+      <p begin="2119.05s" xml:id="p509" end="2121.678s">I think you steer with the pedals<br />and these levers.</p>
+      <p begin="2121.853s" xml:id="p510" end="2124.651s">No, Bill. Come on. Please.</p>
+      <p begin="2125.156s" xml:id="p511" end="2127.056s">- Okay, don&#039;t worry about it.<br />- Yeah, right.</p>
+      <p begin="2127.225s" xml:id="p512" end="2128.886s">On your mark.</p>
+      <p begin="2129.193s" xml:id="p513" end="2131.184s">Get set.</p>
+      <p begin="2131.362s" xml:id="p514" end="2133.227s">Go.</p>
+      <p begin="2142.573s" xml:id="p515" end="2144.632s">You&#039;re going down.</p>
+      <p begin="2150.548s" xml:id="p516" end="2151.879s">No way, man.</p>
+      <p begin="2153.217s" xml:id="p517" end="2156.448s">Microsoft?<br />Nobody I knew ever heard of Microsoft...</p>
+      <p begin="2156.621s" xml:id="p518" end="2158.953s">... or Bill Gates.<br />I mean, they were nobodies.</p>
+      <p begin="2159.123s" xml:id="p519" end="2162.718s">But then we were all nobodies,<br />which was perfect for us...</p>
+      <p begin="2162.894s" xml:id="p520" end="2165.692s">...because all the respectable,<br />straight-arrow guys...</p>
+      <p begin="2165.863s" xml:id="p521" end="2168.889s">...were busy doing what they always do,<br />which is be respectable...</p>
+      <p begin="2169.066s" xml:id="p522" end="2172.263s">... which meant the rest of us<br />could run around acting like crazies...</p>
+      <p begin="2172.436s" xml:id="p523" end="2174.768s">... which is what we did best.</p>
+      <p begin="2174.939s" xml:id="p524" end="2176.702s">I miss those days.</p>
+      <p begin="2181.579s" xml:id="p525" end="2183.979s">A bulldozer?</p>
+      <p begin="2184.148s" xml:id="p526" end="2186.81s">Who&#039;s this Apple Computer?</p>
+      <p begin="2186.984s" xml:id="p527" end="2189.214s">You hit my car with a bulldozer, Bill?</p>
+      <p begin="2189.754s" xml:id="p528" end="2190.982s">I&#039;m sorry.</p>
+      <p begin="2191.155s" xml:id="p529" end="2194.215s">We went looking for someone who had<br />the kind of software we needed.</p>
+      <p begin="2194.392s" xml:id="p530" end="2198.385s">The only place we found was this dinky<br />little company in Albuquerque, New Mexico.</p>
+      <p begin="2198.563s" xml:id="p531" end="2202.727s">It says Apple wants a contract<br />for $21,000 to license BASIC.</p>
+      <p begin="2202.9s" xml:id="p532" end="2205.061s">Do you know what this means, Paul?</p>
+      <p begin="2205.236s" xml:id="p533" end="2208.569s">Yeah, yeah. It means<br />that we&#039;re desperate for business.</p>
+      <p begin="2208.739s" xml:id="p534" end="2211.503s">We&#039;re nearly bankrupt, and even worse,<br />we&#039;re in Albuquerque.</p>
+      <p begin="2211.676s" xml:id="p535" end="2214.338s">I just got this car, Bill.<br />I don&#039;t believe you.</p>
+      <p begin="2214.512s" xml:id="p536" end="2216.844s">- A damn bulldozer?<br />- I&#039;m sorry.</p>
+      <p begin="2217.014s" xml:id="p537" end="2220.814s">I think that this means there&#039;s something<br />really going on out there in California.</p>
+      <p begin="2231.128s" xml:id="p538" end="2235.189s">- Nine forty-five.<br />- A.M. Or P.M.?</p>
+      <p begin="2237.435s" xml:id="p539" end="2239.835s">Opens in 15 minutes.</p>
+      <p begin="2240.004s" xml:id="p540" end="2242.905s">I&#039;m so tired I can&#039;t see straight.</p>
+      <p begin="2243.341s" xml:id="p541" end="2246.401s">What if they find out we&#039;ve only made<br />three of these computers...</p>
+      <p begin="2246.577s" xml:id="p542" end="2249.705s">...and we&#039;re acting like we got<br />an assembly line full of the things?</p>
+      <p begin="2249.88s" xml:id="p543" end="2252.94s">- What then?<br />- Hey, Woz. No sleeping in the booth, Woz.</p>
+      <p begin="2253.117s" xml:id="p544" end="2254.55s">You&#039;re cluttering up the joint.</p>
+      <p begin="2254.719s" xml:id="p545" end="2257.62s">Steve, all of a sudden<br />we&#039;re working harder than our fathers...</p>
+      <p begin="2257.788s" xml:id="p546" end="2259.881s">...who we laughed at<br />for how hard they worked.</p>
+      <p begin="2260.057s" xml:id="p547" end="2263.151s">- I don&#039;t get it.<br />- Come on. Still gotta change.</p>
+      <p begin="2263.327s" xml:id="p548" end="2264.555s">Change what?</p>
+      <p begin="2264.729s" xml:id="p549" end="2266.822s">Doors will open in 15 minutes.</p>
+      <p begin="2267.265s" xml:id="p550" end="2269.893s">Oh, my God.</p>
+      <p begin="2274.272s" xml:id="p551" end="2276.832s">- Steve.<br />- What?</p>
+      <p begin="2278.509s" xml:id="p552" end="2281.342s">- What?<br />- No.</p>
+      <p begin="2281.512s" xml:id="p553" end="2287.417s">- Like I have to have a mustache?<br />- A suit. You actually bought a suit.</p>
+      <p begin="2287.985s" xml:id="p554" end="2290.249s">Two minutes to 10.</p>
+      <p begin="2291.522s" xml:id="p555" end="2295.856s">- Well, you think anyone will show up?<br />- How the hell should I know that?</p>
+      <p begin="2296.36s" xml:id="p556" end="2300.319s">Of course they&#039;re gonna show up.<br />I don&#039;t know. Maybe.</p>
+      <p begin="2300.498s" xml:id="p557" end="2302.159s">Is my tie okay?</p>
+      <p begin="2312.677s" xml:id="p558" end="2314.542s">There it is.</p>
+      <p begin="2317.348s" xml:id="p559" end="2322.012s">Unbelievable. It was practically like<br />being a rock star or something.</p>
+      <p begin="2322.186s" xml:id="p560" end="2323.517s">People swarming all over you.</p>
+      <p begin="2323.688s" xml:id="p561" end="2326.088s">Hordes of them coming to see<br />this amazing machine...</p>
+      <p begin="2326.257s" xml:id="p562" end="2329.784s">... with 62 chips<br />and ICs that make all these colors.</p>
+      <p begin="2332.396s" xml:id="p563" end="2336.264s">Hard plastic, molded casing.<br />You&#039;ve never seen this.</p>
+      <p begin="2351.115s" xml:id="p564" end="2355.449s">- 65.02 and up.<br />- No, we got them beat.</p>
+      <p begin="2355.786s" xml:id="p565" end="2357.811s">And when the guys<br />from Microsoft showed up...</p>
+      <p begin="2357.988s" xml:id="p566" end="2360.957s">... how were we to know who they were?<br />Them standing there...</p>
+      <p begin="2361.125s" xml:id="p567" end="2364.561s">... looking at an empty Altair booth<br />on one side and us on the other.</p>
+      <p begin="2364.729s" xml:id="p568" end="2367.22s">- I mean, who would you choose?<br />- Hi, how are you?</p>
+      <p begin="2370.735s" xml:id="p569" end="2371.963s">- Hi.<br />- Steve.</p>
+      <p begin="2372.136s" xml:id="p570" end="2373.66s">- How you doing?<br />- I&#039;m Bill Gates.</p>
+      <p begin="2373.838s" xml:id="p571" end="2375.43s">- Yeah, hi.<br />- Chairman of Microsoft.</p>
+      <p begin="2375.606s" xml:id="p572" end="2378.336s">- Nice to see you. We had a box...<br />- Microsoft, we design...</p>
+      <p begin="2378.509s" xml:id="p573" end="2380.807s">Yeah, good to see you.</p>
+      <p begin="2382.88s" xml:id="p574" end="2385.576s">- Hey, Steve. Over here.<br />- Hi, John.</p>
+      <p begin="2392.456s" xml:id="p575" end="2393.684s">Excuse me, excuse me.</p>
+      <p begin="2394.892s" xml:id="p576" end="2397.19s">No, wait, come here. Come here.</p>
+      <p begin="2397.695s" xml:id="p577" end="2400.289s">Maybe he just didn&#039;t hear you<br />or something.</p>
+      <p begin="2400.464s" xml:id="p578" end="2401.692s">Yeah, maybe.</p>
+      <p begin="2401.866s" xml:id="p579" end="2406.428s">For the first time in my life, people are<br />coming to me, instead of me going to them.</p>
+      <p begin="2406.604s" xml:id="p580" end="2409.266s">Man, this is insanely great.</p>
+      <p begin="2427.024s" xml:id="p581" end="2429.322s">I&#039;m telling you, it was a weird time.</p>
+      <p begin="2429.493s" xml:id="p582" end="2432.951s">People were going nuts over the Apple II.<br />I couldn&#039;t keep up with anything.</p>
+      <p begin="2433.13s" xml:id="p583" end="2437.328s">The company was expanding so fast I<br />didn&#039;t know who half the new people were.</p>
+      <p begin="2451.449s" xml:id="p584" end="2454.077s">And Steve had a lot of people,<br />you know, older people...</p>
+      <p begin="2454.251s" xml:id="p585" end="2457.584s">... start pay attention to him,<br />which was amazing.</p>
+      <p begin="2457.755s" xml:id="p586" end="2460.986s">And me too, sort of.<br />People even knew who I was.</p>
+      <p begin="2461.158s" xml:id="p587" end="2462.591s">- Hi.<br />- Should have been fun...</p>
+      <p begin="2462.76s" xml:id="p588" end="2466.093s">... but with all the good stuff,<br />bad stuff came too.</p>
+      <p begin="2470.835s" xml:id="p589" end="2472.063s">- Steve.<br />- What?</p>
+      <p begin="2472.236s" xml:id="p590" end="2474.329s">Oh, jeez. Not again.</p>
+      <p begin="2476.474s" xml:id="p591" end="2479.204s">What? What? What?</p>
+      <p begin="2479.376s" xml:id="p592" end="2482.311s">What are you...? What are you talking about,<br />it&#039;s not your child?</p>
+      <p begin="2482.48s" xml:id="p593" end="2484.38s">How do I even know if this baby&#039;s mine?</p>
+      <p begin="2484.548s" xml:id="p594" end="2486.88s">- You know. Damn you, you know.<br />- How do I know that?</p>
+      <p begin="2487.051s" xml:id="p595" end="2489.884s">Steve, I&#039;m two months pregnant.<br />Who else have I been with?</p>
+      <p begin="2490.054s" xml:id="p596" end="2493.182s">Look, go do whatever it is you wanna do.<br />You wanna play mommy? Fine.</p>
+      <p begin="2493.357s" xml:id="p597" end="2496.622s">- But the kid&#039;s not mine.<br />- It is. It is.</p>
+      <p begin="2496.794s" xml:id="p598" end="2498.659s">You bastard!</p>
+      <p begin="2499.129s" xml:id="p599" end="2500.824s">God.</p>
+      <p begin="2502.867s" xml:id="p600" end="2504.63s">What did they say?</p>
+      <p begin="2504.802s" xml:id="p601" end="2507.498s">Hey, Steve. Take a look at this.</p>
+      <p begin="2507.671s" xml:id="p602" end="2509.536s">Carl&#039;s got that parity on that BASIC...</p>
+      <p begin="2509.707s" xml:id="p603" end="2513.768s">You guys are not being paid<br />to be a bunch of clowns!</p>
+      <p begin="2513.944s" xml:id="p604" end="2517.107s">Or maybe you are.<br />Maybe that&#039;s the problem around here.</p>
+      <p begin="2517.281s" xml:id="p605" end="2519.909s">You guys are supposed<br />to be writing programs.</p>
+      <p begin="2520.084s" xml:id="p606" end="2521.881s">Steve, we were just doing...</p>
+      <p begin="2522.052s" xml:id="p607" end="2526.989s">I need people with talent.<br />I need artists!</p>
+      <p begin="2527.725s" xml:id="p608" end="2533.823s">What the hell are you morons but a bunch<br />of clock-punching losers? Huh, tell me?</p>
+      <p begin="2537.434s" xml:id="p609" end="2541.734s">And here is another letter<br />of recommendation.</p>
+      <p begin="2542.373s" xml:id="p610" end="2546.309s">Well, Mr. Brewster,<br />we&#039;ve looked at your application...</p>
+      <p begin="2546.477s" xml:id="p611" end="2548.638s">...and I see a lot<br />of mainframe experience here.</p>
+      <p begin="2548.812s" xml:id="p612" end="2551.781s">Six years. Actually...</p>
+      <p begin="2553.083s" xml:id="p613" end="2556.951s">Six and a half.</p>
+      <p begin="2558.489s" xml:id="p614" end="2562.55s">Steve? I don&#039;t know<br />if you&#039;ve met Steve Jobs.</p>
+      <p begin="2562.726s" xml:id="p615" end="2566.321s">Yes. No. It&#039;s good to meet you.</p>
+      <p begin="2566.497s" xml:id="p616" end="2568.522s">Right.</p>
+      <p begin="2569.099s" xml:id="p617" end="2571.226s">You were in marketing, correct?</p>
+      <p begin="2571.402s" xml:id="p618" end="2573.87s">That was before the programming. Yeah.</p>
+      <p begin="2574.038s" xml:id="p619" end="2576.973s">I took night-school courses<br />at San José State.</p>
+      <p begin="2577.141s" xml:id="p620" end="2579.132s">You look like an IBM type.</p>
+      <p begin="2579.977s" xml:id="p621" end="2581.239s">Well...</p>
+      <p begin="2581.412s" xml:id="p622" end="2586.679s">...no. But I did have a chance in college<br />to be interviewed by them...</p>
+      <p begin="2587.751s" xml:id="p623" end="2591.016s">...and they liked me. They flew me out<br />to their headquarters Back East.</p>
+      <p begin="2594.925s" xml:id="p624" end="2597.519s">Oh, I&#039;m sure they did.</p>
+      <p begin="2597.695s" xml:id="p625" end="2599.89s">No, I did, see?</p>
+      <p begin="2600.064s" xml:id="p626" end="2604.398s">I was one of about a dozen people<br />that they really recruited.</p>
+      <p begin="2604.568s" xml:id="p627" end="2606.399s">Are you a virgin?</p>
+      <p begin="2608.872s" xml:id="p628" end="2610.134s">Steve, come on.</p>
+      <p begin="2611.141s" xml:id="p629" end="2615.168s">- What? Am I what?<br />- Are you a virgin?</p>
+      <p begin="2615.346s" xml:id="p630" end="2617.337s">L...</p>
+      <p begin="2617.648s" xml:id="p631" end="2618.876s">No.</p>
+      <p begin="2622.119s" xml:id="p632" end="2623.984s">How old were you<br />when you first got laid?</p>
+      <p begin="2624.154s" xml:id="p633" end="2626.088s">I don&#039;t... I don&#039;t...</p>
+      <p begin="2626.724s" xml:id="p634" end="2629.989s">- Steve, will you leave him alone?<br />- I asked you a question.</p>
+      <p begin="2633.764s" xml:id="p635" end="2639.327s">My wife and I have been married<br />since we were in grad school.</p>
+      <p begin="2639.503s" xml:id="p636" end="2642.734s">I didn&#039;t ask you about your wife.</p>
+      <p begin="2644.108s" xml:id="p637" end="2648.442s">You&#039;re still a virgin.<br />You just think you&#039;re not.</p>
+      <p begin="2654.151s" xml:id="p638" end="2656.142s">You don&#039;t fit in here.</p>
+      <p begin="2661.025s" xml:id="p639" end="2663.55s">Why are you even wasting our time?</p>
+      <p begin="2679.777s" xml:id="p640" end="2681.768s">I...</p>
+      <p begin="2686.817s" xml:id="p641" end="2689.183s">Yeah, I&#039;ll run a test on it.</p>
+      <p begin="2694.725s" xml:id="p642" end="2695.987s">Steve...</p>
+      <p begin="2696.16s" xml:id="p643" end="2701.894s">...you demolished that guy.<br />- Woz, what we&#039;re doing right now...</p>
+      <p begin="2702.966s" xml:id="p644" end="2704.934s">...is like...</p>
+      <p begin="2706.303s" xml:id="p645" end="2708.362s">...opening doors.</p>
+      <p begin="2708.539s" xml:id="p646" end="2710.234s">Every day.</p>
+      <p begin="2710.808s" xml:id="p647" end="2715.541s">If you open the wrong one,<br />all sorts of bad things will come at you.</p>
+      <p begin="2716.58s" xml:id="p648" end="2719.344s">You gotta be careful<br />which door you open.</p>
+      <p begin="2725.689s" xml:id="p649" end="2729.625s">- You want me to go apologize to that guy?<br />- Well, he probably left.</p>
+      <p begin="2730.661s" xml:id="p650" end="2733.994s">You know, Steve, there&#039;s things<br />you probably have to get past with me.</p>
+      <p begin="2734.665s" xml:id="p651" end="2737.862s">But I&#039;m telling you, there&#039;s things<br />that I have to get past with you.</p>
+      <p begin="2738.035s" xml:id="p652" end="2740.162s">I mean, people say stuff<br />about you sometimes...</p>
+      <p begin="2740.337s" xml:id="p653" end="2742.931s">...and I don&#039;t listen to them,<br />because I know you.</p>
+      <p begin="2743.107s" xml:id="p654" end="2746.941s">I mean, I excuse stuff<br />because we&#039;re friends.</p>
+      <p begin="2750.38s" xml:id="p655" end="2752.371s">It&#039;s worth it. It is.</p>
+      <p begin="2753.083s" xml:id="p656" end="2755.244s">It&#039;s worth it. It&#039;s worth it. It&#039;s worth it.</p>
+      <p begin="2758.388s" xml:id="p657" end="2760.788s">It was about five years<br />after I got out of Harvard...</p>
+      <p begin="2762.459s" xml:id="p658" end="2766.52s">... I get this call from Bill, who says,<br />&quot;You wanna join me and Paul?&quot;</p>
+      <p begin="2766.697s" xml:id="p659" end="2769.53s">It was a two-bit little company<br />they called Microsoft.</p>
+      <p begin="2769.7s" xml:id="p660" end="2773.83s">And at first I think,<br />&quot;Yeah. Like I&#039;d like to lose more hair. &quot;</p>
+      <p begin="2774.004s" xml:id="p661" end="2776.302s">But, you know, then I started thinking.</p>
+      <p begin="2776.473s" xml:id="p662" end="2778.168s">You know how you survive?</p>
+      <p begin="2778.675s" xml:id="p663" end="2780.836s">You make people need you.</p>
+      <p begin="2781.145s" xml:id="p664" end="2785.411s">You survive because<br />you make them need what you have.</p>
+      <p begin="2786.15s" xml:id="p665" end="2788.914s">And then they have nowhere else to go.</p>
+      <p begin="2792.523s" xml:id="p666" end="2794.491s">Right now we&#039;re dead.</p>
+      <p begin="2795.425s" xml:id="p667" end="2800.226s">- Nobody needs us.<br />- So we make them need us?</p>
+      <p begin="2801.231s" xml:id="p668" end="2803.699s">We&#039;re too small even to matter.</p>
+      <p begin="2803.867s" xml:id="p669" end="2808.201s">We could be snuffed out tomorrow,<br />and no one would notice.</p>
+      <p begin="2808.372s" xml:id="p670" end="2810.237s">You know what they say in the Mafia?</p>
+      <p begin="2811.675s" xml:id="p671" end="2816.442s">You keep your friends close<br />but your enemies closer.</p>
+      <p begin="2816.613s" xml:id="p672" end="2819.309s">Which enemies are you talking about?</p>
+      <p begin="2825.289s" xml:id="p673" end="2828.019s">I got some full barf bags here.<br />Full barf bags. Heads up.</p>
+      <p begin="2828.192s" xml:id="p674" end="2829.853s">- He&#039;s sick.<br />- Bald guy with barf bags.</p>
+      <p begin="2830.027s" xml:id="p675" end="2833.224s">Coming through. Full ones too.<br />How you doing?</p>
+      <p begin="2839.136s" xml:id="p676" end="2840.763s">Come on.</p>
+      <p begin="2854.051s" xml:id="p677" end="2858.579s">- My tie. I forgot my tie.<br />- Great, Bill. We&#039;re already late.</p>
+      <p begin="2864.494s" xml:id="p678" end="2868.225s">Hey, how you doing?<br />Ten bucks for your tie. Okay, 20.</p>
+      <p begin="2868.866s" xml:id="p679" end="2872.768s">Thirty. Come on, come on.<br />Thirty. Thirty bucks for that tie.</p>
+      <p begin="2872.936s" xml:id="p680" end="2876.929s">Where did you get that, Sears? Come on.<br />Help us out here. Would you? Please?</p>
+      <p begin="2880.377s" xml:id="p681" end="2882.868s">You see, by that time,<br />Bill had already figured out...</p>
+      <p begin="2883.046s" xml:id="p682" end="2887.608s">... that we gotta go right into the belly of the<br />beast. The scariest beast of them all, IBM.</p>
+      <p begin="2887.784s" xml:id="p683" end="2893.12s">IBM. And back then, man, they were like<br />Attila the Hun, Genghis Khan...</p>
+      <p begin="2893.29s" xml:id="p684" end="2896.919s">... and Vlad the Impaler all rolled into one.</p>
+      <p begin="2897.094s" xml:id="p685" end="2901.258s">But what we were gonna do was,<br />we were gonna make them love us.</p>
+      <p begin="2901.431s" xml:id="p686" end="2903.763s">Gentlemen, how are you? Nice tie.</p>
+      <p begin="2903.934s" xml:id="p687" end="2905.925s">- Thanks.<br />- We&#039;re over here.</p>
+      <p begin="2906.803s" xml:id="p688" end="2909.533s">Our shirts are as white as theirs.</p>
+      <p begin="2911.775s" xml:id="p689" end="2914.209s">We think we have what you need.</p>
+      <p begin="2914.778s" xml:id="p690" end="2916.211s">That&#039;s a start.</p>
+      <p begin="2916.38s" xml:id="p691" end="2921.477s">Now, we know that IBM has set up<br />this place to compete head-on with Apple...</p>
+      <p begin="2922.619s" xml:id="p692" end="2926.885s">...and you&#039;re gearing up to come out with a<br />personal computer that will wipe them out.</p>
+      <p begin="2927.057s" xml:id="p693" end="2929.116s">So we can get you an operating system.</p>
+      <p begin="2929.86s" xml:id="p694" end="2932.42s">What kind of operating system?</p>
+      <p begin="2932.596s" xml:id="p695" end="2934.359s">It&#039;s called...</p>
+      <p begin="2934.531s" xml:id="p696" end="2936.328s">...DOS.</p>
+      <p begin="2937.2s" xml:id="p697" end="2941.899s">This is amazing.<br />Not just amazing, it&#039;s historic.</p>
+      <p begin="2942.072s" xml:id="p698" end="2944.404s">It should be taught<br />in all the history books.</p>
+      <p begin="2944.574s" xml:id="p699" end="2947.839s">I mean, hung and framed<br />in the National Gallery or something.</p>
+      <p begin="2948.011s" xml:id="p700" end="2950.673s">Because this is the instant of creation...</p>
+      <p begin="2950.847s" xml:id="p701" end="2954.112s">...of one of the greatest fortunes<br />in the history of the world.</p>
+      <p begin="2954.284s" xml:id="p702" end="2959.916s">I mean, Bill Gates is the richest guy in the<br />world because of what started in this room.</p>
+      <p begin="2960.09s" xml:id="p703" end="2961.523s">You wanna know what else?</p>
+      <p begin="2961.692s" xml:id="p704" end="2965.685s">It wasn&#039;t exactly smoke and mirrors,<br />but we didn&#039;t have anything.</p>
+      <p begin="2965.862s" xml:id="p705" end="2969.593s">I mean, not a damn thing.</p>
+      <p begin="2970.1s" xml:id="p706" end="2972.261s">Here we were, this two-bit little outfit...</p>
+      <p begin="2972.436s" xml:id="p707" end="2976.395s">...telling IBM we had the answer<br />to their problems.</p>
+      <p begin="2976.573s" xml:id="p708" end="2979.337s">DOS? The Disk Operating System?</p>
+      <p begin="2979.509s" xml:id="p709" end="2983.24s">To make all those zillion<br />IBM computers compute?</p>
+      <p begin="2983.413s" xml:id="p710" end="2987.509s">We didn&#039;t even remotely own<br />anything like what Bill was selling them.</p>
+      <p begin="2987.684s" xml:id="p711" end="2990.016s">Nada, zip.</p>
+      <p begin="2995.058s" xml:id="p712" end="2997.925s">Of course, we don&#039;t just<br />wanna sell it to you outright.</p>
+      <p begin="2998.095s" xml:id="p713" end="3000.086s">We wanna be able to license it to you.</p>
+      <p begin="3000.263s" xml:id="p714" end="3003.596s">- You want to retain ownership?<br />- Right.</p>
+      <p begin="3004.835s" xml:id="p715" end="3010.432s">Well, the profits are in the computers<br />themselves, not this software stuff.</p>
+      <p begin="3013.877s" xml:id="p716" end="3015.469s">No big deal.</p>
+      <p begin="3016.146s" xml:id="p717" end="3017.374s">Oh, and one other thing.</p>
+      <p begin="3017.547s" xml:id="p718" end="3019.708s">We have to be able...</p>
+      <p begin="3019.883s" xml:id="p719" end="3022.374s">...to sell it to other outfits.</p>
+      <p begin="3024.621s" xml:id="p720" end="3025.952s">But...</p>
+      <p begin="3026.123s" xml:id="p721" end="3030.958s">...there was just one little problem.</p>
+      <p begin="3032.262s" xml:id="p722" end="3035.754s">Bill, why did you tell them<br />we have an operating system?</p>
+      <p begin="3035.932s" xml:id="p723" end="3038.56s">We don&#039;t have a thing to sell them now.<br />We&#039;re dead.</p>
+      <p begin="3038.735s" xml:id="p724" end="3042.831s">- We&#039;re not. You&#039;ll give us the miracle, right?<br />- Oh, yeah, right.</p>
+      <p begin="3043.006s" xml:id="p725" end="3046.635s">Well, come on. You said you knew a guy<br />we could buy an operating system from.</p>
+      <p begin="3046.81s" xml:id="p726" end="3048.801s">I said I sort of know him.</p>
+      <p begin="3048.979s" xml:id="p727" end="3052.142s">Sort of? You heard me.<br />Don&#039;t tell me &quot;sort of. &quot; I just told IBM.</p>
+      <p begin="3053.683s" xml:id="p728" end="3055.583s">Sort of.</p>
+      <p begin="3061.491s" xml:id="p729" end="3064.153s">- Here you go.<br />- Thanks.</p>
+      <p begin="3079.609s" xml:id="p730" end="3083.101s">So basically, you&#039;re saying<br />you wanna buy my operating system.</p>
+      <p begin="3083.28s" xml:id="p731" end="3084.508s">Yeah.</p>
+      <p begin="3089.486s" xml:id="p732" end="3090.714s">Why?</p>
+      <p begin="3094.858s" xml:id="p733" end="3100.797s">You know, I don&#039;t know. We just think we<br />might be able to mess with it and resell it.</p>
+      <p begin="3100.964s" xml:id="p734" end="3102.192s">Who to?</p>
+      <p begin="3102.365s" xml:id="p735" end="3105.129s">We have a few customers, you know,<br />we&#039;re sort of talking to.</p>
+      <p begin="3105.302s" xml:id="p736" end="3107.827s">Some of them don&#039;t want it known<br />what we&#039;re doing.</p>
+      <p begin="3108.004s" xml:id="p737" end="3111.405s">So they made us sign<br />a secrecy agreement.</p>
+      <p begin="3114.611s" xml:id="p738" end="3117.409s">- And you&#039;re offering us...?<br />- Fifty thousand.</p>
+      <p begin="3117.581s" xml:id="p739" end="3120.345s">- Dollars?<br />- Dollars.</p>
+      <p begin="3127.591s" xml:id="p740" end="3128.819s">You worried?</p>
+      <p begin="3128.992s" xml:id="p741" end="3132.052s">Oh, no. Only my whole life hangs<br />in the balance. Me, worried? No.</p>
+      <p begin="3133.463s" xml:id="p742" end="3135.328s">We got IBM.</p>
+      <p begin="3135.499s" xml:id="p743" end="3137.99s">IBM. I mean, come to think of it...</p>
+      <p begin="3138.168s" xml:id="p744" end="3141.66s">...why would IBM wanna make a deal<br />with a bunch of bozos like us?</p>
+      <p begin="3141.838s" xml:id="p745" end="3143.829s">Because they&#039;re successful, Ballmer.</p>
+      <p begin="3144.007s" xml:id="p746" end="3147.602s">Success is a menace. It fools smart people<br />into thinking they can&#039;t lose.</p>
+      <p begin="3159.389s" xml:id="p747" end="3160.788s">So?</p>
+      <p begin="3164.094s" xml:id="p748" end="3166.221s">So, you mute moron?</p>
+      <p begin="3178.408s" xml:id="p749" end="3181.275s">Can you hear it? The sound of money?</p>
+      <p begin="3182.846s" xml:id="p750" end="3186.304s">The roar of money. It was like everywhere<br />you turned, money poured down.</p>
+      <p begin="3186.483s" xml:id="p751" end="3188.417s">Millions and more millions.</p>
+      <p begin="3188.585s" xml:id="p752" end="3193.045s">All because we bought that guy&#039;s<br />operating system for a measly 50,000 bucks.</p>
+      <p begin="3193.223s" xml:id="p753" end="3198.718s">That fueled a worldwide explosion of wealth<br />unlike anything in the history of man.</p>
+      <p begin="3198.895s" xml:id="p754" end="3201.159s">But you know something?</p>
+      <p begin="3201.331s" xml:id="p755" end="3206.428s">Having money and being cool<br />are not necessarily the same thing.</p>
+      <p begin="3206.603s" xml:id="p756" end="3208.901s">- Hi, I&#039;m Bill Gates...<br />- Hey.</p>
+      <p begin="3209.839s" xml:id="p757" end="3211.739s">What in the...?</p>
+      <p begin="3213.343s" xml:id="p758" end="3214.64s">Hi.</p>
+      <p begin="3215.212s" xml:id="p759" end="3217.646s">You know, you should really watch<br />where you&#039;re going.</p>
+      <p begin="3218.215s" xml:id="p760" end="3220.183s">You must have really great bandwidth.</p>
+      <p begin="3220.35s" xml:id="p761" end="3223.285s">- Excuse me?<br />- What are you doing later?</p>
+      <p begin="3229.092s" xml:id="p762" end="3231.083s">Who is that jerk?</p>
+      <p begin="3234.531s" xml:id="p763" end="3236.26s">Way to go, hotshot.</p>
+      <p begin="3239.703s" xml:id="p764" end="3242.866s">When Paul and I were at Lakeside,<br />we were in 10th grade together...</p>
+      <p begin="3243.039s" xml:id="p765" end="3246.372s">...we rigged a computer so we could<br />get classes with all the best girls.</p>
+      <p begin="3246.543s" xml:id="p766" end="3248.477s">Obviously, it&#039;s been downhill since then.</p>
+      <p begin="3248.645s" xml:id="p767" end="3252.274s">You should walk around with your bankbook<br />hanging from a chain on your belt.</p>
+      <p begin="3252.449s" xml:id="p768" end="3255.976s">Or maybe you ought to stop yelling<br />in front of your employees.</p>
+      <p begin="3256.152s" xml:id="p769" end="3259.178s">Girls don&#039;t like yelling. They like cool.</p>
+      <p begin="3259.356s" xml:id="p770" end="3261.984s">Oh, really, Ballmer?<br />How do you get to be cool?</p>
+      <p begin="3262.692s" xml:id="p771" end="3265.661s">I don&#039;t know. You saw<br />Saturday Night Fever. Travolta&#039;s cool.</p>
+      <p begin="3294.357s" xml:id="p772" end="3300.023s">I&#039;d like to welcome all of you to the new<br />headquarters and home of Apple Computers.</p>
+      <p begin="3300.196s" xml:id="p773" end="3302.391s">All of a sudden, Steve was a huge star.</p>
+      <p begin="3302.565s" xml:id="p774" end="3305.329s">The kind where people practically<br />hang on your every word...</p>
+      <p begin="3305.502s" xml:id="p775" end="3307.902s">... like they&#039;re excited<br />just to be around you.</p>
+      <p begin="3308.071s" xml:id="p776" end="3312.007s">Thank you very much<br />for joining us today on this lovely day...</p>
+      <p begin="3312.175s" xml:id="p777" end="3314.803s">...and helping us stop the gossip rumors<br />in their tracks.</p>
+      <p begin="3314.978s" xml:id="p778" end="3316.843s">Without further ado,<br />the rumors are true.</p>
+      <p begin="3317.013s" xml:id="p779" end="3319.504s">Ladies and gentlemen,<br />our new president, John Sculley.</p>
+      <p begin="3325.555s" xml:id="p780" end="3329.457s">To tell you the truth, I was perfectly happy<br />to be president of Pepsi-Cola...</p>
+      <p begin="3329.626s" xml:id="p781" end="3333.118s">...until Steve Jobs came to recruit me<br />and said:</p>
+      <p begin="3333.296s" xml:id="p782" end="3336.094s">&quot;Do you wanna sell sugared water<br />for the rest of your life...</p>
+      <p begin="3336.266s" xml:id="p783" end="3337.858s">...or do you wanna make history?&quot;</p>
+      <p begin="3339.369s" xml:id="p784" end="3341.03s">- Yeah.<br />- Yeah.</p>
+      <p begin="3341.204s" xml:id="p785" end="3343.229s">- I know.<br />- Yeah, operator.</p>
+      <p begin="3343.406s" xml:id="p786" end="3346.432s">- I need information for Oregon.<br />- Okay, give me a minute.</p>
+      <p begin="3351.114s" xml:id="p787" end="3354.311s">Steve, I gotta talk. I don&#039;t know how<br />to act in situations like this.</p>
+      <p begin="3354.484s" xml:id="p788" end="3357.18s">- In a minute.<br />- I mean, Steve, that stock-offering thing?</p>
+      <p begin="3357.354s" xml:id="p789" end="3358.582s">A hundred million dollars?</p>
+      <p begin="3358.755s" xml:id="p790" end="3360.916s">- What do you do with $ 116 million?<br />- In a minute.</p>
+      <p begin="3361.091s" xml:id="p791" end="3365.05s">I don&#039;t think rich, okay? I know a lot of<br />people think rich, but I don&#039;t think rich.</p>
+      <p begin="3365.228s" xml:id="p792" end="3369.255s">I mean, maybe you learn it, but, jeez,<br />$ 100 million. That&#039;s a lot of learning to do.</p>
+      <p begin="3369.432s" xml:id="p793" end="3372.424s">I hardly ever had enough for lunch<br />before all this.</p>
+      <p begin="3373.203s" xml:id="p794" end="3375.603s">We should have given stock<br />to the other guys, Steve.</p>
+      <p begin="3375.772s" xml:id="p795" end="3378.434s">Like Dan?<br />Dan&#039;s been with us since we started...</p>
+      <p begin="3378.608s" xml:id="p796" end="3381.304s">...and you didn&#039;t set aside<br />any stock for him.</p>
+      <p begin="3383.446s" xml:id="p797" end="3385.107s">Steve.</p>
+      <p begin="3385.915s" xml:id="p798" end="3388.713s">- I&#039;m gonna give Dan some of my stock.<br />- Yeah, is Arlene there?</p>
+      <p begin="3388.885s" xml:id="p799" end="3390.58s">We gotta do the right thing.</p>
+      <p begin="3391.154s" xml:id="p800" end="3393.418s">Arlene? Okay, fine.<br />Let&#039;s talk about this baby.</p>
+      <p begin="3393.59s" xml:id="p801" end="3396.821s">Steve, why do you care<br />what I call the baby?</p>
+      <p begin="3396.993s" xml:id="p802" end="3400.053s">Because I don&#039;t want<br />the baby named Rainbow.</p>
+      <p begin="3400.23s" xml:id="p803" end="3404.257s">Or Orisha or Ravi Shankar<br />or any other name like that.</p>
+      <p begin="3404.934s" xml:id="p804" end="3407.368s">Steve, not right now, okay?</p>
+      <p begin="3407.537s" xml:id="p805" end="3411.2s">Well, when the hell is a good time to call?<br />Because every time I try...</p>
+      <p begin="3414.043s" xml:id="p806" end="3415.84s">Steve.</p>
+      <p begin="3464.327s" xml:id="p807" end="3466.261s">- Do you want me to take that?<br />- Thank you.</p>
+      <p begin="3466.429s" xml:id="p808" end="3468.124s">You&#039;re welcome.</p>
+      <p begin="3492.388s" xml:id="p809" end="3493.855s">Hi.</p>
+      <p begin="3494.457s" xml:id="p810" end="3495.947s">Hi.</p>
+      <p begin="3498.795s" xml:id="p811" end="3501.764s">So I just came by to make sure<br />everything&#039;s okay.</p>
+      <p begin="3503.132s" xml:id="p812" end="3505.794s">- Everything okay?<br />- Thank you.</p>
+      <p begin="3517.714s" xml:id="p813" end="3519.807s">And to...</p>
+      <p begin="3519.983s" xml:id="p814" end="3523.248s">...make sure that you&#039;re not<br />gonna name it some weird name.</p>
+      <p begin="3526.89s" xml:id="p815" end="3529.95s">What&#039;s wrong with naming her Orisha?</p>
+      <p begin="3530.894s" xml:id="p816" end="3532.953s">Or Sunshine or Purity?</p>
+      <p begin="3534.597s" xml:id="p817" end="3537.088s">A kid&#039;s got enough problems<br />in this world...</p>
+      <p begin="3537.267s" xml:id="p818" end="3539.292s">...not knowing where it belongs.</p>
+      <p begin="3539.469s" xml:id="p819" end="3540.993s">A name can label a kid.</p>
+      <p begin="3542.071s" xml:id="p820" end="3543.629s">Make it...</p>
+      <p begin="3543.806s" xml:id="p821" end="3546.172s">It can make it an outsider.</p>
+      <p begin="3546.91s" xml:id="p822" end="3548.434s">Not &quot;it. &quot;</p>
+      <p begin="3548.611s" xml:id="p823" end="3549.839s">Her.</p>
+      <p begin="3551.08s" xml:id="p824" end="3552.638s">Her.</p>
+      <p begin="3564.127s" xml:id="p825" end="3565.685s">Lisa.</p>
+      <p begin="3569.599s" xml:id="p826" end="3571.26s">Okay.</p>
+      <p begin="3571.734s" xml:id="p827" end="3573.224s">Okay.</p>
+      <p begin="3576.172s" xml:id="p828" end="3578.106s">She&#039;s your daughter too.</p>
+      <p begin="3580.143s" xml:id="p829" end="3583.374s">Arlene, let&#039;s not go through that again.</p>
+      <p begin="3596.559s" xml:id="p830" end="3599.551s">You don&#039;t just live in life.</p>
+      <p begin="3599.729s" xml:id="p831" end="3604.393s">You change it, you shape it,<br />you make your mark upon it.</p>
+      <p begin="3605.068s" xml:id="p832" end="3607.662s">And that&#039;s what, get used to the name...</p>
+      <p begin="3608.371s" xml:id="p833" end="3611.238s">...Lisa is gonna do.</p>
+      <p begin="3611.407s" xml:id="p834" end="3612.635s">Yeah!</p>
+      <p begin="3612.809s" xml:id="p835" end="3616.21s">You know, that computer was<br />the first big new project we had at Apple.</p>
+      <p begin="3616.379s" xml:id="p836" end="3620.577s">And some people are still wondering<br />why Steve insisted on that name.</p>
+      <p begin="3621.618s" xml:id="p837" end="3623.586s">You wanna call a computer Lisa?</p>
+      <p begin="3624.787s" xml:id="p838" end="3626.778s">Isn&#039;t that your baby&#039;s...?</p>
+      <p begin="3626.956s" xml:id="p839" end="3628.685s">I mean...</p>
+      <p begin="3628.858s" xml:id="p840" end="3633.591s">What&#039;s her name? Arlene.<br />Isn&#039;t that Arlene&#039;s baby&#039;s name?</p>
+      <p begin="3633.763s" xml:id="p841" end="3636.493s">Other guys here<br />have daughters named Lisa.</p>
+      <p begin="3636.666s" xml:id="p842" end="3641.035s">Steve, you got a baby up there<br />you don&#039;t even wanna talk about.</p>
+      <p begin="3641.904s" xml:id="p843" end="3646.034s">- I mean, it looks sort of...<br />- Sort of what?</p>
+      <p begin="3655.318s" xml:id="p844" end="3659.186s">We have to think of ourselves as artists.</p>
+      <p begin="3660.49s" xml:id="p845" end="3662.754s">It&#039;s like Picasso said:</p>
+      <p begin="3662.925s" xml:id="p846" end="3666.622s">Good artists copy. Great artists steal.</p>
+      <p begin="3668.765s" xml:id="p847" end="3671.598s">This is who we wanted<br />to steal from. Xerox.</p>
+      <p begin="3671.768s" xml:id="p848" end="3674.293s">They were secretly developing<br />all this amazing stuff...</p>
+      <p begin="3674.47s" xml:id="p849" end="3678.338s">... like the mouse and the graphics on the<br />screen instead of just a bunch of numbers.</p>
+      <p begin="3678.508s" xml:id="p850" end="3681.341s">But when those California engineers<br />had to go to New York...</p>
+      <p begin="3681.511s" xml:id="p851" end="3684.105s">... and present all this neat stuff<br />to the Xerox brass...</p>
+      <p begin="3684.28s" xml:id="p852" end="3687.772s">... those executives didn&#039;t begin<br />to understand what they were looking at.</p>
+      <p begin="3687.95s" xml:id="p853" end="3693.547s">Never mind a mouse. It was like someone<br />dumped a dead rat on the boardroom table.</p>
+      <p begin="3701.197s" xml:id="p854" end="3702.994s">A mouse.</p>
+      <p begin="3707.27s" xml:id="p855" end="3711.331s">You want Xerox to consider<br />something called a mouse?</p>
+      <p begin="3717.48s" xml:id="p856" end="3719.812s">See, this is where Steve was a genius...</p>
+      <p begin="3719.982s" xml:id="p857" end="3723.577s">... because he persuaded Xerox<br />into showing us all this incredible stuff...</p>
+      <p begin="3723.753s" xml:id="p858" end="3725.55s">... their California guys had developed.</p>
+      <p begin="3725.722s" xml:id="p859" end="3728.35s">I tell you, it was making their people<br />absolutely nuts.</p>
+      <p begin="3729.759s" xml:id="p860" end="3731.488s">Oh, God.</p>
+      <p begin="3735.098s" xml:id="p861" end="3737.032s">Let&#039;s go.</p>
+      <p begin="3738.167s" xml:id="p862" end="3740.761s">You know, I felt like<br />one of the Mongol hordes...</p>
+      <p begin="3740.937s" xml:id="p863" end="3744.668s">... coming to loot and plunder<br />a bunch of defenseless villagers.</p>
+      <p begin="3746.676s" xml:id="p864" end="3749.44s">No, no. This is insane.</p>
+      <p begin="3749.612s" xml:id="p865" end="3751.739s">We&#039;d just be handing him everything.</p>
+      <p begin="3751.914s" xml:id="p866" end="3757.079s">We created the mouse and all the rest of it,<br />and now these idiots in New York...</p>
+      <p begin="3757.253s" xml:id="p867" end="3759.278s">...want to show it all to Steve Jobs.</p>
+      <p begin="3759.455s" xml:id="p868" end="3760.82s">I won&#039;t do it.</p>
+      <p begin="3760.99s" xml:id="p869" end="3763.982s">Hi. I&#039;m Steve Jobs.</p>
+      <p begin="3766.729s" xml:id="p870" end="3770.13s">I need you to answer some other questions<br />about the stuff you&#039;ve invented.</p>
+      <p begin="3770.299s" xml:id="p871" end="3772.29s">The graphic interface?</p>
+      <p begin="3774.771s" xml:id="p872" end="3776.568s">It&#039;s not going to hurt.</p>
+      <p begin="3777.073s" xml:id="p873" end="3778.506s">That&#039;s what you think.</p>
+      <p begin="3780.576s" xml:id="p874" end="3783.067s">- What do you want to know?<br />- How does it...?</p>
+      <p begin="3783.246s" xml:id="p875" end="3785.942s">What is your base length?<br />Is it integer, or is it compound?</p>
+      <p begin="3786.115s" xml:id="p876" end="3788.64s">Does your operating system<br />convert to executable codes?</p>
+      <p begin="3788.818s" xml:id="p877" end="3792.254s">- I got it. I got it, Steve-O. I got it, Steve-O.<br />- What is the middle...?</p>
+      <p begin="3797.426s" xml:id="p878" end="3800.02s">It&#039;s pretty neat, right?</p>
+      <p begin="3800.196s" xml:id="p879" end="3802.79s">Click, you&#039;re there.</p>
+      <p begin="3803.132s" xml:id="p880" end="3805.191s">Click, you&#039;re somewhere else.</p>
+      <p begin="3805.368s" xml:id="p881" end="3809.429s">This graphic interface stuff was like<br />a miracle back then, and we got it.</p>
+      <p begin="3809.605s" xml:id="p882" end="3813.769s">Steve got it, from Xerox, who just<br />turned it all over for us to fool with.</p>
+      <p begin="3813.943s" xml:id="p883" end="3817.401s">Like rich people giving junky old stuff<br />to the Salvation Army...</p>
+      <p begin="3817.58s" xml:id="p884" end="3820.879s">...only the junk turns out<br />to be a Rembrandt.</p>
+      <p begin="3821.05s" xml:id="p885" end="3824.611s">About $ 100 billion head start<br />on everyone else.</p>
+      <p begin="3824.787s" xml:id="p886" end="3828.416s">Apple was making tons of money.<br />It was great.</p>
+      <p begin="3828.591s" xml:id="p887" end="3833.29s">And of course, I sort of lost my mind.<br />I mean, it was all fun and games.</p>
+      <p begin="3833.462s" xml:id="p888" end="3836.056s">I started buying really expensive toys.</p>
+      <p begin="3837.934s" xml:id="p889" end="3840.3s">It was me with my own plane.</p>
+      <p begin="3840.469s" xml:id="p890" end="3843.996s">Only problem was, maybe I wasn&#039;t<br />as good a pilot as I thought I was.</p>
+      <p begin="3844.173s" xml:id="p891" end="3847.404s">I mean, it&#039;s one thing<br />when computers crash, but planes?</p>
+      <p begin="3847.577s" xml:id="p892" end="3848.805s">You don&#039;t want to know.</p>
+      <p begin="3856.152s" xml:id="p893" end="3858.586s">Hey, Steve. Are you just getting here?</p>
+      <p begin="3858.754s" xml:id="p894" end="3860.984s">No, I was just outside<br />talking to the doctor.</p>
+      <p begin="3861.157s" xml:id="p895" end="3863.557s">You don&#039;t remember us<br />talking 10 minutes ago?</p>
+      <p begin="3863.726s" xml:id="p896" end="3865.557s">- We talked?<br />- Yeah.</p>
+      <p begin="3865.728s" xml:id="p897" end="3867.889s">Hey, my hard disk crashed.</p>
+      <p begin="3870.766s" xml:id="p898" end="3873.428s">A computer guy with memory problems.</p>
+      <p begin="3875.371s" xml:id="p899" end="3877.271s">Oh, man.</p>
+      <p begin="3877.44s" xml:id="p900" end="3880.637s">It&#039;s the weirdest thing.<br />You know there&#039;s a part of your life there...</p>
+      <p begin="3880.81s" xml:id="p901" end="3882.778s">...only you don&#039;t know about it.</p>
+      <p begin="3882.945s" xml:id="p902" end="3885.311s">It makes you crazy.</p>
+      <p begin="3899.729s" xml:id="p903" end="3901.492s">Hey.</p>
+      <p begin="3902.665s" xml:id="p904" end="3904.929s">Hey!</p>
+      <p begin="3907.036s" xml:id="p905" end="3908.663s">Paul.</p>
+      <p begin="3908.838s" xml:id="p906" end="3911.329s">Simonyi, get Matthews.</p>
+      <p begin="3911.507s" xml:id="p907" end="3913.441s">Ballmer, get in here.</p>
+      <p begin="3916.412s" xml:id="p908" end="3919.438s">- What is it?<br />- This is seriously crummy.</p>
+      <p begin="3919.615s" xml:id="p909" end="3922.175s">Apple&#039;s new computer, Lisa? We&#039;re dead.</p>
+      <p begin="3922.351s" xml:id="p910" end="3923.909s">Oh, yeah, I&#039;ve already seen one.</p>
+      <p begin="3924.086s" xml:id="p911" end="3926.35s">The graphics and the operating system<br />they have...</p>
+      <p begin="3926.522s" xml:id="p912" end="3929.355s">...they make what we&#039;re selling IBM<br />look a decade out-of-date.</p>
+      <p begin="3929.525s" xml:id="p913" end="3931.652s">- I want it.<br />- What do you mean, you want it?</p>
+      <p begin="3931.827s" xml:id="p914" end="3937.163s">- It&#039;s Apple&#039;s. We can&#039;t just go and steal it.<br />- You&#039;re not listening to me. I want it.</p>
+      <p begin="3937.333s" xml:id="p915" end="3943.829s">Final call for TWA flight 2684<br />to San Jose. Final call.</p>
+      <p begin="3945.041s" xml:id="p916" end="3948.533s">- Fifty bucks he misses the flight.<br />- You&#039;re on.</p>
+      <p begin="3948.711s" xml:id="p917" end="3950.679s">It wouldn&#039;t hurt to buy a car radio, Bill.</p>
+      <p begin="3950.846s" xml:id="p918" end="3953.076s">- I can&#039;t pick up the radio...<br />- One traffic report.</p>
+      <p begin="3953.249s" xml:id="p919" end="3955.74s">- Hold on.<br />- Sir, we&#039;re on this plane.</p>
+      <p begin="3955.918s" xml:id="p920" end="3958.751s">I&#039;m sorry. Your plane is on the runway.</p>
+      <p begin="3958.921s" xml:id="p921" end="3960.98s">Ma&#039;am, what kind of service<br />is this today?</p>
+      <p begin="3961.157s" xml:id="p922" end="3965.093s">I&#039;m sorry, sir. There&#039;s nothing that can bring<br />that plane back to the gate.</p>
+      <p begin="3965.261s" xml:id="p923" end="3968.924s">Yes, there is. Willpower. I&#039;m going to will<br />that that plane be turned around.</p>
+      <p begin="3969.098s" xml:id="p924" end="3971.191s">- Oh, really?<br />- Really, sir.</p>
+      <p begin="3971.367s" xml:id="p925" end="3975.167s">Are you aware that today in my briefcase<br />are computer language codes?</p>
+      <p begin="3975.338s" xml:id="p926" end="3977.932s">- Do you know what they do, sir?<br />- I&#039;m afraid I don&#039;t.</p>
+      <p begin="3978.107s" xml:id="p927" end="3981.167s">They protect against viruses.<br />You&#039;re aware of viruses, I presume?</p>
+      <p begin="3981.344s" xml:id="p928" end="3985.713s">- Sir, I do go to doctors.<br />- No, sir, computer viruses.</p>
+      <p begin="3985.881s" xml:id="p929" end="3988.281s">Oh, yeah, I just read an article<br />about those things.</p>
+      <p begin="3988.451s" xml:id="p930" end="3991.477s">- They can wipe out a whole computer.<br />- A whole system of computers.</p>
+      <p begin="3991.654s" xml:id="p931" end="3994.851s">Like the one behind your terminal there,<br />like the one in the plane...</p>
+      <p begin="3995.024s" xml:id="p932" end="3999.222s">...like the one on all planes in the airlines,<br />like the one in the control tower, sir.</p>
+      <p begin="3999.395s" xml:id="p933" end="4002.694s">I ask you, are you prepared<br />to take responsibility for your actions...</p>
+      <p begin="4002.865s" xml:id="p934" end="4005.891s">...if I don&#039;t get this information<br />on that plane?</p>
+      <p begin="4007.57s" xml:id="p935" end="4011.939s">Jeez, his reputation for inconveniencing<br />the rest of the world is intact.</p>
+      <p begin="4012.108s" xml:id="p936" end="4013.803s">He actually missed a flight.</p>
+      <p begin="4013.976s" xml:id="p937" end="4017.742s">This is your captain speaking. We have<br />to return to the gate for a few minutes.</p>
+      <p begin="4017.913s" xml:id="p938" end="4020.211s">Nothing critical.</p>
+      <p begin="4025.654s" xml:id="p939" end="4030.523s">- Attention, please, flight...<br />- Your tickets, please.</p>
+      <p begin="4030.693s" xml:id="p940" end="4034.959s">- You have the tickets, right?<br />- No, I gave them to you.</p>
+      <p begin="4036.132s" xml:id="p941" end="4038.464s">Bill, in the car.</p>
+      <p begin="4055.117s" xml:id="p942" end="4058.28s">Wow. These guys must be<br />50 times bigger than we are.</p>
+      <p begin="4058.454s" xml:id="p943" end="4061.446s">Good artists copy. Great artists steal.</p>
+      <p begin="4061.624s" xml:id="p944" end="4065.116s">- Oh, yeah? Who said that?<br />- Some artist. I think it was Van Gogh.</p>
+      <p begin="4066.429s" xml:id="p945" end="4069.296s">Hey, check it out.</p>
+      <p begin="4070.8s" xml:id="p946" end="4075.794s">Aye, matey. It wouldn&#039;t be time<br />to rape and pillage, would it?</p>
+      <p begin="4083.879s" xml:id="p947" end="4086.814s">You sure it&#039;s okay<br />to let these Microsoft guys in here?</p>
+      <p begin="4087.116s" xml:id="p948" end="4090.051s">We have culture. They don&#039;t.</p>
+      <p begin="4090.386s" xml:id="p949" end="4093.48s">No taste. No original thinking.</p>
+      <p begin="4094.123s" xml:id="p950" end="4096.421s">But they can be useful to us.</p>
+      <p begin="4097.059s" xml:id="p951" end="4099.823s">Time for the dog and pony show.</p>
+      <p begin="4108.871s" xml:id="p952" end="4111.237s">Welcome to Apple.</p>
+      <p begin="4121.484s" xml:id="p953" end="4123.179s">Bill.</p>
+      <p begin="4124.42s" xml:id="p954" end="4126.32s">Nice to see you. Thanks for coming.<br />Steve.</p>
+      <p begin="4126.489s" xml:id="p955" end="4129.39s">- How you doing, Steve?<br />- Glad you&#039;re here. Paul. Hi, Steve Jobs.</p>
+      <p begin="4129.558s" xml:id="p956" end="4132.118s">- Hi. Charles Simonyi.<br />- Come on in. Let me introduce you.</p>
+      <p begin="4132.294s" xml:id="p957" end="4134.888s">This is Gilmore.<br />He&#039;s one of our top programmers.</p>
+      <p begin="4135.431s" xml:id="p958" end="4138.025s">And he&#039;s a loyal man.<br />Well, to do this, you need loyalty.</p>
+      <p begin="4138.901s" xml:id="p959" end="4142.098s">- Total loyalty. Isn&#039;t that right?<br />- That&#039;s the plan, Steve.</p>
+      <p begin="4142.872s" xml:id="p960" end="4147.309s">This way. The Macintosh team.<br />It&#039;s more like a family.</p>
+      <p begin="4147.476s" xml:id="p961" end="4150.309s">Everybody else is an outsider.</p>
+      <p begin="4150.479s" xml:id="p962" end="4153.676s">- What&#039;s with the pirate stuff?<br />- What do I always tell you?</p>
+      <p begin="4154.15s" xml:id="p963" end="4156.209s">Better to be a pirate than join the Navy.</p>
+      <p begin="4156.385s" xml:id="p964" end="4159.548s">- You a pirate?<br />- Oh, yeah. Yeah, absolutely, Steve.</p>
+      <p begin="4160.122s" xml:id="p965" end="4161.885s">I&#039;ve been up for 52 hours straight.</p>
+      <p begin="4163.526s" xml:id="p966" end="4164.754s">Loyalty.</p>
+      <p begin="4173.469s" xml:id="p967" end="4175.494s">I&#039;m gonna show you the future.</p>
+      <p begin="4175.671s" xml:id="p968" end="4179.3s">It&#039;s top-secret. It&#039;s still about...</p>
+      <p begin="4179.475s" xml:id="p969" end="4182.273s">...a year away from introduction.</p>
+      <p begin="4182.778s" xml:id="p970" end="4185.645s">The ultimate, insanely great...</p>
+      <p begin="4187.216s" xml:id="p971" end="4189.411s">...fusion of art and science.</p>
+      <p begin="4191.02s" xml:id="p972" end="4195.15s">- It&#039;s called the Macintosh.<br />- This is definitely not the Lisa.</p>
+      <p begin="4195.324s" xml:id="p973" end="4197.554s">That&#039;s a graphic user interface.</p>
+      <p begin="4197.726s" xml:id="p974" end="4201.457s">I don&#039;t understand. How does a computer<br />handle the mouse-cursor display?</p>
+      <p begin="4201.63s" xml:id="p975" end="4203.621s">Hardware&#039;s got nothing to do<br />with the mouse.</p>
+      <p begin="4203.799s" xml:id="p976" end="4206.097s">- It&#039;s all in the software.<br />- Enough.</p>
+      <p begin="4206.268s" xml:id="p977" end="4208.463s">Sorry, Steve.</p>
+      <p begin="4208.871s" xml:id="p978" end="4212.329s">There&#039;s no point in torturing our guests...</p>
+      <p begin="4212.841s" xml:id="p979" end="4215.309s">...with what they can&#039;t have.</p>
+      <p begin="4223.485s" xml:id="p980" end="4226.283s">You&#039;re vulnerable in spreadsheets,<br />you know, Steve.</p>
+      <p begin="4226.455s" xml:id="p981" end="4228.719s">We can help you.</p>
+      <p begin="4230.559s" xml:id="p982" end="4233.79s">Ninety hours a week. Like the T-shirt?<br />I&#039;m gonna give it to my people.</p>
+      <p begin="4236.232s" xml:id="p983" end="4238.894s">Some of them work even more<br />than 90 hours a week.</p>
+      <p begin="4239.068s" xml:id="p984" end="4241.969s">We have Multiplan running on<br />dozens of different platforms.</p>
+      <p begin="4242.137s" xml:id="p985" end="4244.298s">No one can match us.</p>
+      <p begin="4245.107s" xml:id="p986" end="4247.473s">You can&#039;t just have employees anymore.</p>
+      <p begin="4247.643s" xml:id="p987" end="4249.27s">It&#039;s great.</p>
+      <p begin="4250.246s" xml:id="p988" end="4252.305s">No, they gotta be into a crusade.</p>
+      <p begin="4252.481s" xml:id="p989" end="4258.181s">It&#039;s like art, science, religion,<br />all rolled into one.</p>
+      <p begin="4258.354s" xml:id="p990" end="4262.415s">We have multi-tool interface.<br />It can be redesigned for the Mac.</p>
+      <p begin="4262.591s" xml:id="p991" end="4266.254s">Redesigned. Redesigned.</p>
+      <p begin="4266.895s" xml:id="p992" end="4269.09s">We&#039;re artists here.</p>
+      <p begin="4269.265s" xml:id="p993" end="4271.893s">A place where raw sand<br />comes in one end...</p>
+      <p begin="4272.067s" xml:id="p994" end="4276.197s">...and goes out the other. Silicon art.</p>
+      <p begin="4278.841s" xml:id="p995" end="4283.039s">You know, IBM, they&#039;re gonna want<br />all our stuff.</p>
+      <p begin="4283.779s" xml:id="p996" end="4285.178s">IBM?</p>
+      <p begin="4287.016s" xml:id="p997" end="4290.144s">IBM, they&#039;re history.</p>
+      <p begin="4290.319s" xml:id="p998" end="4295.757s">I mean, they&#039;re 1950s, they&#039;re ice America,<br />a bloated enemy in a crumbling castle.</p>
+      <p begin="4295.924s" xml:id="p999" end="4298.722s">- And we&#039;re storming it.<br />- I know IBM is the enemy, Steve.</p>
+      <p begin="4298.894s" xml:id="p1000" end="4301.089s">But we can help you.</p>
+      <p begin="4301.63s" xml:id="p1001" end="4303.564s">You don&#039;t have to worry about IBM.</p>
+      <p begin="4304.3s" xml:id="p1002" end="4306.234s">Yeah?</p>
+      <p begin="4306.402s" xml:id="p1003" end="4308.427s">So why you even working with them?</p>
+      <p begin="4309.104s" xml:id="p1004" end="4311.766s">I&#039;d much rather work with you.</p>
+      <p begin="4321.684s" xml:id="p1005" end="4323.549s">We&#039;re in.</p>
+      <p begin="4324.119s" xml:id="p1006" end="4326.28s">- We&#039;re doing work for Apple.<br />- You&#039;re kidding me.</p>
+      <p begin="4326.455s" xml:id="p1007" end="4329.39s">They&#039;re sending us three prototypes<br />of the computer we just saw.</p>
+      <p begin="4329.558s" xml:id="p1008" end="4331.048s">- The Macintosh.<br />- For God sakes.</p>
+      <p begin="4331.226s" xml:id="p1009" end="4334.992s">There&#039;s a pirate flag flying above our heads,<br />and he&#039;s giving us the crown jewel?</p>
+      <p begin="4335.164s" xml:id="p1010" end="4336.791s">Who the hell&#039;s the pirate here?</p>
+      <p begin="4336.965s" xml:id="p1011" end="4339.297s">He sees what he believes,<br />not the other way around.</p>
+      <p begin="4339.468s" xml:id="p1012" end="4341.265s">We&#039;re not his worst problem.</p>
+      <p begin="4341.437s" xml:id="p1013" end="4344.201s">If he&#039;s not careful,<br />he&#039;s gonna wreck the place.</p>
+      <p begin="4345.207s" xml:id="p1014" end="4347.437s">- Macintosh! Macintosh!<br />- Macintosh rules!</p>
+      <p begin="4347.609s" xml:id="p1015" end="4350.544s">- Apple II&#039;s the best!<br />- Mac&#039;s the best!</p>
+      <p begin="4350.713s" xml:id="p1016" end="4353.978s">Even when I got my memory back,<br />it was never the same for me.</p>
+      <p begin="4354.149s" xml:id="p1017" end="4356.117s">I couldn&#039;t believe<br />how it had all changed.</p>
+      <p begin="4356.285s" xml:id="p1018" end="4358.412s">Apple was tearing itself to pieces.</p>
+      <p begin="4359.021s" xml:id="p1019" end="4361.581s">Steve had turned it into two camps:</p>
+      <p begin="4361.757s" xml:id="p1020" end="4366.285s">His new Macintosh group<br />against everyone else in the company.</p>
+      <p begin="4370.432s" xml:id="p1021" end="4373.128s">Steve, what the hell is this?</p>
+      <p begin="4373.669s" xml:id="p1022" end="4377.469s">It&#039;s like a family. Things get messy.</p>
+      <p begin="4377.873s" xml:id="p1023" end="4379.238s">I don&#039;t understand this.</p>
+      <p begin="4379.408s" xml:id="p1024" end="4382.571s">You got the Mac people<br />against the Apple II people?</p>
+      <p begin="4382.745s" xml:id="p1025" end="4384.838s">- They&#039;re beating each other up.<br />- Amazing, huh?</p>
+      <p begin="4385.013s" xml:id="p1026" end="4388.449s">People wanna be shaped, molded.</p>
+      <p begin="4388.617s" xml:id="p1027" end="4391.347s">But if you asked any of them,<br />any of them, they&#039;d deny it.</p>
+      <p begin="4391.954s" xml:id="p1028" end="4396.288s">I don&#039;t wanna shape anybody, Steve.<br />This isn&#039;t fun anymore.</p>
+      <p begin="4396.458s" xml:id="p1029" end="4400.019s">Maybe fun is just fragments of existence<br />with better packaging.</p>
+      <p begin="4401.93s" xml:id="p1030" end="4403.397s">I don&#039;t make jokes anymore.</p>
+      <p begin="4403.565s" xml:id="p1031" end="4407.399s">I told you a long time ago, I like jokes.</p>
+      <p begin="4407.569s" xml:id="p1032" end="4412.836s">Steve! Goodbye. I&#039;m quitting Apple.</p>
+      <p begin="4414.109s" xml:id="p1033" end="4418.978s">- Well, that&#039;s a joke, right?<br />- No. I&#039;m going back to college.</p>
+      <p begin="4419.148s" xml:id="p1034" end="4424.95s">Woz. Hey, what are you doing?<br />I don&#039;t think it&#039;s such a good idea.</p>
+      <p begin="4425.12s" xml:id="p1035" end="4429.022s">All I&#039;m doing now is being a brake pedal<br />for you as you&#039;re heading for the wall.</p>
+      <p begin="4431.627s" xml:id="p1036" end="4433.857s">Woz!</p>
+      <p begin="4463.325s" xml:id="p1037" end="4466.26s">- I ask you for brilliance?<br />- Steve.</p>
+      <p begin="4466.428s" xml:id="p1038" end="4471.388s">I&#039;ve asked you for genius,<br />and you&#039;re giving me this?</p>
+      <p begin="4472.668s" xml:id="p1039" end="4474.602s">Steve, please.</p>
+      <p begin="4484.847s" xml:id="p1040" end="4487.577s">Oh, no, Steve, not again.</p>
+      <p begin="4487.749s" xml:id="p1041" end="4491.708s">It&#039;s 3 a. m., okay? I don&#039;t have the energy<br />to defend an unfinished design.</p>
+      <p begin="4491.887s" xml:id="p1042" end="4495.414s">That&#039;s because there&#039;s nothing to defend.</p>
+      <p begin="4495.591s" xml:id="p1043" end="4499.925s">I want beauty, not incompetence.</p>
+      <p begin="4500.662s" xml:id="p1044" end="4502.721s">Are you listening to me?</p>
+      <p begin="4503.465s" xml:id="p1045" end="4505.365s">- Are you listening...?<br />- Yes, I&#039;m listening!</p>
+      <p begin="4505.534s" xml:id="p1046" end="4507.627s">I am so sick of your abusiveness.</p>
+      <p begin="4508.904s" xml:id="p1047" end="4511.998s">That&#039;s all you know.<br />Tearing people down, throwing tantrums.</p>
+      <p begin="4512.174s" xml:id="p1048" end="4517.578s">- You miserable son of a bitch.<br />- What are you doing? Come on, back off.</p>
+      <p begin="4531.927s" xml:id="p1049" end="4534.953s">I know we&#039;ve been in a battle...</p>
+      <p begin="4535.13s" xml:id="p1050" end="4538.657s">...and like all battles,<br />we&#039;ve had our casualties along the way.</p>
+      <p begin="4539.468s" xml:id="p1051" end="4541.163s">But today&#039;s about celebrating.</p>
+      <p begin="4543.138s" xml:id="p1052" end="4544.662s">The Macintosh.</p>
+      <p begin="4551.246s" xml:id="p1053" end="4553.214s">It&#039;s time for a christening...</p>
+      <p begin="4555.05s" xml:id="p1054" end="4557.814s">...of our little Macintosh.</p>
+      <p begin="4557.986s" xml:id="p1055" end="4559.886s">Our baby.</p>
+      <p begin="4569.698s" xml:id="p1056" end="4572.394s">- Congratulations.<br />- Congratulations.</p>
+      <p begin="4574.136s" xml:id="p1057" end="4576.969s">Real artists ship.</p>
+      <p begin="4577.406s" xml:id="p1058" end="4580.898s">In this company, in Apple,<br />in the entire business...</p>
+      <p begin="4581.076s" xml:id="p1059" end="4585.809s">...we, you, the Macintosh team,<br />are the only true artists.</p>
+      <p begin="4585.981s" xml:id="p1060" end="4588.677s">You can forget Apple, forget Lisa.</p>
+      <p begin="4588.85s" xml:id="p1061" end="4592.377s">It&#039;s only us. The Macintosh team.</p>
+      <p begin="4592.554s" xml:id="p1062" end="4595.387s">We have been chosen to seize history.</p>
+      <p begin="4596.792s" xml:id="p1063" end="4602.458s">But first, carpe diem, seize the day.<br />It&#039;s your time to party, people.</p>
+      <p begin="4604.8s" xml:id="p1064" end="4606.791s">Hey, John.</p>
+      <p begin="4607.469s" xml:id="p1065" end="4609.027s">You hear what I heard in there?</p>
+      <p begin="4637.132s" xml:id="p1066" end="4641.034s">- Hey, man, what&#039;d you say about Steve?<br />- I&#039;m sick of his crap.</p>
+      <p begin="4641.203s" xml:id="p1067" end="4643.068s">- What&#039;d you say, man?<br />- You heard me.</p>
+      <p begin="4643.238s" xml:id="p1068" end="4645.433s">You wanna talk like that about Steve?</p>
+      <p begin="4645.607s" xml:id="p1069" end="4648.269s">You wanna talk like that about the guy<br />who feeds you, man?</p>
+      <p begin="4648.443s" xml:id="p1070" end="4652.345s">- The guy who feeds you?<br />- Come on. Break it up.</p>
+      <p begin="4652.514s" xml:id="p1071" end="4654.311s">Come on.</p>
+      <p begin="4655.784s" xml:id="p1072" end="4658.218s">- Hey, hey, guys.<br />- Somebody pull him off.</p>
+      <p begin="4658.654s" xml:id="p1073" end="4661.487s">- Never like this at Pepsi-Cola.<br />- Knock it off.</p>
+      <p begin="4661.957s" xml:id="p1074" end="4664.755s">You wanna sell sugar water<br />the rest of your life?</p>
+      <p begin="4678.14s" xml:id="p1075" end="4680.37s">Steve, I&#039;m worried.</p>
+      <p begin="4682.844s" xml:id="p1076" end="4684.277s">Yeah?</p>
+      <p begin="4684.446s" xml:id="p1077" end="4687.142s">Yeah, about what&#039;s happening.</p>
+      <p begin="4687.582s" xml:id="p1078" end="4692.212s">All the, you know, &quot;them versus us&quot; stuff.<br />Macintosh versus Apple II.</p>
+      <p begin="4692.387s" xml:id="p1079" end="4695.845s">You don&#039;t understand, John.<br />People need a cause.</p>
+      <p begin="4696.024s" xml:id="p1080" end="4699.391s">We missed Vietnam. This is our Vietnam.</p>
+      <p begin="4700.629s" xml:id="p1081" end="4704.292s">- It&#039;s tearing the company apart.<br />- Creation is messy.</p>
+      <p begin="4704.466s" xml:id="p1082" end="4707.264s">You want genius, you get madness.<br />Two sides of the same coin.</p>
+      <p begin="4707.436s" xml:id="p1083" end="4709.529s">You knew that when I brought you in.</p>
+      <p begin="4709.705s" xml:id="p1084" end="4712.265s">Steve, if you can&#039;t trust me,<br />then God help you.</p>
+      <p begin="4712.441s" xml:id="p1085" end="4715.433s">I didn&#039;t mention anything<br />about trust, John.</p>
+      <p begin="4719.081s" xml:id="p1086" end="4720.378s">There&#039;s another problem.</p>
+      <p begin="4722.984s" xml:id="p1087" end="4725.544s">- It&#039;s Arlene and the baby.<br />- That&#039;s my business.</p>
+      <p begin="4725.721s" xml:id="p1088" end="4729.782s">No, not anymore.<br />TIME magazine is doing another story.</p>
+      <p begin="4729.958s" xml:id="p1089" end="4732.222s">You don&#039;t need the bad press.<br />Neither do we.</p>
+      <p begin="4732.394s" xml:id="p1090" end="4735.329s">- Child&#039;s not mine.<br />- Steve, come on. You took a paternity test.</p>
+      <p begin="4736.164s" xml:id="p1091" end="4738.598s">She is yours.<br />It&#039;s right there in the results.</p>
+      <p begin="4738.767s" xml:id="p1092" end="4743.261s">- Paternity tests are a joke.<br />- She&#039;s asking for $20,000.</p>
+      <p begin="4743.438s" xml:id="p1093" end="4745.838s">- Total, nothing more.<br />- Blackmail.</p>
+      <p begin="4746.007s" xml:id="p1094" end="4748.976s">Steve, you can afford the money.<br />Give her what she&#039;s asking for.</p>
+      <p begin="4749.144s" xml:id="p1095" end="4751.874s">- You should give her more.<br />- It&#039;s not about the damn money.</p>
+      <p begin="4752.214s" xml:id="p1096" end="4754.409s">Well, what is it, then?</p>
+      <p begin="4754.583s" xml:id="p1097" end="4756.676s">I don&#039;t know.</p>
+      <p begin="4808.67s" xml:id="p1098" end="4811.4s">Mommy, there&#039;s a man here.</p>
+      <p begin="4828.423s" xml:id="p1099" end="4831.62s">It&#039;s been what, a year?</p>
+      <p begin="4834.629s" xml:id="p1100" end="4838.588s">- Yeah, I&#039;ve been busy.<br />- I&#039;m sure.</p>
+      <p begin="4840.802s" xml:id="p1101" end="4844.704s">- Why&#039;d you come?<br />- I don&#039;t know.</p>
+      <p begin="4846.741s" xml:id="p1102" end="4848.641s">She&#039;s looking really good.</p>
+      <p begin="4854.983s" xml:id="p1103" end="4857.383s">You should have come to see her.</p>
+      <p begin="4857.552s" xml:id="p1104" end="4861.613s">- You could have brought her by.<br />- Oh, Steve.</p>
+      <p begin="4864.326s" xml:id="p1105" end="4866.26s">Here.</p>
+      <p begin="4876.471s" xml:id="p1106" end="4878.405s">Thank you.</p>
+      <p begin="4879.007s" xml:id="p1107" end="4880.998s">Thank you, Lisa.</p>
+      <p begin="4917.279s" xml:id="p1108" end="4920.68s">- Steve Jobs is killing us. Ballmer!<br />- Yeah?</p>
+      <p begin="4920.849s" xml:id="p1109" end="4922.817s">This stuff is crummy. It&#039;s totally crummy.</p>
+      <p begin="4922.984s" xml:id="p1110" end="4925.817s">- Windows was supposed to ship last year.<br />- We&#039;re ready for you.</p>
+      <p begin="4925.987s" xml:id="p1111" end="4928.455s">Why do I have to do this?<br />I have work. This is stupid.</p>
+      <p begin="4928.623s" xml:id="p1112" end="4930.75s">It&#039;s good PR.<br />It&#039;s for The Wall Street Journal.</p>
+      <p begin="4930.926s" xml:id="p1113" end="4933.656s">- I don&#039;t need PR.<br />- Can you stand a little to the left?</p>
+      <p begin="4933.828s" xml:id="p1114" end="4937.264s">The hole in that sweater of your shirt.<br />Turn all the way to the right.</p>
+      <p begin="4937.432s" xml:id="p1115" end="4939.024s">What am I, a trained seal?</p>
+      <p begin="4939.2s" xml:id="p1116" end="4942.363s">- Lf Apple can do this, why can&#039;t we?<br />- What do you want us to do?</p>
+      <p begin="4942.537s" xml:id="p1117" end="4944.664s">- Whatever you have to.<br />- Meaning what, Bill?</p>
+      <p begin="4944.839s" xml:id="p1118" end="4946.966s">Meaning ship Windows<br />before the snow falls.</p>
+      <p begin="4947.142s" xml:id="p1119" end="4949.736s">- This is Seattle. It doesn&#039;t snow here.<br />- Whatever, Steve.</p>
+      <p begin="4949.911s" xml:id="p1120" end="4952.379s">Mr. Gates, I think you should<br />take off your sweater...</p>
+      <p begin="4952.547s" xml:id="p1121" end="4954.674s">...because it clashes<br />with the background.</p>
+      <p begin="4954.849s" xml:id="p1122" end="4957.01s">The green and blue,<br />it&#039;s just not in these days.</p>
+      <p begin="4957.185s" xml:id="p1123" end="4959.176s">It&#039;s not in at all.</p>
+      <p begin="4959.354s" xml:id="p1124" end="4962.79s">Sweat stains. This is awful.</p>
+      <p begin="4969.064s" xml:id="p1125" end="4972.397s">- I&#039;d like to get back to work...<br />- I know, we&#039;re almost ready.</p>
+      <p begin="4972.567s" xml:id="p1126" end="4978.87s">Okay, and three, two, one.<br />Smile, please.</p>
+      <p begin="4979.741s" xml:id="p1127" end="4981.868s">Urgent, Mr. Gates.</p>
+      <p begin="4982.043s" xml:id="p1128" end="4984.807s">Thank you. What&#039;s next?</p>
+      <p begin="4986.247s" xml:id="p1129" end="4988.078s">Steve Jobs.</p>
+      <p begin="4988.416s" xml:id="p1130" end="4991.18s">&quot;Mr. Jobs demands you be<br />in his office tonight. &quot;</p>
+      <p begin="4992.854s" xml:id="p1131" end="4994.845s">He&#039;s getting paranoid<br />over what we&#039;re doing.</p>
+      <p begin="4995.29s" xml:id="p1132" end="4996.621s">Maybe he should be.</p>
+      <p begin="4997.892s" xml:id="p1133" end="4999.917s">Not at the pace you&#039;re going.</p>
+      <p begin="5000.095s" xml:id="p1134" end="5002.086s">I think I had a date tonight with Ann.</p>
+      <p begin="5002.263s" xml:id="p1135" end="5004.288s">- I thought she was away on business.<br />- She is.</p>
+      <p begin="5004.466s" xml:id="p1136" end="5006.024s">Then how can you have a date?</p>
+      <p begin="5006.201s" xml:id="p1137" end="5010.001s">Well, I go to a movie here, and then<br />she goes to the same movie in Denver...</p>
+      <p begin="5010.171s" xml:id="p1138" end="5012.799s">...and then we talk on the phone<br />about it afterwards.</p>
+      <p begin="5012.974s" xml:id="p1139" end="5017.138s">Jeez, Bill, I hate to see what happens<br />when you two have sex.</p>
+      <p begin="5060.488s" xml:id="p1140" end="5063.48s">You&#039;re stealing from us!</p>
+      <p begin="5066.127s" xml:id="p1141" end="5069.46s">Steve, we&#039;re not stealing from you.<br />So don&#039;t tell me that.</p>
+      <p begin="5070.799s" xml:id="p1142" end="5072.46s">What the hell are you doing, then?</p>
+      <p begin="5072.634s" xml:id="p1143" end="5077.094s">What is this that I keep hearing<br />about you developing this...?</p>
+      <p begin="5077.272s" xml:id="p1144" end="5079.866s">What do you call it? Windows?</p>
+      <p begin="5080.041s" xml:id="p1145" end="5082.373s">To compete with us?</p>
+      <p begin="5084.946s" xml:id="p1146" end="5089.315s">- I&#039;m not doing anything against you, Steve.<br />- Don&#039;t give me that crap!</p>
+      <p begin="5089.484s" xml:id="p1147" end="5092.783s">You&#039;re pirating the software<br />off our Mac prototypes!</p>
+      <p begin="5092.954s" xml:id="p1148" end="5094.615s">I trusted you.</p>
+      <p begin="5095.19s" xml:id="p1149" end="5099.627s">If you wanna know everything<br />we&#039;re working on, I&#039;ll show you.</p>
+      <p begin="5107.202s" xml:id="p1150" end="5108.567s">The weird thing was...</p>
+      <p begin="5108.736s" xml:id="p1151" end="5112.433s">... Steve Jobs was the one guy<br />Bill would never yell at. It was the opposite.</p>
+      <p begin="5112.607s" xml:id="p1152" end="5115.838s">Steve would order Bill to fly down there<br />and then blow up at him...</p>
+      <p begin="5116.01s" xml:id="p1153" end="5119.707s">... but Bill, he would just wait it out,<br />convince Steve that we were no threat...</p>
+      <p begin="5119.881s" xml:id="p1154" end="5123.476s">... that this Windows stuff was just<br />that much more smoke and mirrors...</p>
+      <p begin="5123.651s" xml:id="p1155" end="5125.915s">... and a few hours later,<br />everything was fine.</p>
+      <p begin="5126.087s" xml:id="p1156" end="5128.146s">I&#039;m telling you, Bill&#039;s a genius at it.</p>
+      <p begin="5129.424s" xml:id="p1157" end="5131.688s">And that&#039;s all you&#039;re working on?</p>
+      <p begin="5132.16s" xml:id="p1158" end="5133.388s">Of course.</p>
+      <p begin="5134.295s" xml:id="p1159" end="5136.593s">- Yeah?<br />- You know what else?</p>
+      <p begin="5136.898s" xml:id="p1160" end="5140.493s">Did you read what I said in that<br />newspaper story on us two days ago?</p>
+      <p begin="5140.935s" xml:id="p1161" end="5143.961s">- No. What&#039;d you say?<br />- I said when your Macintosh comes out...</p>
+      <p begin="5144.139s" xml:id="p1162" end="5147.006s">...that&#039;d be the only computer<br />I&#039;d want to buy my mom.</p>
+      <p begin="5147.375s" xml:id="p1163" end="5149.605s">- Yeah?<br />- Yeah.</p>
+      <p begin="5150.111s" xml:id="p1164" end="5152.671s">Your mom, huh?</p>
+      <p begin="5152.847s" xml:id="p1165" end="5157.284s">- It&#039;s like we&#039;re one big family, you know?<br />- Family?</p>
+      <p begin="5160.121s" xml:id="p1166" end="5161.349s">You know that.</p>
+      <p begin="5165.727s" xml:id="p1167" end="5167.786s">Family.</p>
+      <p begin="5169.364s" xml:id="p1168" end="5171.355s">Steve, Steve, Steve, Steve!</p>
+      <p begin="5185.046s" xml:id="p1169" end="5186.57s">Tell me something.</p>
+      <p begin="5186.748s" xml:id="p1170" end="5189.911s">When did this stop being a business<br />and start being a religion?</p>
+      <p begin="5190.084s" xml:id="p1171" end="5191.483s">Thank you for your work.</p>
+      <p begin="5191.653s" xml:id="p1172" end="5196.522s">And remember, what we will do<br />in the next year...</p>
+      <p begin="5196.691s" xml:id="p1173" end="5199.717s">...will change the way people think...</p>
+      <p begin="5199.894s" xml:id="p1174" end="5202.192s">...and communicate.</p>
+      <p begin="5204.766s" xml:id="p1175" end="5206.597s">Hey.</p>
+      <p begin="5206.768s" xml:id="p1176" end="5208.429s">- Hey.<br />- So enjoy the revolution...</p>
+      <p begin="5208.603s" xml:id="p1177" end="5212.061s">...which we have all created and watch...</p>
+      <p begin="5212.24s" xml:id="p1178" end="5214.105s">You know, Steve thinks IBM&#039;s the enemy.</p>
+      <p begin="5214.275s" xml:id="p1179" end="5215.606s">- Unfolds in front of us.</p>
+      <p begin="5215.777s" xml:id="p1180" end="5218.041s">He doesn&#039;t get it.</p>
+      <p begin="5218.213s" xml:id="p1181" end="5219.908s">You guys are.</p>
+      <p begin="5222.984s" xml:id="p1182" end="5225.043s">What are you talking about?</p>
+      <p begin="5225.22s" xml:id="p1183" end="5227.95s">Copies of your Windows<br />just started surfacing here.</p>
+      <p begin="5228.122s" xml:id="p1184" end="5229.612s">You took our stuff, Bill.</p>
+      <p begin="5229.791s" xml:id="p1185" end="5233.192s">You took our stuff, you fooled with it,<br />and you called it your own.</p>
+      <p begin="5235.43s" xml:id="p1186" end="5238.627s">You always insult your guests like this?</p>
+      <p begin="5239.367s" xml:id="p1187" end="5241.528s">Make no mistake.</p>
+      <p begin="5241.703s" xml:id="p1188" end="5245.503s">We are all one big family.</p>
+      <p begin="5246.474s" xml:id="p1189" end="5249.602s">And part of it<br />are our friends at Microsoft.</p>
+      <p begin="5254.249s" xml:id="p1190" end="5256.342s">Bill?</p>
+      <p begin="5261.489s" xml:id="p1191" end="5263.957s">Ladies and gentlemen, Bill Gates.</p>
+      <p begin="5268.296s" xml:id="p1192" end="5271.459s">Finally, I wanna show you a preview...</p>
+      <p begin="5271.633s" xml:id="p1193" end="5275.296s">...of the most amazing 60 seconds of film<br />you&#039;ll ever see.</p>
+      <p begin="5275.47s" xml:id="p1194" end="5277.7s">And we&#039;re showing it only once...</p>
+      <p begin="5277.872s" xml:id="p1195" end="5279.362s">...during the Super Bowl.</p>
+      <p begin="5279.54s" xml:id="p1196" end="5282.737s">So watch and see how we handle IBM.</p>
+      <p begin="5283.244s" xml:id="p1197" end="5285.838s">I mean Big Brother.</p>
+      <p begin="5288.316s" xml:id="p1198" end="5291.877s">See, that commercial was interesting<br />in a lot of ways...</p>
+      <p begin="5292.053s" xml:id="p1199" end="5295.022s">... because when we&#039;re at<br />this big hoopla at Apple...</p>
+      <p begin="5295.189s" xml:id="p1200" end="5298.92s">... and their engineers are unpacking<br />all these Japanese computers...</p>
+      <p begin="5299.093s" xml:id="p1201" end="5301.618s">... with the first copies<br />of our stuff, Windows...</p>
+      <p begin="5301.796s" xml:id="p1202" end="5305.061s">... that looks a lot like their stuff...</p>
+      <p begin="5305.233s" xml:id="p1203" end="5307.224s">I mean, if I had to pick a moment...</p>
+      <p begin="5317.278s" xml:id="p1204" end="5319.007s">Hey...</p>
+      <p begin="5319.18s" xml:id="p1205" end="5321.842s">...I&#039;m getting<br />some pretty weird vibes here.</p>
+      <p begin="5322.016s" xml:id="p1206" end="5323.881s">Sure we should stay around?</p>
+      <p begin="5324.652s" xml:id="p1207" end="5329.112s">Sometimes you deal them.<br />Sometimes you fold them.</p>
+      <p begin="5330.858s" xml:id="p1208" end="5333.326s">Now&#039;s not the time to fold.</p>
+      <p begin="5334.829s" xml:id="p1209" end="5338.39s">We shall prevail.</p>
+      <p begin="5343.638s" xml:id="p1210" end="5346.573s">I obviously made a mistake.</p>
+      <p begin="5349.143s" xml:id="p1211" end="5350.872s">I made a mistake.</p>
+      <p begin="5352.28s" xml:id="p1212" end="5354.373s">I trusted.</p>
+      <p begin="5355.316s" xml:id="p1213" end="5357.58s">I believed.</p>
+      <p begin="5359.053s" xml:id="p1214" end="5361.317s">Family.</p>
+      <p begin="5363.958s" xml:id="p1215" end="5367.621s">Maybe a Mafia family.<br />You turn your back, and you get whacked.</p>
+      <p begin="5367.795s" xml:id="p1216" end="5372.129s">Our guys come back from Japan<br />with this NEC...</p>
+      <p begin="5373.167s" xml:id="p1217" end="5377.729s">...and it&#039;s loaded with Microsoft programs.<br />Your Microsoft programs.</p>
+      <p begin="5377.905s" xml:id="p1218" end="5380.567s">They&#039;re almost identical to ours.</p>
+      <p begin="5383.745s" xml:id="p1219" end="5386.475s">There may be some similarities, Steve.</p>
+      <p begin="5389.517s" xml:id="p1220" end="5391.178s">Similarities?</p>
+      <p begin="5394.589s" xml:id="p1221" end="5396.955s">Similarities?</p>
+      <p begin="5399.193s" xml:id="p1222" end="5402.094s">- Try theft.<br />- Steve, all cars have steering wheels...</p>
+      <p begin="5402.263s" xml:id="p1223" end="5405.664s">...but no one tries to claim<br />that the steering wheel was their invention.</p>
+      <p begin="5405.833s" xml:id="p1224" end="5409.929s">- We have a contract, you and I.<br />- Well, you should read it more carefully.</p>
+      <p begin="5410.104s" xml:id="p1225" end="5411.935s">What is this?</p>
+      <p begin="5412.407s" xml:id="p1226" end="5414.807s">This is like doing business with...</p>
+      <p begin="5414.976s" xml:id="p1227" end="5416.238s">...like, a praying mantis.</p>
+      <p begin="5416.411s" xml:id="p1228" end="5419.471s">You get seduced<br />and then eaten alive afterwards.</p>
+      <p begin="5419.847s" xml:id="p1229" end="5421.974s">Get real, will you?</p>
+      <p begin="5423.651s" xml:id="p1230" end="5427.849s">You and I are both like guys<br />that have this rich neighbor...</p>
+      <p begin="5428.022s" xml:id="p1231" end="5430.115s">...Xerox...</p>
+      <p begin="5430.291s" xml:id="p1232" end="5432.589s">...that left the door open all the time.</p>
+      <p begin="5432.76s" xml:id="p1233" end="5435.627s">And you go sneaking in<br />to steal the TV set.</p>
+      <p begin="5436.03s" xml:id="p1234" end="5440.33s">Only when you get there,<br />you realize that I got there first.</p>
+      <p begin="5440.501s" xml:id="p1235" end="5442.867s">I got the loot, Steve!</p>
+      <p begin="5443.638s" xml:id="p1236" end="5445.401s">And you&#039;re yelling?</p>
+      <p begin="5445.573s" xml:id="p1237" end="5448.201s">&quot;That&#039;s not fair.</p>
+      <p begin="5448.376s" xml:id="p1238" end="5451.47s">I wanted to try to steal it first. &quot;</p>
+      <p begin="5457.118s" xml:id="p1239" end="5459.245s">You&#039;re too late.</p>
+      <p begin="5465.726s" xml:id="p1240" end="5468.092s">We&#039;re better than you are.</p>
+      <p begin="5472.8s" xml:id="p1241" end="5476.964s">- We have better stuff.<br />- You don&#039;t get it, Steve.</p>
+      <p begin="5478.039s" xml:id="p1242" end="5480.633s">That doesn&#039;t matter.</p>
+      <p begin="5498.993s" xml:id="p1243" end="5502.724s">You know, like a lot of things,<br />there always seems to be one last time.</p>
+      <p begin="5502.897s" xml:id="p1244" end="5505.127s">For us, it was when we all<br />came together again...</p>
+      <p begin="5505.299s" xml:id="p1245" end="5508.029s">... for this big party<br />Steve threw for his 30th birthday.</p>
+      <p begin="5508.202s" xml:id="p1246" end="5510.227s">It was just one of those things.</p>
+      <p begin="5510.404s" xml:id="p1247" end="5513.202s">You know, where you try really hard<br />to make something work...</p>
+      <p begin="5513.374s" xml:id="p1248" end="5515.672s">... but somehow it just doesn&#039;t.</p>
+      <p begin="5515.843s" xml:id="p1249" end="5518.971s">And maybe you should have known it<br />all along.</p>
+      <p begin="5522.95s" xml:id="p1250" end="5526.477s">- Is that really Ella Fitzgerald?<br />- I have absolutely no idea.</p>
+      <p begin="5529.757s" xml:id="p1251" end="5531.657s">You hear the kind of food<br />they&#039;re serving?</p>
+      <p begin="5531.826s" xml:id="p1252" end="5534.42s">- Salmon mousse, goat&#039;s cheese.<br />- I can&#039;t eat that stuff.</p>
+      <p begin="5534.595s" xml:id="p1253" end="5537.826s">- Why don&#039;t we go to Denny&#039;s?<br />- Is that Joan Baez with him?</p>
+      <p begin="5537.999s" xml:id="p1254" end="5539.796s">Wait, wait. Who&#039;s Joan Baez?</p>
+      <p begin="5541.035s" xml:id="p1255" end="5543.162s">- Hi.<br />- John.</p>
+      <p begin="5549.61s" xml:id="p1256" end="5551.942s">I need to talk to you. It&#039;s important.</p>
+      <p begin="5552.113s" xml:id="p1257" end="5554.411s">Okay, John. Excuse me.</p>
+      <p begin="5559.487s" xml:id="p1258" end="5562.547s">We&#039;ve got a problem.<br />We&#039;ve been asked to make a toast to Steve.</p>
+      <p begin="5562.723s" xml:id="p1259" end="5567.126s">Me? Toast Steve? No way, man.<br />Not after what&#039;s happened. No way.</p>
+      <p begin="5567.295s" xml:id="p1260" end="5571.254s">Oh, John, don&#039;t look at me. L...<br />Mike, you do it.</p>
+      <p begin="5571.432s" xml:id="p1261" end="5575.027s">After the past few months?<br />I don&#039;t think so.</p>
+      <p begin="5575.636s" xml:id="p1262" end="5578.503s">John, you&#039;re the one.</p>
+      <p begin="5578.673s" xml:id="p1263" end="5582.632s">- No. Not now. Absolutely no way.<br />- Why not?</p>
+      <p begin="5583.01s" xml:id="p1264" end="5585.979s">- Look, Steve thinks I&#039;m his...<br />- He thinks you&#039;re what?</p>
+      <p begin="5596.257s" xml:id="p1265" end="5598.885s">Ladies and gentlemen, a toast.</p>
+      <p begin="5599.193s" xml:id="p1266" end="5601.218s">To a remarkable man.</p>
+      <p begin="5601.395s" xml:id="p1267" end="5603.226s">A man who brought me<br />to this company...</p>
+      <p begin="5603.731s" xml:id="p1268" end="5606.962s">...without whom none of this tonight<br />would ever have happened.</p>
+      <p begin="5607.134s" xml:id="p1269" end="5611.73s">Steve Jobs, truly a guiding light.<br />A man who sees the future.</p>
+      <p begin="5611.906s" xml:id="p1270" end="5613.134s">- Hear, hear!<br />- Steve.</p>
+      <p begin="5613.307s" xml:id="p1271" end="5614.604s">Happy birthday!</p>
+      <p begin="5620.881s" xml:id="p1272" end="5624.339s">It&#039;s weird, but sometimes you find things<br />that are more important to you...</p>
+      <p begin="5624.518s" xml:id="p1273" end="5628.352s">...than the things you think are important.<br />You know what I mean?</p>
+      <p begin="5628.522s" xml:id="p1274" end="5631.355s">Maybe it&#039;s just getting older.</p>
+      <p begin="5633.127s" xml:id="p1275" end="5637.325s">Okay, guys. Let&#039;s see how we did.</p>
+      <p begin="5638.699s" xml:id="p1276" end="5639.927s">That&#039;s a good one.</p>
+      <p begin="5651.812s" xml:id="p1277" end="5653.37s">It&#039;s true.</p>
+      <p begin="5654.715s" xml:id="p1278" end="5658.708s">We&#039;re learning about the size of the sun<br />versus the size of the Earth.</p>
+      <p begin="5671.032s" xml:id="p1279" end="5672.465s">Hi, Steve.</p>
+      <p begin="5672.633s" xml:id="p1280" end="5676.399s">I think it&#039;s gonna be really interesting,<br />I mean, you and me together.</p>
+      <p begin="5676.804s" xml:id="p1281" end="5678.635s">Yeah.</p>
+      <p begin="5680.608s" xml:id="p1282" end="5682.599s">It is.</p>
+    </div>
+  </body>
+</tt>

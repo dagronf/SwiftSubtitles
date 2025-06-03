@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tt xmlns="http://www.w3.org/ns/ttml" xml:lang="en" >
+  <body>
+    <div>
+      <p begin="00:00:01.000" end="00:00:03.000">Disons que vous voulez multiplier 12 x 13</p>
+      <p begin="00:00:04.000" end="00:00:07.000">Pour celui-ci nous allons tirer une ligne</p>
+      <p begin="00:00:08.000" end="00:00:15.000">Pour les deux , nous allons laisser un peu d'espace et nous allons tracer deux lignes</p>
+      <p begin="00:00:16.000" end="00:00:23.000">Pour les autres chiffres que nous allons tracer les lignes à l'autre direction</p>
+      <p begin="00:00:24.000" end="00:00:29.000">Maintenant, nous allons regrouper les différentes lignes et comptera les points</p>
+      <p begin="00:00:30.000" end="00:00:33.000">Ici, nous avons six points différents</p>
+      <p begin="00:00:34.000" end="00:00:37.000">Au milieu , nous avons cinq points différents</p>
+      <p begin="00:00:38.000" end="00:00:41.000">Et de l'autre côté nous avons un point</p>
+      <p begin="00:00:42.000" end="00:00:44.000">Et ce est la anser - 156</p>
+    </div>
+  </body>
+</tt>
