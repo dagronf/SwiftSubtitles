@@ -16,7 +16,7 @@ let package = Package(
 			targets: ["SwiftSubtitles"]),
 	],
 	dependencies: [
-		.package(url: "https://github.com/dagronf/DSFRegex", from: "3.3.1"),
+		.package(url: "https://github.com/dagronf/DSFRegex", from: "4.0.0"),
 		.package(url: "https://github.com/dagronf/TinyCSV", .upToNextMinor(from: "1.0.0"))
 	],
 	targets: [
