@@ -17,12 +17,13 @@ let package = Package(
 	],
 	dependencies: [
 		.package(url: "https://github.com/dagronf/DSFRegex", from: "4.0.0"),
-		.package(url: "https://github.com/dagronf/TinyCSV", .upToNextMinor(from: "1.0.0"))
+		.package(url: "https://github.com/dagronf/TinyCSV", .upToNextMinor(from: "1.0.0")),
+		.package(url: "https://github.com/dagronf/BytesParser", from: "3.2.1"),
 	],
 	targets: [
 		.target(
 			name: "SwiftSubtitles",
-			dependencies: ["DSFRegex", "TinyCSV"],
+			dependencies: ["DSFRegex", "TinyCSV", "BytesParser"],
 			resources: [
 				.copy("PrivacyInfo.xcprivacy"),
 			]

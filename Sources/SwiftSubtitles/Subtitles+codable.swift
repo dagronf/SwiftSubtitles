@@ -114,5 +114,7 @@ extension Subtitles.Coder {
 		Subtitles.Coder.PodcastsIndex.self,
 		Subtitles.Coder.LRC.self,
 		Subtitles.Coder.TTML.self,
+		Subtitles.Coder.AdvancedSSA.self,
+		Subtitles.Coder.SubStationAlpha.self,
 	]
 }

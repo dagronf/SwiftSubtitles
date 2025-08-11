@@ -32,6 +32,10 @@ import SwiftSubtitles
 /// Note that this is instantiated in the Storyboard
 class DocumentController: NSDocumentController {
 
+	override func documentClass(forType typeName: String) -> AnyClass? {
+		return Document.self
+	}
+
 	static var selected: String.Encoding? = nil
 	var openAccessory: TextEncodingAccessoryView? = nil
 
@@ -53,9 +57,9 @@ class DocumentController: NSDocumentController {
 			UTType.json,
 			UTType.lrc,
 			UTType.ttml,
+			UTType.advancedsubstationalpha,
+			UTType.substationalpha,
 		]
-
-		//openPanel.allowedFileTypes = ["srt", "sub", "vtt", "sbv", "csv", "json", "lrc"]
 
 		openPanel.accessoryView = a.view
 		openPanel.delegate = openAccessory

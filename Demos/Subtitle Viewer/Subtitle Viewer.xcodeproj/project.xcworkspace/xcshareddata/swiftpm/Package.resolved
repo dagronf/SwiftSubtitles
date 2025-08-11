@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "BytesParser",
+        "repositoryURL": "https://github.com/dagronf/BytesParser",
+        "state": {
+          "branch": null,
+          "revision": "a091513c4059d336c8cbf0b9485fcba63bcba83a",
+          "version": "3.2.1"
+        }
+      },
+      {
         "package": "DSFRegex",
         "repositoryURL": "https://github.com/dagronf/DSFRegex",
         "state": {

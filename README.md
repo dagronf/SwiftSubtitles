@@ -17,16 +17,18 @@ A Swift package for reading/writing some common subtitle formats.
 
 ## Available coders
 
-| Format                | Coder                            | File extension  |
-|:----------------------|:---------------------------------|:----------------|
-| SBV (SubViewer)       | `Subtitles.Coder.SBV`            | `.sbv`          |
-| SUB (MicroDVD)*       | `Subtitles.Coder.SUB`            | `.sub`          |
-| SRT (SubRip)          | `Subtitles.Coder.SRT`            | `.srt`          |
-| VTT (WebVTT)          | `Subtitles.Coder.VTT`            | `.vtt`          |
-| CSV                   | `Subtitles.Coder.CSV`            | `.csv`          |
-| JSON (Podcasts Index) | `Subtitles.Coder.PodcastsIndex`  | `.json`         |
-| LRC (Lyrics file)     | `Subtitles.Coder.LRC`            | `.lrc`          |
-| TTML (Timed text)     | `Subtitles.Coder.TTML`           | `.ttml`         |
+| Format                  | Coder                              | File extension  |
+|:------------------------|:-----------------------------------|:----------------|
+| SBV (SubViewer)         | `Subtitles.Coder.SBV`              | `.sbv`          |
+| SUB (MicroDVD)*         | `Subtitles.Coder.SUB`              | `.sub`          |
+| SRT (SubRip)            | `Subtitles.Coder.SRT`              | `.srt`          |
+| VTT (WebVTT)            | `Subtitles.Coder.VTT`              | `.vtt`          |
+| CSV                     | `Subtitles.Coder.CSV`              | `.csv`          |
+| JSON (Podcasts Index)   | `Subtitles.Coder.PodcastsIndex`    | `.json`         |
+| LRC (Lyrics file)       | `Subtitles.Coder.LRC`              | `.lrc`          |
+| TTML (Timed text)       | `Subtitles.Coder.TTML`             | `.ttml`         |
+| Substation Alpha (v4)*  | `Subtitles.Coder.SubstationAlpha`  | `.ssa`          |
+| Advanced SSA (v4+)*     | `Subtitles.Coder.AdvancedSSA`      | `.ass`          |
 
 * Read-only
 

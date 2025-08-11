@@ -1,0 +1,14 @@
+[Script Info]
+PlayResY: 600
+WrapStyle: 1
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Code, monospace,20,&H00B0B0B0,&H00B0B0B0,&H00303030,&H80000008,-1,0,0,0,100,100,0.00,0.00,1,1.00,2.00, 7 ,30,10,30,0
+Style: Expl, Arial,28,&H00FFB0B0,&H00B0B0B0,&H00303030,&H80000008,-1,0,0,0,100,100,0.00,0.00,1,1.00,2.00, 7 ,30,10,30,0
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,00:00:00.00,00:03:00.00,Expl, NTP,0,0,0,,{\pos(20,20)}To split audio stream into several bands, you can use `lowpass', `bandpass', `highpass', etc., but in recent ffmpeg you can also use `acrossover'.\N\NThough it is unclear how to use it due to the lack of explanation of the official document, it seems to be used like this.
+Dialogue: 0,00:03:00.00,00:03:30.00,Code, NTP,0,0,0,,{\pos(40,160)}#! /bin/sh\Nifn="Air on the G String (from Orchestral Suite no. 3, BWV 1068).mp3"\Nifnb="`basename \"$\{ifn\}\" .mp3`"\Npref="`basename $0 .sh`"\N#\N"/c/Program Files/ffmpeg-4.1-win64-shared/bin/ffmpeg" -y \\N    -i "$\{ifn\}" -filter_complex "\N\N[0:a]acrossover=split='500 2000'[div1][div2][div3];\N\N[div1]asplit[div1_1][div1_2];\N[div2]asplit[div2_1][div2_2];\N[div3]asplit[div3_1][div3_2];\N\N[div1_2]showcqt=s=1920x1080[v1];\N[div2_2]showcqt=s=1920x1080[v2];\N[div3_2]showcqt=s=1920x1080[v3]" \\N    -map '[v1]' -map '[div1_1]' "$\{pref\}_$\{ifnb\}_1.mp4" \\N    -map '[v2]' -map '[div2_1]' "$\{pref\}_$\{ifnb\}_2.mp4" \\N    -map '[v3]' -map '[div3_1]' "$\{pref\}_$\{ifnb\}_3.mp4"
+Dialogue: 0,00:03:30.00,00:03:30.10,Expl, NTP,0,0,0,,{\pos(20,550)}(Note: Uploaded video is of `div2'.)

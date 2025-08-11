@@ -250,7 +250,7 @@ public extension Subtitles.Coder.CSV {
 					case .position:
 						position = Int(column.element)
 					case .startTime:
-						if let s = try? parseTime(index: column.offset, timeString: column.element) {
+						if let s = try? TimeParsing.parseCommonTime(index: column.offset, timeString: column.element) {
 							startTime = s
 						}
 					case .startTimeInSeconds:
@@ -258,7 +258,7 @@ public extension Subtitles.Coder.CSV {
 							startTime = Subtitles.Time(timeInSeconds: s)
 						}
 					case .endTime:
-						if let e = try? parseTime(index: column.offset, timeString: column.element) {
+						if let e = try? TimeParsing.parseCommonTime(index: column.offset, timeString: column.element) {
 							endTime = e
 						}
 					case .endTimeInSeconds:
@@ -314,49 +314,5 @@ public extension Subtitles.Coder.CSV {
 		)
 
 		return Subtitles(cues)
-	}
-}
-
-private extension Subtitles.Coder.CSV {
-	// h m s ms
-	//  00:00:00[.,:]000
-	static let CSVTimeFormat__ = try! DSFRegex(#"^(\d+):(\d{1,2}):(\d{1,2})[,\.:](\d{3})$"#)
-	static let CSVTimeFormatTens__ = try! DSFRegex(#"^(\d+):(\d{1,2}):(\d{1,2})[,\.:](\d{2})$"#)
-
-	func parseTime(index: Int, timeString: String) throws -> Subtitles.Time {
-		// If we can parse the string as an integer, assume it is milliseconds
-		if let tm = Int(timeString) {
-			return Subtitles.Time(timeInSeconds: Double(tm) / 1000.0)
-		}
-
-		var isMillisecondsInTens = false
-
-		var matches = Self.CSVTimeFormat__.matches(for: timeString)
-		if matches.matches.count == 0 {
-			// See if we can parse with a 'tens' of milliseconds instead
-			isMillisecondsInTens = true
-			matches = Self.CSVTimeFormatTens__.matches(for: timeString)
-		}
-
-		guard matches.matches.count == 1 else {
-			throw SubTitlesError.invalidTime(index)
-		}
-		let captures = matches[0].captures
-		guard captures.count >= 4 else {
-			throw SubTitlesError.invalidTime(index)
-		}
-
-		guard
-			let s_hour = UInt(timeString[captures[0]]),
-			let s_min = UInt(timeString[captures[1]]),
-			let s_sec = UInt(timeString[captures[2]]),
-			let s_ms = UInt(timeString[captures[3]])
-		else {
-			throw SubTitlesError.invalidTime(index)
-		}
-
-		let s_msActual = s_ms * (isMillisecondsInTens ? 10 : 1)
-
-		return Subtitles.Time(hour: s_hour, minute: s_min, second: s_sec, millisecond: s_msActual)
 	}
 }
